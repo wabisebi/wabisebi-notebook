@@ -1,31 +1,56 @@
 /* Shared by every page in pages/: builds the top bar with the search, the card grid on the home page, the audio buttons and the footer.
-   To add a grammar point: add one line to its level below. [file name without .html, pattern, short description]
+   To add a grammar point: add one line to its category below. [file name without .html, pattern, short description]
+   Categories run in learning order, and so do the points inside each one. A category with no pages yet doesn't show.
    The short description shows on the home grid card AND under the pattern on the page itself (filled in below), so it only lives here. */
 var INDEX = [
-  {level: 'N5', pages: [
-    ['desu', 'です / だ', 'To be, is'],
-    ['wa', 'は', 'Topic marker: "as for..."'],
-    ['ka', 'か', 'Question marker'],
-    ['kore-sore-are', 'これ・それ・あれ', 'This, that, that over there'],
-    ['koko-soko-asoko', 'ここ・そこ・あそこ', 'Here, there, over there'],
-    ['mo', 'も', 'Also, too'],
-    ['to', 'と', 'And: joining nouns'],
-    ['ga', 'が', 'Subject marker'],
-    ['wo', 'を', 'Object marker'],
-    ['no-pos', 'の (Possession)', 'Possession: my, \'s'],
-    ['yo', 'よ', 'Telling someone something new'],
-    ['ne', 'ね', 'Sharing a feeling: "right?", "huh"'],
-    ['i-adj', 'い-Adjective', 'Describing words that end in い'],
-    ['ii', 'いい (良い)', 'い-Adjective meaning "good"'],
-    ['na-adj', 'な-Adjective', 'Describing words: な before a noun'],
-    ['i-adj-past', 'い-Adjective (Past)', 'Was: the past of い-adjectives'],
-    ['masu', 'ます', 'Polite verb endings'],
-    ['u-verb', 'う-Verb (Dictionary)', 'Godan verbs: plain and polite'],
-    ['ru-verb-neg', 'る-Verb (Negative)', 'Not doing: ない and ません'],
-    ['u-verb-neg', 'う-Verb (Negative)', 'Not doing: u sound → a + ない'],
-    ['no', '～の', 'Asking for the story behind something'],
-    ['ndesu', '～んです・のです', 'Explaining, giving the reason'],
-    ['noha-noga', 'のは・のが', 'Turning an action into a noun']
+  {level: 'N5', cats: [
+    {cat: 'First steps', pages: [
+      ['desu', 'です / だ', 'To be, is'],
+      ['wa', 'は', 'Topic marker: "as for..."'],
+      ['ka', 'か', 'Question marker'],
+      ['kore-sore-are', 'これ・それ・あれ', 'This, that, that over there'],
+      ['kono-sono-ano', 'この・その・あの', 'This ___, that ___ (before a noun)'],
+      ['koko-soko-asoko', 'ここ・そこ・あそこ', 'Here, there, over there'],
+      ['gaaru', 'がある', 'To be, there is'],
+      ['gairu', 'がいる', 'There is (people, animals)']
+    ]},
+    {cat: 'Question words', pages: []},
+    {cat: 'Particles', pages: [
+      ['mo', 'も', 'Also, too'],
+      ['to', 'と', 'And: joining nouns'],
+      ['ka-or', 'か (Or)', 'Or: joining nouns'],
+      ['ga', 'が', 'Subject marker'],
+      ['wo', 'を', 'Object marker'],
+      ['ni', 'に', 'In, at, to, for, on'],
+      ['de', 'で', 'At, in'],
+      ['to-with', 'と (With)', 'With: doing something together'],
+      ['no-pos', 'の (Possession)', 'Possession: my, \'s']
+    ]},
+    {cat: 'Sentence endings', pages: [
+      ['yo', 'よ', 'Telling someone something new'],
+      ['ne', 'ね', 'Sharing a feeling: "right?", "huh"'],
+      ['deshou', 'でしょう', 'Probably, right?'],
+      ['darou', 'だろう', 'Probably, I wonder (masculine "right?")']
+    ]},
+    {cat: 'Adjectives', pages: [
+      ['i-adj', 'い-Adjective', 'Describing words that end in い'],
+      ['ii', 'いい (良い)', 'い-Adjective meaning "good"'],
+      ['na-adj', 'な-Adjective', 'Describing words: な before a noun'],
+      ['i-adj-past', 'い-Adjective (Past)', 'Was: the past of い-adjectives']
+    ]},
+    {cat: 'Verbs: basic forms', pages: [
+      ['masu', 'ます', 'Polite verb endings'],
+      ['u-verb', 'う-Verb (Dictionary)', 'Godan verbs: plain and polite'],
+      ['ru-verb-neg', 'る-Verb (Negative)', 'Not doing: ない and ません'],
+      ['u-verb-neg', 'う-Verb (Negative)', 'Not doing: u sound → a + ない']
+    ]},
+    {cat: 'て-form', pages: []},
+    {cat: 'Wanting and inviting', pages: []},
+    {cat: 'Explaining (の)', pages: [
+      ['no', '～の', 'Asking for the story behind something'],
+      ['ndesu', '～んです・のです', 'Explaining, giving the reason'],
+      ['noha-noga', 'のは・のが', 'Turning an action into a noun']
+    ]}
   ]}
 ];
 var UPDATED = '23 Oct 2026';
@@ -38,6 +63,7 @@ var UPDATED = '23 Oct 2026';
   // every point, for the grid and the search; k is what the search matches (file name, pattern, description)
   var points = [];
   INDEX.forEach(function(g){
+    g.pages = [].concat.apply([], g.cats.map(function(c){ return c.pages; }));
     g.pages.forEach(function(p){
       points.push({id: p[0], pat: p[1], d: p[2], level: g.level, k: (p[0] + ' ' + p[1] + ' ' + p[2]).toLowerCase()});
     });
@@ -56,12 +82,15 @@ var UPDATED = '23 Oct 2026';
   var grid = document.getElementById('grid');
   if (grid) {
     grid.innerHTML = INDEX.map(function(g){
-      var cards = g.pages.map(function(p){
+      var cards = function(pages){ return pages.map(function(p){
         return '<li><a class="gcard" href="' + href(p[0]) + '" data-k="' + (p[0] + ' ' + p[1] + ' ' + p[2]).toLowerCase() + '">' +
           '<span class="p">' + p[1] + '</span><span class="d">' + p[2] + '</span><span class="lv">' + g.level + '</span></a></li>';
+      }).join(''); };
+      var cats = g.cats.filter(function(c){ return c.pages.length; }).map(function(c){
+        return '<section class="cat"><h3 class="label">' + c.cat + '</h3><ol class="cards">' + cards(c.pages) + '</ol></section>';
       }).join('');
       return '<details class="level" open><summary><span class="t">' + g.level + '</span><span class="label">' + g.pages.length + (g.pages.length === 1 ? ' grammar point' : ' grammar points') + '</span></summary>' +
-        '<ol class="cards">' + cards + '</ol></details>';
+        cats + '</details>';
     }).join('') + '<p class="empty" id="gnone" hidden>No match.</p>';
   }
   var filterGrid = function(q){
@@ -70,6 +99,9 @@ var UPDATED = '23 Oct 2026';
     grid.querySelectorAll('.gcard').forEach(function(a){
       var m = !q || a.getAttribute('data-k').indexOf(q) > -1;
       a.parentNode.hidden = !m; if (m) any = true;
+    });
+    grid.querySelectorAll('.cat').forEach(function(c){
+      c.hidden = !c.querySelector('li:not([hidden])');
     });
     grid.querySelectorAll('.level').forEach(function(l){
       l.hidden = !l.querySelector('li:not([hidden])');

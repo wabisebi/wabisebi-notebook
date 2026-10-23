@@ -149,6 +149,10 @@ h2::before{background:var(--gold);width:3px}
 .level:not([open]) summary{border-bottom:0}
 .level summary .t{font-family:var(--display);font-size:24px;font-weight:500}
 .level summary:focus-visible{outline:2px solid var(--indigo);outline-offset:-2px}
+/* categories inside a level: a small label, then that category's cards */
+.cat + .cat{border-top:1px solid var(--line)}
+.cat h3{margin:0;padding:18px 16px 0}
+.cat .cards{padding-top:10px}
 .cards{list-style:none;margin:0;padding:16px;display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px}
 .gcard{height:100%;box-sizing:border-box;display:flex;flex-direction:column;gap:2px;padding:14px 16px;border-radius:8px;
   background:var(--card);border:1px solid var(--card-line);color:var(--ink);text-decoration:none;transition:border-color .15s,background .15s}
@@ -157,7 +161,7 @@ h2::before{background:var(--gold);width:3px}
 .gcard .p{font-size:20px;font-weight:700;line-height:1.35}
 .gcard .d{color:var(--muted);font-size:14px}
 .gcard .lv{margin-top:10px;align-self:flex-start;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;color:var(--gram);border:1px solid var(--card-line);border-radius:999px;padding:0 8px}
-@media (max-width:520px){.cards{grid-template-columns:1fr 1fr;padding:12px;gap:8px}.gcard{padding:12px}.gcard .p{font-size:18px}}
+@media (max-width:520px){.cards{grid-template-columns:1fr 1fr;padding:12px;gap:8px}.cat h3{padding:14px 12px 0}.cat .cards{padding-top:8px}.gcard{padding:12px}.gcard .p{font-size:18px}}
 main:has(.home:not([hidden])) .foot{max-width:1080px}
 
 /* top bar: title, search */
@@ -878,6 +882,145 @@ main:has(.home:not([hidden])) .foot{max-width:1080px}
       </section>
     </article>
 
+    <!-- kono-sono-ano -->
+    <article id="kono-sono-ano" data-page hidden>
+      <div class="head">
+        <div>
+          <span class="label">N5 Grammar</span>
+          <p class="pattern">この・その・あの</p>
+          <p class="sub"></p>
+        </div>
+      </div>
+      <div class="lead">
+        <img src="media/ab1bee18b08.webp" alt="A man filming himself while riding a bike past rice fields">
+        <p class="src">YouTube · <a href="https://www.youtube.com/watch?v=_-0o-Evy4aU">video</a></p>
+        <div class="line">
+          <button class="play" type="button" data-src="media/ee18b08be60.mp3" aria-label="Play audio"></button>
+          <p class="jp"><mark class="g">この</mark>自転車は借りた自転車です。</p>
+        </div>
+        <p class="en">"<b>This</b> bike is a rented bike."</p>
+        <div class="explain">
+          <p><mark class="g">この</mark>, <mark class="g">その</mark> and <mark class="g">あの</mark> mean <b>"this ___" or "that ___"</b>, and a noun always comes right after: この自転車, その本, あの人. Which one depends on <b>where the thing is</b>: この is near me, その is near you, あの is far from both of us.</p>
+          <p>He's sitting on the bike, so it's この自転車. It answers "which bike?": this one, the one I'm on.</p>
+          <p>They never stand alone. Without a noun you use これ, それ, あれ instead: これは借りた自転車です.</p>
+        </div>
+      </div>
+      <section>
+        <h2>Examples</h2>
+        <div class="scenes">
+          <div class="scene">
+            <p class="sit">At a bakery, you point at a bread in the case right in front of you.</p>
+            <p class="jp"><mark class="g">この</mark>パンをください。</p>
+            <p class="en">"This bread, please."</p>
+            <p class="note">Near you: この.</p>
+          </div>
+          <div class="scene">
+            <p class="sit">A friend is wearing a jacket you like.</p>
+            <p class="jp"><mark class="g">その</mark>ジャケット、どこで買ったの？</p>
+            <p class="en">"Where did you buy that jacket?"</p>
+            <p class="note">It's on them: その.</p>
+          </div>
+          <div class="scene">
+            <p class="sit">You and a friend see a tall tower in the distance.</p>
+            <p class="jp"><mark class="g">あの</mark>ビルは何？</p>
+            <p class="en">"What's that building?"</p>
+            <p class="note">Far from both of you: あの.</p>
+          </div>
+          <div class="scene">
+            <p class="sit">A friend mentions a ramen place they went to last week.</p>
+            <p class="jp"><mark class="g">その</mark>店、どこ？</p>
+            <p class="en">"Where's that place?"</p>
+            <p class="note">その also points at something the other person just talked about.</p>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h2>With and without</h2>
+        <div class="compare">
+          <div class="cbox">
+            <span class="label">Without a noun</span>
+            <p class="jp">これは高いです。</p>
+            <p>"This is expensive." これ is the thing itself.</p>
+          </div>
+          <div class="cbox yes">
+            <span class="label">With この</span>
+            <p class="jp"><mark class="g">この</mark>時計は高いです。</p>
+            <p>"This watch is expensive." この needs a noun after it.</p>
+          </div>
+          <div class="cbox">
+            <span class="label">Without a noun</span>
+            <p class="jp">あれは何？</p>
+            <p>"What's that?" You don't say what kind of thing.</p>
+          </div>
+          <div class="cbox yes">
+            <span class="label">With あの</span>
+            <p class="jp"><mark class="g">あの</mark>鳥は何？</p>
+            <p>"What's that bird?" You say which thing: the bird.</p>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h2>Sentence mining</h2>
+        <div class="mines">
+          <div class="mine">
+            <span class="use polite">Polite</span>
+            <img src="media/e02d2d84f9b.webp" alt="Scene from a YouTube video" loading="lazy">
+            <p class="src">YouTube · <a href="https://www.youtube.com/watch?v=Z08tdiXgO94&amp;t=13s">video</a></p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/2d84f9b09fe.mp3" aria-label="Play audio"></button>
+              <p class="jp"><mark class="g">その</mark>街は今も昔のままです。</p>
+            </div>
+            <p class="en">"That town is still just like it was back then."</p>
+            <p class="note">その: the town she was just talking about.</p>
+          </div>
+          <div class="mine">
+            <span class="use polite">Polite</span>
+            <img src="media/416c05b673e.webp" alt="Scene from a YouTube video" loading="lazy">
+            <p class="src">YouTube · Morning Walk in Okinawa</p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/05b673e3eb6.mp3" aria-label="Play audio"></button>
+              <p class="jp">僕たちも今回の旅行で、<mark class="g">あの</mark>モノレールに乗りました。</p>
+            </div>
+            <p class="en">"We rode that monorail on this trip too."</p>
+            <p class="note">あの also means "that one we both know about".</p>
+          </div>
+          <div class="mine">
+            <span class="use casual">Casual</span>
+            <img src="media/aa385984b3e.webp" alt="Scene from Shirokuma Cafe" loading="lazy">
+            <p class="src">Shirokuma Cafe · Season 1, Episode 3</p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/5984b3e5234.mp3" aria-label="Play audio"></button>
+              <p class="jp">もうやめたら？<mark class="g">その</mark>出し物</p>
+            </div>
+            <p class="en">"Why don't you stop already? That act."</p>
+            <p class="note">Penguin is doing the act: その, the thing on his side.</p>
+          </div>
+          <div class="mine">
+            <span class="use casual">Casual</span>
+            <img src="media/157a710fcdb.webp" alt="Scene from Pokémon" loading="lazy">
+            <p class="src">Pokémon The Series: Indigo League · Episode 4</p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/19adc157a71.mp3" aria-label="Play audio"></button>
+              <p class="jp">強敵だぜピジョン<mark class="g">あの</mark>角に気をつけろ！</p>
+            </div>
+            <p class="en">"It's a tough one, Pidgeotto. Watch out for those horns!"</p>
+            <p class="note">The horns are over there on the enemy: あの.</p>
+          </div>
+          <div class="mine">
+            <span class="use casual">Casual</span>
+            <img src="media/e7b39264572.webp" alt="Scene from a YouTube video" loading="lazy">
+            <p class="src">YouTube · <a href="https://www.youtube.com/watch?v=48zZjqK9DAY">video</a></p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/9264572099c.mp3" aria-label="Play audio"></button>
+              <p class="jp"><mark class="g">この</mark>さ、砂漠エリアの先ちょっと行ってみる。</p>
+            </div>
+            <p class="en">"I'm gonna check out a bit past this desert area."</p>
+            <p class="note">The さ is just a casual pause. It's still この砂漠エリア: the area he's in.</p>
+          </div>
+        </div>
+      </section>
+    </article>
+
     <!-- koko-soko-asoko -->
     <article id="koko-soko-asoko" data-page hidden>
       <div class="head">
@@ -1029,6 +1172,309 @@ main:has(.home:not([hidden])) .foot{max-width:1080px}
             </div>
             <p class="en">"Maybe I'll put the chest behind that shed there."</p>
             <p class="note">そこの + noun = that ... there. The shed is close, but not right where he is.</p>
+          </div>
+        </div>
+      </section>
+    </article>
+
+    <!-- gaaru -->
+    <article id="gaaru" data-page hidden>
+      <div class="head">
+        <div>
+          <span class="label">N5 Grammar</span>
+          <p class="pattern">がある</p>
+          <p class="sub"></p>
+        </div>
+      </div>
+      <div class="lead">
+        <span class="use polite">Polite</span>
+        <img src="media/af4e178a8b7.webp" alt="Scene from a YouTube video">
+        <p class="src">YouTube · <a href="https://www.youtube.com/watch?v=HHWDJMr-IRs">video</a></p>
+        <div class="line">
+          <button class="play" type="button" data-src="media/178a8b7d8aa.mp3" aria-label="Play audio"></button>
+          <p class="jp">背もたれ<mark class="g">があります</mark>。</p>
+        </div>
+        <p class="en">"<span class="ctx">[The chair]</span> <b>has</b> a backrest."</p>
+        <div class="explain">
+          <p><mark class="g">がある</mark> says something <b>exists</b>: "there is", or "it has / I have". The thing goes first, then が, then ある. It's for things, places and events, not for people or animals (those use いる).</p>
+          <p>Here she's showing a chair and answers "What does it have?": a backrest. 背もたれ + が + あります.</p>
+          <p>あります is polite, ある is casual. "There isn't" is ありません / ない.</p>
+        </div>
+      </div>
+      <div class="lead second">
+        <span class="use casual">Casual</span>
+        <img src="media/749ccb2de8c.webp" alt="Scene from a YouTube video">
+        <p class="src">YouTube · Road to Vostok #1</p>
+        <div class="line">
+          <button class="play" type="button" data-src="media/cb2de8c27f8.mp3" aria-label="Play audio"></button>
+          <p class="jp">あ、なんかあそこにお店屋さんみたいなとこ<mark class="g">ある</mark></p>
+        </div>
+        <p class="en">"Oh, <b>there's</b> some kind of shop-looking place over there."</p>
+        <div class="explain">
+          <p>Casual version: plain <mark class="g">ある</mark>. In casual talk the が often drops out, like here: とこ ある instead of とこがある.</p>
+        </div>
+      </div>
+      <section>
+        <h2>Examples</h2>
+        <div class="scenes">
+          <div class="scene">
+            <p class="sit">A tourist asks if there's a convenience store nearby.</p>
+            <p class="jp">駅の前にコンビニ<mark class="g">があります</mark>よ。</p>
+            <p class="en">"There's a convenience store in front of the station."</p>
+            <p class="note">Where first (駅の前に), then what (コンビニ), then があります.</p>
+            <span class="use polite">Polite</span>
+          </div>
+          <div class="scene">
+            <p class="sit">A coworker asks if you can go for drinks tomorrow.</p>
+            <p class="jp">明日はテスト<mark class="g">があります</mark>。</p>
+            <p class="en">"I have a test tomorrow."</p>
+            <p class="note">Events work too: a test, a meeting, plans.</p>
+            <span class="use polite">Polite</span>
+          </div>
+          <div class="scene">
+            <p class="sit">Your friend opens your fridge.</p>
+            <p class="jp">ビール<mark class="g">ある</mark>？</p>
+            <p class="en">"Is there any beer?"</p>
+            <p class="note">Casual question: no が, no か, just a rising voice.</p>
+            <span class="use casual">Casual</span>
+          </div>
+          <div class="scene">
+            <p class="sit">A friend wants to watch one more episode.</p>
+            <p class="jp">もう時間<mark class="g">がない</mark>。</p>
+            <p class="en">"There's no time left."</p>
+            <p class="note">The "not" of ある is ない (never あらない).</p>
+            <span class="use casual">Casual</span>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h2>With and without</h2>
+        <div class="compare">
+          <div class="cbox">
+            <span class="label">Without</span>
+            <p class="jp">背もたれです。</p>
+            <p>"It's a backrest." You're naming the thing.</p>
+          </div>
+          <div class="cbox yes">
+            <span class="label">With がある</span>
+            <p class="jp">背もたれ<mark class="g">があります</mark>。</p>
+            <p>"It has a backrest." You're saying it's there.</p>
+          </div>
+          <div class="cbox">
+            <span class="label">Without</span>
+            <p class="jp">時間です。</p>
+            <p>"It's time." Time to go, time to start.</p>
+          </div>
+          <div class="cbox yes">
+            <span class="label">With がある</span>
+            <p class="jp">時間<mark class="g">があります</mark>。</p>
+            <p>"I have time." The time exists, you're free.</p>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h2>Sentence mining</h2>
+        <div class="mines">
+          <div class="mine">
+            <span class="use polite">Polite</span>
+            <img src="media/61267e69bcc.webp" alt="Scene from a YouTube video" loading="lazy">
+            <p class="src">YouTube · 20 Slice-of-Life Pictures 16</p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/7e69bcc9741.mp3" aria-label="Play audio"></button>
+              <p class="jp">じょうろの中に水<mark class="g">があります</mark>。</p>
+            </div>
+            <p class="en">"There's water in the watering can."</p>
+            <p class="note">Where (じょうろの中に), then what (水), then があります.</p>
+          </div>
+          <div class="mine">
+            <span class="use polite">Polite</span>
+            <img src="media/19fb9bb7aeb.webp" alt="Scene from a YouTube video" loading="lazy">
+            <p class="src">YouTube · <a href="https://www.youtube.com/watch?v=uU6FNAYm27M">video</a></p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/9bb7aebb870.mp3" aria-label="Play audio"></button>
+              <p class="jp">小さな尻尾<mark class="g">がありました</mark></p>
+            </div>
+            <p class="en">"There was a small tail."</p>
+            <p class="note">Past: ありました (casual あった).</p>
+          </div>
+          <div class="mine">
+            <span class="use polite">Polite</span>
+            <img src="media/168fdd75d71.webp" alt="Scene from a YouTube video" loading="lazy">
+            <p class="src">YouTube · <a href="https://www.youtube.com/watch?v=hySkqIAFRCs">video</a></p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/dd75d71a7b0.mp3" aria-label="Play audio"></button>
+              <p class="jp">おすすめな散歩のコース<mark class="g">があります</mark>か?</p>
+            </div>
+            <p class="en">"Is there a walking route you'd recommend?"</p>
+            <p class="note">Add か and it's a question: "is there...?".</p>
+          </div>
+          <div class="mine">
+            <span class="use casual">Casual</span>
+            <img src="media/a87a2c8e80e.webp" alt="Scene from Pokémon" loading="lazy">
+            <p class="src">Pokémon The Series: Indigo League · Episode 2</p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/2c8e80e1d07.mp3" aria-label="Play audio"></button>
+              <p class="jp">でも大丈夫よ自家発電<mark class="g">がある</mark>から。</p>
+            </div>
+            <p class="en">"But it's okay, there's a generator."</p>
+            <p class="note">あるから: "because there is".</p>
+          </div>
+          <div class="mine">
+            <span class="use casual">Casual</span>
+            <img src="media/c340d1ddd4f.webp" alt="Scene from Shirokuma Cafe" loading="lazy">
+            <p class="src">Shirokuma Cafe · Season 1, Episode 6</p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/d1ddd4f1863.mp3" aria-label="Play audio"></button>
+              <p class="jp">頑張ったパンダ君にご褒美<mark class="g">がある</mark>よ</p>
+            </div>
+            <p class="en">"There's a reward for Panda, who worked so hard."</p>
+            <p class="note">Casual ある, then よ to tell him the news.</p>
+          </div>
+        </div>
+      </section>
+    </article>
+
+    <!-- gairu -->
+    <article id="gairu" data-page hidden>
+      <div class="head">
+        <div>
+          <span class="label">N5 Grammar</span>
+          <p class="pattern">がいる</p>
+          <p class="sub"></p>
+        </div>
+      </div>
+      <div class="lead">
+        <span class="use polite">Polite</span>
+        <img src="media/7e46d07b0e9.webp" alt="Scene from a YouTube video">
+        <p class="src">YouTube · <a href="https://www.youtube.com/watch?v=jFheeBnC9qc">video</a></p>
+        <div class="line">
+          <button class="play" type="button" data-src="media/d07b0e93c81.mp3" aria-label="Play audio"></button>
+          <p class="jp">なんか、このレストランにはたくさん芸術家<mark class="g">がいます</mark>！</p>
+        </div>
+        <p class="en">"Like, <b>there are</b> lots of artists in this restaurant!"</p>
+        <div class="explain">
+          <p><mark class="g">がいる</mark> says someone <b>is there</b>: "there is", or "I have" for people. The person or animal goes first, then が, then いる. Things use ある instead.</p>
+          <p>Here she looks around the restaurant and answers "Who's here?": lots of artists. 芸術家 + が + います.</p>
+          <p>います is polite, いる is casual. "There isn't" is いません / いない.</p>
+        </div>
+      </div>
+      <div class="lead second">
+        <span class="use casual">Casual</span>
+        <img src="media/2c6e45cd186.webp" alt="Scene from a Minecraft video">
+        <p class="src">YouTube · PiroPito First Playthrough of Minecraft #03</p>
+        <div class="line">
+          <button class="play" type="button" data-src="media/45cd1867ad6.mp3" aria-label="Play audio"></button>
+          <p class="jp">あれ待って、朝なのに蜘蛛<mark class="g">がいる</mark>。</p>
+        </div>
+        <p class="en">"Huh, wait, <b>there's</b> a spider, even though it's morning."</p>
+        <div class="explain">
+          <p>Casual version: plain <mark class="g">いる</mark>. A spider moves on its own, so it's いる, not ある.</p>
+        </div>
+      </div>
+      <section>
+        <h2>Examples</h2>
+        <div class="scenes">
+          <div class="scene">
+            <p class="sit">You call a shop and ask if the manager is in.</p>
+            <p class="jp">今、店長<mark class="g">がいます</mark>か？</p>
+            <p class="en">"Is the manager there right now?"</p>
+            <p class="note">Add か and it's a question: "is someone there?".</p>
+            <span class="use polite">Polite</span>
+          </div>
+          <div class="scene">
+            <p class="sit">A coworker asks about your family.</p>
+            <p class="jp">姉<mark class="g">がいます</mark>。</p>
+            <p class="en">"I have an older sister."</p>
+            <p class="note">"I have" a person is also いる: brothers, kids, friends.</p>
+            <span class="use polite">Polite</span>
+          </div>
+          <div class="scene">
+            <p class="sit">You look into the garden and point.</p>
+            <p class="jp">あ、猫<mark class="g">がいる</mark>。</p>
+            <p class="en">"Oh, there's a cat."</p>
+            <p class="note">Animals are いる too, even tiny ones like spiders.</p>
+            <span class="use casual">Casual</span>
+          </div>
+          <div class="scene">
+            <p class="sit">You arrive at the beach early in the morning.</p>
+            <p class="jp">誰<mark class="g">もいない</mark>。</p>
+            <p class="en">"Nobody's here."</p>
+            <p class="note">The "not" of いる is いない. 誰もいない: "nobody is there".</p>
+            <span class="use casual">Casual</span>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h2>With and without</h2>
+        <div class="compare">
+          <div class="cbox">
+            <span class="label">Without</span>
+            <p class="jp">猫です。</p>
+            <p>"It's a cat." You're naming what it is.</p>
+          </div>
+          <div class="cbox yes">
+            <span class="label">With がいる</span>
+            <p class="jp">猫<mark class="g">がいます</mark>。</p>
+            <p>"There's a cat." You're saying it's there.</p>
+          </div>
+          <div class="cbox">
+            <span class="label">With ある (wrong here)</span>
+            <p class="jp">友達があります。</p>
+            <p>Sounds like a friend is an object you own.</p>
+          </div>
+          <div class="cbox yes">
+            <span class="label">With がいる</span>
+            <p class="jp">友達<mark class="g">がいます</mark>。</p>
+            <p>"I have a friend." People take いる.</p>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h2>Sentence mining</h2>
+        <div class="mines">
+          <div class="mine">
+            <span class="use polite">Polite</span>
+            <img src="media/0bbee1f7c4e.webp" alt="Scene from a YouTube video" loading="lazy">
+            <p class="src">YouTube · <a href="https://www.youtube.com/watch?v=X9g7ZImLUg8">video</a></p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/e1f7c4eb06a.mp3" aria-label="Play audio"></button>
+              <p class="jp">ハリネズミ<mark class="g">がいます</mark>よ</p>
+            </div>
+            <p class="en">"There's a hedgehog."</p>
+            <p class="note">います, then よ to point it out.</p>
+          </div>
+          <div class="mine">
+            <span class="use polite">Polite</span>
+            <img src="media/7e92f20c3ed.webp" alt="Scene from a YouTube video" loading="lazy">
+            <p class="src">YouTube · <a href="https://www.youtube.com/watch?v=7WoOmCDrzCE">video</a></p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/df65bfd72bd.mp3" aria-label="Play audio"></button>
+              <p class="jp">あれ？！思ったほど散歩している人<mark class="g">がいません</mark>。</p>
+            </div>
+            <p class="en">"Huh? There aren't as many people out walking as I thought."</p>
+            <p class="note">"There aren't": いません (casual いない).</p>
+          </div>
+          <div class="mine">
+            <span class="use casual">Casual</span>
+            <img src="media/6c8b107fdcf.webp" alt="Scene from New Atashin'chi" loading="lazy">
+            <p class="src">New Atashin'chi · Episode 1</p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/107fdcf43c3.mp3" aria-label="Play audio"></button>
+              <p class="jp">うちには最終兵器<mark class="g">がいる</mark>からなあ。</p>
+            </div>
+            <p class="en">"Well, we've got our ultimate weapon at home."</p>
+            <p class="note">The "weapon" is a person, so it's いる.</p>
+          </div>
+          <div class="mine">
+            <span class="use casual">Casual</span>
+            <img src="media/d9b0ff374dd.webp" alt="Scene from a YouTube video" loading="lazy">
+            <p class="src">YouTube · <a href="https://www.youtube.com/watch?v=19QBtOgwmxk&amp;t=11s">video</a></p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/dd6c0853ea9.mp3" aria-label="Play audio"></button>
+              <p class="jp">そしてその隣に女性<mark class="g">がいる</mark>んですけど、すごい見てくる。</p>
+            </div>
+            <p class="en">"And there's a woman next to me, and she keeps staring."</p>
+            <p class="note">Where (その隣に), then who (女性), then がいる.</p>
           </div>
         </div>
       </section>
@@ -1292,6 +1738,125 @@ main:has(.home:not([hidden])) .foot{max-width:1080px}
             </div>
             <p class="en">"The game's story and its core."</p>
             <p class="note">Just a list, no verb. と is happy without one.</p>
+          </div>
+        </div>
+      </section>
+    </article>
+
+    <!-- ka-or -->
+    <article id="ka-or" data-page hidden>
+      <div class="head">
+        <div>
+          <span class="label">N5 Grammar</span>
+          <p class="pattern">か (Or)</p>
+          <p class="sub"></p>
+        </div>
+      </div>
+      <div class="lead">
+        <img src="media/7e9b9aacc20.webp" alt="Scene from a YouTube video">
+        <p class="src">YouTube · <a href="https://www.youtube.com/watch?v=vmZ1MRGNLUM">video</a></p>
+        <div class="line">
+          <button class="play" type="button" data-src="media/9aacc20390f.mp3" aria-label="Play audio"></button>
+          <p class="jp">みなさんが日本に来る時は成田空港<mark class="g">か</mark>羽田空港に到着すると思います。</p>
+        </div>
+        <p class="en">"When you come to Japan, I think you'll arrive at Narita Airport <b>or</b> Haneda Airport."</p>
+        <div class="explain">
+          <p><mark class="g">か</mark> between two nouns means <b>or</b>: A か B, "A or B". It's one of them, not both.</p>
+          <p>Here she answers "Which airport will I land at?": 成田空港 + か + 羽田空港. The particle for the pair (に) comes after the second one.</p>
+          <p>Same in polite and casual. Between two nouns か is "or"; at the very end of a sentence it's the question か.</p>
+        </div>
+      </div>
+      <section>
+        <h2>Examples</h2>
+        <div class="scenes">
+          <div class="scene">
+            <p class="sit">A coworker wants to set up a meeting.</p>
+            <p class="jp">明日<mark class="g">か</mark>明後日、時間ありますか？</p>
+            <p class="en">"Do you have time tomorrow or the day after?"</p>
+            <p class="note">Two か here: the first is "or", the last one makes it a question.</p>
+            <span class="use polite">Polite</span>
+          </div>
+          <div class="scene">
+            <p class="sit">The clerk at the register.</p>
+            <p class="jp">現金<mark class="g">か</mark>カード、どちらにしますか？</p>
+            <p class="en">"Cash or card, which will it be?"</p>
+            <span class="use polite">Polite</span>
+          </div>
+          <div class="scene">
+            <p class="sit">You and a friend can't decide on dinner.</p>
+            <p class="jp">ラーメン<mark class="g">か</mark>カレーにしよう。</p>
+            <p class="en">"Let's go with ramen or curry."</p>
+            <p class="note">Either is fine, you'll pick one of the two.</p>
+            <span class="use casual">Casual</span>
+          </div>
+          <div class="scene">
+            <p class="sit">Your friend asks when you're free.</p>
+            <p class="jp">土曜日<mark class="g">か</mark>日曜日なら大丈夫。</p>
+            <p class="en">"Saturday or Sunday works."</p>
+            <span class="use casual">Casual</span>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h2>With and without</h2>
+        <div class="compare">
+          <div class="cbox">
+            <span class="label">With と</span>
+            <p class="jp">ラーメン<mark class="g">と</mark>カレーを食べた。</p>
+            <p>"I ate ramen and curry." Both of them. (See <a class="xref" href="#to">と</a>.)</p>
+          </div>
+          <div class="cbox yes">
+            <span class="label">With か</span>
+            <p class="jp">ラーメン<mark class="g">か</mark>カレーを食べる。</p>
+            <p>"I'll eat ramen or curry." Just one of them.</p>
+          </div>
+          <div class="cbox">
+            <span class="label">Without</span>
+            <p class="jp">雨が降りそうです。</p>
+            <p>"It looks like rain." Only rain.</p>
+          </div>
+          <div class="cbox yes">
+            <span class="label">With か</span>
+            <p class="jp">雨<mark class="g">か</mark>雪が降りそうです。</p>
+            <p>"It looks like rain or snow." Not sure which.</p>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h2>Sentence mining</h2>
+        <div class="mines">
+          <div class="mine">
+            <span class="use polite">Polite</span>
+            <img src="media/b0b71979b8e.webp" alt="Scene from a YouTube video" loading="lazy">
+            <p class="src">YouTube · <a href="https://www.youtube.com/watch?v=yYgTimxVU3Y">video</a></p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/1979b8e2e97.mp3" aria-label="Play audio"></button>
+              <p class="jp">メールアドレス<mark class="g">か</mark>電話番号を登録してもらうと、後でレシートが送られてきます。</p>
+            </div>
+            <p class="en">"If you register your email address or phone number, the receipt gets sent to you later."</p>
+            <p class="note">を comes after the pair: メールアドレスか電話番号 + を.</p>
+          </div>
+          <div class="mine">
+            <span class="use polite">Polite</span>
+            <img src="media/nhk-ne2025122611541.png" alt="NHK News Web Easy article" loading="lazy">
+            <p class="src">NHK News Web Easy · <a href="https://news.web.nhk/news/easy/ne2025122611541/ne2025122611541.html">article</a></p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/448fe716cb5.mp3" aria-label="Play audio"></button>
+              <p class="jp">気象庁によると、12月28日から1月1日は、日本海側で雨<mark class="g">か</mark>雪が降りそうです。</p>
+            </div>
+            <p class="en">"According to the Meteorological Agency, from December 28 to January 1 it looks like rain or snow on the Sea of Japan side."</p>
+            <p class="note">が after the pair: 雨か雪 + が.</p>
+          </div>
+          <div class="mine">
+            <span class="use casual">Casual</span>
+            <img src="media/e8b7c97e0f2.webp" alt="Scene from a YouTube video" loading="lazy">
+            <p class="src">YouTube · <a href="https://www.youtube.com/watch?v=izmwGOwxIfQ">video</a></p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/c97e0f239a5.mp3" aria-label="Play audio"></button>
+              <p class="jp">あれは、なんかイノシシ<mark class="g">か</mark>豚みたいな感じだな。</p>
+            </div>
+            <p class="en">"That's kind of like a boar or a pig."</p>
+            <p class="note">He's not sure which, so か: one or the other.</p>
           </div>
         </div>
       </section>
@@ -1598,6 +2163,393 @@ main:has(.home:not([hidden])) .foot{max-width:1080px}
             </div>
             <p class="en">"Please attach a photo of your face."</p>
             <p class="note">Same shape as コーヒーをください: thing + を, then (て)ください.</p>
+          </div>
+        </div>
+      </section>
+    </article>
+
+    <!-- ni -->
+    <article id="ni" data-page hidden>
+      <div class="head">
+        <div>
+          <span class="label">N5 Grammar</span>
+          <p class="pattern">に</p>
+          <p class="sub"></p>
+        </div>
+      </div>
+      <div class="lead">
+        <img src="media/8df9180c919.webp" alt="Scene from a YouTube video">
+        <p class="src">YouTube · <a href="https://www.youtube.com/watch?v=2cr02DQxPxU">video</a></p>
+        <div class="line">
+          <button class="play" type="button" data-src="media/180c91962fe.mp3" aria-label="Play audio"></button>
+          <p class="jp">サッカー場<mark class="g">に</mark>着きました。</p>
+        </div>
+        <p class="en">"<span class="ctx">[Here we are,]</span> we've arrived at the soccer field."</p>
+        <div class="explain">
+          <p><mark class="g">に</mark> marks <b>a point</b>: the place you end up, the place something is, or the time something happens. It goes right after that place or time: サッカー場 + に + 着く.</p>
+          <p>着く is "arrive", and に tells you where you land. It answers "Arrived where?": at the soccer field.</p>
+          <p>Same in polite and casual speech. Moving to a place (行く, 来る, 帰る, 着く) takes に, and so does just being there (いる, ある). Doing an action there takes で instead.</p>
+        </div>
+      </div>
+      <section>
+        <h2>Examples</h2>
+        <div class="scenes">
+          <div class="scene">
+            <p class="sit">A friend asks about your plans for Saturday.</p>
+            <p class="jp">鎌倉<mark class="g">に</mark>行く。</p>
+            <p class="en">"I'm going to Kamakura."</p>
+            <p class="note">Where are you headed? Kamakura, so に.</p>
+          </div>
+          <div class="scene">
+            <p class="sit">Your partner can't find the keys.</p>
+            <p class="jp">鍵は机の上<mark class="g">に</mark>あるよ。</p>
+            <p class="en">"The keys are on the desk."</p>
+            <p class="note">Nothing is happening, the keys are just there. ある and いる take に.</p>
+          </div>
+          <div class="scene">
+            <p class="sit">Setting up a call with a coworker.</p>
+            <p class="jp">3時<mark class="g">に</mark>電話します。</p>
+            <p class="en">"I'll call at 3."</p>
+            <p class="note">A clock time is a point too, so it gets に. Words like 今日 or 明日 don't take it: 明日電話します.</p>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h2>With and without</h2>
+        <div class="compare">
+          <div class="cbox">
+            <span class="label">で: doing something there</span>
+            <p class="jp">公園<mark class="g">で</mark>遊ぶ。</p>
+            <p>"I play in the park." There's an action (遊ぶ), so the place gets で.</p>
+          </div>
+          <div class="cbox yes">
+            <span class="label">に: going there or being there</span>
+            <p class="jp">公園<mark class="g">に</mark>いる。</p>
+            <p>"I'm in the park." No action, you just are there. Same with 公園に行く, "I'm going to the park".</p>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h2>Sentence mining</h2>
+        <div class="mines">
+          <div class="mine">
+            <span class="use casual">Casual</span>
+            <img src="media/e3d391f744a.webp" alt="Scene from a Minecraft playthrough" loading="lazy">
+            <p class="src">PiroPito First Playthrough of Minecraft #06</p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/91f744abc6c.mp3" aria-label="Play audio"></button>
+              <p class="jp">家の中<mark class="g">に</mark>逃げ込む。</p>
+            </div>
+            <p class="en">"I'll run into the house."</p>
+            <p class="note">Where do I end up? Inside the house, so に.</p>
+          </div>
+          <div class="mine">
+            <span class="use polite">Polite</span>
+            <img src="media/157f0ab1ebd.webp" alt="Scene from a YouTube video" loading="lazy">
+            <p class="src">YouTube · <a href="https://www.youtube.com/watch?v=uU6FNAYm27M">video</a></p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/0ab1ebd2ac9.mp3" aria-label="Play audio"></button>
+              <p class="jp">池<mark class="g">に</mark>カエルが二匹いました。</p>
+            </div>
+            <p class="en">"There were two frogs in the pond."</p>
+            <p class="note">The frogs are just there (いました), so the pond gets に.</p>
+          </div>
+          <div class="mine">
+            <span class="use casual">Casual</span>
+            <img src="media/80ac10116a3.webp" alt="Scene from a Minecraft playthrough" loading="lazy">
+            <p class="src">PiroPito First Playthrough of Minecraft #06</p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/10116a396f8.mp3" aria-label="Play audio"></button>
+              <p class="jp">もうちょっと広々としたところ<mark class="g">に</mark>行きたいなー。</p>
+            </div>
+            <p class="en">"I want to go somewhere a bit more open."</p>
+            <p class="note">行く takes に for where you're headed: a roomier place.</p>
+          </div>
+          <div class="mine">
+            <span class="use polite">Polite</span>
+            <img src="media/101193c34bd.webp" alt="Scene from a YouTube video" loading="lazy">
+            <p class="src">YouTube · <a href="https://www.youtube.com/watch?v=W9jSTqByIxg">video</a></p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/93c34bd4f6a.mp3" aria-label="Play audio"></button>
+              <p class="jp">私の友達は滋賀県<mark class="g">に</mark>住んでいます。</p>
+            </div>
+            <p class="en">"My friend lives in Shiga."</p>
+            <p class="note">住む works like いる: it's about where you are, not something you do there. So に, never で.</p>
+          </div>
+          <div class="mine">
+            <span class="use casual">Casual</span>
+            <img src="media/c340d1ddd4f.webp" alt="Scene from Shirokuma Cafe" loading="lazy">
+            <p class="src">Shirokuma Cafe · Season 1, Episode 6</p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/d1ddd4f1863.mp3" aria-label="Play audio"></button>
+              <p class="jp">頑張ったパンダ君<mark class="g">に</mark>ご褒美があるよ。</p>
+            </div>
+            <p class="en">"There's a reward for Panda-kun, who worked so hard."</p>
+            <p class="note">に can also point at a person: who the reward goes to.</p>
+          </div>
+          <div class="mine">
+            <span class="use polite">Polite</span>
+            <img src="media/78c83d6e971.webp" alt="Scene from a YouTube video" loading="lazy">
+            <p class="src">YouTube · <a href="https://www.youtube.com/watch?v=n5EZh_WiwoY">video</a></p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/3d6e97176a4.mp3" aria-label="Play audio"></button>
+              <p class="jp">ホテル<mark class="g">に</mark>帰って、妻と交代します。</p>
+            </div>
+            <p class="en">"I'll head back to the hotel and swap with my wife."</p>
+            <p class="note">帰る takes に for where you go back to.</p>
+          </div>
+        </div>
+      </section>
+    </article>
+
+    <!-- de -->
+    <article id="de" data-page hidden>
+      <div class="head">
+        <div>
+          <span class="label">N5 Grammar</span>
+          <p class="pattern">で</p>
+          <p class="sub"></p>
+        </div>
+      </div>
+      <div class="lead">
+        <img src="media/6b1c09b4a60.webp" alt="Scene from Shirokuma Cafe">
+        <p class="src">Shirokuma Cafe · Season 1, Episode 1</p>
+        <div class="line">
+          <button class="play" type="button" data-src="media/604e0ce748a.mp3" aria-label="Play audio"></button>
+          <p class="jp">もう外<mark class="g">で</mark>ダラダラしよっと</p>
+        </div>
+        <p class="en">"<span class="ctx">[Forget it,]</span> I'll just go laze around outside."</p>
+        <div class="explain">
+          <p><mark class="g">で</mark> marks <b>the place where an action happens</b>. It goes right after the place, before the action: 外 + で + ダラダラする.</p>
+          <p>ダラダラする is "laze around", and で tells you where. It answers "Do it where?": outside.</p>
+          <p>Same in polite and casual speech. One thing to watch: for just <i>being</i> somewhere (いる, ある) Japanese uses に, not で: 外にいる, "I'm outside".</p>
+        </div>
+      </div>
+      <section>
+        <h2>Examples</h2>
+        <div class="scenes">
+          <div class="scene">
+            <p class="sit">A friend asks where you usually work on your drawings.</p>
+            <p class="jp">カフェ<mark class="g">で</mark>描いてる。</p>
+            <p class="en">"I draw at a café."</p>
+          </div>
+          <div class="scene">
+            <p class="sit">Telling a coworker about your lunch.</p>
+            <p class="jp">コンビニ<mark class="g">で</mark>おにぎりを買いました。</p>
+            <p class="en">"I bought an onigiri at the konbini."</p>
+            <p class="note">Where did I buy it? At the konbini, so で. What did I buy? The onigiri, so を.</p>
+          </div>
+          <div class="scene">
+            <p class="sit">Planning a summer weekend in Chigasaki.</p>
+            <p class="jp">海<mark class="g">で</mark>泳ごう！</p>
+            <p class="en">"Let's swim in the sea!"</p>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h2>With and without</h2>
+        <div class="compare">
+          <div class="cbox">
+            <span class="label">に: just being there</span>
+            <p class="jp">図書館<mark class="g">に</mark>いる。</p>
+            <p>"I'm at the library." Nobody is doing anything, you just are there. いる and ある take に.</p>
+          </div>
+          <div class="cbox yes">
+            <span class="label">で: doing something there</span>
+            <p class="jp">図書館<mark class="g">で</mark>勉強する。</p>
+            <p>"I study at the library." There's an action (勉強する), so the place gets で.</p>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h2>Sentence mining</h2>
+        <div class="mines">
+          <div class="mine">
+            <span class="use polite">Polite</span>
+            <img src="media/21ed199c198.webp" alt="Scene from a Minecraft playthrough" loading="lazy">
+            <p class="src">PiroPito First Playthrough of Minecraft #06</p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/199c1986f5a.mp3" aria-label="Play audio"></button>
+              <p class="jp">朝までここ<mark class="g">で</mark>籠城してます。</p>
+            </div>
+            <p class="en">"I'll hole up here until morning."</p>
+            <p class="note">ここで: here, where the holing up happens. 籠城 is literally "shutting yourself in a castle".</p>
+          </div>
+          <div class="mine">
+            <span class="use casual">Casual</span>
+            <img src="media/2ad562407cd.webp" alt="Scene from Teasing Master Takagi-san" loading="lazy">
+            <p class="src">Teasing Master Takagi-san · Season 3, Episode 3</p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/62407cd37bc.mp3" aria-label="Play audio"></button>
+              <p class="jp">ここ<mark class="g">で</mark>ゲップしたら絶対にバカにされる。</p>
+            </div>
+            <p class="en">"If I burp here, she'll definitely make fun of me."</p>
+            <p class="note">Burping is the action, ここ is where. So ここで.</p>
+          </div>
+          <div class="mine">
+            <span class="use polite">Polite</span>
+            <img src="media/4dee9fd533d.webp" alt="Scene from a YouTube video" loading="lazy">
+            <p class="src">YouTube · <a href="https://www.youtube.com/watch?v=ijKwamrUFkM">video</a></p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/9fd533d715d.mp3" aria-label="Play audio"></button>
+              <p class="jp">仕事は彫り師を名古屋<mark class="g">で</mark>やっています。</p>
+            </div>
+            <p class="en">"For work, I'm a tattoo artist in Nagoya."</p>
+            <p class="note">Where do I do the work? In Nagoya, so で. A whole city works just like a room.</p>
+          </div>
+          <div class="mine">
+            <span class="use casual">Casual</span>
+            <img src="media/2680ae498f7.webp" alt="Scene from Pokémon" loading="lazy">
+            <p class="src">Pokémon The Series: Indigo League · Episode 2</p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/ae498f77864.mp3" aria-label="Play audio"></button>
+              <p class="jp">あとは病室の方<mark class="g">で</mark>回復を待つだけ。</p>
+            </div>
+            <p class="en">"All that's left is to wait in the recovery room for it to get better."</p>
+            <p class="note">Waiting is the action, the hospital room is where. 方 just softens it: "over in the room".</p>
+          </div>
+          <div class="mine">
+            <span class="use polite">Polite</span>
+            <img src="media/4a0cead500c.webp" alt="Scene from a YouTube video" loading="lazy">
+            <p class="src">YouTube · <a href="https://www.youtube.com/watch?v=j_BO-wLft5Q">video</a></p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/0cc3b6c3037.mp3" aria-label="Play audio"></button>
+              <p class="jp">あの〜、たぶん、日本<mark class="g">で</mark>買いすぎました。</p>
+            </div>
+            <p class="en">"Um, I think I bought way too much in Japan."</p>
+            <p class="note">Even a whole country: Japan is where the (over)buying happened.</p>
+          </div>
+          <div class="mine">
+            <span class="use casual">Casual</span>
+            <img src="media/3dce6f83837.webp" alt="Scene from Shirokuma Cafe" loading="lazy">
+            <p class="src">Shirokuma Cafe · Season 1, Episode 4</p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/6f83837b3fa.mp3" aria-label="Play audio"></button>
+              <p class="jp">助手席<mark class="g">で</mark>寝るなんて失礼なこと僕はしないよ！</p>
+            </div>
+            <p class="en">"I'd never do something as rude as sleep in the passenger seat!"</p>
+            <p class="note">Sleeping is the action, the passenger seat is where. So 助手席で寝る.</p>
+          </div>
+          <div class="mine">
+            <span class="use polite">Polite</span>
+            <img src="media/f978ff7a118.webp" alt="Scene from a YouTube video" loading="lazy">
+            <p class="src">YouTube · <a href="https://www.youtube.com/watch?v=X-y8o5zzhrc">video</a></p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/29af5f978ff.mp3" aria-label="Play audio"></button>
+              <p class="jp">たくさんの居酒屋<mark class="g">で</mark>飲み放題ができます。</p>
+            </div>
+            <p class="en">"At lots of izakayas you can get all-you-can-drink."</p>
+            <p class="note">Where can you do it? At lots of izakayas.</p>
+          </div>
+        </div>
+      </section>
+    </article>
+
+    <!-- to-with -->
+    <article id="to-with" data-page hidden>
+      <div class="head">
+        <div>
+          <span class="label">N5 Grammar</span>
+          <p class="pattern">と (With)</p>
+          <p class="sub"></p>
+        </div>
+      </div>
+      <div class="lead">
+        <img src="media/2825c3e3239.webp" alt="Scene from a YouTube video">
+        <p class="src">YouTube · <a href="https://www.youtube.com/watch?v=Z08tdiXgO94&amp;t=1161s">video</a></p>
+        <div class="line">
+          <button class="play" type="button" data-src="media/c3e32394995.mp3" aria-label="Play audio"></button>
+          <p class="jp">僕は旅行する時に、地元の人<mark class="g">と</mark>話したいです。</p>
+        </div>
+        <p class="en">"When I travel, I want to talk with the local people."</p>
+        <div class="explain">
+          <p><mark class="g">と</mark> after a person means <b>"with"</b>: the person you do the action together with. It goes right after them: 地元の人 + と.</p>
+          <p>It answers "With who?": talk with the locals. Then the verb comes later.</p>
+          <p>Between two nouns と means "and" (ヨーロッパと南米). With a verb after it, it's "with". Same in polite and casual speech.</p>
+        </div>
+      </div>
+      <section>
+        <h2>Examples</h2>
+        <div class="scenes">
+          <div class="scene">
+            <p class="sit">Someone asks who you went to the concert with.</p>
+            <p class="jp">姉<mark class="g">と</mark>行った。</p>
+            <p class="en">"I went with my sister."</p>
+          </div>
+          <div class="scene">
+            <p class="sit">Saturday plans.</p>
+            <p class="jp">友達<mark class="g">と</mark>映画を見ます。</p>
+            <p class="en">"I'm watching a movie with a friend."</p>
+          </div>
+          <div class="scene">
+            <p class="sit">Asking a coworker to lunch.</p>
+            <p class="jp">私<mark class="g">と</mark>一緒に食べませんか？</p>
+            <p class="en">"Want to eat with me?"</p>
+            <p class="note">一緒に (together) after と makes the "with" extra clear. Very common.</p>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h2>With and without</h2>
+        <div class="compare">
+          <div class="cbox">
+            <span class="label">Without</span>
+            <p class="jp">京都に行きました。</p>
+            <p>I went to Kyoto. Maybe alone, we don't know.</p>
+          </div>
+          <div class="cbox yes">
+            <span class="label">With と</span>
+            <p class="jp">母<mark class="g">と</mark>京都に行きました。</p>
+            <p>I went to Kyoto with my mom. Now we know who came along.</p>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h2>Sentence mining</h2>
+        <div class="mines">
+          <div class="mine">
+            <span class="use polite">Polite</span>
+            <img src="media/79982bff669.webp" alt="Scene from a YouTube video" loading="lazy">
+            <p class="src">YouTube · <a href="https://www.youtube.com/watch?v=TY-HjPbzdKQ&amp;t=36s">video</a></p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/2bff669a945.mp3" aria-label="Play audio"></button>
+              <p class="jp">たぶん、友達<mark class="g">と</mark>来るべきですね。</p>
+            </div>
+            <p class="en">"You should probably come here with friends."</p>
+            <p class="note">Come with who? Friends.</p>
+          </div>
+          <div class="mine">
+            <span class="use casual">Casual</span>
+            <img src="media/4d4343c35d3.webp" alt="Scene from Shirokuma Cafe" loading="lazy">
+            <p class="src">Shirokuma Cafe · Season 1, Episode 4</p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/43c35d3d6a4.mp3" aria-label="Play audio"></button>
+              <p class="jp">あなた<mark class="g">と</mark>行きたい海辺のドライブ</p>
+            </div>
+            <p class="en">"The seaside drive I want to go on with you."</p>
+            <p class="note">あなたと行きたい describes the drive: the one I want to go on with you.</p>
+          </div>
+          <div class="mine">
+            <span class="use polite">Polite</span>
+            <img src="media/6738d3e94ea.webp" alt="Scene from a YouTube video" loading="lazy">
+            <p class="src">YouTube · <a href="https://www.youtube.com/watch?v=7WoOmCDrzCE">video</a></p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/d3e94ea35c3.mp3" aria-label="Play audio"></button>
+              <p class="jp">なので、今日は皆さん<mark class="g">と</mark>一緒に散歩に行きたいと思います！</p>
+            </div>
+            <p class="en">"So today I'd like to go for a walk with all of you!"</p>
+            <p class="note">と一緒に: "together with". The second と (と思います) is a different と.</p>
+          </div>
+          <div class="mine">
+            <span class="use polite">Polite</span>
+            <img src="media/bce1cbc722c.webp" alt="Scene from a YouTube video" loading="lazy">
+            <p class="src">YouTube · <a href="https://www.youtube.com/watch?v=hySkqIAFRCs">video</a></p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/2cb530c4a12.mp3" aria-label="Play audio"></button>
+              <p class="jp">でも去年や一昨年は友達<mark class="g">と</mark>よくキャンプをしていましたよ。</p>
+            </div>
+            <p class="en">"But last year and the year before, I often went camping with friends."</p>
+            <p class="note">よく (often) can sit between と and the verb.</p>
           </div>
         </div>
       </section>
@@ -2017,6 +2969,276 @@ main:has(.home:not([hidden])) .foot{max-width:1080px}
             </div>
             <p class="en">"Sasako, you're really popular, huh."</p>
             <p class="note">Everyone can see the attention she's getting. モテモテ works like a な-adjective, so casual gets だね.</p>
+          </div>
+        </div>
+      </section>
+    </article>
+
+    <!-- deshou -->
+    <article id="deshou" data-page hidden>
+      <div class="head">
+        <div>
+          <span class="label">N5 Grammar</span>
+          <p class="pattern">でしょう</p>
+          <p class="sub"></p>
+        </div>
+      </div>
+      <div class="lead">
+        <span class="use polite">Polite</span>
+        <img src="media/922263dd660.webp" alt="Scene from He Who Can't Marry">
+        <p class="src">He Who Can't Marry · Episode 1</p>
+        <div class="line">
+          <button class="play" type="button" data-src="media/63dd6601e4c.mp3" aria-label="Play audio"></button>
+          <p class="jp">開業資金はうちの父が貸してくれる<mark class="g">でしょう</mark>。</p>
+        </div>
+        <p class="en">"My dad will <b>probably</b> lend <span class="ctx">[us]</span> the money to start the business."</p>
+        <div class="explain">
+          <p><mark class="g">でしょう</mark> means <b>"probably"</b>: you think it's true, but you're not 100% sure. It goes at the very end, after a plain verb, an い-adjective, or a noun (no だ before it).</p>
+          <p>Here she answers "Where will the money come from?": her dad, most likely. Without でしょう it would be a sure thing: 貸してくれます, "he'll lend it".</p>
+          <p>Said with a rising voice, でしょう？ turns into <b>"right?"</b>: you're pretty sure and want the other person to agree.</p>
+        </div>
+      </div>
+      <div class="lead second">
+        <span class="use casual">Casual</span>
+        <img src="media/88f7494565a.webp" alt="Scene from Shirokuma Cafe">
+        <p class="src">Shirokuma Cafe · Season 1, Episode 7</p>
+        <div class="line">
+          <button class="play" type="button" data-src="media/5ab36f19bb2.mp3" aria-label="Play audio"></button>
+          <p class="jp">旅行演習したいって言ったのペンギンさん<mark class="g">でしょ</mark>。</p>
+        </div>
+        <p class="en">"You're the one who said you wanted to practice traveling, Penguin, <b>right?</b>"</p>
+        <div class="explain">
+          <p>Casual version: the short <mark class="g">でしょ</mark>. Men and women both use it with friends, mostly for "right?". Here he's reminding Penguin whose idea this was.</p>
+        </div>
+      </div>
+      <section>
+        <h2>Examples</h2>
+        <div class="scenes">
+          <div class="scene">
+            <p class="sit">A client asks when the sketches will be done.</p>
+            <p class="jp">金曜日には終わる<mark class="g">でしょう</mark>。</p>
+            <p class="en">"They'll probably be done by Friday."</p>
+            <span class="use polite">Polite</span>
+          </div>
+          <div class="scene">
+            <p class="sit">Someone at the shop asks if the cake is still fresh.</p>
+            <p class="jp">今日中なら大丈夫<mark class="g">でしょう</mark>。</p>
+            <p class="en">"It should be fine if you eat it today."</p>
+            <p class="note">大丈夫 + でしょう, no だ in between.</p>
+            <span class="use polite">Polite</span>
+          </div>
+          <div class="scene">
+            <p class="sit">Your friend lies on the couch after a long walk.</p>
+            <p class="jp">疲れた<mark class="g">でしょ</mark>？</p>
+            <p class="en">"You're tired, right?"</p>
+            <span class="use casual">Casual</span>
+          </div>
+          <div class="scene">
+            <p class="sit">Your friend can't find their keys.</p>
+            <p class="jp">カバンの中<mark class="g">でしょ</mark>？</p>
+            <p class="en">"They're in your bag, right?"</p>
+            <span class="use casual">Casual</span>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h2>With and without</h2>
+        <div class="compare">
+          <div class="cbox">
+            <span class="label">Without</span>
+            <p class="jp">明日は雨です。</p>
+            <p>"It's going to rain tomorrow." Sure, like you already know.</p>
+          </div>
+          <div class="cbox yes">
+            <span class="label">With でしょう</span>
+            <p class="jp">明日は雨<mark class="g">でしょう</mark>。</p>
+            <p>"It'll probably rain tomorrow." A guess. What the weather forecast says.</p>
+          </div>
+          <div class="cbox">
+            <span class="label">Without</span>
+            <p class="jp">疲れた。</p>
+            <p>"I'm tired." About you.</p>
+          </div>
+          <div class="cbox yes">
+            <span class="label">With でしょ？</span>
+            <p class="jp">疲れた<mark class="g">でしょ</mark>？</p>
+            <p>"You're tired, right?" About them, asking them to agree.</p>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h2>Sentence mining</h2>
+        <div class="mines">
+          <div class="mine">
+            <span class="use polite">Polite</span>
+            <img src="media/73fa69b92c3.webp" alt="Scene from New Atashin'chi" loading="lazy">
+            <p class="src">New Atashin'chi · Episode 1</p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/69b92c32925.mp3" aria-label="Play audio"></button>
+              <p class="jp">冷蔵庫に…煮豆があった<mark class="g">でしょう</mark>？</p>
+            </div>
+            <p class="en">"There were simmered beans in the fridge, right?"</p>
+            <p class="note">Rising でしょう？: "right?". Even at home people use the full でしょう for this.</p>
+          </div>
+          <div class="mine">
+            <span class="use polite">Polite</span>
+            <img src="media/9923bba873c.webp" alt="Scene from a YouTube video" loading="lazy">
+            <p class="src">YouTube · <a href="https://www.youtube.com/watch?v=Q3vrsz4d0sc">video</a></p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/3ce6075ae9c.mp3" aria-label="Play audio"></button>
+              <p class="jp">どんな小屋を建てるの<mark class="g">でしょう</mark>か</p>
+            </div>
+            <p class="en">"I wonder what kind of hut he'll build."</p>
+            <p class="note">でしょうか: a guess turned into a question, "I wonder...".</p>
+          </div>
+          <div class="mine">
+            <span class="use polite">Polite</span>
+            <img src="media/7e4648ee830.webp" alt="Scene from a YouTube video" loading="lazy">
+            <p class="src">YouTube · <a href="https://www.youtube.com/watch?v=6UIi-DYLvlY">video</a></p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/8ee830b402f.mp3" aria-label="Play audio"></button>
+              <p class="jp">しかし本当にそうなの<mark class="g">でしょう</mark>か。</p>
+            </div>
+            <p class="en">"But is that really true?"</p>
+            <p class="note">Same でしょうか, used to make you doubt it.</p>
+          </div>
+          <div class="mine">
+            <span class="use casual">Casual</span>
+            <img src="media/5f3fc28d061.webp" alt="Scene from New Atashin'chi" loading="lazy">
+            <p class="src">New Atashin'chi · Episode 1</p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/ea0335f3fc2.mp3" aria-label="Play audio"></button>
+              <p class="jp">裁縫セット持ってる<mark class="g">でしょ</mark>..貸して</p>
+            </div>
+            <p class="en">"You have a sewing kit, right? Lend it to me."</p>
+            <p class="note">でしょ checks first ("you have one, right?"), then she asks for it.</p>
+          </div>
+          <div class="mine">
+            <span class="use casual">Casual</span>
+            <img src="media/d631bba9d34.webp" alt="Scene from Shirokuma Cafe" loading="lazy">
+            <p class="src">Shirokuma Cafe · Season 1, Episode 5</p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/bba9d34434a.mp3" aria-label="Play audio"></button>
+              <p class="jp">いやいやいやいやいや、ありえないからがんばってよ、約束<mark class="g">でしょ</mark>？</p>
+            </div>
+            <p class="en">"No no no, no way, come on, try. You promised, right?"</p>
+            <p class="note">Noun + でしょ？: 約束でしょ？, "it's a promise, right?".</p>
+          </div>
+        </div>
+      </section>
+    </article>
+
+    <!-- darou -->
+    <article id="darou" data-page hidden>
+      <div class="head">
+        <div>
+          <span class="label">N5 Grammar</span>
+          <p class="pattern">だろう</p>
+          <p class="sub"></p>
+        </div>
+      </div>
+      <div class="lead">
+        <img src="media/71c8f9dba70.webp" alt="Scene from He Who Can't Marry">
+        <p class="src">He Who Can't Marry · Episode 1</p>
+        <div class="line">
+          <button class="play" type="button" data-src="media/f9dba7066fa.mp3" aria-label="Play audio"></button>
+          <p class="jp">俺の受け売り<mark class="g">だろう</mark>？</p>
+        </div>
+        <p class="en">"That's <span class="ctx">[just]</span> what I told you, <b>right?</b>"</p>
+        <div class="explain">
+          <p><mark class="g">だろう</mark> does the same job as <a class="xref" href="#deshou">でしょう</a>: <b>"probably"</b>, or with a rising voice <b>"right?"</b>. It goes at the very end, after a plain verb, an い-adjective, or a noun (no だ before it).</p>
+          <p>Here he's pretty sure where the other guy got that idea, so it's "right?". Said out loud to someone, だろう and the short だろ sound <b>masculine</b> and a bit blunt. Most women, and plenty of men, say でしょ instead.</p>
+          <p>Two places where だろう is neutral and everyone uses it: <b>"I wonder..."</b> (なんだろう, said to yourself), and writing or inner thoughts.</p>
+        </div>
+      </div>
+      <section>
+        <h2>Examples</h2>
+        <div class="scenes">
+          <div class="scene">
+            <p class="sit">You look at the dark clouds and say it to yourself.</p>
+            <p class="jp">明日も雨<mark class="g">だろう</mark>な。</p>
+            <p class="en">"It'll probably rain tomorrow too."</p>
+            <p class="note">Talking to yourself, so it's fine for anyone. な makes it a thought.</p>
+          </div>
+          <div class="scene">
+            <p class="sit">Two guys after football practice.</p>
+            <p class="jp">疲れた<mark class="g">だろ</mark>？</p>
+            <p class="en">"You're tired, right?"</p>
+            <p class="note">Masculine. A woman would say 疲れたでしょ？</p>
+          </div>
+          <div class="scene">
+            <p class="sit">You find a strange box on your doorstep.</p>
+            <p class="jp">これ、なん<mark class="g">だろう</mark>？</p>
+            <p class="en">"I wonder what this is."</p>
+            <p class="note">Question word + だろう: "I wonder". Used by everyone.</p>
+          </div>
+          <div class="scene">
+            <p class="sit">Your friend is late and not answering.</p>
+            <p class="jp">どこにいるん<mark class="g">だろう</mark>。</p>
+            <p class="en">"I wonder where they are."</p>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h2>With and without</h2>
+        <div class="compare">
+          <div class="cbox yes">
+            <span class="label">だろ？</span>
+            <p class="jp">疲れた<mark class="g">だろ</mark>？</p>
+            <p>"You're tired, right?" Masculine, a bit rough.</p>
+          </div>
+          <div class="cbox">
+            <span class="label">でしょ？</span>
+            <p class="jp">疲れたでしょ？</p>
+            <p>Same meaning. Neutral, anyone can say it.</p>
+          </div>
+          <div class="cbox">
+            <span class="label">Without</span>
+            <p class="jp">これ、なに？</p>
+            <p>"What's this?" Asking someone.</p>
+          </div>
+          <div class="cbox yes">
+            <span class="label">With だろう</span>
+            <p class="jp">これ、なん<mark class="g">だろう</mark>？</p>
+            <p>"I wonder what this is." Asking yourself, nobody needs to answer.</p>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h2>Sentence mining</h2>
+        <div class="mines">
+          <div class="mine">
+            <span class="use casual">Casual</span>
+            <img src="media/fc11274a119.webp" alt="Scene from Shirokuma Cafe" loading="lazy">
+            <p class="src">Shirokuma Cafe · Season 1, Episode 5</p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/1983d947ff6.mp3" aria-label="Play audio"></button>
+              <p class="jp">どうやったら彼女のハートを射止めることができるん<mark class="g">だろう</mark>。</p>
+            </div>
+            <p class="en">"I wonder how I can win her heart."</p>
+            <p class="note">Question word (どうやったら) + んだろう: "I wonder...", said to himself.</p>
+          </div>
+          <div class="mine">
+            <span class="use casual">Casual</span>
+            <img src="media/6f4437f9b84.webp" alt="Scene from a YouTube video" loading="lazy">
+            <p class="src">YouTube · <a href="https://www.youtube.com/watch?v=MxfslgtOxkk">video</a></p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/37f9b84b44e.mp3" aria-label="Play audio"></button>
+              <p class="jp">どうやって撃退すればいいん<mark class="g">だろう</mark>?</p>
+            </div>
+            <p class="en">"How am I supposed to fight them off?"</p>
+            <p class="note">Same "I wonder" だろう, thinking out loud while playing.</p>
+          </div>
+          <div class="mine">
+            <span class="use casual">Casual</span>
+            <img src="media/339e68d4c13.webp" alt="Scene from a YouTube video" loading="lazy">
+            <p class="src">YouTube · <a href="https://www.youtube.com/watch?v=izmwGOwxIfQ">video</a></p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/68d4c1352e3.mp3" aria-label="Play audio"></button>
+              <p class="jp">で、とりあえず基地を作りなさいよっていうようなことなん<mark class="g">だろう</mark>な。</p>
+            </div>
+            <p class="en">"So I guess for now it's telling me to build a base."</p>
+            <p class="note">"Probably" だろう + な: guessing to himself what the game wants.</p>
           </div>
         </div>
       </section>
@@ -4120,33 +5342,58 @@ main:has(.home:not([hidden])) .foot{max-width:1080px}
 <script>window.BUNDLE = true;</script>
 <script>
 /* Shared by every page in pages/: builds the top bar with the search, the card grid on the home page, the audio buttons and the footer.
-   To add a grammar point: add one line to its level below. [file name without .html, pattern, short description]
+   To add a grammar point: add one line to its category below. [file name without .html, pattern, short description]
+   Categories run in learning order, and so do the points inside each one. A category with no pages yet doesn't show.
    The short description shows on the home grid card AND under the pattern on the page itself (filled in below), so it only lives here. */
 var INDEX = [
-  {level: 'N5', pages: [
-    ['desu', 'です / だ', 'To be, is'],
-    ['wa', 'は', 'Topic marker: "as for..."'],
-    ['ka', 'か', 'Question marker'],
-    ['kore-sore-are', 'これ・それ・あれ', 'This, that, that over there'],
-    ['koko-soko-asoko', 'ここ・そこ・あそこ', 'Here, there, over there'],
-    ['mo', 'も', 'Also, too'],
-    ['to', 'と', 'And: joining nouns'],
-    ['ga', 'が', 'Subject marker'],
-    ['wo', 'を', 'Object marker'],
-    ['no-pos', 'の (Possession)', 'Possession: my, \'s'],
-    ['yo', 'よ', 'Telling someone something new'],
-    ['ne', 'ね', 'Sharing a feeling: "right?", "huh"'],
-    ['i-adj', 'い-Adjective', 'Describing words that end in い'],
-    ['ii', 'いい (良い)', 'い-Adjective meaning "good"'],
-    ['na-adj', 'な-Adjective', 'Describing words: な before a noun'],
-    ['i-adj-past', 'い-Adjective (Past)', 'Was: the past of い-adjectives'],
-    ['masu', 'ます', 'Polite verb endings'],
-    ['u-verb', 'う-Verb (Dictionary)', 'Godan verbs: plain and polite'],
-    ['ru-verb-neg', 'る-Verb (Negative)', 'Not doing: ない and ません'],
-    ['u-verb-neg', 'う-Verb (Negative)', 'Not doing: u sound → a + ない'],
-    ['no', '～の', 'Asking for the story behind something'],
-    ['ndesu', '～んです・のです', 'Explaining, giving the reason'],
-    ['noha-noga', 'のは・のが', 'Turning an action into a noun']
+  {level: 'N5', cats: [
+    {cat: 'First steps', pages: [
+      ['desu', 'です / だ', 'To be, is'],
+      ['wa', 'は', 'Topic marker: "as for..."'],
+      ['ka', 'か', 'Question marker'],
+      ['kore-sore-are', 'これ・それ・あれ', 'This, that, that over there'],
+      ['kono-sono-ano', 'この・その・あの', 'This ___, that ___ (before a noun)'],
+      ['koko-soko-asoko', 'ここ・そこ・あそこ', 'Here, there, over there'],
+      ['gaaru', 'がある', 'To be, there is'],
+      ['gairu', 'がいる', 'There is (people, animals)']
+    ]},
+    {cat: 'Question words', pages: []},
+    {cat: 'Particles', pages: [
+      ['mo', 'も', 'Also, too'],
+      ['to', 'と', 'And: joining nouns'],
+      ['ka-or', 'か (Or)', 'Or: joining nouns'],
+      ['ga', 'が', 'Subject marker'],
+      ['wo', 'を', 'Object marker'],
+      ['ni', 'に', 'In, at, to, for, on'],
+      ['de', 'で', 'At, in'],
+      ['to-with', 'と (With)', 'With: doing something together'],
+      ['no-pos', 'の (Possession)', 'Possession: my, \'s']
+    ]},
+    {cat: 'Sentence endings', pages: [
+      ['yo', 'よ', 'Telling someone something new'],
+      ['ne', 'ね', 'Sharing a feeling: "right?", "huh"'],
+      ['deshou', 'でしょう', 'Probably, right?'],
+      ['darou', 'だろう', 'Probably, I wonder (masculine "right?")']
+    ]},
+    {cat: 'Adjectives', pages: [
+      ['i-adj', 'い-Adjective', 'Describing words that end in い'],
+      ['ii', 'いい (良い)', 'い-Adjective meaning "good"'],
+      ['na-adj', 'な-Adjective', 'Describing words: な before a noun'],
+      ['i-adj-past', 'い-Adjective (Past)', 'Was: the past of い-adjectives']
+    ]},
+    {cat: 'Verbs: basic forms', pages: [
+      ['masu', 'ます', 'Polite verb endings'],
+      ['u-verb', 'う-Verb (Dictionary)', 'Godan verbs: plain and polite'],
+      ['ru-verb-neg', 'る-Verb (Negative)', 'Not doing: ない and ません'],
+      ['u-verb-neg', 'う-Verb (Negative)', 'Not doing: u sound → a + ない']
+    ]},
+    {cat: 'て-form', pages: []},
+    {cat: 'Wanting and inviting', pages: []},
+    {cat: 'Explaining (の)', pages: [
+      ['no', '～の', 'Asking for the story behind something'],
+      ['ndesu', '～んです・のです', 'Explaining, giving the reason'],
+      ['noha-noga', 'のは・のが', 'Turning an action into a noun']
+    ]}
   ]}
 ];
 var UPDATED = '23 Oct 2026';
@@ -4159,6 +5406,7 @@ var UPDATED = '23 Oct 2026';
   // every point, for the grid and the search; k is what the search matches (file name, pattern, description)
   var points = [];
   INDEX.forEach(function(g){
+    g.pages = [].concat.apply([], g.cats.map(function(c){ return c.pages; }));
     g.pages.forEach(function(p){
       points.push({id: p[0], pat: p[1], d: p[2], level: g.level, k: (p[0] + ' ' + p[1] + ' ' + p[2]).toLowerCase()});
     });
@@ -4177,12 +5425,15 @@ var UPDATED = '23 Oct 2026';
   var grid = document.getElementById('grid');
   if (grid) {
     grid.innerHTML = INDEX.map(function(g){
-      var cards = g.pages.map(function(p){
+      var cards = function(pages){ return pages.map(function(p){
         return '<li><a class="gcard" href="' + href(p[0]) + '" data-k="' + (p[0] + ' ' + p[1] + ' ' + p[2]).toLowerCase() + '">' +
           '<span class="p">' + p[1] + '</span><span class="d">' + p[2] + '</span><span class="lv">' + g.level + '</span></a></li>';
+      }).join(''); };
+      var cats = g.cats.filter(function(c){ return c.pages.length; }).map(function(c){
+        return '<section class="cat"><h3 class="label">' + c.cat + '</h3><ol class="cards">' + cards(c.pages) + '</ol></section>';
       }).join('');
       return '<details class="level" open><summary><span class="t">' + g.level + '</span><span class="label">' + g.pages.length + (g.pages.length === 1 ? ' grammar point' : ' grammar points') + '</span></summary>' +
-        '<ol class="cards">' + cards + '</ol></details>';
+        cats + '</details>';
     }).join('') + '<p class="empty" id="gnone" hidden>No match.</p>';
   }
   var filterGrid = function(q){
@@ -4191,6 +5442,9 @@ var UPDATED = '23 Oct 2026';
     grid.querySelectorAll('.gcard').forEach(function(a){
       var m = !q || a.getAttribute('data-k').indexOf(q) > -1;
       a.parentNode.hidden = !m; if (m) any = true;
+    });
+    grid.querySelectorAll('.cat').forEach(function(c){
+      c.hidden = !c.querySelector('li:not([hidden])');
     });
     grid.querySelectorAll('.level').forEach(function(l){
       l.hidden = !l.querySelector('li:not([hidden])');
