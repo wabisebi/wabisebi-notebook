@@ -1,0 +1,206 @@
+/* Layout: a small-type index down the left like the back of a textbook; one grammar page shown at a time on the right. */
+:root{
+  /* single quiet dark look: ink navy, warm paper text, one gold accent */
+  --paper:#0e1322; --sheet:#121a2c; --ink:#ece6d6; --muted:#8c95ad;
+  --violet:#ece6d6; --violet-tint:#18213a; --plain:#111829; --plain-line:#212a40; --on-accent:#0e1322;
+  --line:#1e2740; --indigo:#8fa3d6; --indigo-2:#8fa3d6; --shu:#c8452f; --tint:#161f35;
+  --card:#172036; --card-line:#27314c; --shadow:rgba(0,0,0,.35); --shadow-soft:rgba(0,0,0,.2);
+  --glow:transparent; --gram:#a9bdf0; --gold:#d6a84a;
+  --display:"Newsreader","Shippori Mincho","Hiragino Mincho ProN",serif;
+  --body:"IBM Plex Sans","IBM Plex Sans JP","Hiragino Sans","Yu Gothic",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  color-scheme:dark;
+}
+[hidden]{display:none!important}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.7}
+.layout{min-height:100vh;
+  padding-left:max(0px,env(safe-area-inset-left,0px));padding-right:max(0px,env(safe-area-inset-right,0px))}
+
+.label{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.empty{font-size:12px;color:var(--muted)}
+
+/* page */
+main{padding-block:40px 64px;padding-left:max(16px,3vw);padding-right:max(16px,3vw);min-width:0}
+article,.how{max-width:720px;margin:0 auto}
+article{background:var(--sheet);border:1px solid var(--line);border-radius:10px;box-shadow:0 1px 2px var(--shadow-soft),0 12px 32px -16px var(--shadow);padding:28px clamp(18px,5vw,36px);
+  display:flex;flex-direction:column;gap:28px}
+.head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap}
+.pattern{font-family:var(--display);font-size:clamp(40px,10vw,60px);font-weight:800;line-height:1.05;margin:4px 0 0}
+.gist{font-size:19px;margin:12px 0 0;max-width:52ch}
+.gist b{color:var(--indigo)}
+.hanko{font-family:var(--display);color:var(--shu);border:2px solid var(--shu);border-radius:4px;
+  padding:4px 8px;font-size:13px;font-weight:600;transform:rotate(-4deg);white-space:nowrap}
+.hanko:empty{width:44px;height:26px;padding:0}
+h2{font-family:var(--display);font-size:20px;margin:0 0 12px}
+.scenes{display:grid;gap:12px;counter-reset:ex}
+.scene{counter-increment:ex;position:relative;background:var(--card);border:1px solid var(--card-line);border-radius:10px;
+  padding:16px 18px 16px 58px;display:flex;flex-direction:column;gap:4px;box-shadow:0 1px 2px var(--shadow-soft),0 6px 16px -10px var(--shadow)}
+.scene::before{content:counter(ex);position:absolute;left:16px;top:16px;width:28px;height:28px;border-radius:50%;
+  background:var(--indigo);color:var(--sheet);font-weight:700;font-size:14px;display:grid;place-items:center;font-variant-numeric:tabular-nums}
+.scene .jp{color:var(--ink)}
+.scene .sit{color:var(--muted);margin:0}
+.scene .jp{font-size:24px;font-weight:700;margin:0;line-height:1.4}
+.scene .en{margin:0}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.cbox{background:var(--tint);border:1px solid var(--line);border-radius:10px;padding:14px 16px;min-width:0}
+.cbox.yes{background:var(--card);border-color:var(--card-line);box-shadow:0 6px 16px -10px var(--shadow)}
+.cbox .jp{font-size:20px;font-weight:700;margin:4px 0}
+.cbox p{margin:0}
+.cbox.yes .label{color:var(--indigo)}
+.rule{display:grid;gap:8px;margin:0;padding:0;list-style:none}
+.rule li{display:flex;gap:4px 12px;flex-wrap:wrap;align-items:baseline}
+.rule .jp{font-weight:700;min-width:10em}
+.rule .m{color:var(--muted)}
+.frame{border:1.5px dashed var(--indigo);border-radius:6px;padding:16px;display:flex;flex-direction:column;gap:6px}
+.frame .jp{font-size:22px;font-weight:700;margin:0}
+.frame .jp.sm{font-size:18px}
+.frame .jp.sm span{font-weight:400;font-size:15px;color:var(--muted)}
+.frame p{margin:0}
+.slot{color:var(--shu)}
+.how{display:flex;flex-direction:column;gap:12px;background:var(--sheet);border:1px solid var(--line);border-radius:10px;box-shadow:0 1px 2px var(--shadow-soft),0 12px 32px -16px var(--shadow);padding:28px clamp(18px,5vw,36px)}
+.how h2{margin:0}
+.how ul{margin:0;padding-left:1.2em;display:grid;gap:6px}
+.how .tag{font-weight:700}
+.foot{max-width:720px;margin:16px auto 0;color:var(--muted);font-size:13px}
+
+@media (max-width:520px){.scene{padding-left:52px}.scene::before{left:14px}}
+@media (max-width:760px){
+  main{padding-block:24px 48px}
+  .compare{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:no-preference){article,.how{animation:in .25s ease-out both}}
+@keyframes in{from{transform:translateY(4px)}to{transform:none}}
+
+/* teaching colors: orange = the grammar, ink = Japanese, violet = meaning */
+mark.g{background:none;color:var(--gram);font-weight:800;box-shadow:inset 0 -3px 0 color-mix(in srgb,var(--gram) 35%,transparent);padding:0 1px}
+.scene .en,.cbox .en{color:var(--ink);font-weight:500}
+.scene .sit{font-size:14.5px}
+.head{margin:-28px calc(-1*clamp(18px,5vw,36px)) 0;padding:28px clamp(18px,5vw,36px) 24px;
+  background:linear-gradient(180deg,var(--tint),var(--sheet));border-bottom:1px solid var(--line);border-radius:10px 10px 0 0}
+h2{display:flex;align-items:center;gap:10px}
+h2::before{content:"";width:6px;height:18px;border-radius:3px;background:var(--indigo)}
+.cbox{background:var(--plain);border:1px solid var(--plain-line)}
+.cbox .label{display:inline-block;color:var(--muted)}
+.cbox.yes{background:var(--tint);border:1px solid var(--card-line);border-left:4px solid var(--indigo)}
+.cbox.yes .label{background:var(--indigo);color:var(--on-accent);padding:1px 8px;border-radius:999px;letter-spacing:.06em}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:12.5px;color:var(--muted);margin:0}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{width:10px;height:10px;border-radius:2px;display:inline-block}
+
+/* quiet: flat surfaces, gold for "you are here", soft blue for "with" */
+body{background:var(--paper)}
+article,.how{background:var(--sheet);border-color:var(--line);box-shadow:0 20px 50px -30px var(--shadow)}
+.head{background:var(--tint);border-bottom-color:var(--line)}
+.pattern{font-family:"Shippori Mincho",var(--display);font-weight:600;color:var(--ink)}
+.brand .t,h2{font-family:var(--display);font-weight:500;letter-spacing:.005em}
+h2{font-size:22px}
+h2::before{background:var(--gold);width:3px}
+.label{font-family:var(--mono);font-weight:500;letter-spacing:.14em;color:var(--muted)}
+.gist b{color:var(--gram);font-weight:600}
+.scene{background:var(--card);border-color:var(--card-line);box-shadow:none}
+.scene::before{background:transparent;color:var(--gold);border:1.5px solid var(--gold);font-family:var(--mono);font-weight:500;box-shadow:none}
+.scene .sit{color:var(--muted)}
+.cbox.yes{background:var(--card);border-color:var(--card-line);border-left-color:var(--indigo);box-shadow:none}
+.cbox.yes .label{background:var(--indigo);color:var(--on-accent);box-shadow:none}
+.cbox.no{background:rgba(200,69,47,.12);border:1px solid rgba(200,69,47,.35);border-left:4px solid var(--shu)}
+.cbox.no .label{background:var(--shu);color:var(--ink);padding:1px 8px;border-radius:999px;letter-spacing:.06em}
+.foot{font-family:var(--mono);font-size:12px}
+.xref{color:var(--gold);text-decoration:underline;text-underline-offset:3px}
+.xref:hover,.xref:focus-visible{color:var(--ink);outline:none}
+.use{align-self:flex-start;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gram);border:1px solid var(--card-line);border-radius:999px;padding:1px 9px;margin-top:6px}
+.scene .note{margin:4px 0 0;font-size:14px;color:var(--muted)}
+
+/* sentence mining: lighter boxes with a screenshot, source, sentence and audio */
+.mines{display:grid;gap:12px}
+.mine{background:#1f2944;border:1px solid #34405f;border-radius:10px;padding:16px 18px;display:flex;flex-direction:column;gap:4px}
+.mine img{display:block;width:100%;max-width:420px;height:auto;border-radius:6px}
+.mine .src{margin:6px 0 8px;font-family:var(--mono);font-size:11.5px;letter-spacing:.04em;color:var(--muted)}
+.mine .line{display:flex;align-items:center;gap:10px}
+.mine .jp{font-size:22px;font-weight:700;margin:0;line-height:1.4}
+.mine .en{margin:0;font-weight:500}
+.mine .note{margin:4px 0 0;font-size:14px;color:var(--muted)}
+.play{flex:none;width:28px;height:28px;border-radius:50%;border:1.5px solid var(--gold);background:transparent;cursor:pointer;display:grid;place-items:center;padding:0}
+.play::before{content:"";margin-left:2px;border-style:solid;border-width:5px 0 5px 8px;border-color:transparent transparent transparent var(--gold)}
+.play.on{background:var(--gold)}
+.play.on::before{border-left-color:var(--on-accent)}
+.play:focus-visible{outline:2px solid var(--indigo);outline-offset:2px}
+.mine .use{margin:0 0 8px}
+.use.polite{color:#9fcdb0;border-color:rgba(159,205,176,.5);background:rgba(159,205,176,.1)}
+.use.casual{color:var(--gram);border-color:rgba(169,189,240,.55);background:rgba(169,189,240,.1)}
+
+/* home: every grammar point as a card grid, one section per level */
+.home{max-width:1080px;margin:0 auto;display:flex;flex-direction:column;gap:28px}
+.home-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap}
+.home h1{font-family:var(--display);font-weight:500;font-size:clamp(32px,6vw,44px);line-height:1.1;margin:4px 0 0}
+.level + .level{margin-top:28px}
+.level{background:var(--sheet);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.level summary{display:flex;align-items:baseline;gap:12px;padding:16px 20px;cursor:pointer;list-style:none;background:var(--tint);border-bottom:1px solid var(--line)}
+.level summary::-webkit-details-marker{display:none}
+.level summary::before{content:"";align-self:center;width:7px;height:7px;border-right:1.5px solid var(--muted);border-bottom:1.5px solid var(--muted);transform:rotate(45deg) translateY(-2px);transition:transform .15s}
+.level:not([open]) summary::before{transform:rotate(-45deg)}
+.level:not([open]) summary{border-bottom:0}
+.level summary .t{font-family:var(--display);font-size:24px;font-weight:500}
+.level summary:focus-visible{outline:2px solid var(--indigo);outline-offset:-2px}
+.cards{list-style:none;margin:0;padding:16px;display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px}
+.gcard{height:100%;box-sizing:border-box;display:flex;flex-direction:column;gap:2px;padding:14px 16px;border-radius:8px;
+  background:var(--card);border:1px solid var(--card-line);color:var(--ink);text-decoration:none;transition:border-color .15s,background .15s}
+.gcard:hover{border-color:var(--gold);background:#1b2540}
+.gcard:focus-visible{outline:2px solid var(--indigo);outline-offset:2px}
+.gcard .p{font-size:20px;font-weight:700;line-height:1.35}
+.gcard .d{color:var(--muted);font-size:14px}
+.gcard .lv{margin-top:10px;align-self:flex-start;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;color:var(--gram);border:1px solid var(--card-line);border-radius:999px;padding:0 8px}
+@media (max-width:520px){.cards{grid-template-columns:1fr 1fr;padding:12px;gap:8px}.gcard{padding:12px}.gcard .p{font-size:18px}}
+main:has(.home:not([hidden])) .foot{max-width:1080px}
+
+/* top bar: title, search, light/dark toggle */
+.top{position:sticky;top:0;z-index:10;display:flex;align-items:center;gap:12px 20px;
+  padding:max(12px,env(safe-area-inset-top,0px)) max(16px,3vw) 12px;
+  background:color-mix(in srgb,var(--paper) 92%,transparent);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.brand{display:flex;flex-direction:column;line-height:1.25;margin-right:auto;color:var(--ink);text-decoration:none;border-radius:6px}
+.brand .t{font-size:18px}
+.brand:hover .t{color:var(--gold)}
+.brand:focus-visible{outline:2px solid var(--indigo);outline-offset:4px}
+.find{position:relative;width:min(100%,320px)}
+#find{font:inherit;font-family:var(--mono);font-size:13px;width:100%;box-sizing:border-box;padding:8px 14px;
+  border:1px solid var(--plain-line);border-radius:999px;background:var(--plain);color:var(--ink)}
+#find:focus-visible{outline:2px solid var(--indigo);outline-offset:1px}
+.results{position:absolute;top:calc(100% + 6px);left:0;right:0;list-style:none;margin:0;padding:6px;max-height:60vh;overflow:auto;
+  background:var(--sheet);border:1px solid var(--card-line);border-radius:10px;box-shadow:0 20px 50px -20px var(--shadow)}
+.results a{display:flex;align-items:baseline;gap:8px;padding:6px 10px;border-radius:6px;color:var(--ink);text-decoration:none}
+.results a .d{color:var(--muted);font-size:13px}
+.results a:hover,.results a:focus-visible{background:var(--tint);outline:none}
+.results .empty{padding:6px 10px;margin:0}
+.theme{flex:none;width:36px;height:36px;border-radius:50%;border:1px solid var(--plain-line);background:var(--plain);color:var(--muted);
+  display:grid;place-items:center;cursor:pointer;padding:0}
+.theme:hover{color:var(--gold)}
+.theme:focus-visible{outline:2px solid var(--indigo);outline-offset:2px}
+@media (max-width:600px){
+  .top{flex-wrap:wrap}
+  .brand .label{display:none}
+  .find{order:3;width:100%}
+}
+
+/* lead card: one tiny real clip right under the title, so the point lands before any explanation */
+.lead{background:#1f2944;border:1px solid #34405f;border-radius:10px;padding:18px 20px;display:flex;flex-direction:column;gap:6px}
+.lead img{display:block;width:100%;max-width:480px;height:auto;border-radius:6px}
+.lead .src{margin:4px 0 6px;font-family:var(--mono);font-size:11.5px;letter-spacing:.04em;color:var(--muted)}
+.lead .line{display:flex;align-items:center;gap:12px}
+.lead .jp{font-size:34px;font-weight:700;margin:0;line-height:1.3}
+.lead .en{margin:0;font-size:19px;font-weight:500}
+.lead .ctx{color:var(--muted)}
+.lead .explain{margin-top:12px;padding-top:14px;border-top:1px solid #34405f;display:grid;gap:8px}
+.lead .explain p{margin:0}
+.lead .explain b{color:var(--gram);font-weight:600}
+.sub{font-size:18px;color:var(--muted);margin:6px 0 0}
+.lead .use{margin:0 0 8px}
+/* second intro card: the other form (polite/casual), kept short */
+.lead.second img{max-width:320px}
+.lead.second .jp{font-size:26px}
+
+/* plain reading pages (Notes, not grammar): paragraphs, images with a caption */
+.prose p{margin:0 0 12px}
+.prose p:last-child{margin-bottom:0}
+.prose b{color:var(--gram);font-weight:600}
+.prose figure{margin:4px 0 16px}
+.prose img{display:block;width:100%;max-width:560px;height:auto;border-radius:6px}
+.prose figcaption{margin-top:8px;font-family:var(--mono);font-size:11.5px;letter-spacing:.04em;color:var(--muted)}
