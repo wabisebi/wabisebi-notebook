@@ -15,7 +15,18 @@ var INDEX = [
       ['gaaru', 'がある', 'To be, there is'],
       ['gairu', 'がいる', 'There is (people, animals)']
     ]},
-    {cat: 'Question words', pages: []},
+    {cat: 'Question words', pages: [
+      ['nani', '何 (なに・なん)', 'What'],
+      ['doko', 'どこ', 'Where'],
+      ['itsu', 'いつ', 'When'],
+      ['dore-dono', 'どれ・どの', 'Which (of three or more)'],
+      ['dochira', 'どちら・どっち', 'Which (of two), which way'],
+      ['dou', 'どう・いかが', 'How, how about'],
+      ['donna', 'どんな', 'What kind of'],
+      ['doushite', 'どうして・なぜ', 'Why (casual: なんで)'],
+      ['nanika', '何か・誰か・どこか', 'Something, someone, somewhere'],
+      ['nanimo', '何も・誰も・どこも', 'Nothing, nobody, nowhere (+ negative)']
+    ]},
     {cat: 'Particles', pages: [
       ['mo', 'も', 'Also, too'],
       ['to', 'と', 'And: joining nouns'],

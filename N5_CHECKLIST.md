@@ -24,20 +24,20 @@ Categories marked *(new)* aren't on the site yet. They get added to `INDEX` when
 - [ ] お～・ご～: polite prefix (お茶, ご飯)
 
 ## Question words
-- [ ] 何 (なに・なん): what
+- [x] 何 (なに・なん): what
 - [ ] 誰: who
-- [ ] どこ: where
-- [ ] いつ: when
-- [ ] どれ・どの: which
-- [ ] どちら・どっち: which (of two), which way
-- [ ] どう・いかが: how
-- [ ] どんな: what kind of
-- [ ] どうして・なぜ: why
+- [x] どこ: where
+- [x] いつ: when
+- [x] どれ・どの: which
+- [x] どちら・どっち: which (of two), which way
+- [x] どう・いかが: how
+- [x] どんな: what kind of
+- [x] どうして・なぜ: why
 - [ ] いくら: how much (money)
 - [ ] いくつ: how many, how old
 - [ ] どのくらい: how long, how much
-- [ ] 何か・誰か・どこか: something, someone, somewhere
-- [ ] 何も・誰も・どこも + negative: nothing, nobody, nowhere
+- [x] 何か・誰か・どこか: something, someone, somewhere
+- [x] 何も・誰も・どこも + negative: nothing, nobody, nowhere
 
 ## Particles
 - [x] も: also, too
