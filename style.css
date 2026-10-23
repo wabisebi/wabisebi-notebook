@@ -61,7 +61,7 @@ h2{font-family:var(--display);font-size:20px;margin:0 0 12px}
 .how h2{margin:0}
 .how ul{margin:0;padding-left:1.2em;display:grid;gap:6px}
 .how .tag{font-weight:700}
-.foot{max-width:720px;margin:16px auto 0;color:var(--muted);font-size:13px}
+.foot{max-width:720px;margin:16px auto 0;color:var(--muted);font-size:13px;text-align:center}
 
 @media (max-width:520px){.scene{padding-left:52px}.scene::before{left:14px}}
 @media (max-width:760px){
