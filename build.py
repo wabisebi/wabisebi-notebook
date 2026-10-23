@@ -10,7 +10,7 @@ def read(*p):
 
 site_js = read('site.js')
 css = read('style.css')
-ids = ['home'] + re.findall(r"\['([a-z0-9-]+)',", site_js)  # home first: it's the page index.html opens on
+ids = ['home'] + re.findall(r"\['([a-z0-9-]+)',", site_js) + ['kana']  # home first: it's the page index.html opens on; kana is the hiragana soundboard, not in INDEX
 
 fonts = ''
 parts = []

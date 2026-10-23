@@ -8,6 +8,7 @@ The project lives in `~/Projects/WABISEBI_NOTEBOOK` (moved out of Dropbox on 22 
 ## Files
 - `pages/<id>.html`: one file per grammar point. Only the article content lives here.
 - `pages/home.html`: the start page ("All grammar"), a card grid of every grammar point grouped by level. The cards are built by `site.js` from `INDEX`, so nothing to edit here when adding a point. `build.py` always puts home first, so `index.html` opens on it.
+- `pages/kana.html`: the Hiragana Chart, a soundboard (added 23 Oct 2026). Not a grammar point, so it's not in `INDEX`; it's linked from the top bar ("あ Hiragana Chart") and `build.py` adds it by name. 104 tiles (basic, ゛/゜, combos), click plays `media/kana/u<hex>.m4a` (made with the Mac's Kyoko voice via `say`, fed katakana so は reads "ha"), tile turns gold on hover and while playing, romaji toggle. No play buttons on purpose.
 - `site.js`: the `INDEX` list, the top bar (title, search), the home grid, audio buttons and footer. Shared by all pages.
 - `style.css`: all styling. Shared by all pages.
 - `media/`: screenshots and audio for sentence mining.
@@ -74,6 +75,15 @@ Each grammar point is its own file in `pages/`. To make a new one, copy an exist
 - Fonts: Newsreader (headings), IBM Plex Sans / Plex Sans JP (body), IBM Plex Mono (small labels).
 - No glows, no orange or red for grammar.
 - Top bar and home grid (Oct 2026): cards use the same `--card` surfaces as scene cards, gold border on hover. Inspired by Bunpro's grammar grid but in our palette.
+
+## Finishing things (asked by Seb, 23 Oct 2026)
+Seb tends to widen a project mid-way and then leave it half done (the soundboard, the light/dark toggle). Help Seb finish:
+- When a new idea comes up mid-task, point it out kindly and suggest parking it until the current thing is done.
+- Start with the smallest version that works; add extras later, one at a time.
+- Before wrapping up, name anything left half done and suggest finishing or parking it here.
+
+Parked (not done, pick up later):
+- Hiragana Chart sounds: the Mac's Kyoko voice sounds robotic. Next step: Seb downloads "Kyoko (Premium)" (System Settings > Accessibility > Spoken Content > System Voice > Manage Voices > Japanese), then regenerate the 104 clips. If still bad: a native speaker recording.
 
 ## Pages so far
 N5: です / だ (one page, polite and casual together), な-Adjective (merged with the old な page on 23 Oct 2026; id `na-adj`), は, が, を, ～んです・のです, ～の (questions), い-Adjective (Past), のは・のが.

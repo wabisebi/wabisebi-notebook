@@ -48,6 +48,7 @@ var UPDATED = '23 Oct 2026';
   var top = document.getElementById('top');
   top.innerHTML =
     '<a class="brand" href="' + href('home') + '"><span class="label">文法ノート</span><span class="t">Wabisebi Grammar Notebook</span></a>' +
+    '<a class="nav" href="' + href('kana') + '">あ Hiragana Chart</a>' +
     '<div class="find"><input id="find" type="search" placeholder="Search: は, topic, wa…" aria-label="Search grammar" autocomplete="off">' +
       '<ol class="results" id="results" hidden></ol></div>';
 
@@ -124,6 +125,23 @@ var UPDATED = '23 Oct 2026';
     });
     a.addEventListener('play', function(){ b.classList.add('on'); });
     a.addEventListener('pause', function(){ b.classList.remove('on'); });
+  });
+
+  // hiragana soundboard: one shared player, the tile turns gold while its sound plays
+  var kanaAudio = new Audio(), kanaOn = null;
+  document.querySelectorAll('.kana[data-src]').forEach(function(b){
+    b.addEventListener('click', function(){
+      if (kanaOn) kanaOn.classList.remove('on');
+      kanaOn = b; b.classList.add('on');
+      kanaAudio.src = b.getAttribute('data-src'); kanaAudio.play();
+    });
+  });
+  kanaAudio.addEventListener('ended', function(){ if (kanaOn) kanaOn.classList.remove('on'); });
+  var romaji = document.getElementById('romaji');
+  if (romaji) romaji.addEventListener('click', function(){
+    var off = document.getElementById('kana').classList.toggle('no-romaji');
+    romaji.textContent = 'Romaji: ' + (off ? 'off' : 'on');
+    romaji.setAttribute('aria-pressed', String(!off));
   });
 
   if (BUNDLE) {
