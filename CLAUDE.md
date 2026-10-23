@@ -8,7 +8,7 @@ The project lives in `~/Projects/WABISEBI_NOTEBOOK` (moved out of Dropbox on 22 
 ## Files
 - `pages/<id>.html`: one file per grammar point. Only the article content lives here.
 - `pages/home.html`: the start page ("All grammar"), a card grid of every grammar point grouped by level. The cards are built by `site.js` from `INDEX`, so nothing to edit here when adding a point. `build.py` always puts home first, so `index.html` opens on it.
-- `site.js`: the `INDEX` list, the top bar (title, search, light/dark toggle that doesn't work yet), the home grid, audio buttons and footer. Shared by all pages.
+- `site.js`: the `INDEX` list, the top bar (title, search), the home grid, audio buttons and footer. Shared by all pages.
 - `style.css`: all styling. Shared by all pages.
 - `media/`: screenshots and audio for sentence mining.
 - `index.html`: the whole site in one file, so Seb can open it by double-clicking in any browser. Media is NOT embedded. Made by `build.py`, never edit or read it by hand. (Opened as a plain file in the Claude panel it becomes a frozen snapshot where media can't load and a hint shows instead; that's why we use the server below.)
@@ -64,9 +64,9 @@ Each grammar point is its own file in `pages/`. To make a new one, copy an exist
 - Grouped by JLPT level (currently only N5).
 - Lives in the `INDEX` list at the top of `site.js`. Each item: `['id', 'pattern', 'short description']`, where id is the file name in `pages/`. The short description is a Bunpro-style label ("Subject marker", "Explaining, giving the reason") and shows on the grid card and under the pattern on the page.
 - The home page ("All grammar") shows one foldable box per level (N5 etc., no lessons) with a grid of cards: pattern, short description, small level tag like "N5" (Seb likes it, keep it). No SRS stuff (no "Adept" or progress), this is a reference, not a learning tool. A new level is just a new group in `INDEX`.
-- There is no sidebar and no section nav. Navigation is the sticky top bar on every page: the title (links home), a search, and a light/dark toggle. Tried separate "N5 Grammar" / "Concepts" pages with nav links on 22 Oct 2026; Seb preferred the one grid, so don't bring that back unless asked.
+- There is no sidebar and no section nav. Navigation is the sticky top bar on every page: the title (links home) and a search. (A light/dark toggle was there but never worked; removed on 23 Oct 2026 at Seb's request. The site is dark only.) Tried separate "N5 Grammar" / "Concepts" pages with nav links on 22 Oct 2026; Seb preferred the one grid, so don't bring that back unless asked.
 - Search matches the id, pattern and description (so `は`, `topic` and `wa` all work). On home it filters the cards; on other pages it shows a dropdown of matches. Enter opens the first match, Esc clears.
-- Add a new page there, in the right level group, when you create it. The footer count updates itself; bump `UPDATED` to today's date.
+- Add a new page there, in the right level group, when you create it. Within a level, the list is in a rough learning order (decided 23 Oct 2026): basics like です, は, か first, then particles, sentence-end particles, adjectives, and the の-based explaining patterns last. Put each new point where you think it fits best in that order; Seb doesn't need to be asked. The footer count updates itself; bump `UPDATED` to today's date.
 - Cross-links between pages use `<a class="xref" href="id.html">`.
 
 ## Design (settled, don't change unless asked)
@@ -75,10 +75,6 @@ Each grammar point is its own file in `pages/`. To make a new one, copy an exist
 - No glows, no orange or red for grammar.
 - Top bar and home grid (Oct 2026): cards use the same `--card` surfaces as scene cards, gold border on hover. Inspired by Bunpro's grammar grid but in our palette.
 
-## Open items
-- Light mode: the toggle button in the top bar exists but does nothing yet. Needs a light palette (redefine the `:root` tokens) and the toggle wired up in `site.js`.
-
 ## Pages so far
-N5: です / だ (one page, polite and casual together), な (draft, to be rewritten after we talk it through), は, が, を, ～んです・のです, ～の (questions), い-Adjective (Past), のは・のが.
-Notes (not grammar, own "Notes" group in `INDEX`, left out of the footer grammar count, plain `.prose` sections): kana ("How I learned the kana", moved over from the wabisebi.com blog on 22 Oct 2026).
+N5: です / だ (one page, polite and casual together), な-Adjective (merged with the old な page on 23 Oct 2026; id `na-adj`), は, が, を, ～んです・のです, ～の (questions), い-Adjective (Past), のは・のが.
 Other: home (the grid). (The "How I learn" page was removed on 22 Oct 2026; what's in "About Seb as a learner" above replaces it. A Nominalization concept page existed briefly and was removed on Seb's request.)

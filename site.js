@@ -4,24 +4,31 @@
 var INDEX = [
   {level: 'N5', pages: [
     ['desu', 'です / だ', 'To be, is'],
-    ['na', 'な', 'Connects a な-adjective to a noun'],
     ['wa', 'は', 'Topic marker: "as for..."'],
-    ['ga', 'が', 'Subject marker'],
-    ['wo', 'を', 'Object marker'],
-    ['mo', 'も', 'Also, too'],
     ['ka', 'か', 'Question marker'],
     ['kore-sore-are', 'これ・それ・あれ', 'This, that, that over there'],
-    ['ndesu', '～んです・のです', 'Explaining, giving the reason'],
-    ['no', '～の', 'Asking for the story behind something'],
+    ['koko-soko-asoko', 'ここ・そこ・あそこ', 'Here, there, over there'],
+    ['mo', 'も', 'Also, too'],
+    ['to', 'と', 'And: joining nouns'],
+    ['ga', 'が', 'Subject marker'],
+    ['wo', 'を', 'Object marker'],
+    ['no-pos', 'の (Possession)', 'Possession: my, \'s'],
+    ['yo', 'よ', 'Telling someone something new'],
+    ['ne', 'ね', 'Sharing a feeling: "right?", "huh"'],
+    ['i-adj', 'い-Adjective', 'Describing words that end in い'],
+    ['ii', 'いい (良い)', 'い-Adjective meaning "good"'],
+    ['na-adj', 'な-Adjective', 'Describing words: な before a noun'],
     ['i-adj-past', 'い-Adjective (Past)', 'Was: the past of い-adjectives'],
+    ['masu', 'ます', 'Polite verb endings'],
+    ['u-verb', 'う-Verb (Dictionary)', 'Godan verbs: plain and polite'],
+    ['ru-verb-neg', 'る-Verb (Negative)', 'Not doing: ない and ません'],
+    ['u-verb-neg', 'う-Verb (Negative)', 'Not doing: u sound → a + ない'],
+    ['no', '～の', 'Asking for the story behind something'],
+    ['ndesu', '～んです・のです', 'Explaining, giving the reason'],
     ['noha-noga', 'のは・のが', 'Turning an action into a noun']
-  ]},
-  // not grammar: reading pages, kept out of the grammar count in the footer
-  {level: 'Notes', pages: [
-    ['kana', 'ひらがな・カタカナ', 'How I learned the kana']
   ]}
 ];
-var UPDATED = '22 Oct 2026';
+var UPDATED = '23 Oct 2026';
 
 (function(){
   // index.html (made by build.py) has every page in one file, so links switch pages instead of loading files
@@ -35,17 +42,14 @@ var UPDATED = '22 Oct 2026';
       points.push({id: p[0], pat: p[1], d: p[2], level: g.level, k: (p[0] + ' ' + p[1] + ' ' + p[2]).toLowerCase()});
     });
   });
-  var count = points.filter(function(p){ return p.level !== 'Notes'; }).length;
+  var count = points.length;
 
 
   var top = document.getElementById('top');
   top.innerHTML =
     '<a class="brand" href="' + href('home') + '"><span class="label">文法ノート</span><span class="t">Wabisebi Grammar Notebook</span></a>' +
     '<div class="find"><input id="find" type="search" placeholder="Search: は, topic, wa…" aria-label="Search grammar" autocomplete="off">' +
-      '<ol class="results" id="results" hidden></ol></div>' +
-    // light/dark toggle: only the button for now, it doesn't switch anything yet
-    '<button class="theme" id="theme" type="button" aria-label="Light or dark mode">' +
-      '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg></button>';
+      '<ol class="results" id="results" hidden></ol></div>';
 
   // home page: every grammar point as a card, grouped by level
   var grid = document.getElementById('grid');
@@ -55,7 +59,7 @@ var UPDATED = '22 Oct 2026';
         return '<li><a class="gcard" href="' + href(p[0]) + '" data-k="' + (p[0] + ' ' + p[1] + ' ' + p[2]).toLowerCase() + '">' +
           '<span class="p">' + p[1] + '</span><span class="d">' + p[2] + '</span><span class="lv">' + g.level + '</span></a></li>';
       }).join('');
-      return '<details class="level" open><summary><span class="t">' + g.level + '</span><span class="label">' + g.pages.length + (g.pages.length === 1 ? ' point' : ' points') + '</span></summary>' +
+      return '<details class="level" open><summary><span class="t">' + g.level + '</span><span class="label">' + g.pages.length + (g.pages.length === 1 ? ' grammar point' : ' grammar points') + '</span></summary>' +
         '<ol class="cards">' + cards + '</ol></details>';
     }).join('') + '<p class="empty" id="gnone" hidden>No match.</p>';
   }
@@ -105,7 +109,7 @@ var UPDATED = '22 Oct 2026';
 
   // inside the Claude panel media/ can't load: swap the broken image for a short hint
   if (location.protocol === 'data:') {
-    document.querySelectorAll('.mine img, .lead img, .prose img').forEach(function(img){
+    document.querySelectorAll('.mine img, .lead img').forEach(function(img){
       var p = document.createElement('p');
       p.className = 'src';
       p.textContent = 'Image and audio show when you open index.html in Safari or Chrome.';
