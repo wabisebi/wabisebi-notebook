@@ -6,6 +6,7 @@ var INDEX = [
   {level: 'N5', cats: [
     {cat: 'First steps', pages: [
       ['desu', 'です / だ', 'To be, is'],
+      ['janai', 'じゃない・ではありません', 'Is not'],
       ['wa', 'は', 'Topic marker: "as for..."'],
       ['ka', 'か', 'Question marker'],
       ['kore-sore-are', 'これ・それ・あれ', 'This, that, that over there'],

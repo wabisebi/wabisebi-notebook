@@ -17,6 +17,7 @@ The project lives in `~/Projects/WABISEBI_NOTEBOOK` (moved out of Dropbox on 22 
 - `media/`: screenshots and audio for sentence mining.
 - `index.html`: the whole site in one file, so Seb can open it by double-clicking in any browser. Media is NOT embedded. Made by `build.py`, never edit or read it by hand. (Opened as a plain file in the Claude panel it becomes a frozen snapshot where media can't load and a hint shows instead; that's why we use the server below.)
 - `.claude/launch.json`: the preview server config (`notebook`).
+- `N5_CHECKLIST.md`: every planned N5 point (our own list, made 23 Oct 2026), in the site's categories and learning order. Tick a point (`[x]`) when its page is added. Pick the next page from here.
 
 After any change to pages, `site.js`, `style.css` or `media/`, run `python3 build.py` so index.html stays up to date.
 
@@ -51,8 +52,7 @@ Each grammar point is its own file in `pages/`. To make a new one, copy an exist
 - `.head`: small label (for example "N5 Grammar"), the pattern, and an empty `<p class="sub"></p>`. `site.js` fills it with the short description from `INDEX` ("Object marker", "To be, is (polite)"), the same text as the grid card. Never type the description into the page; change it in `INDEX` only, so both always match. No gist line, the lead card does that job.
 - Lead card (every grammar page has one since 22 Oct 2026): a `.lead` box right under `.head`. Screenshot, `.src`, a `.line` with `.play` + a short `.jp` sentence, `.en` with implied context in `<span class="ctx">[brackets]</span>`, then `.explain`.
   - Only Seb's OWN mined cards (same Migaku cards and media as sentence mining). Never use cards or media from the Jlab deck; it was only the inspiration.
-  - The sentence must END on the grammar point: nothing tacked on after it (no よ, ね, けど, a second sentence, etc.). 自信ないんだ, not 自信ないんだよ. For points that sit mid-sentence (は, が, を, な, のは), the sentence just shouldn't end in extra particles. The extras belong on their own pages.
-  - Pick the shortest own card that shows the point (search the Sentence field). Later grammar can use longer sentences. Don't repeat the same card in Sentence mining below.
+  - Just pick the BEST cards (changed 23 Oct 2026): clear, natural, short. It doesn't matter where in the sentence the grammar is, or if other grammar comes after it (よ, けど, んで, の, etc. are all fine). Search the Sentence field. Later grammar can use longer sentences. Don't repeat the same card in Sentence mining below.
   - `.explain` must clearly DESCRIBE the grammar, not hint at a feeling: what it does, what it attaches to, what question this sentence answers, then the polite/casual (or other) variant. 3 short sentences, plain words, our own wording.
   - Polite and casual forms of the same grammar live on ONE page (decided 22 Oct 2026, no exceptions; です and だ were split for a while and merged back). Not an exception but worth knowing: でしょう and だろう are two pages (23 Oct 2026), because in speech the real split is neutral でしょ vs masculine だろ, not polite vs casual. でしょう and でしょ share the でしょう page. If a point has another form, add a second card right under the first: `.lead.second`, its own real clip, a `.use` label ("Polite"/"Casual"), and only 1 or 2 sentences of `.explain`. The first card then gets a `.use` label too. Now on です / だ, ～の, ～んです, い-adj past.
   - New pages always get one. If no own card fits, ask Seb instead of using someone else's.
@@ -90,5 +90,5 @@ Parked (not done, pick up later):
 - Hiragana Chart sounds: the Mac's Kyoko voice sounds robotic. Next step: Seb downloads "Kyoko (Premium)" (System Settings > Accessibility > Spoken Content > System Voice > Manage Voices > Japanese), then regenerate the 104 clips. If still bad: a native speaker recording.
 
 ## Pages so far
-N5: です / だ (one page, polite and casual together), な-Adjective (merged with the old な page on 23 Oct 2026; id `na-adj`), は, が, を, ～んです・のです, ～の (questions), い-Adjective (Past), のは・のが, でしょう, だろう, がある.
+N5: です / だ (one page, polite and casual together), じゃない・ではありません, な-Adjective (merged with the old な page on 23 Oct 2026; id `na-adj`), は, が, を, ～んです・のです, ～の (questions), い-Adjective (Past), のは・のが, でしょう, だろう, がある.
 Other: home (the grid). (The "How I learn" page was removed on 22 Oct 2026; what's in "About Seb as a learner" above replaces it. A Nominalization concept page existed briefly and was removed on Seb's request.)
