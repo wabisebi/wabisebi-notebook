@@ -87,6 +87,7 @@ var UPDATED = '23 Oct 2026';
   top.innerHTML =
     '<a class="brand" href="' + href('home') + '"><span class="label">文法ノート</span><span class="t">Wabisebi Grammar Notebook</span></a>' +
     '<a class="nav" href="' + href('kana') + '">あ Hiragana Chart</a>' +
+    '<a class="nav" href="' + href('katakana') + '">ア Katakana Chart</a>' +
     '<div class="find"><input id="find" type="search" placeholder="Search: は, topic, wa…" aria-label="Search grammar" autocomplete="off">' +
       '<ol class="results" id="results" hidden></ol></div>';
 
@@ -181,11 +182,13 @@ var UPDATED = '23 Oct 2026';
     });
   });
   kanaAudio.addEventListener('ended', function(){ if (kanaOn) kanaOn.classList.remove('on'); });
-  var romaji = document.getElementById('romaji');
-  if (romaji) romaji.addEventListener('click', function(){
-    var off = document.getElementById('kana').classList.toggle('no-romaji');
-    romaji.textContent = 'Romaji: ' + (off ? 'off' : 'on');
-    romaji.setAttribute('aria-pressed', String(!off));
+  // one toggle per chart (hiragana and katakana), each hides only its own romaji
+  document.querySelectorAll('.romaji-toggle').forEach(function(romaji){
+    romaji.addEventListener('click', function(){
+      var off = romaji.closest('.kana-board').classList.toggle('no-romaji');
+      romaji.textContent = 'Romaji: ' + (off ? 'off' : 'on');
+      romaji.setAttribute('aria-pressed', String(!off));
+    });
   });
 
   if (BUNDLE) {

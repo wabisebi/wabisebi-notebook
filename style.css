@@ -229,6 +229,6 @@ main:has(.home:not([hidden])) .foot{max-width:1080px}
 .romaji-toggle{font-family:var(--mono);font-size:12px;letter-spacing:.06em;padding:6px 14px;border-radius:999px;cursor:pointer;
   background:var(--plain);border:1px solid var(--plain-line);color:var(--ink)}
 .romaji-toggle:hover{border-color:var(--gold);color:var(--gold)}
-.top .nav{font-family:var(--mono);font-size:13px;color:var(--ink);text-decoration:none;padding:6px 2px}
+.top .nav{white-space:nowrap;font-family:var(--mono);font-size:13px;color:var(--ink);text-decoration:none;padding:6px 2px}
 .top .nav:hover{color:var(--gold)}
 @media (max-width:520px){.kgrid{padding:10px;gap:6px}.kana{padding:8px 2px 6px}}
