@@ -2,6 +2,9 @@
 
 A personal Japanese grammar site for Seb. One page per grammar point, added after we talk the point through until it clicks. Plain HTML, no framework. Inside Claude it's previewed through a tiny local server (see Preview below); outside Claude Seb can still just open `index.html` in Safari or Chrome.
 
+## Goal
+Understand every N5 grammar point and have each one here as a page (set 23 Oct 2026). Seb does Bunpro lessons alongside, but these pages are where it actually clicks. New grammar pages come first; side features (soundboard, themes, tooling) wait unless they directly help.
+
 ## Location
 The project lives in `~/Projects/WABISEBI_NOTEBOOK` (moved out of Dropbox on 22 Oct 2026, because macOS protects Dropbox and Documents and blocked the preview server from reading files there; `~/Projects` needs no permissions). It syncs between Seb's MacBook and Mac mini with git + GitHub (private repo `wabisebi/wabisebi-notebook`, set up 23 Oct 2026 on the MacBook with the `gh` login; the Mac mini isn't set up yet). Routine: pull when Seb sits down, commit and push when done. Seb is new to git: explain in plain words, one step at a time.
 
