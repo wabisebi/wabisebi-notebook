@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GitHub setup</title>
+<style>
+  :root{--bg:#141a2a;--card:#1c2336;--text:#ece6da;--muted:#9aa3b5;--gold:#d8b46a;--blue:#9cc0ea}
+  body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 -apple-system,BlinkMacSystemFont,"Helvetica Neue",sans-serif}
+  main{max-width:640px;margin:0 auto;padding:40px 16px 60px}
+  h1{font:600 34px/1.2 Georgia,serif;margin:0 0 6px}
+  .sub{color:var(--muted);margin:0 0 28px}
+  section{background:var(--card);border-radius:10px;padding:18px 20px;margin:0 0 16px}
+  h2{font:600 20px/1.3 Georgia,serif;margin:0 0 10px;color:var(--gold)}
+  p{margin:0 0 10px}
+  p:last-child{margin-bottom:0}
+  b{color:var(--blue)}
+  code{font-family:Menlo,monospace;font-size:14px}
+</style>
+<main>
+  <h1>GitHub setup</h1>
+  <p class="sub">How my notebook syncs between the MacBook and the Mac mini. Set up 23 Oct 2026.</p>
+
+  <section>
+    <h2>The three words</h2>
+    <p><b>Commit</b> = make a save. Like a save point in a game. It happens on the computer I'm using.</p>
+    <p><b>Push</b> = send my saves to GitHub.</p>
+    <p><b>Pull</b> = get the newest saves from GitHub onto the computer I'm using.</p>
+    <p>GitHub is a website that keeps a copy of my saves online. My spot there is private, so only I can see it: github.com/wabisebi/wabisebi-notebook</p>
+  </section>
+
+  <section>
+    <h2>Every time I work</h2>
+    <p><b>1. Sit down:</b> tell Claude "pull".</p>
+    <p><b>2. Work</b> on the notebook.</p>
+    <p><b>3. Done:</b> tell Claude "commit and push".</p>
+    <p>Same on both computers. If I forget to push, the other computer won't have my work. If that happens, Claude can fix it.</p>
+  </section>
+
+  <section>
+    <h2>What we set up on the MacBook</h2>
+    <p><b>1. The folder can save versions.</b> The saves live in a hidden folder called <code>.git</code> inside the notebook folder. To see it in Finder: Cmd + Shift + . (period). Never delete it, the saves would be gone.</p>
+    <p><b>2. My spot on GitHub.</b> I made it myself on github.com: private, empty, no README.</p>
+    <p><b>3. Permission.</b> My MacBook logged in to GitHub once with a one-time code, so GitHub knows the saves really come from me. GitHub showed a page saying "Authorize GitHub CLI": that's the small official GitHub tool Claude installed on my Mac.</p>
+    <p><b>4. First push.</b> My notebook went to GitHub. On the GitHub page I can click "commits" to see every save with its note and date.</p>
+  </section>
+
+  <section>
+    <h2>Still to do: the Mac mini</h2>
+    <p>Start a chat in Claude there and say "set up GitHub on this computer, slowly". It's the same idea, once: get the notebook from GitHub, and give the Mac mini permission (one-time code again).</p>
+    <p>For sentence mining there too, open Anki on the Mac mini and sync it first.</p>
+  </section>
+</main>
