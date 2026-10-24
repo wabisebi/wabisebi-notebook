@@ -172,6 +172,32 @@ var UPDATED = '23 Oct 2026';
     a.addEventListener('pause', function(){ b.classList.remove('on'); });
   });
 
+
+  // stroke order (hiragana chart): KanjiVG strokes are drawn one by one over the same strokes shown faintly
+  function showStrokes(strokeBox, ch){
+    var chars = ch.split(''), n = 0, ghost = '', live = '', i, j, d;
+    for (i = 0; i < chars.length; i++) {
+      d = (typeof STROKES !== 'undefined' && STROKES[chars[i]]) || [];
+      ghost += '<g transform="translate(' + i * 109 + ' 0)">'; live += '<g transform="translate(' + i * 109 + ' 0)">';
+      for (j = 0; j < d.length; j++, n++) {
+        ghost += '<path d="' + d[j] + '"/>';
+        live += '<path d="' + d[j] + '" pathLength="1" style="animation-delay:' + (n * .9) + 's"/>';
+      }
+      ghost += '</g>'; live += '</g>';
+    }
+    strokeBox.querySelector('.sv').innerHTML = n
+      ? '<svg viewBox="0 0 ' + chars.length * 109 + ' 109" role="img" aria-label="Stroke order of ' + ch + '"><g class="ghost">' + ghost + '</g><g class="live">' + live + '</g></svg>'
+      : '<div class="plain">' + ch + '</div>';
+    strokeBox.querySelector('.note').textContent = n ? n + ' strokes' : 'Stroke order coming soon';
+    strokeBox.querySelector('.replay').style.visibility = n ? 'visible' : 'hidden';
+    strokeBox.dataset.ch = ch;
+  }
+  document.querySelectorAll('.stroke-panel').forEach(function(strokeBox){
+    strokeBox.innerHTML = '<div class="sv"></div><div class="side"><span class="note"></span><button class="replay" type="button">Replay</button><a class="credit" href="https://kanjivg.tagaini.net" target="_blank" rel="noopener">Stroke data: KanjiVG, CC BY-SA 3.0</a></div>';
+    strokeBox.querySelector('.replay').addEventListener('click', function(){ showStrokes(strokeBox, strokeBox.dataset.ch); });
+    showStrokes(strokeBox, strokeBox.dataset.first);
+  });
+
   // hiragana soundboard: one shared player, the tile turns gold while its sound plays
   var kanaAudio = new Audio(), kanaOn = null;
   document.querySelectorAll('.kana[data-src]').forEach(function(b){
@@ -179,6 +205,8 @@ var UPDATED = '23 Oct 2026';
       if (kanaOn) kanaOn.classList.remove('on');
       kanaOn = b; b.classList.add('on');
       kanaAudio.src = b.getAttribute('data-src'); kanaAudio.play();
+      var sp = b.closest('.kana-board').querySelector('.stroke-panel');
+      if (sp) showStrokes(sp, b.querySelector('.k').textContent);
     });
   });
   kanaAudio.addEventListener('ended', function(){ if (kanaOn) kanaOn.classList.remove('on'); });

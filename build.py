@@ -8,7 +8,7 @@ root = os.path.dirname(os.path.abspath(__file__))
 def read(*p):
     return open(os.path.join(root, *p), encoding='utf-8').read()
 
-site_js = read('site.js')
+site_js = read('strokes.js') + read('site.js')
 css = read('style.css')
 ids = ['home'] + re.findall(r"\['([a-z0-9-]+)',", site_js) + ['kana', 'katakana']  # home first: it's the page index.html opens on; kana and katakana are the soundboards, not in INDEX
 
