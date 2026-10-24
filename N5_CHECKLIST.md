@@ -20,8 +20,7 @@ Categories marked *(new)* aren't on the site yet. They get added to `INDEX` when
 - [ ] こちら・そちら・あちら: this way, that way (also polite "here")
 - [x] がある: there is (things)
 - [x] がいる: there is (people, animals)
-- [ ] ～たち: plural for people (私たち)
-- [ ] お～・ご～: polite prefix (お茶, ご飯)
+- [x] ～たち: plural for people (私たち)
 
 ## Question words
 - [x] 何 (なに・なん): what
