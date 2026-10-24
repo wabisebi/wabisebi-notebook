@@ -281,3 +281,5 @@ main:has(.home:not([hidden])) .foot{max-width:1080px}
 main:has(#kana:not([hidden])) .foot,main:has(#katakana:not([hidden])) .foot,main:has(#kana-game:not([hidden])) .foot{display:none}
 .game .game-fonts{display:grid;grid-template-columns:repeat(10,1fr);width:100%;max-width:520px}
 .game .ftile{width:100%;height:auto;aspect-ratio:1;font-size:clamp(16px,4vw,22px);padding:0}
+.game #game-fonts-all{margin-top:-14px;font-size:12px;padding:5px 14px}
+.top .nav .pad{vertical-align:-3px;margin-right:2px}

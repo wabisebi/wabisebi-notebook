@@ -88,7 +88,7 @@ var UPDATED = '23 Oct 2026';
     '<a class="brand" href="' + href('home') + '"><span class="label">文法ノート</span><span class="t">Wabisebi Grammar Notebook</span></a>' +
     '<a class="nav" href="' + href('kana') + '">あ Hiragana Chart</a>' +
     '<a class="nav" href="' + href('katakana') + '">ア Katakana Chart</a>' +
-    '<a class="nav" href="' + href('kana-game') + '">Kana Game</a>' +
+    '<a class="nav" href="' + href('kana-game') + '"><svg class="pad" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10a5 5 0 0 1 4.9 4l1 5a2.6 2.6 0 0 1-4.4 2.3L16.4 16H7.6l-3.1 2.3A2.6 2.6 0 0 1 .1 16l1-5A5 5 0 0 1 7 7z"/><path d="M7.5 10v3M6 11.5h3"/><circle cx="15.5" cy="10.6" r=".6"/><circle cx="17.7" cy="12.6" r=".6"/></svg> Kana Game</a>' +
     '<div class="find"><input id="find" type="search" placeholder="Search: は, topic, wa…" aria-label="Search grammar" autocomplete="off">' +
       '<ol class="results" id="results" hidden></ol></div>';
 
@@ -295,11 +295,23 @@ var UPDATED = '23 Oct 2026';
       b.addEventListener('click', function(){
         if (fontOn[i]) delete fontOn[i]; else fontOn[i] = true;
         if (!Object.keys(fontOn).length) fontOn[i] = true;   // keep at least one font on
-        [].forEach.call(fontBox.children, function(t, j){ t.setAttribute('aria-pressed', String(!!fontOn[j])); });
-        save();
+        syncFonts(); save();
       });
       fontBox.appendChild(b);
     });
+    // one button for the fonts: "Use all fonts" when some are off, "Reset to default" when all are on (the first font stays, one must remain)
+    var allBtn = document.getElementById('game-fonts-all');
+    function syncFonts(){
+      [].forEach.call(fontBox.children, function(t, j){ t.setAttribute('aria-pressed', String(!!fontOn[j])); });
+      allBtn.textContent = Object.keys(fontOn).length === FONTS.length ? 'Reset to default' : 'Use all fonts';
+    }
+    allBtn.addEventListener('click', function(){
+      var all = Object.keys(fontOn).length === FONTS.length;
+      fontOn = {};
+      if (all) fontOn[0] = true; else FONTS.forEach(function(f, i){ fontOn[i] = true; });
+      syncFonts(); save();
+    });
+    syncFonts();
     function pickFont(){
       var ids = Object.keys(fontOn), f = FONTS[ids[Math.floor(Math.random() * ids.length)]];
       gameCard.style.fontFamily = f.f; gameCard.style.fontWeight = f.w;
