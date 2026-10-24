@@ -159,8 +159,9 @@ h2::before{background:var(--gold);width:3px}
 .gcard:hover{border-color:var(--gold);background:#1b2540}
 .gcard:focus-visible{outline:2px solid var(--indigo);outline-offset:2px}
 .gcard .p{font-size:20px;font-weight:700;line-height:1.35}
-.gcard .d{color:var(--muted);font-size:14px}
-.gcard .lv{margin-top:10px;align-self:flex-start;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;color:var(--gram);border:1px solid var(--card-line);border-radius:999px;padding:0 8px}
+.gcard .d{color:var(--muted);font-size:14px;margin-bottom:10px}
+.gcard .lv{margin-top:auto;align-self:flex-start;font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.08em;color:var(--lv,var(--gram));background:color-mix(in srgb,var(--lv,var(--gram)) 18%,transparent);border:1px solid color-mix(in srgb,var(--lv,var(--gram)) 45%,transparent);border-radius:999px;padding:0 8px}
+.gcard .lv.n5{--lv:#2fe3a0}
 @media (max-width:520px){.cards{grid-template-columns:1fr 1fr;padding:12px;gap:8px}.cat h3{padding:14px 12px 0}.cat .cards{padding-top:8px}.gcard{padding:12px}.gcard .p{font-size:18px}}
 main:has(.home:not([hidden])) .foot{max-width:1080px}
 
@@ -7039,7 +7040,7 @@ var UPDATED = '24 Oct 2026';
     grid.innerHTML = INDEX.map(function(g){
       var cards = function(pages){ return pages.map(function(p){
         return '<li><a class="gcard" href="' + href(p[0]) + '" data-k="' + (p[0] + ' ' + p[1] + ' ' + p[2]).toLowerCase() + '">' +
-          '<span class="p">' + p[1] + '</span><span class="d">' + p[2] + '</span><span class="lv">' + g.level + '</span></a></li>';
+          '<span class="p">' + p[1] + '</span><span class="d">' + p[2] + '</span><span class="lv ' + g.level.toLowerCase() + '">' + g.level + '</span></a></li>';
       }).join(''); };
       var cats = g.cats.filter(function(c){ return c.pages.length; }).map(function(c){
         return '<section class="cat"><h3 class="label">' + c.cat + '</h3><ol class="cards">' + cards(c.pages) + '</ol></section>';
