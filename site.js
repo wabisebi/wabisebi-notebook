@@ -88,6 +88,7 @@ var UPDATED = '23 Oct 2026';
     '<a class="brand" href="' + href('home') + '"><span class="label">文法ノート</span><span class="t">Wabisebi Grammar Notebook</span></a>' +
     '<a class="nav" href="' + href('kana') + '">あ Hiragana Chart</a>' +
     '<a class="nav" href="' + href('katakana') + '">ア Katakana Chart</a>' +
+    '<a class="nav" href="' + href('kana-game') + '">Kana Game</a>' +
     '<div class="find"><input id="find" type="search" placeholder="Search: は, topic, wa…" aria-label="Search grammar" autocomplete="off">' +
       '<ol class="results" id="results" hidden></ol></div>';
 
@@ -205,12 +206,7 @@ var UPDATED = '23 Oct 2026';
       if (kanaOn) kanaOn.classList.remove('on');
       kanaOn = b; b.classList.add('on');
       var sp = b.closest('.kana-board').querySelector('.stroke-panel');
-      if (sp) {
-        showStrokes(sp, b.querySelector('.k').textContent);
-        // bring the animation into view if you tapped a tile far down the page
-        var r = sp.getBoundingClientRect(), top = document.querySelector('.top'), min = top ? top.getBoundingClientRect().bottom : 0;
-        if (r.top < min || r.bottom > window.innerHeight) sp.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
+      if (sp) showStrokes(sp, b.querySelector('.k').textContent);
     });
   });
   // one toggle per chart (hiragana and katakana), each hides only its own romaji
@@ -221,6 +217,95 @@ var UPDATED = '23 Oct 2026';
       romaji.setAttribute('aria-pressed', String(!off));
     });
   });
+
+  // kana game: type the romaji of the kana shown. Tile data is here (not read from the chart pages) so it works in index.html too.
+  var gameCard = document.getElementById('game-kana');
+  if (gameCard) (function(){
+    function pairs(kana, rom){ return kana.split(' ').map(function(k, i){ return [k, rom[i]]; }); }
+    var HB = pairs('あ い う え お か き く け こ さ し す せ そ た ち つ て と な に ぬ ね の は ひ ふ へ ほ ま み む め も や ゆ よ ら り る れ ろ わ を ん',
+      'a i u e o ka ki ku ke ko sa shi su se so ta chi tsu te to na ni nu ne no ha hi fu he ho ma mi mu me mo ya yu yo ra ri ru re ro wa wo n'.split(' '));
+    var HD = pairs('が ぎ ぐ げ ご ざ じ ず ぜ ぞ だ ぢ づ で ど ば び ぶ べ ぼ ぱ ぴ ぷ ぺ ぽ',
+      'ga gi gu ge go za ji zu ze zo da ji zu de do ba bi bu be bo pa pi pu pe po'.split(' '));
+    var HC = pairs('きゃ きゅ きょ しゃ しゅ しょ ちゃ ちゅ ちょ にゃ にゅ にょ ひゃ ひゅ ひょ みゃ みゅ みょ りゃ りゅ りょ ぎゃ ぎゅ ぎょ じゃ じゅ じょ びゃ びゅ びょ ぴゃ ぴゅ ぴょ',
+      'kya kyu kyo sha shu sho cha chu cho nya nyu nyo hya hyu hyo mya myu myo rya ryu ryo gya gyu gyo ja ju jo bya byu byo pya pyu pyo'.split(' '));
+    // other spellings that are fine too
+    var ALT = {si:'shi', ti:'chi', tu:'tsu', hu:'fu', zi:'ji', di:'ji', du:'zu', nn:'n', sya:'sha', syu:'shu', syo:'sho', tya:'cha', tyu:'chu', tyo:'cho',
+      jya:'ja', jyu:'ju', jyo:'jo', zya:'ja', zyu:'ju', zyo:'jo'};
+    function answers(r){
+      var a = [r];
+      Object.keys(ALT).forEach(function(k){ if (ALT[k] === r || (k === 'di' && r === 'ji') || (k === 'du' && r === 'zu')) a.push(k); });
+      return a;
+    }
+    function kata(s){ return s.replace(/[ぁ-ゖ]/g, function(c){ return String.fromCharCode(c.charCodeAt(0) + 0x60); }); }
+    function toKata(list){ return list.map(function(p){ return [kata(p[0]), p[1]]; }); }
+    var SETS = { hira: HB, kata: toKata(HB), dakuten: [], combo: [] };
+    var on = { hira: true, kata: false, dakuten: false, combo: false };
+
+    var card = gameCard.closest('.game-card'), input = document.getElementById('game-input');
+    var msg = document.getElementById('game-msg'), scoreEl = document.getElementById('game-score');
+    var cur = null, last = null, waiting = false, right = 0, total = 0, streak = 0, again = [];
+
+    function pool(){
+      var out = [];
+      'hira kata'.split(' ').forEach(function(s){
+        if (on[s]) out = out.concat(SETS[s]);
+        if (on[s] && on.dakuten) out = out.concat(s === 'hira' ? HD : toKata(HD));
+        if (on[s] && on.combo) out = out.concat(s === 'hira' ? HC : toKata(HC));
+      });
+      return out;
+    }
+    function next(){
+      var p = pool();
+      if (!p.length) { on.hira = true; syncChips(); p = pool(); }
+      var pick;
+      // a missed kana comes back after a few others
+      if (again.length && Math.random() < 0.3) pick = again.shift();
+      else do { pick = p[Math.floor(Math.random() * p.length)]; } while (p.length > 1 && last && pick[0] === last[0]);
+      cur = pick; last = pick; waiting = false;
+      gameCard.textContent = pick[0];
+      input.value = ''; input.disabled = false; input.focus();
+      card.classList.remove('ok', 'bad');
+      msg.textContent = 'Type the romaji. Enter skips.';
+    }
+    function score(){
+      scoreEl.textContent = total ? right + ' / ' + total + '  ·  streak ' + streak : '';
+    }
+    function judge(ok){
+      total++; waiting = true;
+      if (ok) { right++; streak++; card.classList.add('ok'); msg.textContent = cur[1]; }
+      else {
+        streak = 0; card.classList.add('bad'); msg.textContent = 'It is ' + cur[1] + '. Enter for the next one.';
+        if (!again.some(function(x){ return x[0] === cur[0]; })) again.push(cur);
+      }
+      score();
+      if (ok) next();
+    }
+    input.addEventListener('input', function(){
+      if (waiting) return;
+      var v = input.value.trim().toLowerCase();
+      if (answers(cur[1]).indexOf(v) >= 0) judge(true);
+    });
+    input.addEventListener('keydown', function(e){
+      if (e.key !== 'Enter') return;
+      e.preventDefault();
+      if (waiting) { next(); return; }
+      var v = input.value.trim().toLowerCase();
+      judge(answers(cur[1]).indexOf(v) >= 0);
+    });
+    document.querySelectorAll('.game-sets .chip').forEach(function(chip){
+      chip.addEventListener('click', function(){
+        var s = chip.dataset.set;
+        on[s] = !on[s];
+        // keep at least one script on
+        if (!on.hira && !on.kata) on[s === 'hira' ? 'kata' : 'hira'] = true;
+        syncChips(); again = []; next();
+      });
+    });
+    function syncChips(){
+      document.querySelectorAll('.game-sets .chip').forEach(function(c){ c.setAttribute('aria-pressed', String(on[c.dataset.set])); });
+    }
+    next();
+  })();
 
   if (BUNDLE) {
     var pages = [].slice.call(document.querySelectorAll('[data-page]'));

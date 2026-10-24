@@ -249,4 +249,21 @@ main:has(.home:not([hidden])) .foot{max-width:1080px}
 @media (max-width:520px){.stroke-panel{margin:0 10px 8px;gap:12px}.stroke-panel svg{height:120px}}
 .stroke-panel .credit{font-family:var(--mono);font-size:11px;color:var(--muted);text-decoration:none}
 .stroke-panel .credit:hover{color:var(--gold)}
-.stroke-panel{scroll-margin-top:84px}
+/* kana game */
+.game-sets{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0}
+.chip{font-family:var(--mono);font-size:13px;letter-spacing:.04em;padding:8px 16px;border-radius:999px;cursor:pointer;
+  background:var(--plain);border:1px solid var(--plain-line);color:var(--muted);transition:border-color .15s,color .15s,background .15s}
+.chip:hover{border-color:var(--gold);color:var(--gold)}
+.chip[aria-pressed="true"]{border-color:var(--gold);color:var(--gold);background:color-mix(in srgb,var(--gold) 14%,var(--card))}
+.chip:focus-visible{outline:2px solid var(--indigo);outline-offset:2px}
+.game-card{max-width:400px;display:flex;flex-direction:column;align-items:center;gap:10px;padding:22px 20px 16px;
+  background:var(--card);border:1px solid var(--card-line);border-radius:10px}
+.game-kana{font-size:clamp(80px,21vw,110px);line-height:1.15;font-weight:500;transition:color .15s}
+.game-card.ok .game-kana{color:var(--indigo)}
+.game-card.bad .game-kana{color:var(--gold)}
+.game-input{width:150px;font:inherit;font-family:var(--mono);font-size:16px;text-align:center;padding:7px 10px;border-radius:8px;
+  background:var(--paper);border:1px solid var(--card-line);color:var(--ink)}
+.game-input:focus{outline:none;border-color:var(--gold)}
+.game-msg{min-height:1.4em;margin:0;font-size:13px;color:var(--muted)}
+.game-card.bad .game-msg{color:var(--gold)}
+.game-score{margin:0;font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--muted)}
