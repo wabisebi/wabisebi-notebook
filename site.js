@@ -198,18 +198,16 @@ var UPDATED = '23 Oct 2026';
     showStrokes(strokeBox, strokeBox.dataset.first);
   });
 
-  // hiragana soundboard: one shared player, the tile turns gold while its sound plays
-  var kanaAudio = new Audio(), kanaOn = null;
-  document.querySelectorAll('.kana[data-src]').forEach(function(b){
+  // kana charts: the tile you tap turns gold and its stroke order plays (the sounds were removed on 24 Oct 2026)
+  var kanaOn = null;
+  document.querySelectorAll('.kana:not(.gap)').forEach(function(b){
     b.addEventListener('click', function(){
       if (kanaOn) kanaOn.classList.remove('on');
       kanaOn = b; b.classList.add('on');
-      kanaAudio.src = b.getAttribute('data-src'); kanaAudio.play();
       var sp = b.closest('.kana-board').querySelector('.stroke-panel');
       if (sp) showStrokes(sp, b.querySelector('.k').textContent);
     });
   });
-  kanaAudio.addEventListener('ended', function(){ if (kanaOn) kanaOn.classList.remove('on'); });
   // one toggle per chart (hiragana and katakana), each hides only its own romaji
   document.querySelectorAll('.romaji-toggle').forEach(function(romaji){
     romaji.addEventListener('click', function(){
