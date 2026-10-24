@@ -229,17 +229,81 @@ var UPDATED = '23 Oct 2026';
     var HC = pairs('きゃ きゅ きょ しゃ しゅ しょ ちゃ ちゅ ちょ にゃ にゅ にょ ひゃ ひゅ ひょ みゃ みゅ みょ りゃ りゅ りょ ぎゃ ぎゅ ぎょ じゃ じゅ じょ びゃ びゅ びょ ぴゃ ぴゅ ぴょ',
       'kya kyu kyo sha shu sho cha chu cho nya nyu nyo hya hyu hyo mya myu myo rya ryu ryo gya gyu gyo ja ju jo bya byu byo pya pyu pyo'.split(' '));
     // other spellings that are fine too
-    var ALT = {si:'shi', ti:'chi', tu:'tsu', hu:'fu', zi:'ji', di:'ji', du:'zu', nn:'n', sya:'sha', syu:'shu', syo:'sho', tya:'cha', tyu:'chu', tyo:'cho',
+    var ALT = {si:'shi', ti:'chi', tu:'tsu', hu:'fu', zi:'ji', nn:'n', sya:'sha', syu:'shu', syo:'sho', tya:'cha', tyu:'chu', tyo:'cho',
       jya:'ja', jyu:'ju', jyo:'jo', zya:'ja', zyu:'ju', zyo:'jo'};
-    function answers(r){
-      var a = [r];
-      Object.keys(ALT).forEach(function(k){ if (ALT[k] === r || (k === 'di' && r === 'ji') || (k === 'du' && r === 'zu')) a.push(k); });
+    // ぢ and づ sound like じ and ず, but type as di and du on a Japanese keyboard
+    var DU = {'ぢ': 'di', 'ヂ': 'di', 'づ': 'du', 'ヅ': 'du'};
+    function answers(p){
+      var a = [p[1]];
+      Object.keys(ALT).forEach(function(k){ if (ALT[k] === p[1]) a.push(k); });
+      if (DU[p[0]]) a.push(DU[p[0]]);
       return a;
     }
     function kata(s){ return s.replace(/[ぁ-ゖ]/g, function(c){ return String.fromCharCode(c.charCodeAt(0) + 0x60); }); }
     function toKata(list){ return list.map(function(p){ return [kata(p[0]), p[1]]; }); }
     var SETS = { hira: HB, kata: toKata(HB), dakuten: [], combo: [] };
     var on = { hira: true, kata: false, dakuten: false, combo: false };
+    // remember the chosen scripts and fonts between visits (skipped quietly if the browser blocks storage)
+    var SAVE = 'wabisebi-kana-game';
+    try {
+      var saved = JSON.parse(localStorage.getItem(SAVE) || 'null');
+      if (saved && saved.on) Object.keys(on).forEach(function(k){ if (k in saved.on) on[k] = !!saved.on[k]; });
+      if (!on.hira && !on.kata) on.hira = true;
+    } catch (err) {}
+    function save(){ try { localStorage.setItem(SAVE, JSON.stringify({on: on, fonts: Object.keys(fontOn)})); } catch (err) {} }
+
+    // Japanese fonts: Google Fonts (same on every system, needs internet), each with a system font as fallback for offline
+    var SANS = '"Hiragino Sans","Yu Gothic","Noto Sans CJK JP",sans-serif', SERIF = '"Hiragino Mincho ProN","Yu Mincho","Noto Serif CJK JP",serif';
+    var FONTS = [
+      {n: 'IBM Plex Sans JP', f: '"IBM Plex Sans JP",' + SANS, w: 500},
+      {n: 'Noto Sans JP', f: '"Noto Sans JP",' + SANS, w: 500, q: 'Noto+Sans+JP:wght@500'},
+      {n: 'Noto Serif JP', f: '"Noto Serif JP",' + SERIF, w: 500, q: 'Noto+Serif+JP:wght@500'},
+      {n: 'Zen Maru Gothic', f: '"Zen Maru Gothic",' + SANS, w: 500, q: 'Zen+Maru+Gothic:wght@500'},
+      {n: 'Kiwi Maru', f: '"Kiwi Maru",' + SANS, w: 500, q: 'Kiwi+Maru:wght@500'},
+      {n: 'Klee One', f: '"Klee One",' + SANS, w: 600, q: 'Klee+One:wght@600'},
+      {n: 'Zen Kurenaido', f: '"Zen Kurenaido",' + SANS, w: 400, q: 'Zen+Kurenaido'},
+      {n: 'Yomogi', f: '"Yomogi",' + SANS, w: 400, q: 'Yomogi'},
+      {n: 'Yuji Syuku', f: '"Yuji Syuku",' + SERIF, w: 400, q: 'Yuji+Syuku'},
+      {n: 'Hachi Maru Pop', f: '"Hachi Maru Pop",' + SANS, w: 400, q: 'Hachi+Maru+Pop'},
+      {n: 'Dela Gothic One', f: '"Dela Gothic One",' + SANS, w: 400, q: 'Dela+Gothic+One'},
+      {n: 'M PLUS Rounded 1c', f: '"M PLUS Rounded 1c",' + SANS, w: 500, q: 'M+PLUS+Rounded+1c:wght@500'},
+      {n: 'Kosugi Maru', f: '"Kosugi Maru",' + SANS, w: 400, q: 'Kosugi+Maru'},
+      {n: 'Sawarabi Mincho', f: '"Sawarabi Mincho",' + SERIF, w: 400, q: 'Sawarabi+Mincho'},
+      {n: 'Zen Antique', f: '"Zen Antique",' + SERIF, w: 400, q: 'Zen+Antique'},
+      {n: 'Yusei Magic', f: '"Yusei Magic",' + SANS, w: 400, q: 'Yusei+Magic'},
+      {n: 'RocknRoll One', f: '"RocknRoll One",' + SANS, w: 400, q: 'RocknRoll+One'},
+      {n: 'Reggae One', f: '"Reggae One",' + SANS, w: 400, q: 'Reggae+One'},
+      {n: 'Potta One', f: '"Potta One",' + SANS, w: 400, q: 'Potta+One'},
+      {n: 'DotGothic16', f: '"DotGothic16",' + SANS, w: 400, q: 'DotGothic16'}
+    ];
+    var fontOn = {0: true};
+    try {
+      var sf = (JSON.parse(localStorage.getItem(SAVE) || 'null') || {}).fonts;
+      if (sf && sf.length) { fontOn = {}; sf.forEach(function(i){ if (FONTS[i]) fontOn[i] = true; }); }
+      if (!Object.keys(fontOn).length) fontOn = {0: true};
+    } catch (err) {}
+    var fl = document.createElement('link');
+    fl.rel = 'stylesheet';
+    fl.href = 'https://fonts.googleapis.com/css2?' + FONTS.filter(function(f){ return f.q; }).map(function(f){ return 'family=' + f.q; }).join('&') + '&display=swap';
+    document.head.appendChild(fl);
+    var fontBox = document.getElementById('game-fonts');
+    FONTS.forEach(function(f, i){
+      var b = document.createElement('button');
+      b.type = 'button'; b.className = 'ftile'; b.title = f.n; b.setAttribute('aria-label', f.n);
+      b.setAttribute('aria-pressed', String(!!fontOn[i]));
+      b.style.fontFamily = f.f; b.style.fontWeight = f.w; b.textContent = 'あ';
+      b.addEventListener('click', function(){
+        if (fontOn[i]) delete fontOn[i]; else fontOn[i] = true;
+        if (!Object.keys(fontOn).length) fontOn[i] = true;   // keep at least one font on
+        [].forEach.call(fontBox.children, function(t, j){ t.setAttribute('aria-pressed', String(!!fontOn[j])); });
+        save();
+      });
+      fontBox.appendChild(b);
+    });
+    function pickFont(){
+      var ids = Object.keys(fontOn), f = FONTS[ids[Math.floor(Math.random() * ids.length)]];
+      gameCard.style.fontFamily = f.f; gameCard.style.fontWeight = f.w;
+    }
 
     var card = gameCard.closest('.game-card'), input = document.getElementById('game-input');
     var msg = document.getElementById('game-msg'), scoreEl = document.getElementById('game-score');
@@ -262,7 +326,7 @@ var UPDATED = '23 Oct 2026';
       if (again.length && Math.random() < 0.3) pick = again.shift();
       else do { pick = p[Math.floor(Math.random() * p.length)]; } while (p.length > 1 && last && pick[0] === last[0]);
       cur = pick; last = pick; waiting = false;
-      gameCard.textContent = pick[0];
+      gameCard.textContent = pick[0]; pickFont();
       input.value = ''; input.disabled = false; input.focus();
       card.classList.remove('ok', 'bad');
       msg.textContent = 'Type the romaji. Enter skips.';
@@ -274,7 +338,7 @@ var UPDATED = '23 Oct 2026';
       total++; waiting = true;
       if (ok) { right++; streak++; card.classList.add('ok'); msg.textContent = cur[1]; }
       else {
-        streak = 0; card.classList.add('bad'); msg.textContent = 'It is ' + cur[1] + '. Enter for the next one.';
+        streak = 0; card.classList.add('bad'); msg.textContent = 'It is ' + cur[1] + (DU[cur[0]] ? ' (or ' + DU[cur[0]] + ')' : '') + '. Enter for the next one.';
         if (!again.some(function(x){ return x[0] === cur[0]; })) again.push(cur);
       }
       score();
@@ -283,14 +347,14 @@ var UPDATED = '23 Oct 2026';
     input.addEventListener('input', function(){
       if (waiting) return;
       var v = input.value.trim().toLowerCase();
-      if (answers(cur[1]).indexOf(v) >= 0) judge(true);
+      if (answers(cur).indexOf(v) >= 0) judge(true);
     });
     input.addEventListener('keydown', function(e){
       if (e.key !== 'Enter') return;
       e.preventDefault();
       if (waiting) { next(); return; }
       var v = input.value.trim().toLowerCase();
-      judge(answers(cur[1]).indexOf(v) >= 0);
+      judge(answers(cur).indexOf(v) >= 0);
     });
     document.querySelectorAll('.game-sets .chip').forEach(function(chip){
       chip.addEventListener('click', function(){
@@ -298,12 +362,13 @@ var UPDATED = '23 Oct 2026';
         on[s] = !on[s];
         // keep at least one script on
         if (!on.hira && !on.kata) on[s === 'hira' ? 'kata' : 'hira'] = true;
-        syncChips(); again = []; next();
+        syncChips(); save(); again = []; next();
       });
     });
     function syncChips(){
       document.querySelectorAll('.game-sets .chip').forEach(function(c){ c.setAttribute('aria-pressed', String(on[c.dataset.set])); });
     }
+    syncChips();
     next();
   })();
 
