@@ -248,8 +248,8 @@ main:has(.home:not([hidden])) .foot{max-width:1080px}
 .stroke-panel .plain{font-size:96px;line-height:1;text-align:center;opacity:.18}
 .stroke-panel path{fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:6}
 .stroke-panel .ghost path{stroke:var(--ink);opacity:.18}
-.stroke-panel .live path{stroke:var(--ink);stroke-dasharray:1;stroke-dashoffset:1;opacity:0;animation:draw .8s ease-in-out forwards}
-@keyframes draw{from{opacity:1;stroke-dashoffset:1}to{opacity:1;stroke-dashoffset:0}}
+.stroke-panel .live path{stroke:var(--ink);stroke-dasharray:1;stroke-dashoffset:1;opacity:0;animation:draw .8s linear forwards}
+@keyframes draw{0%{opacity:0;stroke-dashoffset:1}10%{opacity:1;stroke-dashoffset:.9}100%{opacity:1;stroke-dashoffset:0}}
 .stroke-panel .replay{font-family:var(--mono);font-size:12px;letter-spacing:.06em;padding:6px 14px;border-radius:999px;cursor:pointer;background:var(--plain);border:1px solid var(--plain-line);color:var(--ink)}
 .stroke-panel .replay:hover{border-color:var(--gold);color:var(--gold)}
 .stroke-panel .side{display:flex;flex-direction:column;align-items:flex-start;gap:10px}
