@@ -284,3 +284,8 @@ main:has(#kana:not([hidden])) .foot,main:has(#katakana:not([hidden])) .foot,main
 .game .ftile{width:100%;height:auto;aspect-ratio:1;font-size:clamp(16px,4vw,22px);padding:0}
 .game #game-fonts-all{margin-top:-14px;font-size:12px;padding:5px 14px}
 .top .nav .pad{vertical-align:-3px;margin-right:2px}
+
+/* book reference: where to read more in the physical dictionary */
+.book{background:var(--card);border:1px solid var(--card-line);border-radius:10px;padding:14px 18px;display:flex;flex-direction:column;gap:2px}
+.book .title{margin:0;font-weight:700}
+.book .where{margin:0;font-family:var(--mono);font-size:12.5px;letter-spacing:.04em;color:var(--muted)}
