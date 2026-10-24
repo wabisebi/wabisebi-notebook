@@ -257,6 +257,7 @@ main:has(.home:not([hidden])) .foot{max-width:1080px}
 @media (max-width:520px){.stroke-panel{margin:0 10px 8px;gap:12px}.stroke-panel svg{height:120px}}
 .stroke-panel .credit{font-family:var(--mono);font-size:11px;color:var(--muted);text-decoration:none}
 .stroke-panel .credit:hover{color:var(--gold)}
+.stroke-panel{scroll-margin-top:84px}
 </style>
 
 <header class="top" id="top"></header>
@@ -6989,7 +6990,12 @@ var UPDATED = '23 Oct 2026';
       if (kanaOn) kanaOn.classList.remove('on');
       kanaOn = b; b.classList.add('on');
       var sp = b.closest('.kana-board').querySelector('.stroke-panel');
-      if (sp) showStrokes(sp, b.querySelector('.k').textContent);
+      if (sp) {
+        showStrokes(sp, b.querySelector('.k').textContent);
+        // bring the animation into view if you tapped a tile far down the page
+        var r = sp.getBoundingClientRect(), top = document.querySelector('.top'), min = top ? top.getBoundingClientRect().bottom : 0;
+        if (r.top < min || r.bottom > window.innerHeight) sp.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     });
   });
   // one toggle per chart (hiragana and katakana), each hides only its own romaji

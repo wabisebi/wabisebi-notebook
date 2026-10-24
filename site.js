@@ -205,7 +205,12 @@ var UPDATED = '23 Oct 2026';
       if (kanaOn) kanaOn.classList.remove('on');
       kanaOn = b; b.classList.add('on');
       var sp = b.closest('.kana-board').querySelector('.stroke-panel');
-      if (sp) showStrokes(sp, b.querySelector('.k').textContent);
+      if (sp) {
+        showStrokes(sp, b.querySelector('.k').textContent);
+        // bring the animation into view if you tapped a tile far down the page
+        var r = sp.getBoundingClientRect(), top = document.querySelector('.top'), min = top ? top.getBoundingClientRect().bottom : 0;
+        if (r.top < min || r.bottom > window.innerHeight) sp.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     });
   });
   // one toggle per chart (hiragana and katakana), each hides only its own romaji

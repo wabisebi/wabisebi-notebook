@@ -249,3 +249,4 @@ main:has(.home:not([hidden])) .foot{max-width:1080px}
 @media (max-width:520px){.stroke-panel{margin:0 10px 8px;gap:12px}.stroke-panel svg{height:120px}}
 .stroke-panel .credit{font-family:var(--mono);font-size:11px;color:var(--muted);text-decoration:none}
 .stroke-panel .credit:hover{color:var(--gold)}
+.stroke-panel{scroll-margin-top:84px}
