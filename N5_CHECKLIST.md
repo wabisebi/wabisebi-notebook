@@ -54,7 +54,7 @@ Categories marked *(new)* aren't on the site yet. They get added to `INDEX` when
 - [x] の (Possession): my, 's
 - [ ] から (From): from
 - [ ] まで: until, up to
-- [ ] だけ: only
+- [x] だけ: only
 - [ ] しか～ない: nothing but
 - [x] ぐらい・くらい: about (amount)
 - [ ] ごろ: around (a time)
