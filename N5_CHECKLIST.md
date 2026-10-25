@@ -132,7 +132,7 @@ Categories marked *(new)* aren't on the site yet. They get added to `INDEX` when
 - [ ] でも: but (start of a sentence)
 - [x] が (But): but (polite)
 - [ ] けど: but (casual)
-- [ ] から (Because): because, so
+- [x] から (Because): because, so
 - [ ] ～前に: before
 - [ ] ～た後で: after
 - [ ] ～とき: when
