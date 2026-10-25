@@ -77,6 +77,7 @@ var INDEX = [
     ]},
     {cat: 'て-form', pages: []},
     {cat: 'Wanting and inviting', pages: [
+      ['tai', '～たい', 'Want to (do something)'],
       ['mashou', '～ましょう・～よう', 'Let\'s (do something)']
     ]},
     {cat: 'Joining sentences', pages: [

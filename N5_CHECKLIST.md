@@ -122,7 +122,7 @@ Categories marked *(new)* aren't on the site yet. They get added to `INDEX` when
 
 ## Wanting and inviting *(empty on the site so far)*
 - [ ] ほしい: want (a thing)
-- [ ] ～たい: want to do
+- [x] ～たい: want to do (たいです and たくない on the same page)
 - [ ] ～ませんか: won't you, why don't we
 - [x] ～ましょう: let's (casual ～よう on the same page)
 - [ ] ～ましょうか: shall I, shall we
