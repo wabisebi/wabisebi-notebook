@@ -130,7 +130,7 @@ Categories marked *(new)* aren't on the site yet. They get added to `INDEX` when
 ## Joining sentences *(new)*
 - [ ] そして・それから: and, and then
 - [ ] でも: but (start of a sentence)
-- [ ] が (But): but (polite)
+- [x] が (But): but (polite)
 - [ ] けど: but (casual)
 - [ ] から (Because): because, so
 - [ ] ～前に: before

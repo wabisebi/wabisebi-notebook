@@ -70,6 +70,9 @@ var INDEX = [
     ]},
     {cat: 'て-form', pages: []},
     {cat: 'Wanting and inviting', pages: []},
+    {cat: 'Joining sentences', pages: [
+      ['ga-but', 'が (But)', 'But, however (polite)']
+    ]},
     {cat: 'Explaining (の)', pages: [
       ['no', '～の', 'Asking for the story behind something'],
       ['ndesu', '～んです・のです', 'Explaining, giving the reason'],
