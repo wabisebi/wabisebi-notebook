@@ -42,7 +42,7 @@ Categories marked *(new)* aren't on the site yet. They get added to `INDEX` when
 - [x] も: also, too
 - [x] と: and (joining nouns)
 - [x] か (Or): or
-- [ ] や: and, among other things
+- [x] や: and, among other things
 - [ ] など: and so on
 - [x] が: subject marker
 - [x] を: object marker

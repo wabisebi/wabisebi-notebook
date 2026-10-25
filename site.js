@@ -35,6 +35,7 @@ var INDEX = [
     {cat: 'Particles', pages: [
       ['mo', 'も', 'Also, too'],
       ['to', 'と', 'And: joining nouns'],
+      ['ya', 'や', 'And: listing examples (among others)'],
       ['ka-or', 'か (Or)', 'Or: joining nouns'],
       ['ga', 'が', 'Subject marker'],
       ['wo', 'を', 'Object marker'],
