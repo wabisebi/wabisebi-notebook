@@ -74,6 +74,7 @@ var INDEX = [
     {cat: 'Wanting and inviting', pages: []},
     {cat: 'Joining sentences', pages: [
       ['ga-but', 'が (But)', 'But, however (polite)'],
+      ['kedo', 'けど・けれども', 'But (everyday)'],
       ['kara-because', 'から (Because)', 'Because, so: giving a reason']
     ]},
     {cat: 'Explaining (の)', pages: [
