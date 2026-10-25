@@ -124,7 +124,7 @@ Categories marked *(new)* aren't on the site yet. They get added to `INDEX` when
 - [ ] ほしい: want (a thing)
 - [ ] ～たい: want to do
 - [ ] ～ませんか: won't you, why don't we
-- [ ] ～ましょう: let's
+- [x] ～ましょう: let's (casual ～よう on the same page)
 - [ ] ～ましょうか: shall I, shall we
 
 ## Joining sentences *(new)*

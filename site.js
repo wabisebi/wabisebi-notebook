@@ -76,7 +76,9 @@ var INDEX = [
       ['suru', 'する', 'To do (irregular verb)']
     ]},
     {cat: 'て-form', pages: []},
-    {cat: 'Wanting and inviting', pages: []},
+    {cat: 'Wanting and inviting', pages: [
+      ['mashou', '～ましょう・～よう', 'Let\'s (do something)']
+    ]},
     {cat: 'Joining sentences', pages: [
       ['ga-but', 'が (But)', 'But, however (polite)'],
       ['kedo', 'けど・けれども', 'But (everyday)'],
