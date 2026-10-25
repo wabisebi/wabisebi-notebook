@@ -62,6 +62,9 @@ var INDEX = [
       ['suki-kirai', '好き・嫌い', 'Like, dislike (～が好き)'],
       ['ichiban', '一番 (いちばん)', 'The most, number one']
     ]},
+    {cat: 'Adverbs', pages: [
+      ['mada', 'まだ', 'Still, not yet']
+    ]},
     {cat: 'Verbs: basic forms', pages: [
       ['masu', 'ます', 'Polite verb endings'],
       ['u-verb', 'う-Verb (Dictionary)', 'Godan verbs: plain and polite'],

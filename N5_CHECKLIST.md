@@ -90,7 +90,7 @@ Categories marked *(new)* aren't on the site yet. They get added to `INDEX` when
 - [ ] 全然～ない: not at all
 - [ ] いつも・よく・時々: always, often, sometimes
 - [ ] もう: already
-- [ ] まだ: still, not yet
+- [x] まだ: still, not yet
 
 ## Verbs: basic forms
 - [x] ます: polite verb endings
