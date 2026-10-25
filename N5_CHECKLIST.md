@@ -53,7 +53,7 @@ Categories marked *(new)* aren't on the site yet. They get added to `INDEX` when
 - [x] と (With): with someone
 - [x] の (Possession): my, 's
 - [x] から (From): from
-- [ ] まで: until, up to
+- [x] まで: until, up to
 - [x] だけ: only
 - [ ] しか～ない: nothing but
 - [x] ぐらい・くらい: about (amount)

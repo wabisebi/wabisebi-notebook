@@ -44,6 +44,7 @@ var INDEX = [
       ['to-with', 'と (With)', 'With: doing something together'],
       ['no-pos', 'の (Possession)', 'Possession: my, \'s'],
       ['kara', 'から (From)', 'From: starting point (place, time, person)'],
+      ['made', 'まで', 'Until, up to, even'],
       ['dake', 'だけ', 'Only, just'],
       ['kurai', 'ぐらい・くらい', 'About, roughly (どのくらい: how much?)']
     ]},
