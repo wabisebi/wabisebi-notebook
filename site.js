@@ -59,7 +59,8 @@ var INDEX = [
       ['na-adj', 'な-Adjective', 'Describing words: な before a noun'],
       ['i-adj-past', 'い-Adjective (Past)', 'Was: the past of い-adjectives'],
       ['i-adj-past-neg', 'い-Adjective (Past negative)', 'Wasn\'t: くなかった'],
-      ['suki-kirai', '好き・嫌い', 'Like, dislike (～が好き)']
+      ['suki-kirai', '好き・嫌い', 'Like, dislike (～が好き)'],
+      ['ichiban', '一番 (いちばん)', 'The most, number one']
     ]},
     {cat: 'Verbs: basic forms', pages: [
       ['masu', 'ます', 'Polite verb endings'],

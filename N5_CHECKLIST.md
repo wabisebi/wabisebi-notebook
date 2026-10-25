@@ -81,7 +81,7 @@ Categories marked *(new)* aren't on the site yet. They get added to `INDEX` when
 - [ ] Adjective as adverb: ～く・～に (早く, 静かに)
 - [ ] より: than
 - [ ] ～の方が: ___ is more
-- [ ] ～の中で～が一番: the most (of all)
+- [x] ～の中で～が一番: the most (of all)
 
 ## Adverbs *(new)*
 - [ ] とても: very
