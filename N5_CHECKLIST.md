@@ -133,7 +133,7 @@ Categories marked *(new)* aren't on the site yet. They get added to `INDEX` when
 - [x] が (But): but (polite)
 - [x] けど: but (casual), page けど・けれども
 - [x] から (Because): because, so
-- [ ] ～前に: before
+- [x] ～前に: before
 - [ ] ～た後で: after
 - [ ] ～とき: when
 - [ ] ～たり～たりする: things like, doing this and that

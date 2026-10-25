@@ -78,7 +78,8 @@ var INDEX = [
     {cat: 'Joining sentences', pages: [
       ['ga-but', 'が (But)', 'But, however (polite)'],
       ['kedo', 'けど・けれども', 'But (everyday)'],
-      ['kara-because', 'から (Because)', 'Because, so: giving a reason']
+      ['kara-because', 'から (Because)', 'Because, so: giving a reason'],
+      ['mae-ni', '～前に', 'Before doing something']
     ]},
     {cat: 'Explaining (の)', pages: [
       ['no', '～の', 'Asking for the story behind something'],
