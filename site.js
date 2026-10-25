@@ -29,7 +29,6 @@ var INDEX = [
       ['donna', 'どんな', 'What kind of'],
       ['doushite', 'どうして・なぜ', 'Why (casual: なんで)'],
       ['ikura', 'いくら', 'How much (money)'],
-      ['donokurai', 'どのくらい', 'How long, how much, how far'],
       ['nanika', '何か・誰か・どこか', 'Something, someone, somewhere'],
       ['nanimo', '何も・誰も・どこも', 'Nothing, nobody, nowhere (+ negative)']
     ]},
@@ -43,7 +42,8 @@ var INDEX = [
       ['he', 'へ', 'Towards, to (direction)'],
       ['de', 'で', 'At, in'],
       ['to-with', 'と (With)', 'With: doing something together'],
-      ['no-pos', 'の (Possession)', 'Possession: my, \'s']
+      ['no-pos', 'の (Possession)', 'Possession: my, \'s'],
+      ['kurai', 'ぐらい・くらい', 'About, roughly (どのくらい: how much?)']
     ]},
     {cat: 'Sentence endings', pages: [
       ['yo', 'よ', 'Telling someone something new'],

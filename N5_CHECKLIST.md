@@ -34,7 +34,7 @@ Categories marked *(new)* aren't on the site yet. They get added to `INDEX` when
 - [x] どうして・なぜ: why
 - [ ] いくら: how much (money)
 - [ ] いくつ: how many, how old
-- [x] どのくらい: how long, how much
+- [x] どのくらい: how long, how much (on the ぐらい・くらい page)
 - [x] 何か・誰か・どこか: something, someone, somewhere
 - [x] 何も・誰も・どこも + negative: nothing, nobody, nowhere
 
@@ -56,7 +56,7 @@ Categories marked *(new)* aren't on the site yet. They get added to `INDEX` when
 - [ ] まで: until, up to
 - [ ] だけ: only
 - [ ] しか～ない: nothing but
-- [ ] ぐらい・くらい: about (amount)
+- [x] ぐらい・くらい: about (amount)
 - [ ] ごろ: around (a time)
 
 ## Sentence endings
