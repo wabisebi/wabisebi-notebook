@@ -60,6 +60,7 @@ var INDEX = [
       ['i-adj-past', 'い-Adjective (Past)', 'Was: the past of い-adjectives'],
       ['i-adj-past-neg', 'い-Adjective (Past negative)', 'Wasn\'t: くなかった'],
       ['suki-kirai', '好き・嫌い', 'Like, dislike (～が好き)'],
+      ['naru', '～くなる・～になる', 'To become, to get (bigger, colder...)'],
       ['ichiban', '一番 (いちばん)', 'The most, number one']
     ]},
     {cat: 'Adverbs', pages: [

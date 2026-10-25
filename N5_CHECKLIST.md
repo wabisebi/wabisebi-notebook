@@ -77,7 +77,7 @@ Categories marked *(new)* aren't on the site yet. They get added to `INDEX` when
 - [ ] な-Adjective (Past): だった・でした
 - [x] 好き・嫌い: like, dislike (～が好き)
 - [ ] 上手・下手: good at, bad at
-- [ ] ～くなる・～になる: to become
+- [x] ～くなる・～になる: to become
 - [ ] Adjective as adverb: ～く・～に (早く, 静かに)
 - [ ] より: than
 - [ ] ～の方が: ___ is more
