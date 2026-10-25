@@ -154,7 +154,7 @@ Categories marked *(new)* aren't on the site yet. They get added to `INDEX` when
 - [ ] ～なければならない: must
 - [ ] ～なくてもいい: don't have to
 - [ ] ～ことができる: can
-- [ ] ～つもり: plan to
+- [x] ～つもり: plan to
 - [ ] ～ながら: while
 - [ ] ～た方がいい: should, had better
 - [ ] ～すぎる: too much
