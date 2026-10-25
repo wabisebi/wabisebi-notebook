@@ -55,7 +55,8 @@ var INDEX = [
       ['masu', 'ます', 'Polite verb endings'],
       ['u-verb', 'う-Verb (Dictionary)', 'Godan verbs: plain and polite'],
       ['ru-verb-neg', 'る-Verb (Negative)', 'Not doing: ない and ません'],
-      ['u-verb-neg', 'う-Verb (Negative)', 'Not doing: u sound → a + ない']
+      ['u-verb-neg', 'う-Verb (Negative)', 'Not doing: u sound → a + ない'],
+      ['kuru', '来る', 'To come (irregular verb)']
     ]},
     {cat: 'て-form', pages: []},
     {cat: 'Wanting and inviting', pages: []},
@@ -66,7 +67,7 @@ var INDEX = [
     ]}
   ]}
 ];
-var UPDATED = '24 Oct 2026';
+var UPDATED = '25 Oct 2026';
 
 (function(){
   // index.html (made by build.py) has every page in one file, so links switch pages instead of loading files

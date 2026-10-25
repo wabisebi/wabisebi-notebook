@@ -96,7 +96,8 @@ Categories marked *(new)* aren't on the site yet. They get added to `INDEX` when
 - [x] ます: polite verb endings
 - [ ] る-Verb (Dictionary): 食べる, 見る
 - [x] う-Verb (Dictionary): 飲む, 行く
-- [ ] する・くる: the two irregular verbs
+- [ ] する: irregular verb
+- [x] 来る: to come (irregular verb)
 - [x] る-Verb (Negative): ない, ません
 - [x] う-Verb (Negative): u → a + ない
 - [ ] ました: did (polite)
