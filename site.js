@@ -80,7 +80,7 @@ var INDEX = [
     {cat: 'Wanting and inviting', pages: [
       ['tai', '～たい', 'Want to (do something)'],
       ['mashou', '～ましょう・～よう', 'Let\'s (do something)'],
-      ['tsumori', '～つもり', 'Plan to, intend to']
+      ['tsumori', '～つもりだ', 'Plan to, intend to']
     ]},
     {cat: 'Joining sentences', pages: [
       ['ga-but', 'が (But)', 'But, however (polite)'],
