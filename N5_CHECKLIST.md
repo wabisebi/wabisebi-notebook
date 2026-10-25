@@ -10,14 +10,14 @@ Categories marked *(new)* aren't on the site yet. They get added to `INDEX` when
 ## First steps
 - [x] です / だ: to be, is
 - [x] じゃない・ではありません: is not
-- [ ] でした・だった: was
-- [ ] じゃなかった・ではありませんでした: was not
+- [x] でした・だった: was
+- [x] じゃなかった・ではありませんでした: was not
 - [x] は: topic marker
 - [x] か: question marker
 - [x] これ・それ・あれ: this, that, that over there
 - [x] この・その・あの: this ___, that ___
 - [x] ここ・そこ・あそこ: here, there, over there
-- [ ] こちら・そちら・あちら: this way, that way (also polite "here")
+- [x] こちら・そちら・あちら: this way, that way (also polite "here")
 - [x] がある: there is (things)
 - [x] がいる: there is (people, animals)
 - [x] ～たち: plural for people (私たち)
@@ -47,7 +47,7 @@ Categories marked *(new)* aren't on the site yet. They get added to `INDEX` when
 - [x] が: subject marker
 - [x] を: object marker
 - [x] に: in, at, to, for, on
-- [ ] へ: towards
+- [x] へ: towards
 - [x] で: at, in (where something happens)
 - [ ] で (Means): by, with (バスで, 箸で)
 - [x] と (With): with someone
@@ -71,11 +71,11 @@ Categories marked *(new)* aren't on the site yet. They get added to `INDEX` when
 - [x] いい (良い): good
 - [ ] い-Adjective (Negative): くない
 - [x] い-Adjective (Past): かった
-- [ ] い-Adjective (Past negative): くなかった
+- [x] い-Adjective (Past negative): くなかった
 - [x] な-Adjective
 - [ ] な-Adjective (Negative): じゃない
 - [ ] な-Adjective (Past): だった・でした
-- [ ] 好き・嫌い: like, dislike (～が好き)
+- [x] 好き・嫌い: like, dislike (～が好き)
 - [ ] 上手・下手: good at, bad at
 - [ ] ～くなる・～になる: to become
 - [ ] Adjective as adverb: ～く・～に (早く, 静かに)

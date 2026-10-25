@@ -7,11 +7,14 @@ var INDEX = [
     {cat: 'First steps', pages: [
       ['desu', 'です / だ', 'To be, is'],
       ['janai', 'じゃない・ではありません', 'Is not'],
+      ['deshita', 'でした・だった', 'Was'],
+      ['janakatta', 'じゃなかった・ではありませんでした', 'Was not'],
       ['wa', 'は', 'Topic marker: "as for..."'],
       ['ka', 'か', 'Question marker'],
       ['kore-sore-are', 'これ・それ・あれ', 'This, that, that over there'],
       ['kono-sono-ano', 'この・その・あの', 'This ___, that ___ (before a noun)'],
       ['koko-soko-asoko', 'ここ・そこ・あそこ', 'Here, there, over there'],
+      ['kochira-sochira-achira', 'こちら・そちら・あちら', 'This way, that way (polite here, there)'],
       ['gaaru', 'がある', 'To be, there is'],
       ['gairu', 'がいる', 'There is (people, animals)'],
       ['tachi', '～たち', 'Plural for people: 私たち, 子どもたち']
@@ -25,6 +28,7 @@ var INDEX = [
       ['dou', 'どう・いかが', 'How, how about'],
       ['donna', 'どんな', 'What kind of'],
       ['doushite', 'どうして・なぜ', 'Why (casual: なんで)'],
+      ['ikura', 'いくら', 'How much (money)'],
       ['nanika', '何か・誰か・どこか', 'Something, someone, somewhere'],
       ['nanimo', '何も・誰も・どこも', 'Nothing, nobody, nowhere (+ negative)']
     ]},
@@ -35,6 +39,7 @@ var INDEX = [
       ['ga', 'が', 'Subject marker'],
       ['wo', 'を', 'Object marker'],
       ['ni', 'に', 'In, at, to, for, on'],
+      ['he', 'へ', 'Towards, to (direction)'],
       ['de', 'で', 'At, in'],
       ['to-with', 'と (With)', 'With: doing something together'],
       ['no-pos', 'の (Possession)', 'Possession: my, \'s']
@@ -49,7 +54,9 @@ var INDEX = [
       ['i-adj', 'い-Adjective', 'Describing words that end in い'],
       ['ii', 'いい (良い)', 'い-Adjective meaning "good"'],
       ['na-adj', 'な-Adjective', 'Describing words: な before a noun'],
-      ['i-adj-past', 'い-Adjective (Past)', 'Was: the past of い-adjectives']
+      ['i-adj-past', 'い-Adjective (Past)', 'Was: the past of い-adjectives'],
+      ['i-adj-past-neg', 'い-Adjective (Past negative)', 'Wasn\'t: くなかった'],
+      ['suki-kirai', '好き・嫌い', 'Like, dislike (～が好き)']
     ]},
     {cat: 'Verbs: basic forms', pages: [
       ['masu', 'ます', 'Polite verb endings'],
