@@ -34,7 +34,7 @@ Categories marked *(new)* aren't on the site yet. They get added to `INDEX` when
 - [x] どうして・なぜ: why
 - [ ] いくら: how much (money)
 - [ ] いくつ: how many, how old
-- [ ] どのくらい: how long, how much
+- [x] どのくらい: how long, how much
 - [x] 何か・誰か・どこか: something, someone, somewhere
 - [x] 何も・誰も・どこも + negative: nothing, nobody, nowhere
 

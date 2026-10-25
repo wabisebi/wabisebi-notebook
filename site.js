@@ -29,6 +29,7 @@ var INDEX = [
       ['donna', 'どんな', 'What kind of'],
       ['doushite', 'どうして・なぜ', 'Why (casual: なんで)'],
       ['ikura', 'いくら', 'How much (money)'],
+      ['donokurai', 'どのくらい', 'How long, how much, how far'],
       ['nanika', '何か・誰か・どこか', 'Something, someone, somewhere'],
       ['nanimo', '何も・誰も・どこも', 'Nothing, nobody, nowhere (+ negative)']
     ]},
