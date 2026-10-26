@@ -89,6 +89,7 @@ var INDEX = [
       ['tsumori', '～つもりだ', 'Plan to, intend to']
     ]},
     {cat: 'Giving and receiving', pages: [
+      ['morau', 'もらう (貰う)', 'To get, to receive'],
       ['kureru', 'くれる・てくれる', 'Someone gives me, does something for me']
     ]},
     {cat: 'Joining sentences', pages: [

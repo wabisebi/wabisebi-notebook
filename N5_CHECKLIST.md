@@ -128,6 +128,8 @@ Categories marked *(new)* aren't on the site yet. They get added to `INDEX` when
 - [ ] ～ましょうか: shall I, shall we
 
 ## Giving and receiving *(new)*
+- [x] もらう: to get, to receive
+- [ ] あげる: to give
 - [x] くれる・てくれる: someone gives me, does something for me
 
 ## Joining sentences *(new)*
