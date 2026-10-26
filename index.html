@@ -135,6 +135,8 @@ h2::before{background:var(--gold);width:3px}
 .mine .use{margin:0 0 8px}
 .use.polite{color:#9fcdb0;border-color:rgba(159,205,176,.5);background:rgba(159,205,176,.1)}
 .use.casual{color:var(--gram);border-color:rgba(169,189,240,.55);background:rgba(169,189,240,.1)}
+/* a source we guessed (the Anki card had none) */
+.src .guess{font-size:10px;letter-spacing:.1em;text-transform:uppercase;border:1px dashed var(--card-line);border-radius:999px;padding:0 7px;margin-left:6px;opacity:.8}
 
 /* home: every grammar point as a card grid, one section per level */
 .home{max-width:1080px;margin:0 auto;display:flex;flex-direction:column;gap:28px}
@@ -10369,7 +10371,7 @@ main:has(#kana:not([hidden])) .foot,main:has(#katakana:not([hidden])) .foot,main
           <div class="mine">
             <span class="use casual">Casual</span>
             <img src="media/db9de6ba1ac.webp" alt="Scene with potato salad" loading="lazy">
-            <p class="src">Source unknown</p>
+            <p class="src">Midnight Diner (深夜食堂) <span class="guess">guess</span></p>
             <div class="line">
               <button class="play" type="button" data-src="media/e6ba1ac4099.m4a" aria-label="Play audio"></button>
               <p class="jp">俺が店に来て最初に作る<mark class="g">のは</mark>、ポテトサラダだ。</p>

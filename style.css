@@ -127,6 +127,8 @@ h2::before{background:var(--gold);width:3px}
 .mine .use{margin:0 0 8px}
 .use.polite{color:#9fcdb0;border-color:rgba(159,205,176,.5);background:rgba(159,205,176,.1)}
 .use.casual{color:var(--gram);border-color:rgba(169,189,240,.55);background:rgba(169,189,240,.1)}
+/* a source we guessed (the Anki card had none) */
+.src .guess{font-size:10px;letter-spacing:.1em;text-transform:uppercase;border:1px dashed var(--card-line);border-radius:999px;padding:0 7px;margin-left:6px;opacity:.8}
 
 /* home: every grammar point as a card grid, one section per level */
 .home{max-width:1080px;margin:0 auto;display:flex;flex-direction:column;gap:28px}
