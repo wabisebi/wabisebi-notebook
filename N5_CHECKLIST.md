@@ -139,6 +139,7 @@ Categories marked *(new)* aren't on the site yet. They get added to `INDEX` when
 - [ ] ～たり～たりする: things like, doing this and that
 
 ## Numbers and time *(new)*
+The readings themselves (counters, time, dates) are on the Numbers & Dates chart (`pages/numbers.html`). These points are only about how they work in a sentence.
 - [ ] Counters: ～つ, ～人, ～本, ～枚
 - [ ] Telling time: ～時, ～分, 半
 - [ ] Dates: ～月, ～日, ～年

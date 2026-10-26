@@ -297,11 +297,56 @@ main:has(#kana:not([hidden])) .foot,main:has(#katakana:not([hidden])) .foot,main
 .book{background:var(--card);border:1px solid var(--card-line);border-radius:10px;padding:14px 18px;display:flex;flex-direction:column;gap:2px}
 .book .title{margin:0;font-weight:700}
 .book .where{margin:0;font-family:var(--mono);font-size:12.5px;letter-spacing:.04em;color:var(--muted)}
+
+/* numbers & dates: reference tables and tiles. Blue (.irr / .odd) marks the odd readings */
+.nlegend{margin:0;color:var(--muted);font-size:14px}
+.irr{color:var(--gram);font-weight:600}
+.npad{padding:14px 20px 18px}
+.nwrap{overflow-x:auto}
+.ntable{width:100%;border-collapse:collapse;font-size:15px}
+.ntable th,.ntable td{padding:7px 10px;border-bottom:1px solid var(--line);text-align:left;white-space:nowrap}
+.ntable thead th{font-size:20px;font-weight:600;vertical-align:bottom}
+.ntable thead th small{display:block;font-family:var(--mono);font-size:10.5px;font-weight:400;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.ntable tbody th{font-family:var(--mono);font-weight:500;color:var(--muted);width:1%}
+.ntable tr.ask th,.ntable tr.ask td{border-bottom:0;border-top:1px solid var(--card-line)}
+.ntable .kj{display:block;font-size:12px;color:var(--muted);font-weight:400}
+.nnote{margin:12px 0 0;color:var(--muted);font-size:14px;line-height:1.55}
+.ngrid{display:grid;gap:6px}
+.ngrid.seven{grid-template-columns:repeat(auto-fill,minmax(118px,1fr))}
+.ngrid.six{grid-template-columns:repeat(auto-fill,minmax(130px,1fr))}
+.nt{background:var(--card);border:1px solid var(--card-line);border-radius:8px;padding:8px 6px;text-align:center}
+.nt .n{display:block;font-family:var(--mono);font-size:12px;color:var(--muted)}
+.nt .r{display:block;font-size:14px}
+.nt.odd .r{color:var(--gram);font-weight:600}
+@media (max-width:520px){.npad{padding:12px}.ngrid.seven,.ngrid.six{grid-template-columns:repeat(auto-fill,minmax(100px,1fr))}.nt .r{font-size:13px}}
+
+/* start page: big links to each part of the site */
+.hub{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
+.hcard{display:flex;flex-direction:column;gap:4px;padding:22px 22px 20px;border-radius:10px;background:var(--card);border:1px solid var(--card-line);color:inherit;text-decoration:none}
+.hcard:hover{border-color:var(--gold);background:#1b2540}
+.hcard:focus-visible{outline:2px solid var(--indigo);outline-offset:2px}
+.hcard .g{font-family:var(--body);font-weight:500;font-size:44px;line-height:1.1;color:var(--gold);margin-bottom:8px}
+.hcard .t{font-family:var(--display);font-size:24px;font-weight:500}
+.hcard .d{color:var(--muted);font-size:14px}
+@media (max-width:520px){.hub{grid-template-columns:1fr 1fr;gap:10px}.hcard{padding:16px}.hcard .g{font-size:36px}.hcard .t{font-size:19px}}
 </style>
 
 <header class="top" id="top"></header>
 <div class="layout">
   <main>
+    <!-- start -->
+    <section class="home" id="start" data-page hidden>
+      <div class="home-head"><h1>Wabisebi Notebook</h1></div>
+      <nav class="hub">
+        <a class="hcard" href="#home"><span class="g">文</span><span class="t">Grammar</span><span class="d">Every grammar point, one page each</span></a>
+        <a class="hcard" href="#kana"><span class="g">あ</span><span class="t">Hiragana</span><span class="d">Chart with stroke order</span></a>
+        <a class="hcard" href="#katakana"><span class="g">ア</span><span class="t">Katakana</span><span class="d">Chart with stroke order</span></a>
+        <a class="hcard" href="#kanji"><span class="g">字</span><span class="t">Kanji</span><span class="d">The N5 kanji with stroke order</span></a>
+        <a class="hcard" href="#numbers"><span class="g">数</span><span class="t">Numbers &amp; Dates</span><span class="d">Counters, time and dates at a glance</span></a>
+        <a class="hcard" href="#kana-game"><span class="g">遊</span><span class="t">Kana Game</span><span class="d">Type the romaji of the kana you see</span></a>
+      </nav>
+    </section>
+
     <!-- home -->
     <section class="home" id="home" data-page hidden>
       <div class="home-head"><h1>All grammar</h1></div>
@@ -10325,6 +10370,150 @@ main:has(#kana:not([hidden])) .foot,main:has(#katakana:not([hidden])) .foot,main
       </div>
     </section>
 
+    <!-- numbers -->
+    <section class="home num-board" id="numbers" data-page hidden>
+      <div class="home-head">
+        <h1>Numbers &amp; Dates</h1>
+        <p class="nlegend"><span class="irr">Blue</span> = the odd ones. Those are the ones to learn.</p>
+      </div>
+      <details class="level" open><summary><span class="t">Numbers</span><span class="label">1 to 9,999</span></summary>
+        <div class="npad">
+        <div class="nwrap"><table class="ntable"><thead><tr><th></th><th>1–9<small></small></th><th>×10<small>十</small></th><th>×100<small>百</small></th><th>×1,000<small>千</small></th></tr></thead><tbody>
+            <tr><th>1</th><td>いち</td><td>じゅう</td><td>ひゃく</td><td>せん</td></tr>
+            <tr><th>2</th><td>に</td><td>にじゅう</td><td>にひゃく</td><td>にせん</td></tr>
+            <tr><th>3</th><td>さん</td><td>さんじゅう</td><td class="irr">さんびゃく</td><td class="irr">さんぜん</td></tr>
+            <tr><th>4</th><td>よん・し</td><td>よんじゅう</td><td>よんひゃく</td><td>よんせん</td></tr>
+            <tr><th>5</th><td>ご</td><td>ごじゅう</td><td>ごひゃく</td><td>ごせん</td></tr>
+            <tr><th>6</th><td>ろく</td><td>ろくじゅう</td><td class="irr">ろっぴゃく</td><td>ろくせん</td></tr>
+            <tr><th>7</th><td>なな・しち</td><td>ななじゅう</td><td>ななひゃく</td><td>ななせん</td></tr>
+            <tr><th>8</th><td>はち</td><td>はちじゅう</td><td class="irr">はっぴゃく</td><td class="irr">はっせん</td></tr>
+            <tr><th>9</th><td>きゅう・く</td><td>きゅうじゅう</td><td>きゅうひゃく</td><td>きゅうせん</td></tr>
+          </tbody></table></div>
+        <p class="nnote">Big numbers go in steps of four zeros: 10,000 is 一万 (いちまん), 100,000 is 十万 (じゅうまん), 1,000,000 is 百万 (ひゃくまん). 0 is ゼロ or れい.</p>
+        </div>
+      </details>
+      <details class="level" open><summary><span class="t">Counters</span><span class="label">how many</span></summary>
+        <div class="npad">
+        <div class="nwrap"><table class="ntable"><thead><tr><th></th><th>つ<small>things</small></th><th>人<small>people</small></th><th>本<small>long things</small></th><th>枚<small>flat things</small></th><th>冊<small>books</small></th><th>台<small>machines</small></th><th>匹<small>small animals</small></th><th>杯<small>cups, bowls</small></th><th>歳<small>age</small></th><th>回<small>times</small></th></tr></thead><tbody>
+            <tr><th>1</th><td class="irr">ひとつ</td><td class="irr">ひとり</td><td class="irr">いっぽん</td><td>いちまい</td><td class="irr">いっさつ</td><td>いちだい</td><td class="irr">いっぴき</td><td class="irr">いっぱい</td><td class="irr">いっさい</td><td class="irr">いっかい</td></tr>
+            <tr><th>2</th><td class="irr">ふたつ</td><td class="irr">ふたり</td><td>にほん</td><td>にまい</td><td>にさつ</td><td>にだい</td><td>にひき</td><td>にはい</td><td>にさい</td><td>にかい</td></tr>
+            <tr><th>3</th><td class="irr">みっつ</td><td>さんにん</td><td class="irr">さんぼん</td><td>さんまい</td><td>さんさつ</td><td>さんだい</td><td class="irr">さんびき</td><td class="irr">さんばい</td><td>さんさい</td><td>さんかい</td></tr>
+            <tr><th>4</th><td class="irr">よっつ</td><td class="irr">よにん</td><td>よんほん</td><td>よんまい</td><td>よんさつ</td><td>よんだい</td><td>よんひき</td><td>よんはい</td><td>よんさい</td><td>よんかい</td></tr>
+            <tr><th>5</th><td class="irr">いつつ</td><td>ごにん</td><td>ごほん</td><td>ごまい</td><td>ごさつ</td><td>ごだい</td><td>ごひき</td><td>ごはい</td><td>ごさい</td><td>ごかい</td></tr>
+            <tr><th>6</th><td class="irr">むっつ</td><td>ろくにん</td><td class="irr">ろっぽん</td><td>ろくまい</td><td>ろくさつ</td><td>ろくだい</td><td class="irr">ろっぴき</td><td class="irr">ろっぱい</td><td>ろくさい</td><td class="irr">ろっかい</td></tr>
+            <tr><th>7</th><td class="irr">ななつ</td><td>ななにん</td><td>ななほん</td><td>ななまい</td><td>ななさつ</td><td>ななだい</td><td>ななひき</td><td>ななはい</td><td>ななさい</td><td>ななかい</td></tr>
+            <tr><th>8</th><td class="irr">やっつ</td><td>はちにん</td><td class="irr">はっぽん</td><td>はちまい</td><td class="irr">はっさつ</td><td>はちだい</td><td class="irr">はっぴき</td><td class="irr">はっぱい</td><td class="irr">はっさい</td><td class="irr">はっかい</td></tr>
+            <tr><th>9</th><td class="irr">ここのつ</td><td>きゅうにん</td><td>きゅうほん</td><td>きゅうまい</td><td>きゅうさつ</td><td>きゅうだい</td><td>きゅうひき</td><td>きゅうはい</td><td>きゅうさい</td><td>きゅうかい</td></tr>
+            <tr><th>10</th><td class="irr">とお</td><td>じゅうにん</td><td class="irr">じゅっぽん</td><td>じゅうまい</td><td class="irr">じゅっさつ</td><td>じゅうだい</td><td class="irr">じゅっぴき</td><td class="irr">じゅっぱい</td><td class="irr">じゅっさい</td><td class="irr">じゅっかい</td></tr>
+            <tr class="ask"><th>?</th><td>いくつ</td><td>なんにん</td><td class="irr">なんぼん</td><td>なんまい</td><td>なんさつ</td><td>なんだい</td><td class="irr">なんびき</td><td class="irr">なんばい</td><td>なんさい</td><td>なんかい</td></tr>
+          </tbody></table></div>
+        <p class="nnote">The number goes after the particle: りんごを三つ買った. From 11 on, つ isn't used, just the plain number (じゅういち). 20 years old is はたち. じゅっ can also be said じっ.</p>
+        </div>
+      </details>
+      <details class="level" open><summary><span class="t">Time</span><span class="label">what time, how long</span></summary>
+        <div class="npad">
+        <div class="nwrap"><table class="ntable"><thead><tr><th></th><th>時<small>o'clock</small></th><th>分<small>minutes</small></th><th>時間<small>hours (how long)</small></th></tr></thead><tbody>
+            <tr><th>1</th><td>いちじ</td><td class="irr">いっぷん</td><td>いちじかん</td></tr>
+            <tr><th>2</th><td>にじ</td><td>にふん</td><td>にじかん</td></tr>
+            <tr><th>3</th><td>さんじ</td><td class="irr">さんぷん</td><td>さんじかん</td></tr>
+            <tr><th>4</th><td class="irr">よじ</td><td class="irr">よんぷん</td><td class="irr">よじかん</td></tr>
+            <tr><th>5</th><td>ごじ</td><td>ごふん</td><td>ごじかん</td></tr>
+            <tr><th>6</th><td>ろくじ</td><td class="irr">ろっぷん</td><td>ろくじかん</td></tr>
+            <tr><th>7</th><td class="irr">しちじ</td><td>ななふん</td><td>しちじかん・ななじかん</td></tr>
+            <tr><th>8</th><td>はちじ</td><td class="irr">はっぷん</td><td>はちじかん</td></tr>
+            <tr><th>9</th><td class="irr">くじ</td><td>きゅうふん</td><td class="irr">くじかん</td></tr>
+            <tr><th>10</th><td>じゅうじ</td><td class="irr">じゅっぷん</td><td>じゅうじかん</td></tr>
+            <tr><th>11</th><td>じゅういちじ</td><td class="irr">じゅういっぷん</td><td>じゅういちじかん</td></tr>
+            <tr><th>12</th><td>じゅうにじ</td><td>じゅうにふん</td><td>じゅうにじかん</td></tr>
+            <tr class="ask"><th>?</th><td>なんじ</td><td class="irr">なんぷん</td><td>なんじかん</td></tr>
+          </tbody></table></div>
+        <p class="nnote">半 (はん) is half past: 三時半 = 3:30. 午前 (ごぜん) is a.m., 午後 (ごご) is p.m., and they go first: 午後二時. 分 is the same word for "5 past" and "5 minutes long".</p>
+        </div>
+      </details>
+      <details class="level" open><summary><span class="t">Days of the week</span><span class="label">曜日</span></summary>
+        <div class="npad">
+        <div class="ngrid seven">
+          <div class="nt"><span class="n">月</span><span class="r">げつようび</span></div>
+          <div class="nt"><span class="n">火</span><span class="r">かようび</span></div>
+          <div class="nt"><span class="n">水</span><span class="r">すいようび</span></div>
+          <div class="nt"><span class="n">木</span><span class="r">もくようび</span></div>
+          <div class="nt"><span class="n">金</span><span class="r">きんようび</span></div>
+          <div class="nt"><span class="n">土</span><span class="r">どようび</span></div>
+          <div class="nt"><span class="n">日</span><span class="r">にちようび</span></div>
+        </div>
+        <p class="nnote">Which day? 何曜日 (なんようび). In speech the び is often dropped: 月曜 (げつよう).</p>
+        </div>
+      </details>
+      <details class="level" open><summary><span class="t">Months</span><span class="label">月</span></summary>
+        <div class="npad">
+        <div class="ngrid six">
+          <div class="nt"><span class="n">1月</span><span class="r">いちがつ</span></div>
+          <div class="nt"><span class="n">2月</span><span class="r">にがつ</span></div>
+          <div class="nt"><span class="n">3月</span><span class="r">さんがつ</span></div>
+          <div class="nt odd"><span class="n">4月</span><span class="r">しがつ</span></div>
+          <div class="nt"><span class="n">5月</span><span class="r">ごがつ</span></div>
+          <div class="nt"><span class="n">6月</span><span class="r">ろくがつ</span></div>
+          <div class="nt odd"><span class="n">7月</span><span class="r">しちがつ</span></div>
+          <div class="nt"><span class="n">8月</span><span class="r">はちがつ</span></div>
+          <div class="nt odd"><span class="n">9月</span><span class="r">くがつ</span></div>
+          <div class="nt"><span class="n">10月</span><span class="r">じゅうがつ</span></div>
+          <div class="nt"><span class="n">11月</span><span class="r">じゅういちがつ</span></div>
+          <div class="nt"><span class="n">12月</span><span class="r">じゅうにがつ</span></div>
+        </div>
+        <p class="nnote">Which month? 何月 (なんがつ). For "two months long" it's ～か月: 二か月 (にかげつ).</p>
+        </div>
+      </details>
+      <details class="level" open><summary><span class="t">Days of the month</span><span class="label">日</span></summary>
+        <div class="npad">
+        <div class="ngrid seven">
+          <div class="nt odd"><span class="n">1</span><span class="r">ついたち</span></div>
+          <div class="nt odd"><span class="n">2</span><span class="r">ふつか</span></div>
+          <div class="nt odd"><span class="n">3</span><span class="r">みっか</span></div>
+          <div class="nt odd"><span class="n">4</span><span class="r">よっか</span></div>
+          <div class="nt odd"><span class="n">5</span><span class="r">いつか</span></div>
+          <div class="nt odd"><span class="n">6</span><span class="r">むいか</span></div>
+          <div class="nt odd"><span class="n">7</span><span class="r">なのか</span></div>
+          <div class="nt odd"><span class="n">8</span><span class="r">ようか</span></div>
+          <div class="nt odd"><span class="n">9</span><span class="r">ここのか</span></div>
+          <div class="nt odd"><span class="n">10</span><span class="r">とおか</span></div>
+          <div class="nt"><span class="n">11</span><span class="r">じゅういちにち</span></div>
+          <div class="nt"><span class="n">12</span><span class="r">じゅうににち</span></div>
+          <div class="nt"><span class="n">13</span><span class="r">じゅうさんにち</span></div>
+          <div class="nt odd"><span class="n">14</span><span class="r">じゅうよっか</span></div>
+          <div class="nt"><span class="n">15</span><span class="r">じゅうごにち</span></div>
+          <div class="nt"><span class="n">16</span><span class="r">じゅうろくにち</span></div>
+          <div class="nt odd"><span class="n">17</span><span class="r">じゅうしちにち</span></div>
+          <div class="nt"><span class="n">18</span><span class="r">じゅうはちにち</span></div>
+          <div class="nt odd"><span class="n">19</span><span class="r">じゅうくにち</span></div>
+          <div class="nt odd"><span class="n">20</span><span class="r">はつか</span></div>
+          <div class="nt"><span class="n">21</span><span class="r">にじゅういちにち</span></div>
+          <div class="nt"><span class="n">22</span><span class="r">にじゅうににち</span></div>
+          <div class="nt"><span class="n">23</span><span class="r">にじゅうさんにち</span></div>
+          <div class="nt odd"><span class="n">24</span><span class="r">にじゅうよっか</span></div>
+          <div class="nt"><span class="n">25</span><span class="r">にじゅうごにち</span></div>
+          <div class="nt"><span class="n">26</span><span class="r">にじゅうろくにち</span></div>
+          <div class="nt odd"><span class="n">27</span><span class="r">にじゅうしちにち</span></div>
+          <div class="nt"><span class="n">28</span><span class="r">にじゅうはちにち</span></div>
+          <div class="nt odd"><span class="n">29</span><span class="r">にじゅうくにち</span></div>
+          <div class="nt"><span class="n">30</span><span class="r">さんじゅうにち</span></div>
+          <div class="nt"><span class="n">31</span><span class="r">さんじゅういちにち</span></div>
+        </div>
+        <p class="nnote">Which day? 何日 (なんにち). 2 to 10 also mean "for that many days": 三日 (みっか) = 3 days. But 1 day is いちにち, not ついたち.</p>
+        </div>
+      </details>
+      <details class="level" open><summary><span class="t">Last, this, next</span><span class="label">when</span></summary>
+        <div class="npad">
+        <div class="nwrap"><table class="ntable when"><thead><tr><th></th><th>Last<small>past</small></th><th>This<small>now</small></th><th>Next<small>coming</small></th><th>Every<small>毎</small></th></tr></thead><tbody>
+            <tr><th>day</th><td><span class="kj">昨日</span>きのう</td><td><span class="kj">今日</span>きょう</td><td><span class="kj">明日</span>あした</td><td><span class="kj">毎日</span>まいにち</td></tr>
+            <tr><th>week</th><td><span class="kj">先週</span>せんしゅう</td><td><span class="kj">今週</span>こんしゅう</td><td><span class="kj">来週</span>らいしゅう</td><td><span class="kj">毎週</span>まいしゅう</td></tr>
+            <tr><th>month</th><td><span class="kj">先月</span>せんげつ</td><td><span class="kj">今月</span>こんげつ</td><td><span class="kj">来月</span>らいげつ</td><td><span class="kj">毎月</span>まいつき</td></tr>
+            <tr><th>year</th><td class="irr"><span class="kj">去年</span>きょねん</td><td class="irr"><span class="kj">今年</span>ことし</td><td><span class="kj">来年</span>らいねん</td><td><span class="kj">毎年</span>まいとし</td></tr>
+          </tbody></table></div>
+        <p class="nnote">Two days ago is 一昨日 (おととい), in two days is 明後日 (あさって). This morning is 今朝 (けさ), tonight is 今晩 (こんばん).</p>
+        </div>
+      </details>
+    </section>
+
     <p class="foot" id="foot"></p>
   </main>
 </div>
@@ -10451,11 +10640,12 @@ var UPDATED = '26 Oct 2026';
 
   var top = document.getElementById('top');
   top.innerHTML =
-    '<a class="brand" href="' + href('home') + '"><span class="label">文法ノート</span><span class="t">Wabisebi Grammar Notebook</span></a>' +
-    '<a class="nav" href="' + href('home') + '"><svg class="pad" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></svg> Grammar Study</a>' +
-    '<a class="nav" href="' + href('kana') + '">あ Hiragana Chart</a>' +
-    '<a class="nav" href="' + href('katakana') + '">ア Katakana Chart</a>' +
-    '<a class="nav" href="' + href('kanji') + '">字 N5 Kanji</a>' +
+    '<a class="brand" href="' + href('start') + '"><span class="label">文法ノート</span><span class="t">Wabisebi Grammar Notebook</span></a>' +
+    '<a class="nav" href="' + href('home') + '"><svg class="pad" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></svg> Grammar</a>' +
+    '<a class="nav" href="' + href('kana') + '">あ Hiragana</a>' +
+    '<a class="nav" href="' + href('katakana') + '">ア Katakana</a>' +
+    '<a class="nav" href="' + href('kanji') + '">字 Kanji</a>' +
+    '<a class="nav" href="' + href('numbers') + '">数 Numbers &amp; Dates</a>' +
     '<a class="nav" href="' + href('kana-game') + '"><svg class="pad" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10a5 5 0 0 1 4.9 4l1 5a2.6 2.6 0 0 1-4.4 2.3L16.4 16H7.6l-3.1 2.3A2.6 2.6 0 0 1 .1 16l1-5A5 5 0 0 1 7 7z"/><path d="M7.5 10v3M6 11.5h3"/><circle cx="15.5" cy="10.6" r=".6"/><circle cx="17.7" cy="12.6" r=".6"/></svg> Kana Game</a>' +
     '<div class="find"><input id="find" type="search" placeholder="Search: は, topic, wa…" aria-label="Search grammar" autocomplete="off">' +
       '<ol class="results" id="results" hidden></ol></div>';
