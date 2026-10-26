@@ -106,7 +106,7 @@ Categories marked *(new)* aren't on the site yet. They get added to `INDEX` when
 - [ ] た-Form: did (casual)
 - [ ] なかった: didn't (casual)
 - [ ] Verb + Noun: describing a noun with a verb (食べる人)
-- [ ] ～に行く・～に来る: go/come to do something
+- [x] ～に行く・～に来る: go/come to do something
 
 ## て-form *(empty on the site so far)*
 - [ ] て-Form: how to make it

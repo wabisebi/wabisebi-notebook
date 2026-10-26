@@ -83,7 +83,8 @@ var INDEX = [
       ['u-verb-neg', 'う-Verb (Negative)', 'Not doing: u sound → a + ない'],
       ['ru-verb-past', 'る-Verb (Past)', 'Did: た and ました'],
       ['kuru', '来る', 'To come (irregular verb)'],
-      ['suru', 'する', 'To do (irregular verb)']
+      ['suru', 'する', 'To do (irregular verb)'],
+      ['ni-iku', '～に行く・～に来る', 'Go to do, come to do']
     ]},
     {cat: 'て-form', pages: []},
     {cat: 'Wanting and inviting', pages: [
