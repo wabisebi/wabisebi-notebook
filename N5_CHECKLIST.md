@@ -127,6 +127,9 @@ Categories marked *(new)* aren't on the site yet. They get added to `INDEX` when
 - [x] ～ましょう: let's (casual ～よう on the same page)
 - [ ] ～ましょうか: shall I, shall we
 
+## Giving and receiving *(new)*
+- [x] くれる・てくれる: someone gives me, does something for me
+
 ## Joining sentences *(new)*
 - [ ] そして・それから: and, and then
 - [x] でも: but (start of a sentence)

@@ -88,6 +88,9 @@ var INDEX = [
       ['mashou', '～ましょう', 'Let\'s (casual: ～よう)'],
       ['tsumori', '～つもりだ', 'Plan to, intend to']
     ]},
+    {cat: 'Giving and receiving', pages: [
+      ['kureru', 'くれる・てくれる', 'Someone gives me, does something for me']
+    ]},
     {cat: 'Joining sentences', pages: [
       ['demo', 'でも', 'But (start of a sentence)'],
       ['ga-but', 'が (But)', 'But, however (polite)'],
