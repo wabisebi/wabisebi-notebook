@@ -33,7 +33,7 @@ Categories marked *(new)* aren't on the site yet. They get added to `INDEX` when
 - [x] どんな: what kind of
 - [x] どうして・なぜ: why
 - [ ] いくら: how much (money)
-- [ ] いくつ: how many, how old
+- [x] いくつ: how many, how old
 - [x] どのくらい: how long, how much (on the ぐらい・くらい page)
 - [x] 何か・誰か・どこか: something, someone, somewhere
 - [x] 何も・誰も・どこも + negative: nothing, nobody, nowhere
@@ -137,13 +137,6 @@ Categories marked *(new)* aren't on the site yet. They get added to `INDEX` when
 - [ ] ～た後で: after
 - [ ] ～とき: when
 - [ ] ～たり～たりする: things like, doing this and that
-
-## Numbers and time *(new)*
-The readings themselves (counters, time, dates) are on the Numbers & Dates chart (`pages/numbers.html`). These points are only about how they work in a sentence.
-- [ ] Counters: ～つ, ～人, ～本, ～枚
-- [ ] Telling time: ～時, ～分, 半
-- [ ] Dates: ～月, ～日, ～年
-- [ ] 毎～: every (毎日, 毎朝)
 
 ## Explaining (の)
 - [x] ～の: asking for the story behind something
