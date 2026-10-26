@@ -24,7 +24,7 @@ Categories marked *(new)* aren't on the site yet. They get added to `INDEX` when
 
 ## Question words
 - [x] 何 (なに・なん): what
-- [ ] 誰: who
+- [x] 誰: who
 - [x] どこ: where
 - [x] いつ: when
 - [x] どれ・どの: which
@@ -32,7 +32,7 @@ Categories marked *(new)* aren't on the site yet. They get added to `INDEX` when
 - [x] どう・いかが: how
 - [x] どんな: what kind of
 - [x] どうして・なぜ: why
-- [ ] いくら: how much (money)
+- [x] いくら: how much (money)
 - [x] いくつ: how many, how old
 - [x] どのくらい: how long, how much (on the ぐらい・くらい page)
 - [x] 何か・誰か・どこか: something, someone, somewhere
@@ -69,7 +69,7 @@ Categories marked *(new)* aren't on the site yet. They get added to `INDEX` when
 ## Adjectives
 - [x] い-Adjective
 - [x] いい (良い): good
-- [ ] い-Adjective (Negative): くない
+- [x] い-Adjective (Negative): くない
 - [x] い-Adjective (Past): かった
 - [x] い-Adjective (Past negative): くなかった
 - [x] な-Adjective

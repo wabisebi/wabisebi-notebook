@@ -21,6 +21,7 @@ var INDEX = [
     ]},
     {cat: 'Question words', pages: [
       ['nani', '何 (なに・なん)', 'What'],
+      ['dare', '誰 (だれ)・どなた', 'Who (polite: どなた)'],
       ['doko', 'どこ', 'Where'],
       ['itsu', 'いつ', 'When'],
       ['dore-dono', 'どれ・どの', 'Which (of three or more)'],
@@ -63,6 +64,7 @@ var INDEX = [
       ['i-adj', 'い-Adjective', 'Describing words that end in い'],
       ['ii', 'いい (良い)', 'い-Adjective meaning "good"'],
       ['na-adj', 'な-Adjective', 'Describing words: な before a noun'],
+      ['i-adj-neg', 'い-Adjective (Negative)', 'Isn\'t: くない'],
       ['i-adj-past', 'い-Adjective (Past)', 'Was: the past of い-adjectives'],
       ['i-adj-past-neg', 'い-Adjective (Past negative)', 'Wasn\'t: くなかった'],
       ['suki-kirai', '好き・嫌い', 'Like, dislike (～が好き)'],
