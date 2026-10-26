@@ -156,8 +156,13 @@ h2::before{background:var(--gold);width:3px}
 .gcard:focus-visible{outline:2px solid var(--indigo);outline-offset:2px}
 .gcard .p{font-size:20px;font-weight:700;line-height:1.35}
 .gcard .d{color:var(--muted);font-size:14px;margin-bottom:10px}
-.gcard .lv{margin-top:auto;align-self:flex-start;font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.08em;color:var(--lv,var(--gram));background:color-mix(in srgb,var(--lv,var(--gram)) 18%,transparent);border:1px solid color-mix(in srgb,var(--lv,var(--gram)) 45%,transparent);border-radius:999px;padding:0 8px}
-.gcard .lv.n5{--lv:#2fe3a0}
+.gcard .lv{margin-top:auto;align-self:flex-start}
+.gcard .lv,.rcard .lv{font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.08em;color:var(--lv,var(--gram));background:color-mix(in srgb,var(--lv,var(--gram)) 18%,transparent);border:1px solid color-mix(in srgb,var(--lv,var(--gram)) 45%,transparent);border-radius:999px;padding:0 8px}
+.gcard .lv.n5,.rcard .lv.n5{--lv:#2fe3a0}
+.gcard .lv.n4,.rcard .lv.n4{--lv:#5ac8fa}
+.gcard .lv.n3,.rcard .lv.n3{--lv:#9d8cff}
+.gcard .lv.n2,.rcard .lv.n2{--lv:#e98fd6}
+.gcard .lv.n1,.rcard .lv.n1{--lv:#ece6d6}
 @media (max-width:520px){.cards{grid-template-columns:1fr 1fr;padding:12px;gap:8px}.cat h3{padding:14px 12px 0}.cat .cards{padding-top:8px}.gcard{padding:12px}.gcard .p{font-size:18px}}
 main:has(.home:not([hidden])) .foot{max-width:1080px}
 
@@ -334,7 +339,7 @@ main:has(#kana:not([hidden])) .foot,main:has(#katakana:not([hidden])) .foot,main
 .rcard:hover .t{color:var(--gold)}
 .rcard:focus-visible{outline:2px solid var(--indigo);outline-offset:-2px}
 .rcard .t{font-family:var(--display);font-size:20px;font-weight:500}
-.rcard .tags{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.rcard .tags{display:flex;gap:4px 6px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
 .rcard .tag{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--muted);border:1px solid var(--card-line);border-radius:999px;padding:1px 8px}
 .rcard .av{box-sizing:border-box;grid-row:span 2;align-self:center;width:44px;height:44px;border-radius:50%;object-fit:cover;background:var(--card)}
 .rcard .av.glyph{display:grid;place-items:center;font-size:20px;color:var(--gold);border:1px solid var(--card-line)}

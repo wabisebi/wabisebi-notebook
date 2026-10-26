@@ -164,8 +164,13 @@ h2::before{background:var(--gold);width:3px}
 .gcard:focus-visible{outline:2px solid var(--indigo);outline-offset:2px}
 .gcard .p{font-size:20px;font-weight:700;line-height:1.35}
 .gcard .d{color:var(--muted);font-size:14px;margin-bottom:10px}
-.gcard .lv{margin-top:auto;align-self:flex-start;font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.08em;color:var(--lv,var(--gram));background:color-mix(in srgb,var(--lv,var(--gram)) 18%,transparent);border:1px solid color-mix(in srgb,var(--lv,var(--gram)) 45%,transparent);border-radius:999px;padding:0 8px}
-.gcard .lv.n5{--lv:#2fe3a0}
+.gcard .lv{margin-top:auto;align-self:flex-start}
+.gcard .lv,.rcard .lv{font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.08em;color:var(--lv,var(--gram));background:color-mix(in srgb,var(--lv,var(--gram)) 18%,transparent);border:1px solid color-mix(in srgb,var(--lv,var(--gram)) 45%,transparent);border-radius:999px;padding:0 8px}
+.gcard .lv.n5,.rcard .lv.n5{--lv:#2fe3a0}
+.gcard .lv.n4,.rcard .lv.n4{--lv:#5ac8fa}
+.gcard .lv.n3,.rcard .lv.n3{--lv:#9d8cff}
+.gcard .lv.n2,.rcard .lv.n2{--lv:#e98fd6}
+.gcard .lv.n1,.rcard .lv.n1{--lv:#ece6d6}
 @media (max-width:520px){.cards{grid-template-columns:1fr 1fr;padding:12px;gap:8px}.cat h3{padding:14px 12px 0}.cat .cards{padding-top:8px}.gcard{padding:12px}.gcard .p{font-size:18px}}
 main:has(.home:not([hidden])) .foot{max-width:1080px}
 
@@ -342,7 +347,7 @@ main:has(#kana:not([hidden])) .foot,main:has(#katakana:not([hidden])) .foot,main
 .rcard:hover .t{color:var(--gold)}
 .rcard:focus-visible{outline:2px solid var(--indigo);outline-offset:-2px}
 .rcard .t{font-family:var(--display);font-size:20px;font-weight:500}
-.rcard .tags{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.rcard .tags{display:flex;gap:4px 6px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
 .rcard .tag{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--muted);border:1px solid var(--card-line);border-radius:999px;padding:1px 8px}
 .rcard .av{box-sizing:border-box;grid-row:span 2;align-self:center;width:44px;height:44px;border-radius:50%;object-fit:cover;background:var(--card)}
 .rcard .av.glyph{display:grid;place-items:center;font-size:20px;color:var(--gold);border:1px solid var(--card-line)}
@@ -11849,7 +11854,7 @@ main:has(#kana:not([hidden])) .foot,main:has(#katakana:not([hidden])) .foot,main
       <details class="level" open><summary><span class="t">Vocabulary</span><span class="label">Learn words</span></summary>
         <section class="cat"><h3 class="label">SRS app</h3>
         <ul class="rlist">
-          <li><a class="rcard" href="https://apps.ankiweb.net/" target="_blank" rel="noopener"><img class="av logo" src="media/resources/anki.svg" alt="" loading="lazy"><span class="t">Anki</span><span class="tags"><span class="tag">Free</span></span><span class="d">My SRS app of choice. Flashcards that come back right before you'd forget them.</span></a></li>
+          <li><a class="rcard" href="https://apps.ankiweb.net/" target="_blank" rel="noopener"><img class="av logo" src="media/resources/anki.svg" alt="" loading="lazy"><span class="t">Anki</span><span class="tags"></span><span class="d">My SRS app of choice. Flashcards that come back right before you'd forget them.</span></a></li>
         </ul>
         </section>
         <section class="cat"><h3 class="label">Anki decks</h3>
@@ -11858,13 +11863,16 @@ main:has(#kana:not([hidden])) .foot,main:has(#katakana:not([hidden])) .foot,main
         </ul>
         </section>
       </details>
-      <details class="level" open><summary><span class="t">N5 Immersion</span><span class="label">Watch and listen</span></summary>
+      <details class="level" open><summary><span class="t">Immersion Videos</span><span class="label">Watch and listen</span></summary>
         <section class="cat"><h3 class="label">YouTube</h3>
         <ul class="rlist">
-          <li><a class="rcard" href="https://www.youtube.com/@JapanesewithShun" target="_blank" rel="noopener"><img class="av" src="media/resources/shun.jpg" alt="" loading="lazy"><span class="t">Japanese with Shun</span><span class="tags"><span class="tag">N5–N4</span></span><span class="d">Easy Japanese immersion, good for N5 to N4.</span></a></li>
-          <li><a class="rcard" href="https://www.youtube.com/@chienowajapanese1101" target="_blank" rel="noopener"><img class="av" src="media/resources/chienowa.jpg" alt="" loading="lazy"><span class="t">Chienowa Japanese</span><span class="tags"></span><span class="d">Japanese immersion videos.</span></a></li>
-          <li><a class="rcard" href="https://www.youtube.com/@kensanokaeri" target="_blank" rel="noopener"><img class="av" src="media/resources/kensan.jpg" alt="" loading="lazy"><span class="t">Kensan Okaeri Japanese</span><span class="tags"></span><span class="d">Japanese immersion videos.</span></a></li>
-          <li><a class="rcard" href="https://www.youtube.com/playlist?list=PLPdNX2arS9MaBClt3dN4cs5BPpTJ4ygxf" target="_blank" rel="noopener"><img class="av" src="media/resources/naturaljapanese.jpg" alt="" loading="lazy"><span class="t">Natural Japanese: Learn Japanese with Video Games</span><span class="tags"><span class="tag">Playlist</span></span><span class="d">Learning Japanese through video games.</span></a></li>
+          <li><a class="rcard" href="https://www.youtube.com/@chienowajapanese1101" target="_blank" rel="noopener"><img class="av" src="media/resources/chienowa.jpg" alt="" loading="lazy"><span class="t">Chienowa Japanese</span><span class="tags"><span class="lv n5">N5</span></span><span class="d">Japanese immersion videos.</span></a></li>
+          <li><a class="rcard" href="https://www.youtube.com/@Japarrot_LetsLearnJP" target="_blank" rel="noopener"><img class="av" src="media/resources/japarrot.jpg" alt="" loading="lazy"><span class="t">Japarrot: Let's Learn Japanese</span><span class="tags"><span class="lv n5">N5</span></span><span class="d">Japanese immersion videos.</span></a></li>
+          <li><a class="rcard" href="https://www.youtube.com/@JapanesewithShun" target="_blank" rel="noopener"><img class="av" src="media/resources/shun.jpg" alt="" loading="lazy"><span class="t">Japanese with Shun</span><span class="tags"><span class="lv n5">N5</span><span class="lv n4">N4</span></span><span class="d">Easy Japanese immersion, good for N5 to N4.</span></a></li>
+          <li><a class="rcard" href="https://www.youtube.com/@kensanokaeri" target="_blank" rel="noopener"><img class="av" src="media/resources/kensan.jpg" alt="" loading="lazy"><span class="t">Kensan Okaeri Japanese</span><span class="tags"><span class="lv n5">N5</span><span class="lv n4">N4</span></span><span class="d">Japanese immersion videos.</span></a></li>
+          <li><a class="rcard" href="https://www.youtube.com/playlist?list=PLPdNX2arS9MaBClt3dN4cs5BPpTJ4ygxf" target="_blank" rel="noopener"><img class="av" src="media/resources/naturaljapanese.jpg" alt="" loading="lazy"><span class="t">Natural Japanese: Learn Japanese with Video Games</span><span class="tags"><span class="lv n5">N5</span><span class="lv n4">N4</span><span class="lv n3">N3</span><span class="tag">Playlist</span></span><span class="d">Learning Japanese through video games.</span></a></li>
+          <li><a class="rcard" href="https://www.youtube.com/@OkkeiJapanese" target="_blank" rel="noopener"><img class="av" src="media/resources/okkei.jpg" alt="" loading="lazy"><span class="t">Okkei Japanese</span><span class="tags"><span class="lv n5">N5</span><span class="lv n4">N4</span><span class="lv n3">N3</span><span class="lv n2">N2</span></span><span class="d">Japanese immersion videos.</span></a></li>
+          <li><a class="rcard" href="https://www.youtube.com/@JiroJapanese" target="_blank" rel="noopener"><img class="av" src="media/resources/jiro.jpg" alt="" loading="lazy"><span class="t">Jiro, just Japanese</span><span class="tags"><span class="lv n4">N4</span><span class="lv n3">N3</span><span class="lv n2">N2</span></span><span class="d">Podcasts, news and Tokyo walks, all in Japanese. Talks about everyday life and society.</span></a></li>
         </ul>
         </section>
       </details>
