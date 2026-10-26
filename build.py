@@ -10,7 +10,7 @@ def read(*p):
 
 site_js = read('strokes.js') + read('site.js')
 css = read('style.css')
-ids = ['start', 'home'] + re.findall(r"\['([a-z0-9-]+)',", site_js) + ['kana', 'katakana', 'kanji', 'kana-game', 'numbers']  # start first: it's the page index.html opens on; start, kana, katakana, kanji, kana-game and numbers are not in INDEX
+ids = ['start', 'home'] + re.findall(r"\['([a-z0-9-]+)',", site_js) + ['kana', 'katakana', 'kanji', 'kana-game', 'numbers', 'resources']  # start first: it's the page index.html opens on; start, kana, katakana, kanji, kana-game, numbers and resources are not in INDEX
 
 fonts = ''
 parts = []

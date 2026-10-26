@@ -333,6 +333,23 @@ main:has(#kana:not([hidden])) .foot,main:has(#katakana:not([hidden])) .foot,main
 .hcard .t{font-family:var(--display);font-size:24px;font-weight:500}
 .hcard .d{color:var(--muted);font-size:14px}
 @media (max-width:520px){.hub{grid-template-columns:1fr 1fr;gap:10px}.hcard{padding:16px}.hcard .g{font-size:36px}.hcard .t{font-size:19px}}
+
+/* resources page */
+.rlist{list-style:none;margin:0;padding:6px 0 0}
+.rlist li + li{border-top:1px solid var(--line)}
+.rcard{display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:2px 14px;align-items:baseline;padding:14px 16px;color:inherit;text-decoration:none}
+.rcard:hover{background:var(--card)}
+.rcard:hover .t{color:var(--gold)}
+.rcard:focus-visible{outline:2px solid var(--indigo);outline-offset:-2px}
+.rcard .t{font-family:var(--display);font-size:20px;font-weight:500}
+.rcard .tags{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.rcard .tag{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--muted);border:1px solid var(--card-line);border-radius:999px;padding:1px 8px}
+.rcard .av{box-sizing:border-box;grid-row:span 2;align-self:center;width:44px;height:44px;border-radius:50%;object-fit:cover;background:var(--card)}
+.rcard .av.glyph{display:grid;place-items:center;font-size:20px;color:var(--gold);border:1px solid var(--card-line)}
+.rcard .av.logo{object-fit:contain;padding:8px;border:1px solid var(--card-line)}
+.rcard .tag.rec{color:var(--gold);border-color:var(--gold)}
+.rcard .d{grid-column:2 / -1;color:var(--muted);font-size:14px}
+@media (max-width:520px){.rcard{grid-template-columns:44px minmax(0,1fr)}.rcard .av{grid-row:span 3}.rcard .tags{justify-content:flex-start}}
 </style>
 
 <header class="top" id="top"></header>
@@ -348,6 +365,7 @@ main:has(#kana:not([hidden])) .foot,main:has(#katakana:not([hidden])) .foot,main
         <a class="hcard" href="#kanji"><span class="g">字</span><span class="t">Kanji</span><span class="d">The N5 kanji with stroke order</span></a>
         <a class="hcard" href="#numbers"><span class="g">数</span><span class="t">Numbers &amp; Dates</span><span class="d">Counters, time and dates at a glance</span></a>
         <a class="hcard" href="#kana-game"><span class="g">遊</span><span class="t">Kana Game</span><span class="d">Type the romaji of the kana you see</span></a>
+        <a class="hcard" href="#resources"><span class="g">棚</span><span class="t">Resources</span><span class="d">Useful channels, sites and tools</span></a>
       </nav>
     </section>
 
@@ -11825,6 +11843,33 @@ main:has(#kana:not([hidden])) .foot,main:has(#katakana:not([hidden])) .foot,main
       </details>
     </section>
 
+    <!-- resources -->
+    <section class="home" id="resources" data-page hidden>
+      <div class="home-head"><h1>Resources</h1></div>
+      <details class="level" open><summary><span class="t">Vocabulary</span><span class="label">Learn words</span></summary>
+        <section class="cat"><h3 class="label">SRS app</h3>
+        <ul class="rlist">
+          <li><a class="rcard" href="https://apps.ankiweb.net/" target="_blank" rel="noopener"><img class="av logo" src="media/resources/anki.svg" alt="" loading="lazy"><span class="t">Anki</span><span class="tags"><span class="tag">Free</span></span><span class="d">My SRS app of choice. Flashcards that come back right before you'd forget them.</span></a></li>
+        </ul>
+        </section>
+        <section class="cat"><h3 class="label">Anki decks</h3>
+        <ul class="rlist">
+          <li><a class="rcard" href="https://ankiweb.net/shared/info/1196762551" target="_blank" rel="noopener"><span class="av glyph">単</span><span class="t">Kaishi 1.5k: Basic Japanese Vocabulary</span><span class="tags"><span class="tag rec">Recommended</span></span><span class="d">A slimmed down version of the 2k/6k deck. The one I'd recommend.</span></a></li>
+        </ul>
+        </section>
+      </details>
+      <details class="level" open><summary><span class="t">N5 Immersion</span><span class="label">Watch and listen</span></summary>
+        <section class="cat"><h3 class="label">YouTube</h3>
+        <ul class="rlist">
+          <li><a class="rcard" href="https://www.youtube.com/@JapanesewithShun" target="_blank" rel="noopener"><img class="av" src="media/resources/shun.jpg" alt="" loading="lazy"><span class="t">Japanese with Shun</span><span class="tags"><span class="tag">N5–N4</span></span><span class="d">Easy Japanese immersion, good for N5 to N4.</span></a></li>
+          <li><a class="rcard" href="https://www.youtube.com/@chienowajapanese1101" target="_blank" rel="noopener"><img class="av" src="media/resources/chienowa.jpg" alt="" loading="lazy"><span class="t">Chienowa Japanese</span><span class="tags"></span><span class="d">Japanese immersion videos.</span></a></li>
+          <li><a class="rcard" href="https://www.youtube.com/@kensanokaeri" target="_blank" rel="noopener"><img class="av" src="media/resources/kensan.jpg" alt="" loading="lazy"><span class="t">Kensan Okaeri Japanese</span><span class="tags"></span><span class="d">Japanese immersion videos.</span></a></li>
+          <li><a class="rcard" href="https://www.youtube.com/playlist?list=PLPdNX2arS9MaBClt3dN4cs5BPpTJ4ygxf" target="_blank" rel="noopener"><img class="av" src="media/resources/naturaljapanese.jpg" alt="" loading="lazy"><span class="t">Natural Japanese: Learn Japanese with Video Games</span><span class="tags"><span class="tag">Playlist</span></span><span class="d">Learning Japanese through video games.</span></a></li>
+        </ul>
+        </section>
+      </details>
+    </section>
+
     <p class="foot" id="foot"></p>
   </main>
 </div>
@@ -11968,6 +12013,7 @@ var UPDATED = '26 Oct 2026';
     '<a class="nav" href="' + href('kanji') + '">字 Kanji</a>' +
     '<a class="nav" href="' + href('numbers') + '">数 Numbers &amp; Dates</a>' +
     '<a class="nav" href="' + href('kana-game') + '"><svg class="pad" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10a5 5 0 0 1 4.9 4l1 5a2.6 2.6 0 0 1-4.4 2.3L16.4 16H7.6l-3.1 2.3A2.6 2.6 0 0 1 .1 16l1-5A5 5 0 0 1 7 7z"/><path d="M7.5 10v3M6 11.5h3"/><circle cx="15.5" cy="10.6" r=".6"/><circle cx="17.7" cy="12.6" r=".6"/></svg> Kana Game</a>' +
+    '<a class="nav" href="' + href('resources') + '">棚 Resources</a>' +
     '<div class="find"><input id="find" type="search" placeholder="Search: は, topic, wa…" aria-label="Search grammar" autocomplete="off">' +
       '<ol class="results" id="results" hidden></ol></div>';
 
