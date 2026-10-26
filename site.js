@@ -85,6 +85,7 @@ var INDEX = [
       ['tsumori', '～つもりだ', 'Plan to, intend to']
     ]},
     {cat: 'Joining sentences', pages: [
+      ['demo', 'でも', 'But (start of a sentence)'],
       ['ga-but', 'が (But)', 'But, however (polite)'],
       ['kedo', 'けど・けれども', 'But (everyday)'],
       ['kara-because', 'から (Because)', 'Because, so: giving a reason'],
