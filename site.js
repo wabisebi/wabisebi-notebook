@@ -79,6 +79,7 @@ var INDEX = [
       ['u-verb', 'う-Verb (Dictionary)', 'Godan verbs: plain and polite'],
       ['ru-verb-neg', 'る-Verb (Negative)', 'Not doing: ない and ません'],
       ['u-verb-neg', 'う-Verb (Negative)', 'Not doing: u sound → a + ない'],
+      ['ru-verb-past', 'る-Verb (Past)', 'Did: た and ました'],
       ['kuru', '来る', 'To come (irregular verb)'],
       ['suru', 'する', 'To do (irregular verb)']
     ]},

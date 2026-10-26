@@ -100,6 +100,7 @@ Categories marked *(new)* aren't on the site yet. They get added to `INDEX` when
 - [x] 来る: to come (irregular verb)
 - [x] る-Verb (Negative): ない, ません
 - [x] う-Verb (Negative): u → a + ない
+- [x] る-Verb (Past): た, ました
 - [ ] ました: did (polite)
 - [ ] ませんでした: didn't (polite)
 - [ ] た-Form: did (casual)
