@@ -102,6 +102,7 @@ Seb tends to widen a project mid-way and then leave it half done (the soundboard
 
 Parked (not done, pick up later):
 - Kana chart sounds: removed on 24 Oct 2026, Seb will find good-sounding ones himself. When he has them, add a `data-src` back on the tiles and the click code in `site.js` (see git history before this change).
+- Typing Japanese page (parked 26 Oct 2026, a draft was made and removed the same day). Idea: a how-to page, one box each for PC (Windows 11), Mac, Android (Gboard) and iPhone with "Set it up" steps and "Switch" shortcuts, then a small "Tricky ones" table (ん = nn, っ = double letter, を = wo, ー = minus key, は/へ = ha/he) and how to get kanji (Space, then Enter). Start page card only, the top bar is full. Watch out: `.how` is already a CSS class, don't reuse it.
 - Kanji grid extras (the basic grid with stroke order was built 25 Oct 2026, the rest waits until N5 grammar is done). Seb did RTK (can write, knows meanings) and knows lots of words as whole shapes, but not the sound of single kanji. Smallest version first: N5 kanji only (~80), grid tiles with kanji + keyword, click opens: stroke order animation (KanjiVG, same as kana), our own keyword (not Heisig's, they're copyrighted; or KANJIDIC meanings), and 3 or 4 words from Seb's own Migaku deck lined up so the shared sound stands out (電車, 電話, 電気 → でん). No reading lists. Later extras, one at a time: sound-part hints (青 せい in 晴, 清, 精, 静), RTK parts it's built from, one mined sentence.
 
 ## Pages so far
