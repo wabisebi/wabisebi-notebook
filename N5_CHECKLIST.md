@@ -55,9 +55,9 @@ Categories marked *(new)* aren't on the site yet. They get added to `INDEX` when
 - [x] から (From): from
 - [x] まで: until, up to
 - [x] だけ: only
-- [ ] しか～ない: nothing but
+- [x] しか～ない: nothing but
 - [x] ぐらい・くらい: about (amount)
-- [ ] ごろ: around (a time)
+- [x] ごろ: around (a time)
 
 ## Sentence endings
 - [x] よ: telling someone something new

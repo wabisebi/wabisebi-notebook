@@ -47,7 +47,9 @@ var INDEX = [
       ['kara', 'から (From)', 'From: starting point (place, time, person)'],
       ['made', 'まで', 'Until, up to, even'],
       ['dake', 'だけ', 'Only, just'],
-      ['kurai', 'ぐらい・くらい', 'About, roughly (どのくらい: how much?)']
+      ['shika', 'しか～ない', 'Only, nothing but (+ negative)'],
+      ['kurai', 'ぐらい・くらい', 'About, roughly (どのくらい: how much?)'],
+      ['goro', 'ごろ (頃)', 'Around (a time)']
     ]},
     {cat: 'Sentence endings', pages: [
       ['yo', 'よ', 'Telling someone something new'],
