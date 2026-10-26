@@ -93,6 +93,7 @@ var INDEX = [
     ]},
     {cat: 'Giving and receiving', pages: [
       ['morau', 'もらう (貰う)', 'To get, to receive'],
+      ['ageru', 'あげる', 'To give (to someone else)'],
       ['kureru', 'くれる・てくれる', 'Someone gives me, does something for me']
     ]},
     {cat: 'Joining sentences', pages: [
