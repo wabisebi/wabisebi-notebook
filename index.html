@@ -122,6 +122,8 @@ h2::before{background:var(--gold);width:3px}
 .mines{display:grid;gap:12px}
 .mine{background:#1f2944;border:1px solid #34405f;border-radius:10px;padding:16px 18px;display:flex;flex-direction:column;gap:4px}
 .mine img{display:block;width:100%;max-width:420px;height:auto;border-radius:6px}
+/* empty spot for a card that has no picture (some Core cards) */
+.mine .noimg{width:100%;max-width:420px;aspect-ratio:16/9;border:1px dashed #34405f;border-radius:6px}
 .mine .src{margin:6px 0 8px;font-family:var(--mono);font-size:11.5px;letter-spacing:.04em;color:var(--muted)}
 .mine .line{display:flex;align-items:center;gap:10px}
 .mine .jp{font-size:22px;font-weight:700;margin:0;line-height:1.4}
@@ -3158,6 +3160,33 @@ main:has(#kana:not([hidden])) .foot,main:has(#katakana:not([hidden])) .foot,main
           </div>
         </div>
       </section>
+      <section>
+        <h2>Sentence mining</h2>
+        <div class="mines">
+          <div class="mine">
+            <span class="use polite">Polite</span>
+            <img src="media/iknow_core1000_5183983.jpg" alt="Shoes" loading="lazy">
+            <p class="src">Core deck <span class="tag">Core</span></p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/9ea8047c4a3946e40f3bcccd277f8d31.mp3" aria-label="Play audio"></button>
+              <p class="jp">この靴は<mark class="g">いくら</mark>ですか。</p>
+            </div>
+            <p class="en">"How much are these shoes?"</p>
+            <p class="note">The basic shop question: X は いくらですか.</p>
+          </div>
+          <div class="mine">
+            <span class="use polite">Polite</span>
+            <div class="noimg" aria-hidden="true"></div>
+            <p class="src">Core deck <span class="tag">Core</span></p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/b4e5937d5feb8b31587c7bcdd68189b9.mp3" aria-label="Play audio"></button>
+              <p class="jp">この辺りの家賃の相場は<mark class="g">いくら</mark>ですか。</p>
+            </div>
+            <p class="en">"What's the usual rent around here?"</p>
+            <p class="note">Same frame with a longer X: "the usual rent around here".</p>
+          </div>
+        </div>
+      </section>
     </article>
 
     <!-- ikutsu -->
@@ -3222,6 +3251,55 @@ main:has(#kana:not([hidden])) .foot,main:has(#katakana:not([hidden])) .foot,main
             <span class="label">With いくつ</span>
             <p class="jp">りんごを<mark class="g">いくつ</mark>買いましたか？</p>
             <p>"How many apples did you buy?" Swap the number for いくつ, add か.</p>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h2>Sentence mining</h2>
+        <div class="mines">
+          <div class="mine">
+            <span class="use polite">Polite</span>
+            <img src="media/784f7942f92572d342729d9edd64bf3a.jpg" alt="A mother and her little daughter" loading="lazy">
+            <p class="src">Core deck <span class="tag">Core</span></p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/9a137c95b111047a24c2253292092146.mp3" aria-label="Play audio"></button>
+              <p class="jp">お嬢さんはお<mark class="g">いくつ</mark>ですか。</p>
+            </div>
+            <p class="en">"How old is your daughter?"</p>
+            <p class="note">おいくつ = polite "how old".</p>
+          </div>
+          <div class="mine">
+            <span class="use polite">Polite</span>
+            <img src="media/iknow_core4000_45f44k603k.jpg" alt="Speech bubbles with 日本 and a Japanese flag" loading="lazy">
+            <p class="src">Core deck <span class="tag">Core</span></p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/37dfd80836e4ab0bdea1ef464f8ea8fa.mp3" aria-label="Play audio"></button>
+              <p class="jp">日本語の単語を<mark class="g">いくつ</mark>知っていますか。</p>
+            </div>
+            <p class="en">"How many Japanese words do you know?"</p>
+            <p class="note">いくつ goes before the verb, no particle.</p>
+          </div>
+          <div class="mine">
+            <span class="use polite">Polite</span>
+            <div class="noimg" aria-hidden="true"></div>
+            <p class="src">Core deck <span class="tag">Core</span></p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/208ffa53135cc6ab53fc073c19083921.mp3" aria-label="Play audio"></button>
+              <p class="jp">日本のことわざを<mark class="g">いくつ</mark>くらい知っていますか。</p>
+            </div>
+            <p class="en">"About how many Japanese proverbs do you know?"</p>
+            <p class="note">いくつくらい: "about how many".</p>
+          </div>
+          <div class="mine">
+            <span class="use polite">Polite</span>
+            <div class="noimg" aria-hidden="true"></div>
+            <p class="src">Core deck <span class="tag">Core</span></p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/e2e2aeaf173e72087cdafdd4fc9846f1.mp3" aria-label="Play audio"></button>
+              <p class="jp">アジアの国名を<mark class="g">いくつ</mark>知っていますか。</p>
+            </div>
+            <p class="en">"How many Asian country names do you know?"</p>
+            <p class="note">Things you can count: いくつ.</p>
           </div>
         </div>
       </section>
@@ -5666,6 +5744,77 @@ main:has(#kana:not([hidden])) .foot,main:has(#katakana:not([hidden])) .foot,main
           </div>
         </div>
       </section>
+      <section>
+        <h2>Sentence mining</h2>
+        <div class="mines">
+          <div class="mine">
+            <span class="use polite">Polite</span>
+            <img src="media/cf05188b6b2.jpg" alt="News footage of a bear in a supermarket" loading="lazy">
+            <p class="src">Source unknown <span class="tag">No source</span></p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/cf05188b6b2.mp3" aria-label="Play audio"></button>
+              <p class="jp">7日の午後7時半<mark class="g">頃</mark>、群馬県沼田市のスーパーに熊が出ました。</p>
+            </div>
+            <p class="en">"Around 7:30 pm on the 7th, a bear showed up at a supermarket in Numata, Gunma."</p>
+            <p class="note">News style: 頃 in kanji, right after the time.</p>
+          </div>
+          <div class="mine">
+            <span class="use polite">Polite</span>
+            <img src="media/a1120f8cb9d7d7ae83807b4a8400b2f4.jpg" alt="Someone eating cereal" loading="lazy">
+            <p class="src">Core deck <span class="tag">Core</span></p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/ddd0504d3891ea0ac77639fec6d14529.mp3" aria-label="Play audio"></button>
+              <p class="jp">朝食は大抵7時<mark class="g">頃</mark>に食べます。</p>
+            </div>
+            <p class="en">"I usually have breakfast around 7."</p>
+            <p class="note">ごろに or just ごろ: both are fine.</p>
+          </div>
+          <div class="mine">
+            <span class="use polite">Polite</span>
+            <img src="media/7b86e4a589ac83e9ed4af313e7d03fb3.jpg" alt="A campsite under a grey sky" loading="lazy">
+            <p class="src">Core deck <span class="tag">Core</span></p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/6c1d4bb7f2dd96e7581986fdd9f5dfd8.mp3" aria-label="Play audio"></button>
+              <p class="jp">明日は昼<mark class="g">頃</mark>から曇るでしょう。</p>
+            </div>
+            <p class="en">"Tomorrow it'll probably cloud over from around noon."</p>
+            <p class="note">昼ごろ + から: from around noon.</p>
+          </div>
+          <div class="mine">
+            <span class="use polite">Polite</span>
+            <img src="media/aa466bdf4e5607e04221d08b4d8e1534.jpg" alt="People with umbrellas in the rain" loading="lazy">
+            <p class="src">Core deck <span class="tag">Core</span></p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/869670aa37a629cf553543b0c8d70a07.mp3" aria-label="Play audio"></button>
+              <p class="jp">梅雨は6月<mark class="g">頃</mark>です。</p>
+            </div>
+            <p class="en">"The rainy season is around June."</p>
+            <p class="note">Works with months too, not just clock times.</p>
+          </div>
+          <div class="mine">
+            <span class="use polite">Polite</span>
+            <img src="media/c37506fe932e89e68cf2afc7b1f9085b.jpg" alt="A calendar" loading="lazy">
+            <p class="src">Core deck <span class="tag">Core</span></p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/aa837edfa3875ccf2e72099232d98fb7.mp3" aria-label="Play audio"></button>
+              <p class="jp">いつ<mark class="g">ごろ</mark>夏休みを取りますか。</p>
+            </div>
+            <p class="en">"Around when are you taking your summer vacation?"</p>
+            <p class="note">いつごろ: "around when", a softer いつ.</p>
+          </div>
+          <div class="mine">
+            <span class="use polite">Polite</span>
+            <div class="noimg" aria-hidden="true"></div>
+            <p class="src">Core deck <span class="tag">Core</span></p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/51e37b6f3bd28a8735dbd81b0210753b.mp3" aria-label="Play audio"></button>
+              <p class="jp">生徒たちは朝8時<mark class="g">ごろ</mark>登校します。</p>
+            </div>
+            <p class="en">"The students get to school around 8 in the morning."</p>
+            <p class="note">No に after ごろ here, and that's fine.</p>
+          </div>
+        </div>
+      </section>
     </article>
 
     <!-- yo -->
@@ -7227,6 +7376,22 @@ main:has(#kana:not([hidden])) .foot,main:has(#katakana:not([hidden])) .foot,main
         </div>
       </section>
       <!-- MINING -->
+      <section>
+        <h2>Sentence mining</h2>
+        <div class="mines">
+          <div class="mine">
+            <span class="use casual">Casual</span>
+            <img src="media/8f6d85f6e43c7be061e8ef070eb45fe8.jpg" alt="A woman reading in the grass with a dog" loading="lazy">
+            <p class="src">Core deck <span class="tag">Core</span></p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/db3d645c85365755c755208ad3aab5bb.mp3" aria-label="Play audio"></button>
+              <p class="jp">この本は全然面白<mark class="g">くなかった</mark>。</p>
+            </div>
+            <p class="en">"This book wasn't interesting at all."</p>
+            <p class="note">面白い: drop い, add くなかった.</p>
+          </div>
+        </div>
+      </section>
     </article>
 
     <!-- suki-kirai -->
@@ -9240,6 +9405,77 @@ main:has(#kana:not([hidden])) .foot,main:has(#katakana:not([hidden])) .foot,main
             <span class="label">With つもり</span>
             <p class="jp">京都に行く<mark class="g">つもり</mark>です。</p>
             <p>"I'm planning to go to Kyoto." You've decided.</p>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h2>Sentence mining</h2>
+        <div class="mines">
+          <div class="mine">
+            <span class="use polite">Polite</span>
+            <img src="media/9f09f24919d.webp" alt="Tonkatsu" loading="lazy">
+            <p class="src">Source unknown <span class="tag">No source</span></p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/9f24919d3e8.m4a" aria-label="Play audio"></button>
+              <p class="jp">昼ご飯に、豚カツを食べる<mark class="g">つもり</mark>です。</p>
+            </div>
+            <p class="en">"I'm planning to have tonkatsu for lunch."</p>
+            <p class="note">Dictionary form + つもりです.</p>
+          </div>
+          <div class="mine">
+            <span class="use polite">Polite</span>
+            <img src="media/1fa5a1bb695151c7fc6b79fa1c731dfd.jpg" alt="Someone breaking a cigarette" loading="lazy">
+            <p class="src">Core deck <span class="tag">Core</span></p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/ada91fb885863945225a29738057dc8d.mp3" aria-label="Play audio"></button>
+              <p class="jp">明日からタバコを止める<mark class="g">つもり</mark>です。</p>
+            </div>
+            <p class="en">"I'm going to quit smoking from tomorrow."</p>
+            <p class="note">A plan you've decided on.</p>
+          </div>
+          <div class="mine">
+            <span class="use casual">Casual</span>
+            <img src="media/32a0fb1348260585dadd8f21e54e1943.jpg" alt="A ballot box" loading="lazy">
+            <p class="src">Core deck <span class="tag">Core</span></p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/a4b5059b1fb20e397e8f507af9335920.mp3" aria-label="Play audio"></button>
+              <p class="jp">彼は選挙に出る<mark class="g">つもり</mark>だ。</p>
+            </div>
+            <p class="en">"He intends to run in the election."</p>
+            <p class="note">つもりだ: plain form, someone else's plan.</p>
+          </div>
+          <div class="mine">
+            <span class="use polite">Polite</span>
+            <div class="noimg" aria-hidden="true"></div>
+            <p class="src">Core deck <span class="tag">Core</span></p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/cf74a0f4ffc9660a0767fdf5b3e1a377.mp3" aria-label="Play audio"></button>
+              <p class="jp">来年のコンクールに出場する<mark class="g">つもり</mark>です。</p>
+            </div>
+            <p class="en">"I plan to enter next year's contest."</p>
+            <p class="note">A plan for next year.</p>
+          </div>
+          <div class="mine">
+            <span class="use casual">Casual</span>
+            <div class="noimg" aria-hidden="true"></div>
+            <p class="src">Core deck <span class="tag">Core</span></p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/ff35d8013bf816ae5fa9199caaae6d5d.mp3" aria-label="Play audio"></button>
+              <p class="jp">彼女は元々フランスに行く<mark class="g">つもり</mark>だったの。</p>
+            </div>
+            <p class="en">"She was originally planning to go to France."</p>
+            <p class="note">つもりだった: was planning to (but it changed).</p>
+          </div>
+          <div class="mine">
+            <span class="use polite">Polite</span>
+            <div class="noimg" aria-hidden="true"></div>
+            <p class="src">Core deck <span class="tag">Core</span></p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/9ac8c5ca1dcdd2a6217fa8b151867088.mp3" aria-label="Play audio"></button>
+              <p class="jp">あなたを傷付ける<mark class="g">つもり</mark>はありませんでした。</p>
+            </div>
+            <p class="en">"I didn't mean to hurt you."</p>
+            <p class="note">つもりはない: had no intention.</p>
           </div>
         </div>
       </section>
