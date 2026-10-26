@@ -84,7 +84,7 @@ Categories marked *(new)* aren't on the site yet. They get added to `INDEX` when
 - [x] ～の中で～が一番: the most (of all)
 
 ## Adverbs *(new)*
-- [ ] とても: very
+- [x] とても: very
 - [ ] ちょっと: a little
 - [ ] あまり～ない: not very
 - [ ] 全然～ない: not at all

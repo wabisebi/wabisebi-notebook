@@ -70,6 +70,7 @@ var INDEX = [
       ['ichiban', '一番 (いちばん)', 'The most, number one']
     ]},
     {cat: 'Adverbs', pages: [
+      ['totemo', 'とても', 'Very'],
       ['mou', 'もう', 'Already, not anymore'],
       ['mada', 'まだ', 'Still, not yet']
     ]},
