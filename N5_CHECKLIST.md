@@ -62,7 +62,7 @@ Categories marked *(new)* aren't on the site yet. They get added to `INDEX` when
 ## Sentence endings
 - [x] よ: telling someone something new
 - [x] ね: sharing a feeling, "right?"
-- [ ] よね: "right?" when you're fairly sure
+- [x] よね: "right?" when you're fairly sure
 - [x] でしょう: probably, right?
 - [x] だろう: probably, I wonder
 

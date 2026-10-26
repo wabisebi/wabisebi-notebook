@@ -52,6 +52,7 @@ var INDEX = [
     {cat: 'Sentence endings', pages: [
       ['yo', 'よ', 'Telling someone something new'],
       ['ne', 'ね', 'Sharing a feeling: "right?", "huh"'],
+      ['yone', 'よね', '"Right?" when you\'re fairly sure'],
       ['deshou', 'でしょう', 'Probably, right?'],
       ['darou', 'だろう', 'Probably, I wonder (masculine "right?")']
     ]},
@@ -96,7 +97,7 @@ var INDEX = [
     ]}
   ]}
 ];
-var UPDATED = '25 Oct 2026';
+var UPDATED = '26 Oct 2026';
 
 (function(){
   // index.html (made by build.py) has every page in one file, so links switch pages instead of loading files
@@ -120,6 +121,7 @@ var UPDATED = '25 Oct 2026';
     '<a class="nav" href="' + href('home') + '"><svg class="pad" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></svg> Grammar Study</a>' +
     '<a class="nav" href="' + href('kana') + '">あ Hiragana Chart</a>' +
     '<a class="nav" href="' + href('katakana') + '">ア Katakana Chart</a>' +
+    '<a class="nav" href="' + href('kanji') + '">字 N5 Kanji</a>' +
     '<a class="nav" href="' + href('kana-game') + '"><svg class="pad" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10a5 5 0 0 1 4.9 4l1 5a2.6 2.6 0 0 1-4.4 2.3L16.4 16H7.6l-3.1 2.3A2.6 2.6 0 0 1 .1 16l1-5A5 5 0 0 1 7 7z"/><path d="M7.5 10v3M6 11.5h3"/><circle cx="15.5" cy="10.6" r=".6"/><circle cx="17.7" cy="12.6" r=".6"/></svg> Kana Game</a>' +
     '<div class="find"><input id="find" type="search" placeholder="Search: は, topic, wa…" aria-label="Search grammar" autocomplete="off">' +
       '<ol class="results" id="results" hidden></ol></div>';
@@ -241,11 +243,11 @@ var UPDATED = '25 Oct 2026';
       if (sp) showStrokes(sp, b.querySelector('.k').textContent);
     });
   });
-  // one toggle per chart (hiragana and katakana), each hides only its own romaji
+  // one toggle per chart (hiragana, katakana, kanji), each hides only its own romaji (or meanings, on the kanji chart)
   document.querySelectorAll('.romaji-toggle').forEach(function(romaji){
     romaji.addEventListener('click', function(){
       var off = romaji.closest('.kana-board').classList.toggle('no-romaji');
-      romaji.textContent = 'Romaji: ' + (off ? 'off' : 'on');
+      romaji.textContent = (romaji.dataset.label || 'Romaji') + ': ' + (off ? 'off' : 'on');
       romaji.setAttribute('aria-pressed', String(!off));
     });
   });
