@@ -251,10 +251,17 @@ var UPDATED = '26 Oct 2026';
     var first = [].find.call(strokeBox.closest('.kana-board').querySelectorAll('.kana[data-on]'), function(b){ return b.querySelector('.k').textContent === strokeBox.dataset.first; });
     if (first) {
       strokeBox.classList.add('has-yomi');
-      strokeBox.insertAdjacentHTML('beforeend', '<dl class="yomi"><dt>On\'yomi</dt><dd class="on"></dd><dt>Kun\'yomi</dt><dd class="kun"></dd><dt>Example words</dt><dd class="words"></dd></dl>');
+      strokeBox.insertAdjacentHTML('beforeend', '<dl class="yomi"><dt>On\'yomi</dt><dd class="on"></dd><dt>Kun\'yomi</dt><dd class="kun"></dd><dt>Examples</dt><dd class="words"></dd></dl>');
       showYomi(strokeBox, first);
+      // on phones the panel is a bottom sheet: a tile opens it, × or Esc closes it
+      var board = strokeBox.closest('.kana-board');
+      strokeBox.insertAdjacentHTML('afterbegin', '<button class="sheet-close" type="button" aria-label="Close">×</button>');
+      strokeBox.querySelector('.sheet-close').addEventListener('click', function(){ board.classList.remove('sheet-open'); });
+      document.addEventListener('keydown', function(e){ if (e.key === 'Escape') board.classList.remove('sheet-open'); });
     }
   });
+  // kanji chart: the on/kun explainer starts folded on phones
+  if (window.matchMedia('(max-width:720px)').matches) document.querySelectorAll('details.onkun').forEach(function(d){ d.removeAttribute('open'); });
   // common readings first, the rare ones smaller and faded after them; example words with the kanji and its sound marked
   function showYomi(strokeBox, b){
     function list(common, rare){
@@ -267,7 +274,7 @@ var UPDATED = '26 Oct 2026';
     strokeBox.querySelector('.yomi .kun').innerHTML = list(b.dataset.kun, b.dataset.kunRare);
     strokeBox.querySelector('.yomi .words').innerHTML = b.dataset.words.split('、').map(function(x){
       var p = x.split(':');
-      return '<span class="w"><span class="wj">' + p[0].split(ch).join('<mark>' + ch + '</mark>') + '</span><span class="wr">' + p[1].replace('[', '<mark>').replace(']', '</mark>') + '</span></span>';
+      return '<span class="w"><span class="wj">' + p[0].split(ch).join('<mark>' + ch + '</mark>') + '</span><span class="wr">' + p[1].replace('[', '<mark>').replace(']', '</mark>') + '</span><span class="we">' + p[2] + '</span></span>';
     }).join('');
   }
 
@@ -279,7 +286,7 @@ var UPDATED = '26 Oct 2026';
       kanaOn = b; b.classList.add('on');
       var sp = b.closest('.kana-board').querySelector('.stroke-panel');
       if (sp) showStrokes(sp, b.querySelector('.k').textContent);
-      if (sp && b.dataset.on) showYomi(sp, b);
+      if (sp && b.dataset.on) { showYomi(sp, b); b.closest('.kana-board').classList.add('sheet-open'); }
     });
   });
   // one toggle per chart (hiragana, katakana, kanji), each hides only its own romaji (or meanings, on the kanji chart)
