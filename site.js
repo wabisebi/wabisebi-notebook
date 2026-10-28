@@ -237,8 +237,15 @@ var UPDATED = '28 Oct 2026';
     if (!e.target.closest('.find')) results.hidden = true;
   });
 
+  // footer: the grammar count only on grammar pages (and the grid), the stroke data credit on the kanji chart, nothing elsewhere
   var foot = document.getElementById('foot');
-  if (foot) foot.textContent = 'Updated ' + UPDATED + ' · ' + count + ' grammar points';
+  function setFoot(id){
+    if (!foot) return;
+    if (id === 'home' || points.some(function(p){ return p.id === id; })) foot.textContent = 'Updated ' + UPDATED + ' · ' + count + ' grammar points';
+    else if (id === 'kanji') foot.innerHTML = '<a class="credit" href="https://kanjivg.tagaini.net" target="_blank" rel="noopener">Stroke data: KanjiVG, CC BY-SA 3.0</a>';
+    else foot.textContent = '';
+  }
+  if (!BUNDLE) { var own = document.querySelector('main > [id]'); setFoot(own && own.id); }
 
   // the short description under each page's pattern comes from INDEX, so it always matches the grid card
   points.forEach(function(p){
@@ -293,6 +300,7 @@ var UPDATED = '28 Oct 2026';
     var first = [].find.call(strokeBox.closest('.kana-board').querySelectorAll('.kana[data-on]'), function(b){ return b.querySelector('.k').textContent === strokeBox.dataset.first; });
     if (first) {
       strokeBox.classList.add('has-yomi');
+      strokeBox.querySelector('.credit').remove(); // on the kanji chart the credit sits in the footer, under the grid
       strokeBox.insertAdjacentHTML('beforeend', '<dl class="yomi"><dt>On\'yomi</dt><dd class="on"></dd><dt>Kun\'yomi</dt><dd class="kun"></dd><dt>Examples</dt><dd class="words"></dd></dl>');
       showYomi(strokeBox, first);
       // on phones the panel is a bottom sheet: a tile opens it, × or Esc closes it
@@ -511,6 +519,7 @@ var UPDATED = '28 Oct 2026';
     var show = function(id){
       if (!pages.some(function(p){ return p.id === id; })) id = pages[0].id;
       pages.forEach(function(p){ p.hidden = p.id !== id; });
+      setFoot(id);
       find.value = ''; filterGrid(''); results.hidden = true;
       window.scrollTo({top: 0});
     };

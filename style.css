@@ -423,3 +423,5 @@ main:has(#kana:not([hidden])) .foot,main:has(#katakana:not([hidden])) .foot,main
 .rcard .tag.rec{color:var(--gold);border-color:var(--gold)}
 .rcard .d{grid-column:2 / -1;color:var(--muted);font-size:14px}
 @media (max-width:520px){.rcard{grid-template-columns:44px minmax(0,1fr)}.rcard .av{grid-row:span 3}.rcard .tags{justify-content:flex-start}}
+.foot .credit{color:var(--muted);text-decoration:none}
+.foot .credit:hover{color:var(--gold)}
