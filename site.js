@@ -247,7 +247,29 @@ var UPDATED = '26 Oct 2026';
     strokeBox.innerHTML = '<div class="sv"></div><div class="side"><span class="note"></span><button class="replay" type="button">Replay</button><a class="credit" href="https://kanjivg.tagaini.net" target="_blank" rel="noopener">Stroke data: KanjiVG, CC BY-SA 3.0</a></div>';
     strokeBox.querySelector('.replay').addEventListener('click', function(){ showStrokes(strokeBox, strokeBox.dataset.ch); });
     showStrokes(strokeBox, strokeBox.dataset.first);
+    // kanji chart: the tiles carry their readings, shown under the animation
+    var first = [].find.call(strokeBox.closest('.kana-board').querySelectorAll('.kana[data-on]'), function(b){ return b.querySelector('.k').textContent === strokeBox.dataset.first; });
+    if (first) {
+      strokeBox.classList.add('has-yomi');
+      strokeBox.insertAdjacentHTML('beforeend', '<dl class="yomi"><dt>On\'yomi</dt><dd class="on"></dd><dt>Kun\'yomi</dt><dd class="kun"></dd><dt>Example words</dt><dd class="words"></dd></dl>');
+      showYomi(strokeBox, first);
+    }
   });
+  // common readings first, the rare ones smaller and faded after them; example words with the kanji and its sound marked
+  function showYomi(strokeBox, b){
+    function list(common, rare){
+      var c = common === '-' ? '' : common.split('・').join('、');
+      var r = rare ? rare.split('・').join('、') : '';
+      return (c || (r ? '' : '–')) + (r ? '<span class="rare">' + (c ? '、' : '') + r + '</span>' : '');
+    }
+    var ch = b.querySelector('.k').textContent;
+    strokeBox.querySelector('.yomi .on').innerHTML = list(b.dataset.on, b.dataset.onRare);
+    strokeBox.querySelector('.yomi .kun').innerHTML = list(b.dataset.kun, b.dataset.kunRare);
+    strokeBox.querySelector('.yomi .words').innerHTML = b.dataset.words.split('、').map(function(x){
+      var p = x.split(':');
+      return '<span class="w"><span class="wj">' + p[0].split(ch).join('<mark>' + ch + '</mark>') + '</span><span class="wr">' + p[1].replace('[', '<mark>').replace(']', '</mark>') + '</span></span>';
+    }).join('');
+  }
 
   // kana charts: the tile you tap turns gold and its stroke order plays (the sounds were removed on 24 Oct 2026)
   var kanaOn = null;
@@ -257,6 +279,7 @@ var UPDATED = '26 Oct 2026';
       kanaOn = b; b.classList.add('on');
       var sp = b.closest('.kana-board').querySelector('.stroke-panel');
       if (sp) showStrokes(sp, b.querySelector('.k').textContent);
+      if (sp && b.dataset.on) showYomi(sp, b);
     });
   });
   // one toggle per chart (hiragana, katakana, kanji), each hides only its own romaji (or meanings, on the kanji chart)

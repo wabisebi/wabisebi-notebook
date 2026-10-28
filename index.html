@@ -265,8 +265,29 @@ main:has(.home:not([hidden])) .foot{max-width:1080px}
 .stroke-panel .side{display:flex;flex-direction:column;align-items:flex-start;gap:10px}
 .stroke-panel .note{font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--muted)}
 @media (max-width:520px){.stroke-panel{margin:0 10px 8px;gap:12px}.stroke-panel svg{height:120px}}
-/* kanji chart: panel's left edge lines up with the group boxes below it (desktop) */
-@media (min-width:521px){#kanji .stroke-panel{margin-left:0}}
+/* kanji chart: stroke panel and the on/kun box side by side, left edge lined up with the group boxes below (desktop) */
+.kanji-top{display:flex;gap:16px;align-items:stretch;margin:0 0 8px}
+.kanji-top .stroke-panel{margin:0;flex:3 1 0;min-width:0}
+.onkun{flex:2 1 0;align-self:start;padding:16px 20px;border-radius:10px;background:var(--card);border:1px solid var(--card-line)}
+.onkun h2{font-family:var(--display);font-size:20px;font-weight:500;margin:0 0 12px}
+.onkun dl,.stroke-panel .yomi{display:grid;grid-template-columns:auto 1fr;column-gap:16px;row-gap:12px;margin:0;align-items:baseline}
+.onkun dt,.stroke-panel .yomi dt{font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--muted)}
+.onkun dd{margin:0;font-size:14px;line-height:1.5}
+.onkun .ex{display:block;margin-top:2px;font-size:15px}
+.onkun b{color:var(--gram);font-weight:500}
+/* kanji chart: readings of the selected kanji under the stroke animation */
+.stroke-panel.has-yomi{flex-wrap:wrap}
+.stroke-panel .yomi{flex:1 0 100%;padding-top:12px;border-top:1px solid var(--card-line);row-gap:6px}
+.stroke-panel .yomi dd{margin:0;font-size:18px;color:var(--ink)}
+.stroke-panel .yomi dd.on{color:var(--gram)}
+.stroke-panel .yomi .rare{font-size:13px;color:var(--muted)}
+.stroke-panel .yomi dt:nth-of-type(3){align-self:start;padding-top:6px}
+.stroke-panel .words{display:flex;flex-wrap:wrap;gap:8px}
+.stroke-panel .w{display:flex;flex-direction:column;align-items:center;padding:6px 12px;border-radius:8px;background:var(--plain);border:1px solid var(--plain-line);line-height:1.3}
+.stroke-panel .wj{font-size:18px}
+.stroke-panel .wr{font-size:12px;color:var(--muted)}
+.stroke-panel .w mark{background:none;color:var(--gram)}
+@media (max-width:720px){.kanji-top{flex-direction:column;margin:0 10px 8px}}
 .stroke-panel .credit{font-family:var(--mono);font-size:11px;color:var(--muted);text-decoration:none}
 .stroke-panel .credit:hover{color:var(--gold)}
 /* kana game */
@@ -12232,117 +12253,126 @@ main:has(#kana:not([hidden])) .foot,main:has(#katakana:not([hidden])) .foot,main
         <h1>N5 Kanji</h1>
         <button class="romaji-toggle" type="button" aria-pressed="true" data-label="Meaning">Meaning: on</button>
       </div>
-      <div class="stroke-panel" data-first="一"></div>
+      <div class="kanji-top">
+        <div class="stroke-panel" data-first="一"></div>
+        <div class="onkun">
+          <h2>Two kinds of reading</h2>
+          <dl>
+            <dt>On'yomi</dt><dd>The Chinese sound, used in kanji compounds.<span class="ex">富士<b>山</b> ふじ<b>さん</b></span></dd>
+            <dt>Kun'yomi</dt><dd>The Japanese word, used alone or with hiragana.<span class="ex"><b>山</b> <b>やま</b></span></dd>
+          </dl>
+        </div>
+      </div>
       <details class="level" open><summary><span class="t">Numbers</span><span class="label">14 kanji</span></summary>
         <div class="kgrid five">
-          <button class="kana" type="button"><span class="k">一</span><span class="r">one</span></button>
-          <button class="kana" type="button"><span class="k">二</span><span class="r">two</span></button>
-          <button class="kana" type="button"><span class="k">三</span><span class="r">three</span></button>
-          <button class="kana" type="button"><span class="k">四</span><span class="r">four</span></button>
-          <button class="kana" type="button"><span class="k">五</span><span class="r">five</span></button>
-          <button class="kana" type="button"><span class="k">六</span><span class="r">six</span></button>
-          <button class="kana" type="button"><span class="k">七</span><span class="r">seven</span></button>
-          <button class="kana" type="button"><span class="k">八</span><span class="r">eight</span></button>
-          <button class="kana" type="button"><span class="k">九</span><span class="r">nine</span></button>
-          <button class="kana" type="button"><span class="k">十</span><span class="r">ten</span></button>
-          <button class="kana" type="button"><span class="k">百</span><span class="r">hundred</span></button>
-          <button class="kana" type="button"><span class="k">千</span><span class="r">thousand</span></button>
-          <button class="kana" type="button"><span class="k">万</span><span class="r">10,000</span></button>
-          <button class="kana" type="button"><span class="k">円</span><span class="r">yen</span></button>
+          <button class="kana" type="button" data-on="イチ" data-on-rare="イツ" data-kun="ひと(つ)" data-kun-rare="ひと" data-words="一月:[いち]がつ、一番:[いち]ばん、一つ:[ひと]つ、一人:[ひと]り"><span class="k">一</span><span class="r">one</span></button>
+          <button class="kana" type="button" data-on="ニ" data-on-rare="" data-kun="ふた(つ)" data-kun-rare="ふた" data-words="二月:[に]がつ、二十:[に]じゅう、二つ:[ふた]つ、二人:[ふた]り"><span class="k">二</span><span class="r">two</span></button>
+          <button class="kana" type="button" data-on="サン" data-on-rare="" data-kun="みっ(つ)" data-kun-rare="み・み(つ)" data-words="三月:[さん]がつ、三人:[さん]にん、三つ:[みっ]つ、三日:[みっ]か"><span class="k">三</span><span class="r">three</span></button>
+          <button class="kana" type="button" data-on="シ" data-on-rare="" data-kun="よん・よっ(つ)" data-kun-rare="よ・よ(つ)" data-words="四月:[し]がつ、四つ:[よっ]つ、四人:[よ]にん、四時:[よ]じ"><span class="k">四</span><span class="r">four</span></button>
+          <button class="kana" type="button" data-on="ゴ" data-on-rare="" data-kun="いつ(つ)" data-kun-rare="いつ" data-words="五月:[ご]がつ、五分:[ご]ふん、五つ:[いつ]つ、五日:[いつ]か"><span class="k">五</span><span class="r">five</span></button>
+          <button class="kana" type="button" data-on="ロク" data-on-rare="" data-kun="むっ(つ)" data-kun-rare="む・む(つ)・むい" data-words="六月:[ろく]がつ、六時:[ろく]じ、六つ:[むっ]つ、六日:[むい]か"><span class="k">六</span><span class="r">six</span></button>
+          <button class="kana" type="button" data-on="シチ" data-on-rare="" data-kun="なな" data-kun-rare="なな(つ)・なの" data-words="七月:[しち]がつ、七時:[しち]じ、七つ:[なな]つ、七日:[なの]か"><span class="k">七</span><span class="r">seven</span></button>
+          <button class="kana" type="button" data-on="ハチ" data-on-rare="" data-kun="やっ(つ)" data-kun-rare="や・や(つ)・よう" data-words="八月:[はち]がつ、八時:[はち]じ、八つ:[やっ]つ、八日:[よう]か"><span class="k">八</span><span class="r">eight</span></button>
+          <button class="kana" type="button" data-on="キュウ・ク" data-on-rare="" data-kun="ここの(つ)" data-kun-rare="ここの" data-words="九州:[きゅう]しゅう、九十:[きゅう]じゅう、九月:[く]がつ、九つ:[ここの]つ"><span class="k">九</span><span class="r">nine</span></button>
+          <button class="kana" type="button" data-on="ジュウ" data-on-rare="ジッ" data-kun="とお" data-kun-rare="と" data-words="十月:[じゅう]がつ、十分:[じゅう]ぶん、十日:[とお]か"><span class="k">十</span><span class="r">ten</span></button>
+          <button class="kana" type="button" data-on="ヒャク" data-on-rare="" data-kun="-" data-kun-rare="" data-words="百円:[ひゃく]えん、三百:さん[びゃく]、六百:ろっ[ぴゃく]"><span class="k">百</span><span class="r">hundred</span></button>
+          <button class="kana" type="button" data-on="セン" data-on-rare="" data-kun="ち" data-kun-rare="" data-words="千円:[せん]えん、三千:さん[ぜん]、千葉:[ち]ば"><span class="k">千</span><span class="r">thousand</span></button>
+          <button class="kana" type="button" data-on="マン" data-on-rare="バン" data-kun="-" data-kun-rare="" data-words="一万:いち[まん]、万年筆:[まん]ねんひつ、万歳:[ばん]ざい"><span class="k">万</span><span class="r">10,000</span></button>
+          <button class="kana" type="button" data-on="エン" data-on-rare="" data-kun="-" data-kun-rare="まる(い)" data-words="百円:ひゃく[えん]、円高:[えん]だか"><span class="k">円</span><span class="r">yen</span></button>
         </div>
       </details>
       <details class="level" open><summary><span class="t">Time</span><span class="label">18 kanji</span></summary>
         <div class="kgrid five">
-          <button class="kana" type="button"><span class="k">日</span><span class="r">sun, day</span></button>
-          <button class="kana" type="button"><span class="k">月</span><span class="r">moon, month</span></button>
-          <button class="kana" type="button"><span class="k">火</span><span class="r">fire</span></button>
-          <button class="kana" type="button"><span class="k">水</span><span class="r">water</span></button>
-          <button class="kana" type="button"><span class="k">木</span><span class="r">tree</span></button>
-          <button class="kana" type="button"><span class="k">金</span><span class="r">gold, money</span></button>
-          <button class="kana" type="button"><span class="k">土</span><span class="r">soil</span></button>
-          <button class="kana" type="button"><span class="k">年</span><span class="r">year</span></button>
-          <button class="kana" type="button"><span class="k">時</span><span class="r">time</span></button>
-          <button class="kana" type="button"><span class="k">分</span><span class="r">minute, part</span></button>
-          <button class="kana" type="button"><span class="k">間</span><span class="r">between</span></button>
-          <button class="kana" type="button"><span class="k">午</span><span class="r">noon</span></button>
-          <button class="kana" type="button"><span class="k">前</span><span class="r">before</span></button>
-          <button class="kana" type="button"><span class="k">後</span><span class="r">after</span></button>
-          <button class="kana" type="button"><span class="k">半</span><span class="r">half</span></button>
-          <button class="kana" type="button"><span class="k">今</span><span class="r">now</span></button>
-          <button class="kana" type="button"><span class="k">毎</span><span class="r">every</span></button>
-          <button class="kana" type="button"><span class="k">先</span><span class="r">ahead</span></button>
+          <button class="kana" type="button" data-on="ニチ・ジツ" data-on-rare="" data-kun="ひ・か" data-kun-rare="" data-words="毎日:まい[にち]、日曜日:[にち]ようび、休日:きゅう[じつ]、日:[ひ]、三日:みっ[か]"><span class="k">日</span><span class="r">sun, day</span></button>
+          <button class="kana" type="button" data-on="ゲツ・ガツ" data-on-rare="" data-kun="つき" data-kun-rare="" data-words="今月:こん[げつ]、来月:らい[げつ]、一月:いち[がつ]、月:[つき]"><span class="k">月</span><span class="r">moon, month</span></button>
+          <button class="kana" type="button" data-on="カ" data-on-rare="" data-kun="ひ" data-kun-rare="ほ" data-words="火曜日:[か]ようび、火事:[か]じ、火:[ひ]、花火:はな[び]"><span class="k">火</span><span class="r">fire</span></button>
+          <button class="kana" type="button" data-on="スイ" data-on-rare="" data-kun="みず" data-kun-rare="" data-words="水曜日:[すい]ようび、水道:[すい]どう、水:[みず]、鼻水:はな[みず]"><span class="k">水</span><span class="r">water</span></button>
+          <button class="kana" type="button" data-on="モク" data-on-rare="ボク" data-kun="き" data-kun-rare="こ" data-words="木曜日:[もく]ようび、木:[き]"><span class="k">木</span><span class="r">tree</span></button>
+          <button class="kana" type="button" data-on="キン" data-on-rare="コン" data-kun="かね" data-kun-rare="かな" data-words="金曜日:[きん]ようび、料金:りょう[きん]、お金:お[かね]、金持ち:[かね]もち"><span class="k">金</span><span class="r">gold, money</span></button>
+          <button class="kana" type="button" data-on="ド" data-on-rare="ト" data-kun="つち" data-kun-rare="" data-words="土曜日:[ど]ようび、土地:[と]ち、土:[つち]"><span class="k">土</span><span class="r">soil</span></button>
+          <button class="kana" type="button" data-on="ネン" data-on-rare="" data-kun="とし" data-kun-rare="" data-words="去年:きょ[ねん]、来年:らい[ねん]、年:[とし]、今年:こ[とし]"><span class="k">年</span><span class="r">year</span></button>
+          <button class="kana" type="button" data-on="ジ" data-on-rare="" data-kun="とき" data-kun-rare="" data-words="時間:[じ]かん、一時:いち[じ]、時々:[とき]どき"><span class="k">時</span><span class="r">time</span></button>
+          <button class="kana" type="button" data-on="フン・ブン" data-on-rare="ブ" data-kun="わ(かる)・わ(ける)" data-kun-rare="わ(かれる)・わ(かつ)" data-words="五分:ご[ふん]、三分:さん[ぷん]、自分:じ[ぶん]、分かる:[わ]かる"><span class="k">分</span><span class="r">minute, part</span></button>
+          <button class="kana" type="button" data-on="カン・ケン" data-on-rare="" data-kun="あいだ・ま" data-kun-rare="" data-words="時間:じ[かん]、人間:にん[げん]、間:[あいだ]、間に合う:[ま]にあう"><span class="k">間</span><span class="r">between</span></button>
+          <button class="kana" type="button" data-on="ゴ" data-on-rare="" data-kun="-" data-kun-rare="" data-words="午前:[ご]ぜん、午後:[ご]ご、正午:しょう[ご]"><span class="k">午</span><span class="r">noon</span></button>
+          <button class="kana" type="button" data-on="ゼン" data-on-rare="" data-kun="まえ" data-kun-rare="" data-words="午前:ご[ぜん]、前回:[ぜん]かい、名前:な[まえ]、前:[まえ]"><span class="k">前</span><span class="r">before</span></button>
+          <button class="kana" type="button" data-on="ゴ・コウ" data-on-rare="" data-kun="あと・うし(ろ)" data-kun-rare="のち・おく(れる)" data-words="午後:ご[ご]、最後:さい[ご]、後:[あと]、後ろ:[うし]ろ"><span class="k">後</span><span class="r">after</span></button>
+          <button class="kana" type="button" data-on="ハン" data-on-rare="" data-kun="-" data-kun-rare="なか(ば)" data-words="半分:[はん]ぶん、時半:じ[はん]、半年:[はん]とし"><span class="k">半</span><span class="r">half</span></button>
+          <button class="kana" type="button" data-on="コン" data-on-rare="キン" data-kun="いま" data-kun-rare="" data-words="今月:[こん]げつ、今度:[こん]ど、今:[いま]"><span class="k">今</span><span class="r">now</span></button>
+          <button class="kana" type="button" data-on="マイ" data-on-rare="" data-kun="-" data-kun-rare="" data-words="毎日:[まい]にち、毎朝:[まい]あさ、毎年:[まい]とし、毎週:[まい]しゅう"><span class="k">毎</span><span class="r">every</span></button>
+          <button class="kana" type="button" data-on="セン" data-on-rare="" data-kun="さき" data-kun-rare="" data-words="先生:[せん]せい、先週:[せん]しゅう、先:[さき]、指先:ゆび[さき]"><span class="k">先</span><span class="r">ahead</span></button>
         </div>
       </details>
       <details class="level" open><summary><span class="t">People</span><span class="label">8 kanji</span></summary>
         <div class="kgrid five">
-          <button class="kana" type="button"><span class="k">人</span><span class="r">person</span></button>
-          <button class="kana" type="button"><span class="k">男</span><span class="r">man</span></button>
-          <button class="kana" type="button"><span class="k">女</span><span class="r">woman</span></button>
-          <button class="kana" type="button"><span class="k">子</span><span class="r">child</span></button>
-          <button class="kana" type="button"><span class="k">父</span><span class="r">father</span></button>
-          <button class="kana" type="button"><span class="k">母</span><span class="r">mother</span></button>
-          <button class="kana" type="button"><span class="k">友</span><span class="r">friend</span></button>
-          <button class="kana" type="button"><span class="k">名</span><span class="r">name</span></button>
+          <button class="kana" type="button" data-on="ジン・ニン" data-on-rare="" data-kun="ひと" data-kun-rare="" data-words="日本人:にほん[じん]、外国人:がいこく[じん]、三人:さん[にん]、人:[ひと]"><span class="k">人</span><span class="r">person</span></button>
+          <button class="kana" type="button" data-on="ダン・ナン" data-on-rare="" data-kun="おとこ" data-kun-rare="" data-words="男性:[だん]せい、長男:ちょう[なん]、男:[おとこ]、男の子:[おとこ]のこ"><span class="k">男</span><span class="r">man</span></button>
+          <button class="kana" type="button" data-on="ジョ" data-on-rare="ニョ・ニョウ" data-kun="おんな" data-kun-rare="め" data-words="女性:[じょ]せい、彼女:かの[じょ]、女:[おんな]、女の子:[おんな]のこ"><span class="k">女</span><span class="r">woman</span></button>
+          <button class="kana" type="button" data-on="シ" data-on-rare="ス" data-kun="こ" data-kun-rare="" data-words="帽子:ぼう[し]、調子:ちょう[し]、子供:[こ]ども、女の子:おんなの[こ]"><span class="k">子</span><span class="r">child</span></button>
+          <button class="kana" type="button" data-on="フ" data-on-rare="" data-kun="ちち" data-kun-rare="" data-words="父母:[ふ]ぼ、祖父:そ[ふ]、父:[ちち]"><span class="k">父</span><span class="r">father</span></button>
+          <button class="kana" type="button" data-on="ボ" data-on-rare="" data-kun="はは" data-kun-rare="" data-words="母国:[ぼ]こく、祖母:そ[ぼ]、母:[はは]"><span class="k">母</span><span class="r">mother</span></button>
+          <button class="kana" type="button" data-on="ユウ" data-on-rare="" data-kun="とも" data-kun-rare="" data-words="友人:[ゆう]じん、親友:しん[ゆう]、友達:[とも]だち"><span class="k">友</span><span class="r">friend</span></button>
+          <button class="kana" type="button" data-on="メイ" data-on-rare="ミョウ" data-kun="な" data-kun-rare="" data-words="有名:ゆう[めい]、名刺:[めい]し、名前:[な]まえ"><span class="k">名</span><span class="r">name</span></button>
         </div>
       </details>
       <details class="level" open><summary><span class="t">Places and directions</span><span class="label">13 kanji</span></summary>
         <div class="kgrid five">
-          <button class="kana" type="button"><span class="k">上</span><span class="r">up</span></button>
-          <button class="kana" type="button"><span class="k">下</span><span class="r">down</span></button>
-          <button class="kana" type="button"><span class="k">中</span><span class="r">middle</span></button>
-          <button class="kana" type="button"><span class="k">外</span><span class="r">outside</span></button>
-          <button class="kana" type="button"><span class="k">左</span><span class="r">left</span></button>
-          <button class="kana" type="button"><span class="k">右</span><span class="r">right</span></button>
-          <button class="kana" type="button"><span class="k">東</span><span class="r">east</span></button>
-          <button class="kana" type="button"><span class="k">西</span><span class="r">west</span></button>
-          <button class="kana" type="button"><span class="k">南</span><span class="r">south</span></button>
-          <button class="kana" type="button"><span class="k">北</span><span class="r">north</span></button>
-          <button class="kana" type="button"><span class="k">国</span><span class="r">country</span></button>
-          <button class="kana" type="button"><span class="k">学</span><span class="r">study</span></button>
-          <button class="kana" type="button"><span class="k">校</span><span class="r">school</span></button>
+          <button class="kana" type="button" data-on="ジョウ" data-on-rare="ショウ" data-kun="うえ・あ(げる)・あ(がる)・のぼ(る)" data-kun-rare="うわ・かみ・のぼ(せる)・のぼ(す)" data-words="以上:い[じょう]、上手:[じょう]ず、上:[うえ]、上がる:[あ]がる"><span class="k">上</span><span class="r">up</span></button>
+          <button class="kana" type="button" data-on="カ・ゲ" data-on-rare="" data-kun="した・さ(げる)・さ(がる)・くだ(さる)・お(りる)" data-kun-rare="しも・もと・くだ(る)・くだ(す)・お(ろす)" data-words="地下:ち[か]、下車:[げ]しゃ、下:[した]、下さい:[くだ]さい"><span class="k">下</span><span class="r">down</span></button>
+          <button class="kana" type="button" data-on="チュウ・ジュウ" data-on-rare="" data-kun="なか" data-kun-rare="" data-words="中国:[ちゅう]ごく、一日中:いちにち[じゅう]、中:[なか]、真ん中:まん[なか]"><span class="k">中</span><span class="r">middle</span></button>
+          <button class="kana" type="button" data-on="ガイ" data-on-rare="ゲ" data-kun="そと・ほか・はず(す)" data-kun-rare="はず(れる)" data-words="外国:[がい]こく、以外:い[がい]、外:[そと]、外す:[はず]す"><span class="k">外</span><span class="r">outside</span></button>
+          <button class="kana" type="button" data-on="サ" data-on-rare="" data-kun="ひだり" data-kun-rare="" data-words="左右:[さ]ゆう、左:[ひだり]、左手:[ひだり]て"><span class="k">左</span><span class="r">left</span></button>
+          <button class="kana" type="button" data-on="ウ・ユウ" data-on-rare="" data-kun="みぎ" data-kun-rare="" data-words="左右:さ[ゆう]、右:[みぎ]、右手:[みぎ]て"><span class="k">右</span><span class="r">right</span></button>
+          <button class="kana" type="button" data-on="トウ" data-on-rare="" data-kun="ひがし" data-kun-rare="" data-words="東京:[とう]きょう、関東:かん[とう]、東:[ひがし]、東口:[ひがし]ぐち"><span class="k">東</span><span class="r">east</span></button>
+          <button class="kana" type="button" data-on="セイ・サイ" data-on-rare="" data-kun="にし" data-kun-rare="" data-words="関西:かん[さい]、西洋:[せい]よう、西:[にし]、西口:[にし]ぐち"><span class="k">西</span><span class="r">west</span></button>
+          <button class="kana" type="button" data-on="ナン" data-on-rare="ナ" data-kun="みなみ" data-kun-rare="" data-words="南米:[なん]べい、東南:とう[なん]、南:[みなみ]、南口:[みなみ]ぐち"><span class="k">南</span><span class="r">south</span></button>
+          <button class="kana" type="button" data-on="ホク" data-on-rare="" data-kun="きた" data-kun-rare="" data-words="東北:とう[ほく]、北海道:[ほっ]かいどう、北:[きた]、北口:[きた]ぐち"><span class="k">北</span><span class="r">north</span></button>
+          <button class="kana" type="button" data-on="コク" data-on-rare="" data-kun="くに" data-kun-rare="" data-words="外国:がい[こく]、中国:ちゅう[ごく]、国:[くに]、島国:しま[ぐに]"><span class="k">国</span><span class="r">country</span></button>
+          <button class="kana" type="button" data-on="ガク" data-on-rare="" data-kun="まな(ぶ)" data-kun-rare="" data-words="学校:[がっ]こう、大学:だい[がく]、学生:[がく]せい、学ぶ:[まな]ぶ"><span class="k">学</span><span class="r">study</span></button>
+          <button class="kana" type="button" data-on="コウ" data-on-rare="" data-kun="-" data-kun-rare="" data-words="学校:がっ[こう]、高校:[こう]こう、校長:[こう]ちょう"><span class="k">校</span><span class="r">school</span></button>
         </div>
       </details>
       <details class="level" open><summary><span class="t">Nature</span><span class="label">5 kanji</span></summary>
         <div class="kgrid five">
-          <button class="kana" type="button"><span class="k">山</span><span class="r">mountain</span></button>
-          <button class="kana" type="button"><span class="k">川</span><span class="r">river</span></button>
-          <button class="kana" type="button"><span class="k">天</span><span class="r">sky</span></button>
-          <button class="kana" type="button"><span class="k">気</span><span class="r">spirit</span></button>
-          <button class="kana" type="button"><span class="k">雨</span><span class="r">rain</span></button>
+          <button class="kana" type="button" data-on="サン" data-on-rare="" data-kun="やま" data-kun-rare="" data-words="富士山:ふじ[さん]、火山:か[ざん]、山:[やま]、山道:[やま]みち"><span class="k">山</span><span class="r">mountain</span></button>
+          <button class="kana" type="button" data-on="セン" data-on-rare="" data-kun="かわ" data-kun-rare="" data-words="川:[かわ]、小川:お[がわ]"><span class="k">川</span><span class="r">river</span></button>
+          <button class="kana" type="button" data-on="テン" data-on-rare="" data-kun="-" data-kun-rare="あめ・あま" data-words="天気:[てん]き、天ぷら:[てん]ぷら、雨天:う[てん]"><span class="k">天</span><span class="r">sky</span></button>
+          <button class="kana" type="button" data-on="キ" data-on-rare="ケ" data-kun="-" data-kun-rare="" data-words="天気:てん[き]、元気:げん[き]、電気:でん[き]、気分:[き]ぶん"><span class="k">気</span><span class="r">spirit</span></button>
+          <button class="kana" type="button" data-on="ウ" data-on-rare="" data-kun="あめ" data-kun-rare="あま" data-words="雨天:[う]てん、雨季:[う]き、雨:[あめ]、大雨:おお[あめ]"><span class="k">雨</span><span class="r">rain</span></button>
         </div>
       </details>
       <details class="level" open><summary><span class="t">Actions</span><span class="label">11 kanji</span></summary>
         <div class="kgrid five">
-          <button class="kana" type="button"><span class="k">行</span><span class="r">go</span></button>
-          <button class="kana" type="button"><span class="k">来</span><span class="r">come</span></button>
-          <button class="kana" type="button"><span class="k">見</span><span class="r">see</span></button>
-          <button class="kana" type="button"><span class="k">聞</span><span class="r">hear</span></button>
-          <button class="kana" type="button"><span class="k">話</span><span class="r">talk</span></button>
-          <button class="kana" type="button"><span class="k">読</span><span class="r">read</span></button>
-          <button class="kana" type="button"><span class="k">書</span><span class="r">write</span></button>
-          <button class="kana" type="button"><span class="k">食</span><span class="r">eat</span></button>
-          <button class="kana" type="button"><span class="k">出</span><span class="r">exit</span></button>
-          <button class="kana" type="button"><span class="k">入</span><span class="r">enter</span></button>
-          <button class="kana" type="button"><span class="k">休</span><span class="r">rest</span></button>
+          <button class="kana" type="button" data-on="コウ・ギョウ" data-on-rare="アン" data-kun="い(く)・おこな(う)" data-kun-rare="ゆ(く)" data-words="旅行:りょ[こう]、銀行:ぎん[こう]、行く:[い]く、行う:[おこな]う"><span class="k">行</span><span class="r">go</span></button>
+          <button class="kana" type="button" data-on="ライ" data-on-rare="" data-kun="く(る)" data-kun-rare="きた(る)・きた(す)" data-words="来年:[らい]ねん、来週:[らい]しゅう、来る:[く]る"><span class="k">来</span><span class="r">come</span></button>
+          <button class="kana" type="button" data-on="ケン" data-on-rare="" data-kun="み(る)・み(える)・み(せる)" data-kun-rare="" data-words="意見:い[けん]、見学:[けん]がく、見る:[み]る、見せる:[み]せる"><span class="k">見</span><span class="r">see</span></button>
+          <button class="kana" type="button" data-on="ブン" data-on-rare="モン" data-kun="き(く)・き(こえる)" data-kun-rare="" data-words="新聞:しん[ぶん]、聞く:[き]く、聞こえる:[き]こえる"><span class="k">聞</span><span class="r">hear</span></button>
+          <button class="kana" type="button" data-on="ワ" data-on-rare="" data-kun="はな(す)・はなし" data-kun-rare="" data-words="電話:でん[わ]、会話:かい[わ]、話す:[はな]す、昔話:むかし[ばなし]"><span class="k">話</span><span class="r">talk</span></button>
+          <button class="kana" type="button" data-on="ドク" data-on-rare="トク・トウ" data-kun="よ(む)" data-kun-rare="" data-words="読書:[どく]しょ、音読:おん[どく]、読む:[よ]む"><span class="k">読</span><span class="r">read</span></button>
+          <button class="kana" type="button" data-on="ショ" data-on-rare="" data-kun="か(く)" data-kun-rare="" data-words="辞書:じ[しょ]、図書館:と[しょ]かん、書く:[か]く"><span class="k">書</span><span class="r">write</span></button>
+          <button class="kana" type="button" data-on="ショク" data-on-rare="ジキ" data-kun="た(べる)" data-kun-rare="く(う)・く(らう)" data-words="食事:[しょく]じ、食堂:[しょく]どう、食べる:[た]べる、食べ物:[た]べもの"><span class="k">食</span><span class="r">eat</span></button>
+          <button class="kana" type="button" data-on="シュツ" data-on-rare="スイ" data-kun="で(る)・だ(す)" data-kun-rare="" data-words="出発:[しゅっ]ぱつ、輸出:ゆ[しゅつ]、出る:[で]る、出す:[だ]す"><span class="k">出</span><span class="r">exit</span></button>
+          <button class="kana" type="button" data-on="ニュウ" data-on-rare="" data-kun="はい(る)・い(れる)" data-kun-rare="い(る)" data-words="入学:[にゅう]がく、輸入:ゆ[にゅう]、入る:[はい]る、入れる:[い]れる"><span class="k">入</span><span class="r">enter</span></button>
+          <button class="kana" type="button" data-on="キュウ" data-on-rare="" data-kun="やす(む)" data-kun-rare="やす(まる)・やす(める)" data-words="休日:[きゅう]じつ、休憩:[きゅう]けい、休む:[やす]む、休み:[やす]み"><span class="k">休</span><span class="r">rest</span></button>
         </div>
       </details>
       <details class="level" open><summary><span class="t">Describing</span><span class="label">5 kanji</span></summary>
         <div class="kgrid five">
-          <button class="kana" type="button"><span class="k">大</span><span class="r">big</span></button>
-          <button class="kana" type="button"><span class="k">小</span><span class="r">small</span></button>
-          <button class="kana" type="button"><span class="k">長</span><span class="r">long</span></button>
-          <button class="kana" type="button"><span class="k">高</span><span class="r">high</span></button>
-          <button class="kana" type="button"><span class="k">白</span><span class="r">white</span></button>
+          <button class="kana" type="button" data-on="ダイ・タイ" data-on-rare="" data-kun="おお(きい)" data-kun-rare="おお・おお(いに)" data-words="大学:[だい]がく、大事:[だい]じ、大変:[たい]へん、大きい:[おお]きい"><span class="k">大</span><span class="r">big</span></button>
+          <button class="kana" type="button" data-on="ショウ" data-on-rare="" data-kun="ちい(さい)・こ" data-kun-rare="お" data-words="小学校:[しょう]がっこう、小説:[しょう]せつ、小さい:[ちい]さい、小鳥:[こ]とり"><span class="k">小</span><span class="r">small</span></button>
+          <button class="kana" type="button" data-on="チョウ" data-on-rare="" data-kun="なが(い)" data-kun-rare="" data-words="社長:しゃ[ちょう]、店長:てん[ちょう]、長い:[なが]い"><span class="k">長</span><span class="r">long</span></button>
+          <button class="kana" type="button" data-on="コウ" data-on-rare="" data-kun="たか(い)" data-kun-rare="たか・たか(まる)・たか(める)" data-words="高校:[こう]こう、最高:さい[こう]、高い:[たか]い"><span class="k">高</span><span class="r">high</span></button>
+          <button class="kana" type="button" data-on="ハク" data-on-rare="ビャク" data-kun="しろ・しろ(い)" data-kun-rare="しら" data-words="白人:[はく]じん、白い:[しろ]い、白:[しろ]"><span class="k">白</span><span class="r">white</span></button>
         </div>
       </details>
       <details class="level" open><summary><span class="t">Other</span><span class="label">6 kanji</span></summary>
         <div class="kgrid five">
-          <button class="kana" type="button"><span class="k">本</span><span class="r">book</span></button>
-          <button class="kana" type="button"><span class="k">語</span><span class="r">language</span></button>
-          <button class="kana" type="button"><span class="k">電</span><span class="r">electric</span></button>
-          <button class="kana" type="button"><span class="k">車</span><span class="r">car</span></button>
-          <button class="kana" type="button"><span class="k">何</span><span class="r">what</span></button>
-          <button class="kana" type="button"><span class="k">生</span><span class="r">life</span></button>
+          <button class="kana" type="button" data-on="ホン" data-on-rare="" data-kun="もと" data-kun-rare="" data-words="日本:に[ほん]、本当:[ほん]とう、一本:いっ[ぽん]、本:[ほん]"><span class="k">本</span><span class="r">book</span></button>
+          <button class="kana" type="button" data-on="ゴ" data-on-rare="" data-kun="かた(る)" data-kun-rare="かた(らう)" data-words="日本語:にほん[ご]、英語:えい[ご]、物語:もの[がたり]"><span class="k">語</span><span class="r">language</span></button>
+          <button class="kana" type="button" data-on="デン" data-on-rare="" data-kun="-" data-kun-rare="" data-words="電車:[でん]しゃ、電話:[でん]わ、電気:[でん]き"><span class="k">電</span><span class="r">electric</span></button>
+          <button class="kana" type="button" data-on="シャ" data-on-rare="" data-kun="くるま" data-kun-rare="" data-words="電車:でん[しゃ]、自転車:じてん[しゃ]、車:[くるま]"><span class="k">車</span><span class="r">car</span></button>
+          <button class="kana" type="button" data-on="カ" data-on-rare="" data-kun="なに・なん" data-kun-rare="" data-words="何:[なに]、何回:[なん]かい、何時:[なん]じ"><span class="k">何</span><span class="r">what</span></button>
+          <button class="kana" type="button" data-on="セイ・ショウ" data-on-rare="" data-kun="い(きる)・う(まれる)・なま" data-kun-rare="い(かす)・い(ける)・う(む)・お(う)・は(える)・は(やす)・き" data-words="先生:せん[せい]、学生:がく[せい]、一生:いっ[しょう]、生きる:[い]きる、生まれる:[う]まれる"><span class="k">生</span><span class="r">life</span></button>
         </div>
       </details>
     </section>
@@ -12810,7 +12840,29 @@ var UPDATED = '26 Oct 2026';
     strokeBox.innerHTML = '<div class="sv"></div><div class="side"><span class="note"></span><button class="replay" type="button">Replay</button><a class="credit" href="https://kanjivg.tagaini.net" target="_blank" rel="noopener">Stroke data: KanjiVG, CC BY-SA 3.0</a></div>';
     strokeBox.querySelector('.replay').addEventListener('click', function(){ showStrokes(strokeBox, strokeBox.dataset.ch); });
     showStrokes(strokeBox, strokeBox.dataset.first);
+    // kanji chart: the tiles carry their readings, shown under the animation
+    var first = [].find.call(strokeBox.closest('.kana-board').querySelectorAll('.kana[data-on]'), function(b){ return b.querySelector('.k').textContent === strokeBox.dataset.first; });
+    if (first) {
+      strokeBox.classList.add('has-yomi');
+      strokeBox.insertAdjacentHTML('beforeend', '<dl class="yomi"><dt>On\'yomi</dt><dd class="on"></dd><dt>Kun\'yomi</dt><dd class="kun"></dd><dt>Example words</dt><dd class="words"></dd></dl>');
+      showYomi(strokeBox, first);
+    }
   });
+  // common readings first, the rare ones smaller and faded after them; example words with the kanji and its sound marked
+  function showYomi(strokeBox, b){
+    function list(common, rare){
+      var c = common === '-' ? '' : common.split('・').join('、');
+      var r = rare ? rare.split('・').join('、') : '';
+      return (c || (r ? '' : '–')) + (r ? '<span class="rare">' + (c ? '、' : '') + r + '</span>' : '');
+    }
+    var ch = b.querySelector('.k').textContent;
+    strokeBox.querySelector('.yomi .on').innerHTML = list(b.dataset.on, b.dataset.onRare);
+    strokeBox.querySelector('.yomi .kun').innerHTML = list(b.dataset.kun, b.dataset.kunRare);
+    strokeBox.querySelector('.yomi .words').innerHTML = b.dataset.words.split('、').map(function(x){
+      var p = x.split(':');
+      return '<span class="w"><span class="wj">' + p[0].split(ch).join('<mark>' + ch + '</mark>') + '</span><span class="wr">' + p[1].replace('[', '<mark>').replace(']', '</mark>') + '</span></span>';
+    }).join('');
+  }
 
   // kana charts: the tile you tap turns gold and its stroke order plays (the sounds were removed on 24 Oct 2026)
   var kanaOn = null;
@@ -12820,6 +12872,7 @@ var UPDATED = '26 Oct 2026';
       kanaOn = b; b.classList.add('on');
       var sp = b.closest('.kana-board').querySelector('.stroke-panel');
       if (sp) showStrokes(sp, b.querySelector('.k').textContent);
+      if (sp && b.dataset.on) showYomi(sp, b);
     });
   });
   // one toggle per chart (hiragana, katakana, kanji), each hides only its own romaji (or meanings, on the kanji chart)
