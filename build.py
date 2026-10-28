@@ -31,6 +31,7 @@ out = '''<!doctype html>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Wabisebi Grammar Notebook</title>
 <link rel="stylesheet" href="%s">
+<script>try{if(localStorage.getItem('wabisebi-theme')==='light')document.documentElement.setAttribute('data-theme','light')}catch(e){}</script>
 <style>
 %s</style>
 

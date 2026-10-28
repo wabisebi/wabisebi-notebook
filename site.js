@@ -111,12 +111,22 @@ var INDEX = [
     ]}
   ]}
 ];
-var UPDATED = '26 Oct 2026';
+var UPDATED = '28 Oct 2026';
 
 (function(){
   // index.html (made by build.py) has every page in one file, so links switch pages instead of loading files
   var BUNDLE = !!window.BUNDLE;
   var href = function(id){ return BUNDLE ? '#' + id : id + '.html'; };
+
+  // light or dark look, remembered in this browser (dark if nothing saved)
+  var THEME = 'wabisebi-theme';
+  function getTheme(){ try { return localStorage.getItem(THEME) === 'light' ? 'light' : 'dark'; } catch (err) { return 'dark'; } }
+  function setTheme(t){
+    if (t === 'light') document.documentElement.setAttribute('data-theme', 'light');
+    else document.documentElement.removeAttribute('data-theme');
+    try { localStorage.setItem(THEME, t); } catch (err) {}
+  }
+  setTheme(getTheme());
 
   // every point, for the grid and the search; k is what the search matches (file name, pattern, description)
   var points = [];
@@ -143,7 +153,21 @@ var UPDATED = '26 Oct 2026';
     '<a class="nav" href="' + href('resources') + '">棚 Resources</a>' +
     '<div class="find"><input id="find" type="search" placeholder="Search: は, topic, wa…" aria-label="Search grammar" autocomplete="off">' +
       '<ol class="results" id="results" hidden></ol></div>' +
-    '</div>';
+    '</div>' +
+    '<button class="theme" type="button"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"></svg></button>';
+
+  // the switch shows what you'd go to: a sun in dark mode, a moon in light mode
+  var themeBtn = top.querySelector('.theme');
+  var SUN = '<circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/>';
+  var MOON = '<path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/>';
+  function showTheme(){
+    var light = getTheme() === 'light';
+    themeBtn.querySelector('svg').innerHTML = light ? MOON : SUN;
+    themeBtn.setAttribute('aria-label', light ? 'Switch to dark' : 'Switch to light');
+    themeBtn.title = themeBtn.getAttribute('aria-label');
+  }
+  themeBtn.addEventListener('click', function(){ setTheme(getTheme() === 'light' ? 'dark' : 'light'); showTheme(); });
+  showTheme();
 
   // phones: the links and search fold into a menu behind the ☰ button
   var burger = top.querySelector('.burger');
@@ -156,6 +180,9 @@ var UPDATED = '26 Oct 2026';
   burger.addEventListener('click', function(){ setMenu(!top.classList.contains('open')); });
   document.addEventListener('keydown', function(e){ if (e.key === 'Escape') setMenu(false); });
   document.addEventListener('click', function(e){ if (!top.contains(e.target)) setMenu(false); });
+  // picking a link or a search result closes it (in index.html these only change the #page, so nothing reloads)
+  top.querySelector('.menu').addEventListener('click', function(e){ if (e.target.closest('a')) setMenu(false); });
+  window.addEventListener('hashchange', function(){ setMenu(false); });
 
   // home page: every grammar point as a card, grouped by level
   var grid = document.getElementById('grid');
