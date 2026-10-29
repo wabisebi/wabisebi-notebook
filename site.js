@@ -249,12 +249,12 @@ var UPDATED = '29 Oct 2026';
     if (!e.target.closest('.find')) results.hidden = true;
   });
 
-  // footer: the grammar count only on grammar pages (and the grid), the stroke data credit on the kanji chart, nothing elsewhere
+  // footer: the grammar count only on grammar pages (and the grid), the stroke data credit on the kana and kanji charts, nothing elsewhere
   var foot = document.getElementById('foot');
   function setFoot(id){
     if (!foot) return;
     if (id === 'home' || points.some(function(p){ return p.id === id; })) foot.textContent = 'Updated ' + UPDATED + ' · ' + count + ' grammar points';
-    else if (id === 'kanji') foot.innerHTML = '<a class="credit" href="https://kanjivg.tagaini.net" target="_blank" rel="noopener">Stroke data: KanjiVG, CC BY-SA 3.0</a>';
+    else if (id === 'kanji' || id === 'kana' || id === 'katakana') foot.innerHTML = '<a class="credit" href="https://kanjivg.tagaini.net" target="_blank" rel="noopener">Stroke data: KanjiVG, CC BY-SA 3.0</a>';
     else foot.textContent = '';
   }
   if (!BUNDLE) { var own = document.querySelector('main > [id]'); setFoot(own && own.id); }
@@ -306,14 +306,13 @@ var UPDATED = '29 Oct 2026';
     strokeBox.dataset.ch = ch;
   }
   document.querySelectorAll('.stroke-panel').forEach(function(strokeBox){
-    strokeBox.innerHTML = '<div class="sv"></div><div class="side"><span class="note"></span><button class="replay" type="button">Replay</button><a class="credit" href="https://kanjivg.tagaini.net" target="_blank" rel="noopener">Stroke data: KanjiVG, CC BY-SA 3.0</a></div>';
+    strokeBox.innerHTML = '<div class="sv"></div><div class="side"><span class="note"></span><button class="replay" type="button">Replay</button></div>'; // the credit sits in the footer, under the grid
     strokeBox.querySelector('.replay').addEventListener('click', function(){ showStrokes(strokeBox, strokeBox.dataset.ch); });
     showStrokes(strokeBox, strokeBox.dataset.first);
     // kanji chart: the tiles carry their readings, shown under the animation
     var first = [].find.call(strokeBox.closest('.kana-board').querySelectorAll('.kana[data-on]'), function(b){ return b.querySelector('.k').textContent === strokeBox.dataset.first; });
     if (first) {
       strokeBox.classList.add('has-yomi');
-      strokeBox.querySelector('.credit').remove(); // on the kanji chart the credit sits in the footer, under the grid
       strokeBox.insertAdjacentHTML('beforeend', '<dl class="yomi"><dt>On\'yomi</dt><dd class="on"></dd><dt>Kun\'yomi</dt><dd class="kun"></dd><dt>Examples</dt><dd class="words"></dd></dl>');
       showYomi(strokeBox, first);
       // on phones the panel is a bottom sheet: a tile opens it, × or Esc closes it

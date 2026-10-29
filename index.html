@@ -374,7 +374,7 @@ main:has(.home:not([hidden])) .foot{max-width:1080px}
 .game-sets,.game-fonts{justify-content:center}
 .game-card{width:100%}
 /* the "Updated ... grammar points" line belongs to grammar pages and the grid only */
-main:has(#kana:not([hidden])) .foot,main:has(#katakana:not([hidden])) .foot,main:has(#kana-game:not([hidden])) .foot{display:none}
+main:has(#kana-game:not([hidden])) .foot{display:none}
 .game .game-fonts{display:grid;grid-template-columns:repeat(10,1fr);width:100%;max-width:520px}
 .game .ftile{width:100%;height:auto;aspect-ratio:1;font-size:clamp(16px,4vw,22px);padding:0}
 .game #game-fonts-all{margin-top:-14px;font-size:12px;padding:5px 14px}
@@ -14105,7 +14105,18 @@ main:has(#kana:not([hidden])) .foot,main:has(#katakana:not([hidden])) .foot,main
         <h1>Hiragana Chart</h1>
         <button class="romaji-toggle" type="button" aria-pressed="true">Romaji: on</button>
       </div>
-      <div class="stroke-panel" data-first="あ"></div>
+      <div class="kanji-top">
+        <div class="stroke-panel" data-first="あ"></div>
+        <details class="onkun" open>
+          <summary><h2>What is hiragana?</h2></summary>
+          <p class="intro">Hiragana is the basic Japanese alphabet. Each character is one sound: か is ka, き is ki. Japanese mixes three scripts in one sentence, and hiragana is the glue that holds the kanji together.</p>
+          <dl>
+            <dt>Grammar</dt><dd>Particles and the endings of verbs and adjectives. The kanji carries the meaning, hiragana does the grammar.<span class="ex">本<b>を</b>読<b>みました</b> · I read a book</span></dd>
+            <dt>Words</dt><dd>Everyday words that are usually written without kanji.<span class="ex"><b>ありがとう</b> · thank you</span></dd>
+            <dt>Readings</dt><dd>Small hiragana over a kanji show how to read it. That's called furigana.<span class="ex">山 → <b>やま</b> · mountain</span></dd>
+          </dl>
+        </details>
+      </div>
       <details class="level" open><summary><span class="t">Basic</span><span class="label">46 sounds</span></summary>
         <div class="kgrid five">
           <button class="kana" type="button"><span class="k">あ</span><span class="r">a</span></button>
@@ -14239,7 +14250,19 @@ main:has(#kana:not([hidden])) .foot,main:has(#katakana:not([hidden])) .foot,main
         <h1>Katakana Chart</h1>
         <button class="romaji-toggle" type="button" aria-pressed="true">Romaji: on</button>
       </div>
-      <div class="stroke-panel" data-first="ア"></div>
+      <div class="kanji-top">
+        <div class="stroke-panel" data-first="ア"></div>
+        <details class="onkun" open>
+          <summary><h2>What is katakana?</h2></summary>
+          <p class="intro">Katakana is the second Japanese alphabet. It has the same sounds as hiragana, just other shapes: か and カ are both ka. The shapes are sharp and straight, made from small pieces of kanji.</p>
+          <dl>
+            <dt>Loanwords</dt><dd>Words taken from other languages, mostly English.<span class="ex"><b>コーヒー</b> · coffee</span></dd>
+            <dt>Names</dt><dd>Foreign names, countries and cities.<span class="ex"><b>アメリカ</b> · America</span></dd>
+            <dt>Emphasis</dt><dd>Sound words and words that should stand out, a bit like italics.<span class="ex"><b>ドキドキ</b> · heart pounding</span></dd>
+          </dl>
+          <p class="small">ー makes the sound before it longer: コーヒー is koohii.</p>
+        </details>
+      </div>
       <details class="level" open><summary><span class="t">Basic</span><span class="label">46 sounds</span></summary>
         <div class="kgrid five">
           <button class="kana" type="button"><span class="k">ア</span><span class="r">a</span></button>
@@ -14964,12 +14987,12 @@ var UPDATED = '29 Oct 2026';
     if (!e.target.closest('.find')) results.hidden = true;
   });
 
-  // footer: the grammar count only on grammar pages (and the grid), the stroke data credit on the kanji chart, nothing elsewhere
+  // footer: the grammar count only on grammar pages (and the grid), the stroke data credit on the kana and kanji charts, nothing elsewhere
   var foot = document.getElementById('foot');
   function setFoot(id){
     if (!foot) return;
     if (id === 'home' || points.some(function(p){ return p.id === id; })) foot.textContent = 'Updated ' + UPDATED + ' · ' + count + ' grammar points';
-    else if (id === 'kanji') foot.innerHTML = '<a class="credit" href="https://kanjivg.tagaini.net" target="_blank" rel="noopener">Stroke data: KanjiVG, CC BY-SA 3.0</a>';
+    else if (id === 'kanji' || id === 'kana' || id === 'katakana') foot.innerHTML = '<a class="credit" href="https://kanjivg.tagaini.net" target="_blank" rel="noopener">Stroke data: KanjiVG, CC BY-SA 3.0</a>';
     else foot.textContent = '';
   }
   if (!BUNDLE) { var own = document.querySelector('main > [id]'); setFoot(own && own.id); }
@@ -15021,14 +15044,13 @@ var UPDATED = '29 Oct 2026';
     strokeBox.dataset.ch = ch;
   }
   document.querySelectorAll('.stroke-panel').forEach(function(strokeBox){
-    strokeBox.innerHTML = '<div class="sv"></div><div class="side"><span class="note"></span><button class="replay" type="button">Replay</button><a class="credit" href="https://kanjivg.tagaini.net" target="_blank" rel="noopener">Stroke data: KanjiVG, CC BY-SA 3.0</a></div>';
+    strokeBox.innerHTML = '<div class="sv"></div><div class="side"><span class="note"></span><button class="replay" type="button">Replay</button></div>'; // the credit sits in the footer, under the grid
     strokeBox.querySelector('.replay').addEventListener('click', function(){ showStrokes(strokeBox, strokeBox.dataset.ch); });
     showStrokes(strokeBox, strokeBox.dataset.first);
     // kanji chart: the tiles carry their readings, shown under the animation
     var first = [].find.call(strokeBox.closest('.kana-board').querySelectorAll('.kana[data-on]'), function(b){ return b.querySelector('.k').textContent === strokeBox.dataset.first; });
     if (first) {
       strokeBox.classList.add('has-yomi');
-      strokeBox.querySelector('.credit').remove(); // on the kanji chart the credit sits in the footer, under the grid
       strokeBox.insertAdjacentHTML('beforeend', '<dl class="yomi"><dt>On\'yomi</dt><dd class="on"></dd><dt>Kun\'yomi</dt><dd class="kun"></dd><dt>Examples</dt><dd class="words"></dd></dl>');
       showYomi(strokeBox, first);
       // on phones the panel is a bottom sheet: a tile opens it, × or Esc closes it

@@ -14,7 +14,18 @@
         <h1>Hiragana Chart</h1>
         <button class="romaji-toggle" type="button" aria-pressed="true">Romaji: on</button>
       </div>
-      <div class="stroke-panel" data-first="あ"></div>
+      <div class="kanji-top">
+        <div class="stroke-panel" data-first="あ"></div>
+        <details class="onkun" open>
+          <summary><h2>What is hiragana?</h2></summary>
+          <p class="intro">Hiragana is the basic Japanese alphabet. Each character is one sound: か is ka, き is ki. Japanese mixes three scripts in one sentence, and hiragana is the glue that holds the kanji together.</p>
+          <dl>
+            <dt>Grammar</dt><dd>Particles and the endings of verbs and adjectives. The kanji carries the meaning, hiragana does the grammar.<span class="ex">本<b>を</b>読<b>みました</b> · I read a book</span></dd>
+            <dt>Words</dt><dd>Everyday words that are usually written without kanji.<span class="ex"><b>ありがとう</b> · thank you</span></dd>
+            <dt>Readings</dt><dd>Small hiragana over a kanji show how to read it. That's called furigana.<span class="ex">山 → <b>やま</b> · mountain</span></dd>
+          </dl>
+        </details>
+      </div>
       <details class="level" open><summary><span class="t">Basic</span><span class="label">46 sounds</span></summary>
         <div class="kgrid five">
           <button class="kana" type="button"><span class="k">あ</span><span class="r">a</span></button>
