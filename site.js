@@ -32,7 +32,8 @@ var INDEX = [
       ['ikura', 'いくら', 'How much (money)'],
       ['ikutsu', 'いくつ', 'How many, how old'],
       ['nanika', '何か・誰か・どこか', 'Something, someone, somewhere'],
-      ['nanimo', '何も・誰も・どこも', 'Nothing, nobody, nowhere (+ negative)']
+      ['nanimo', '何も・誰も・どこも', 'Nothing, nobody, nowhere (+ negative)'],
+      ['nandemo', '何でも・誰でも・どこでも', 'Anything, anyone, anywhere']
     ]},
     {cat: 'Particles', pages: [
       ['mo', 'も', 'Also, too'],
@@ -44,7 +45,9 @@ var INDEX = [
       ['ni', 'に', 'In, at, to, for, on'],
       ['he', 'へ', 'Towards, to (direction)'],
       ['de', 'で', 'At, in'],
+      ['de-means', 'で (Means)', 'By, with: what you use'],
       ['to-with', 'と (With)', 'With: doing something together'],
+      ['to-quote', 'と (Quotation)', 'Quoting: と思う, と言う (casual: って)'],
       ['no-pos', 'の (Possession)', 'Possession: my, \'s'],
       ['kara', 'から (From)', 'From: starting point (place, time, person)'],
       ['made', 'まで', 'Until, up to, even'],
@@ -67,12 +70,18 @@ var INDEX = [
       ['i-adj-neg', 'い-Adjective (Negative)', 'Isn\'t: くない'],
       ['i-adj-past', 'い-Adjective (Past)', 'Was: the past of い-adjectives'],
       ['i-adj-past-neg', 'い-Adjective (Past negative)', 'Wasn\'t: くなかった'],
+      ['na-adj-neg', 'な-Adjective (Negative)', 'Isn\'t: じゃない'],
+      ['na-adj-past', 'な-Adjective (Past)', 'Was: だった and でした'],
       ['suki-kirai', '好き・嫌い', 'Like, dislike (～が好き)'],
       ['naru', '～くなる・～になる', 'To become, to get (bigger, colder...)'],
       ['ichiban', '一番 (いちばん)', 'The most, number one']
     ]},
     {cat: 'Adverbs', pages: [
       ['totemo', 'とても', 'Very'],
+      ['chotto', 'ちょっと', 'A little, a bit (and softening)'],
+      ['amari', 'あまり～ない', 'Not very, not much'],
+      ['zenzen', '全然～ない', 'Not at all'],
+      ['itsumo', 'いつも・よく・時々', 'Always, often, sometimes'],
       ['mou', 'もう', 'Already, not anymore'],
       ['mada', 'まだ', 'Still, not yet']
     ]},
@@ -82,6 +91,7 @@ var INDEX = [
       ['ru-verb-neg', 'る-Verb (Negative)', 'Not doing: ない and ません'],
       ['u-verb-neg', 'う-Verb (Negative)', 'Not doing: u sound → a + ない'],
       ['ru-verb-past', 'る-Verb (Past)', 'Did: た and ました'],
+      ['u-verb-past', 'う-Verb (Past)', 'Did: った, んだ, いた and ました'],
       ['kuru', '来る', 'To come (irregular verb)'],
       ['suru', 'する', 'To do (irregular verb)'],
       ['ni-iku', '～に行く・～に来る', 'Go to do, come to do']
@@ -90,6 +100,7 @@ var INDEX = [
     {cat: 'Wanting and inviting', pages: [
       ['tai', '～たい', 'Want to (do something)'],
       ['mashou', '～ましょう', 'Let\'s (casual: ～よう)'],
+      ['demo-or', 'でも (Or something)', 'Or something: a soft suggestion'],
       ['tsumori', '～つもりだ', 'Plan to, intend to']
     ]},
     {cat: 'Giving and receiving', pages: [
@@ -102,6 +113,7 @@ var INDEX = [
       ['ga-but', 'が (But)', 'But, however (polite)'],
       ['kedo', 'けど・けれども', 'But (everyday)'],
       ['kara-because', 'から (Because)', 'Because, so: giving a reason'],
+      ['node', 'ので', 'Because, so (softer than から)'],
       ['mae-ni', '～前に', 'Before doing something']
     ]},
     {cat: 'Explaining (の)', pages: [
@@ -111,7 +123,7 @@ var INDEX = [
     ]}
   ]}
 ];
-var UPDATED = '28 Oct 2026';
+var UPDATED = '29 Oct 2026';
 
 (function(){
   // index.html (made by build.py) has every page in one file, so links switch pages instead of loading files
@@ -132,9 +144,9 @@ var UPDATED = '28 Oct 2026';
   var points = [];
   INDEX.forEach(function(g){
     g.pages = [].concat.apply([], g.cats.map(function(c){ return c.pages; }));
-    g.pages.forEach(function(p){
-      points.push({id: p[0], pat: p[1], d: p[2], level: g.level, k: (p[0] + ' ' + p[1] + ' ' + p[2]).toLowerCase()});
-    });
+    g.cats.forEach(function(c){ c.pages.forEach(function(p){
+      points.push({id: p[0], pat: p[1], d: p[2], level: g.level, cat: c.cat, k: (p[0] + ' ' + p[1] + ' ' + p[2]).toLowerCase()});
+    }); });
   });
   var count = points.length;
 
@@ -247,10 +259,11 @@ var UPDATED = '28 Oct 2026';
   }
   if (!BUNDLE) { var own = document.querySelector('main > [id]'); setFoot(own && own.id); }
 
-  // the short description under each page's pattern comes from INDEX, so it always matches the grid card
+  // the short description under each page's pattern and the category in its label come from INDEX, so they always match the grid
   points.forEach(function(p){
-    var page = document.getElementById(p.id), sub = page && page.querySelector('.sub');
+    var page = document.getElementById(p.id), sub = page && page.querySelector('.sub'), label = page && page.querySelector('.head .label');
     if (sub) sub.textContent = p.d;
+    if (label) label.textContent = p.level + ' Grammar · ' + p.cat;
   });
 
   // inside the Claude panel media/ can't load: swap the broken image for a short hint

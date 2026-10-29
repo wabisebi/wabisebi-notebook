@@ -37,6 +37,7 @@ Categories marked *(new)* aren't on the site yet. They get added to `INDEX` when
 - [x] どのくらい: how long, how much (on the ぐらい・くらい page)
 - [x] 何か・誰か・どこか: something, someone, somewhere
 - [x] 何も・誰も・どこも + negative: nothing, nobody, nowhere
+- [x] 何でも・誰でも・どこでも: anything, anyone, anywhere (いつでも on the same page)
 
 ## Particles
 - [x] も: also, too
@@ -49,8 +50,9 @@ Categories marked *(new)* aren't on the site yet. They get added to `INDEX` when
 - [x] に: in, at, to, for, on
 - [x] へ: towards
 - [x] で: at, in (where something happens)
-- [ ] で (Means): by, with (バスで, 箸で)
+- [x] で (Means): by, with (バスで, 箸で)
 - [x] と (With): with someone
+- [x] と (Quotation): と思う, と言う, って
 - [x] の (Possession): my, 's
 - [x] から (From): from
 - [x] まで: until, up to
@@ -73,8 +75,8 @@ Categories marked *(new)* aren't on the site yet. They get added to `INDEX` when
 - [x] い-Adjective (Past): かった
 - [x] い-Adjective (Past negative): くなかった
 - [x] な-Adjective
-- [ ] な-Adjective (Negative): じゃない
-- [ ] な-Adjective (Past): だった・でした
+- [x] な-Adjective (Negative): じゃない
+- [x] な-Adjective (Past): だった・でした
 - [x] 好き・嫌い: like, dislike (～が好き)
 - [ ] 上手・下手: good at, bad at
 - [x] ～くなる・～になる: to become
@@ -85,10 +87,10 @@ Categories marked *(new)* aren't on the site yet. They get added to `INDEX` when
 
 ## Adverbs *(new)*
 - [x] とても: very
-- [ ] ちょっと: a little
-- [ ] あまり～ない: not very
-- [ ] 全然～ない: not at all
-- [ ] いつも・よく・時々: always, often, sometimes
+- [x] ちょっと: a little
+- [x] あまり～ない: not very
+- [x] 全然～ない: not at all
+- [x] いつも・よく・時々: always, often, sometimes
 - [x] もう: already
 - [x] まだ: still, not yet
 
@@ -101,6 +103,7 @@ Categories marked *(new)* aren't on the site yet. They get added to `INDEX` when
 - [x] る-Verb (Negative): ない, ません
 - [x] う-Verb (Negative): u → a + ない
 - [x] る-Verb (Past): た, ました
+- [x] う-Verb (Past): った・んだ・いた, ました
 - [ ] ました: did (polite)
 - [ ] ませんでした: didn't (polite)
 - [ ] た-Form: did (casual)
@@ -127,6 +130,7 @@ Categories marked *(new)* aren't on the site yet. They get added to `INDEX` when
 - [ ] ～ませんか: won't you, why don't we
 - [x] ～ましょう: let's (casual ～よう on the same page)
 - [ ] ～ましょうか: shall I, shall we
+- [x] でも (Or something): noun + でも, a soft suggestion
 
 ## Giving and receiving *(new)*
 - [x] もらう: to get, to receive
@@ -139,6 +143,7 @@ Categories marked *(new)* aren't on the site yet. They get added to `INDEX` when
 - [x] が (But): but (polite)
 - [x] けど: but (casual), page けど・けれども
 - [x] から (Because): because, so
+- [x] ので: because, so (softer than から)
 - [x] ～前に: before
 - [ ] ～た後で: after
 - [ ] ～とき: when
