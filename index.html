@@ -446,6 +446,10 @@ main:has(#kana:not([hidden])) .foot,main:has(#katakana:not([hidden])) .foot,main
 .forms tr.here th{box-shadow:inset 3px 0 0 var(--gram)}
 .forms .m{margin:10px 0 0;color:var(--muted);font-size:14px}
 @media (max-width:520px){.forms{padding:4px 10px 10px}.forms th,.forms td{padding:8px 6px}.forms td{font-size:15px}}
+
+/* two forms cheatsheet: polite and casual at the top of a page, in the .forms table style */
+.twoforms .use{margin:0}
+.twoforms tbody tr:last-child th,.twoforms tbody tr:last-child td{border-bottom:0}
 </style>
 
 <header class="top" id="top"></header>
@@ -479,6 +483,15 @@ main:has(#kana:not([hidden])) .foot,main:has(#katakana:not([hidden])) .foot,main
           <p class="pattern">です / だ</p>
           <p class="sub"></p>
         </div>
+      </div>
+      <div class="forms twoforms">
+        <table>
+          <tbody>
+            <tr><th><span class="use polite">Polite</span></th><td>です</td></tr>
+            <tr><th><span class="use casual">Casual</span></th><td>だ</td></tr>
+          </tbody>
+        </table>
+        <p class="m">Same meaning: "is". Only the politeness changes.</p>
       </div>
       <div class="lead">
         <span class="use polite">Polite</span>
@@ -673,6 +686,15 @@ main:has(#kana:not([hidden])) .foot,main:has(#katakana:not([hidden])) .foot,main
           <p class="sub"></p>
         </div>
       </div>
+      <div class="forms twoforms">
+        <table>
+          <tbody>
+            <tr><th><span class="use polite">Polite</span></th><td>じゃないです<br>じゃありません</td></tr>
+            <tr><th><span class="use casual">Casual</span></th><td>じゃない</td></tr>
+          </tbody>
+        </table>
+        <p class="m">Same meaning: "isn't". Only the politeness changes. In writing, じゃ becomes では.</p>
+      </div>
       <div class="lead">
         <span class="use polite">Polite</span>
         <img src="media/86f724d815f.webp" alt="Scene from Pokémon">
@@ -814,6 +836,15 @@ main:has(#kana:not([hidden])) .foot,main:has(#katakana:not([hidden])) .foot,main
           <p class="pattern">でした・だった</p>
           <p class="sub"></p>
         </div>
+      </div>
+      <div class="forms twoforms">
+        <table>
+          <tbody>
+            <tr><th><span class="use polite">Polite</span></th><td>でした</td></tr>
+            <tr><th><span class="use casual">Casual</span></th><td>だった</td></tr>
+          </tbody>
+        </table>
+        <p class="m">Same meaning: "was". Only the politeness changes.</p>
       </div>
       <div class="lead">
         <span class="use polite">Polite</span>
@@ -957,6 +988,15 @@ main:has(#kana:not([hidden])) .foot,main:has(#katakana:not([hidden])) .foot,main
           <p class="pattern">じゃなかった・ではありませんでした</p>
           <p class="sub"></p>
         </div>
+      </div>
+      <div class="forms twoforms">
+        <table>
+          <tbody>
+            <tr><th><span class="use polite">Polite</span></th><td>じゃなかったです<br>じゃありませんでした</td></tr>
+            <tr><th><span class="use casual">Casual</span></th><td>じゃなかった</td></tr>
+          </tbody>
+        </table>
+        <p class="m">Same meaning: "wasn't". Only the politeness changes. In writing, じゃ becomes では.</p>
       </div>
       <section>
         <h2>Examples</h2>
@@ -1193,6 +1233,15 @@ main:has(#kana:not([hidden])) .foot,main:has(#katakana:not([hidden])) .foot,main
           <p class="pattern">か</p>
           <p class="sub"></p>
         </div>
+      </div>
+      <div class="forms twoforms">
+        <table>
+          <tbody>
+            <tr><th><span class="use polite">Polite</span></th><td>～ですか<br>～ますか</td></tr>
+            <tr><th><span class="use casual">Casual</span></th><td>～か</td></tr>
+          </tbody>
+        </table>
+        <p class="m">Both turn a sentence into a question. Casual speech often drops か and just raises the voice.</p>
       </div>
       <div class="lead">
         <span class="use polite">Polite</span>
@@ -1825,6 +1874,15 @@ main:has(#kana:not([hidden])) .foot,main:has(#katakana:not([hidden])) .foot,main
           <p class="sub"></p>
         </div>
       </div>
+      <div class="forms twoforms">
+        <table>
+          <tbody>
+            <tr><th><span class="use polite">Polite</span></th><td>こちら・そちら・あちら</td></tr>
+            <tr><th><span class="use casual">Casual</span></th><td>こっち・そっち・あっち</td></tr>
+          </tbody>
+        </table>
+        <p class="m">Same meaning: "this way, that way". Only the politeness changes.</p>
+      </div>
       <div class="lead">
         <span class="use polite">Polite</span>
         <img src="media/76ee362d4e2.webp" alt="Scene from a YouTube video">
@@ -1986,6 +2044,15 @@ main:has(#kana:not([hidden])) .foot,main:has(#katakana:not([hidden])) .foot,main
           <p class="pattern">がある</p>
           <p class="sub"></p>
         </div>
+      </div>
+      <div class="forms twoforms">
+        <table>
+          <tbody>
+            <tr><th><span class="use polite">Polite</span></th><td>あります</td></tr>
+            <tr><th><span class="use casual">Casual</span></th><td>ある</td></tr>
+          </tbody>
+        </table>
+        <p class="m">Same meaning: "there is". Only the politeness changes.</p>
       </div>
       <div class="lead">
         <span class="use polite">Polite</span>
@@ -2150,6 +2217,15 @@ main:has(#kana:not([hidden])) .foot,main:has(#katakana:not([hidden])) .foot,main
           <p class="pattern">がいる</p>
           <p class="sub"></p>
         </div>
+      </div>
+      <div class="forms twoforms">
+        <table>
+          <tbody>
+            <tr><th><span class="use polite">Polite</span></th><td>います</td></tr>
+            <tr><th><span class="use casual">Casual</span></th><td>いる</td></tr>
+          </tbody>
+        </table>
+        <p class="m">Same meaning: "there is" (people, animals). Only the politeness changes.</p>
       </div>
       <div class="lead">
         <span class="use polite">Polite</span>

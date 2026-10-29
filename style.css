@@ -437,3 +437,7 @@ main:has(#kana:not([hidden])) .foot,main:has(#katakana:not([hidden])) .foot,main
 .forms tr.here th{box-shadow:inset 3px 0 0 var(--gram)}
 .forms .m{margin:10px 0 0;color:var(--muted);font-size:14px}
 @media (max-width:520px){.forms{padding:4px 10px 10px}.forms th,.forms td{padding:8px 6px}.forms td{font-size:15px}}
+
+/* two forms cheatsheet: polite and casual at the top of a page, in the .forms table style */
+.twoforms .use{margin:0}
+.twoforms tbody tr:last-child th,.twoforms tbody tr:last-child td{border-bottom:0}
