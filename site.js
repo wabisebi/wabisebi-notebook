@@ -279,6 +279,8 @@ var UPDATED = '29 Oct 2026';
     var page = document.getElementById(p.id), sub = page && page.querySelector('.sub'), label = page && page.querySelector('.head .label');
     if (sub) sub.textContent = p.d;
     if (label) label.textContent = p.level + ' Grammar · ' + p.cat;
+    // a button back to the grid, just above the page's card on the left (inside the article, so index.html shows it with the page)
+    if (page && !page.querySelector('.back')) { page.classList.add('has-back'); page.insertAdjacentHTML('afterbegin', '<a class="back" href="' + href('home') + '"><span class="tri" aria-hidden="true"></span>All grammar</a>'); }
   });
 
   // inside the Claude panel media/ can't load: swap the broken image for a short hint

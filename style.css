@@ -483,3 +483,10 @@ main:has(#kana-game:not([hidden])) .foot{display:none}
 .kana-drop .nav:hover{background:color-mix(in srgb,var(--gold) 10%,transparent)}
 @media (min-width:861px){.top .m-only{display:none}}
 @media (max-width:860px){.kana-group{display:none}}
+
+/* grammar pages: "← All grammar" button back to the grid, above the card on the left */
+article.has-back{position:relative;margin-top:44px}
+article .back{position:absolute;left:0;top:-44px;display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:12px;letter-spacing:.06em;padding:6px 14px;border-radius:999px;
+  background:var(--plain);border:1px solid var(--plain-line);color:var(--ink);text-decoration:none}
+article .back:hover{border-color:var(--gold);color:var(--gold)}
+article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:transparent currentColor transparent transparent}   /* the play button's triangle, pointing left */
