@@ -92,7 +92,7 @@ Each grammar point is its own file in `pages/`. To make a new one, copy an exist
 
 ## Design (settled, don't change unless asked)
 - Quiet dark theme: ink navy background, warm off-white text, one gold accent, soft blue for grammar and "with" boxes. Light theme (28 Oct 2026): warm paper background, navy ink, the same gold and blue only deeper.
-- Fonts: Newsreader (headings), IBM Plex Sans / Plex Sans JP (body), IBM Plex Mono (small labels).
+- Fonts: Newsreader (headings), IBM Plex Sans / Plex Sans JP (body), Noto Sans JP 600 for the big pattern title on grammar pages (29 Oct 2026, it was Shippori Mincho before; loaded with an `@import` at the top of `style.css`), IBM Plex Mono (small labels).
 - No glows, no orange or red for grammar.
 - Top bar and home grid (Oct 2026): cards use the same `--card` surfaces as scene cards, gold border on hover. Inspired by Bunpro's grammar grid but in our palette.
 
