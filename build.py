@@ -29,7 +29,7 @@ out = '''<!doctype html>
 <!-- Made by build.py from pages/, style.css and site.js. Don't edit this file, edit those and rebuild. -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Wabisebi Grammar Notebook</title>
+<title>Wabisebi Japanese Notebook</title>
 <link rel="stylesheet" href="%s">
 <script>try{if(localStorage.getItem('wabisebi-theme')==='light')document.documentElement.setAttribute('data-theme','light')}catch(e){}</script>
 <style>

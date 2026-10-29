@@ -442,3 +442,13 @@ main:has(#kana-game:not([hidden])) .foot{display:none}
 /* two forms cheatsheet: polite and casual at the top of a page, in the .forms table style */
 .twoforms .use{margin:0}
 .twoforms tbody tr:last-child th,.twoforms tbody tr:last-child td{border-bottom:0}
+
+/* kana charts: the stroke panel sits beside the explainer, half and half; the character is centered with its controls under it, so the panel has no empty corner when the explainer is open */
+:is(#kana,#katakana) .kanji-top .stroke-panel{flex:1 1 0;flex-direction:column;justify-content:center;gap:16px;padding:24px 16px}
+:is(#kana,#katakana) .kanji-top .onkun{flex:1 1 0}
+:is(#kana,#katakana) .stroke-panel svg{height:200px}
+:is(#kana,#katakana) .stroke-panel .side{flex-direction:row;align-items:center;gap:14px}
+@media (max-width:720px){
+  :is(#kana,#katakana) .kanji-top .stroke-panel{flex:none;padding:18px 16px}
+  :is(#kana,#katakana) .stroke-panel svg{height:150px}
+}

@@ -3,7 +3,7 @@
 <!-- Made by build.py from pages/, style.css and site.js. Don't edit this file, edit those and rebuild. -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Wabisebi Grammar Notebook</title>
+<title>Wabisebi Japanese Notebook</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Shippori+Mincho:wght@600;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Sans+JP:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <script>try{if(localStorage.getItem('wabisebi-theme')==='light')document.documentElement.setAttribute('data-theme','light')}catch(e){}</script>
 <style>
@@ -451,6 +451,16 @@ main:has(#kana-game:not([hidden])) .foot{display:none}
 /* two forms cheatsheet: polite and casual at the top of a page, in the .forms table style */
 .twoforms .use{margin:0}
 .twoforms tbody tr:last-child th,.twoforms tbody tr:last-child td{border-bottom:0}
+
+/* kana charts: the stroke panel sits beside the explainer, half and half; the character is centered with its controls under it, so the panel has no empty corner when the explainer is open */
+:is(#kana,#katakana) .kanji-top .stroke-panel{flex:1 1 0;flex-direction:column;justify-content:center;gap:16px;padding:24px 16px}
+:is(#kana,#katakana) .kanji-top .onkun{flex:1 1 0}
+:is(#kana,#katakana) .stroke-panel svg{height:200px}
+:is(#kana,#katakana) .stroke-panel .side{flex-direction:row;align-items:center;gap:14px}
+@media (max-width:720px){
+  :is(#kana,#katakana) .kanji-top .stroke-panel{flex:none;padding:18px 16px}
+  :is(#kana,#katakana) .stroke-panel svg{height:150px}
+}
 </style>
 
 <header class="top" id="top"></header>
@@ -14891,7 +14901,7 @@ var UPDATED = '29 Oct 2026';
 
   var top = document.getElementById('top');
   top.innerHTML =
-    '<a class="brand" href="' + href('start') + '"><span class="label">文法ノート</span><span class="t">Wabisebi Grammar Notebook</span></a>' +
+    '<a class="brand" href="' + href('start') + '"><span class="label">日本語ノート</span><span class="t">Wabisebi Japanese Notebook</span></a>' +
     '<button class="burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="menu"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>' +
     '<div class="menu" id="menu">' +
     '<a class="nav" href="' + href('home') + '"><svg class="pad" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></svg> Grammar</a>' +
