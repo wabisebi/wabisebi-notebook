@@ -351,6 +351,31 @@ var UPDATED = '29 Oct 2026';
       if (sp && b.dataset.on) { showYomi(sp, b); b.closest('.kana-board').classList.add('sheet-open'); }
     });
   });
+  // resources: "On this page" list. Clicks scroll in place (index.html uses the #hash for pages), and the section in view is marked
+  document.querySelectorAll('.toc').forEach(function(toc){
+    var bar = document.querySelector('.top');
+    function barHeight(){ if (bar) document.documentElement.style.setProperty('--topbar', bar.offsetHeight + 'px'); }   // the top bar wraps to different heights
+    barHeight(); window.addEventListener('resize', barHeight);
+    var links = [].slice.call(toc.querySelectorAll('a'));
+    links.forEach(function(a){
+      a.addEventListener('click', function(e){
+        e.preventDefault(); e.stopPropagation();   // keep index.html's page router from treating it as a page link
+        var sec = document.getElementById(a.getAttribute('href').slice(1));
+        if (!sec) return;
+        sec.open = true;
+        sec.scrollIntoView({behavior: matchMedia('(prefers-reduced-motion:reduce)').matches ? 'auto' : 'smooth', block: 'start'});
+      });
+    });
+    if (!('IntersectionObserver' in window)) return;
+    var seen = {};
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ seen[en.target.id] = en.isIntersecting; });
+      var cur = links.find(function(a){ return seen[a.getAttribute('href').slice(1)]; });
+      links.forEach(function(a){ a.classList.toggle('on', a === cur); });
+    }, {rootMargin: '-' + ((bar && bar.offsetHeight) || 72) + 'px 0px -55% 0px'});
+    links.forEach(function(a){ var sec = document.getElementById(a.getAttribute('href').slice(1)); if (sec) io.observe(sec); });
+  });
+
   // the meaning toggle on the kanji chart (the kana charts always show romaji)
   document.querySelectorAll('.romaji-toggle').forEach(function(romaji){
     romaji.addEventListener('click', function(){
