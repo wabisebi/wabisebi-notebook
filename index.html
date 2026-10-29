@@ -450,7 +450,8 @@ main:has(#kana-game:not([hidden])) .foot{display:none}
 
 /* two forms cheatsheet: polite and casual at the top of a page, in the .forms table style */
 .twoforms .use{margin:0}
-.twoforms tbody tr:last-child th,.twoforms tbody tr:last-child td{border-bottom:0}
+.twoforms .m{margin-top:0;padding-top:12px}
+.twoforms .hint{margin-left:10px;font-size:13px;font-weight:400;color:var(--muted)}
 
 /* kana charts: the stroke panel sits beside the explainer, half and half; the character is centered with its controls under it, so the panel has no empty corner when the explainer is open */
 :is(#kana,#katakana) .kanji-top .stroke-panel{flex:1 1 0;flex-direction:column;justify-content:center;gap:16px;padding:24px 16px}
@@ -738,11 +739,11 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
       <div class="forms twoforms">
         <table>
           <tbody>
-            <tr><th><span class="use polite">Polite</span></th><td>じゃないです<br>じゃありません</td></tr>
+            <tr><th><span class="use polite">Polite</span></th><td>じゃないです <span class="hint">everyday, softer</span><br>じゃありません <span class="hint">standard polite, a bit firmer</span><br>ではありません <span class="hint">most formal: news, speeches, writing</span></td></tr>
             <tr><th><span class="use casual">Casual</span></th><td>じゃない</td></tr>
           </tbody>
         </table>
-        <p class="m">Same meaning: "isn't". Only the politeness changes. In writing, じゃ becomes では.</p>
+        <p class="m">Same meaning: "isn't". Only the politeness changes.</p>
       </div>
       <div class="lead">
         <span class="use polite">Polite</span>
@@ -798,31 +799,6 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
         </div>
       </section>
       <section>
-        <h2>With and without</h2>
-        <div class="compare">
-          <div class="cbox">
-            <span class="label">だ</span>
-            <p class="jp">雨だ。</p>
-            <p>"It's raining." Says what it is.</p>
-          </div>
-          <div class="cbox yes">
-            <span class="label">じゃない</span>
-            <p class="jp">雨<mark class="g">じゃない</mark>。</p>
-            <p>"It's not raining." Says what it isn't. Casual.</p>
-          </div>
-          <div class="cbox">
-            <span class="label">です</span>
-            <p class="jp">雨です。</p>
-            <p>"It's raining." Polite.</p>
-          </div>
-          <div class="cbox yes">
-            <span class="label">じゃないです / じゃありません</span>
-            <p class="jp">雨<mark class="g">じゃありません</mark>。</p>
-            <p>"It's not raining." Polite. じゃないです is a bit softer and more everyday.</p>
-          </div>
-        </div>
-      </section>
-      <section>
         <h2>The です family</h2>
         <div class="forms">
           <table>
@@ -863,6 +839,28 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
             <p class="note">A polite sentence (です at the end), but the じゃない in the middle stays plain. That's normal: only the end needs to be polite.</p>
           </div>
           <div class="mine">
+            <span class="use polite">Polite</span>
+            <img src="media/f86f87c8425.webp" alt="Scene from a YouTube video" loading="lazy">
+            <p class="src">YouTube · <a href="https://www.youtube.com/watch?v=zHO3NNCkyss">video</a></p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/87c8425e654.mp3" aria-label="Play audio"></button>
+              <p class="jp">もちろん今でも不満は尽きませんが、それでも今の自分は嫌い<mark class="g">じゃありません</mark></p>
+            </div>
+            <p class="en">"Of course, I still have plenty of complaints, but even so, I don't dislike who I am now."</p>
+            <p class="note">嫌い ends in い but it's a な-adjective, so it takes じゃありません like a noun. 嫌いじゃない is a modest way of saying "I kind of like it".</p>
+          </div>
+          <div class="mine">
+            <span class="use polite">Polite</span>
+            <img src="media/7648d2a9b83.webp" alt="Scene from a YouTube video" loading="lazy">
+            <p class="src">YouTube · <a href="https://www.youtube.com/watch?v=dLUovStAvq4">video</a></p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/d2a9b83145f.mp3" aria-label="Play audio"></button>
+              <p class="jp">実はこの作品を主導的に製作した金澤麻由子さんはコンピュータサイエンティスト<mark class="g">ではありません</mark></p>
+            </div>
+            <p class="en">"Actually, Mayuko Kanazawa, who led the making of this work, isn't a computer scientist."</p>
+            <p class="note">ではありません: the formal version of じゃありません, same meaning. You hear it in news, presentations and narration like this.</p>
+          </div>
+          <div class="mine">
             <span class="use casual">Casual</span>
             <img src="media/52316dc467e.webp" alt="Scene from New Atashin'chi" loading="lazy">
             <p class="src">New Atashin'chi · Episode 1</p>
@@ -872,6 +870,28 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
             </div>
             <p class="en">"Isn't that animal abuse?"</p>
             <p class="note">じゃねえ is a rough, slangy じゃない. Mostly guys, mostly with friends.</p>
+          </div>
+          <div class="mine">
+            <span class="use casual">Casual</span>
+            <img src="media/e159c4c0514.webp" alt="Scene from Teasing Master Takagi-san" loading="lazy">
+            <p class="src">Teasing Master Takagi-san · Season 1</p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/c4c05143ead.mp3" aria-label="Play audio"></button>
+              <p class="jp">いや、たいしたこと<mark class="g">じゃない</mark>よ。</p>
+            </div>
+            <p class="en">"Nah, it's no big deal."</p>
+            <p class="note">たいしたこと is "a big deal", じゃない makes it "not". The よ makes it reassuring.</p>
+          </div>
+          <div class="mine">
+            <span class="use casual">Casual</span>
+            <img src="media/23ab12fd193.webp" alt="Scene from a YouTube video" loading="lazy">
+            <p class="src">YouTube · <a href="https://www.youtube.com/watch?v=15cCm2F0kFI">video</a></p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/9e70623ab12.mp3" aria-label="Play audio"></button>
+              <p class="jp">マヨラー<mark class="g">じゃない</mark>けど、ケチャラ。</p>
+            </div>
+            <p class="en">"I'm not a mayo person, but I'm a ketchup person."</p>
+            <p class="note">マヨラー is slang for someone who puts mayo on everything. じゃないけど: "I'm not X, but...".</p>
           </div>
         </div>
       </section>
@@ -1041,11 +1061,11 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
       <div class="forms twoforms">
         <table>
           <tbody>
-            <tr><th><span class="use polite">Polite</span></th><td>じゃなかったです<br>じゃありませんでした</td></tr>
+            <tr><th><span class="use polite">Polite</span></th><td>じゃなかったです <span class="hint">everyday, softer</span><br>じゃありませんでした <span class="hint">standard polite, a bit firmer</span><br>ではありませんでした <span class="hint">most formal: news, speeches, writing</span></td></tr>
             <tr><th><span class="use casual">Casual</span></th><td>じゃなかった</td></tr>
           </tbody>
         </table>
-        <p class="m">Same meaning: "wasn't". Only the politeness changes. In writing, じゃ becomes では.</p>
+        <p class="m">Same meaning: "wasn't". Only the politeness changes.</p>
       </div>
       <section>
         <h2>Examples</h2>
@@ -1286,7 +1306,7 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
       <div class="forms twoforms">
         <table>
           <tbody>
-            <tr><th><span class="use polite">Polite</span></th><td>～ですか<br>～ますか</td></tr>
+            <tr><th><span class="use polite">Polite</span></th><td>～ですか <span class="hint">after nouns and adjectives</span><br>～ますか <span class="hint">after verbs</span></td></tr>
             <tr><th><span class="use casual">Casual</span></th><td>～か</td></tr>
           </tbody>
         </table>
@@ -2669,6 +2689,15 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
           <p class="sub"></p>
         </div>
       </div>
+      <div class="forms twoforms">
+        <table>
+          <tbody>
+            <tr><th><span class="use polite">Polite</span></th><td>どなた</td></tr>
+            <tr><th><span class="use casual">Casual</span></th><td>誰 (だれ)</td></tr>
+          </tbody>
+        </table>
+        <p class="m">Same meaning: "who". Only the politeness changes.</p>
+      </div>
       <div class="lead">
         <span class="use polite">Polite</span>
         <img src="media/shirokumacafe08_09m10s050ms.webp" alt="Scene from Shirokuma Cafe">
@@ -3145,6 +3174,15 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
           <p class="sub"></p>
         </div>
       </div>
+      <div class="forms twoforms">
+        <table>
+          <tbody>
+            <tr><th><span class="use polite">Polite</span></th><td>どちら</td></tr>
+            <tr><th><span class="use casual">Casual</span></th><td>どっち</td></tr>
+          </tbody>
+        </table>
+        <p class="m">Same meaning: "which one (of two)". Only the politeness changes.</p>
+      </div>
       <div class="lead">
         <img src="media/f49becfd7ce.webp" alt="Scene from a YouTube video">
         <p class="src">YouTube · <a href="https://www.youtube.com/watch?v=YBdK7GTmMKo">video</a></p>
@@ -3230,6 +3268,15 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
           <p class="pattern">どう・いかが</p>
           <p class="sub"></p>
         </div>
+      </div>
+      <div class="forms twoforms">
+        <table>
+          <tbody>
+            <tr><th><span class="use polite">Polite</span></th><td>どうですか <span class="hint">everyday polite</span><br>いかがですか <span class="hint">extra polite, for offers</span></td></tr>
+            <tr><th><span class="use casual">Casual</span></th><td>どう</td></tr>
+          </tbody>
+        </table>
+        <p class="m">Same meaning: "how, how about". Only the politeness changes.</p>
       </div>
       <div class="lead">
         <img src="media/a09a5d6f1f7.webp" alt="Scene from Shirokuma Cafe">
@@ -3457,6 +3504,15 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
           <p class="pattern">どうして・なぜ</p>
           <p class="sub"></p>
         </div>
+      </div>
+      <div class="forms twoforms">
+        <table>
+          <tbody>
+            <tr><th><span class="use polite">Polite</span></th><td>どうしてですか <span class="hint">everyday polite</span><br>なぜですか <span class="hint">stiff, formal, written</span></td></tr>
+            <tr><th><span class="use casual">Casual</span></th><td>どうして <span class="hint">everyday</span><br>なんで <span class="hint">most casual, spoken</span></td></tr>
+          </tbody>
+        </table>
+        <p class="m">Same meaning: "why". Only the politeness changes.</p>
       </div>
       <div class="lead">
         <span class="use casual">Casual</span>
@@ -5673,6 +5729,15 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
           <p class="sub"></p>
         </div>
       </div>
+      <div class="forms twoforms">
+        <table>
+          <tbody>
+            <tr><th><span class="use polite">Polite</span></th><td>～と思います</td></tr>
+            <tr><th><span class="use casual">Casual</span></th><td>～と思う <span class="hint">neutral</span><br>～って思う <span class="hint">spoken, very common</span></td></tr>
+          </tbody>
+        </table>
+        <p class="m">Same meaning: quoting a thought. って is the spoken casual と.</p>
+      </div>
       <div class="lead">
         <span class="use polite">Polite</span>
         <img src="media/6b9eec10595.webp" alt="Scene from a YouTube video">
@@ -7574,6 +7639,15 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
           <p class="sub"></p>
         </div>
       </div>
+      <div class="forms twoforms">
+        <table>
+          <tbody>
+            <tr><th><span class="use polite">Polite</span></th><td>おいしいです</td></tr>
+            <tr><th><span class="use casual">Casual</span></th><td>おいしい</td></tr>
+          </tbody>
+        </table>
+        <p class="m">Same meaning: "it's tasty". Only the politeness changes. The adjective itself stays the same.</p>
+      </div>
       <div class="lead">
         <span class="use casual">Casual</span>
         <img src="media/d47eb42b1c6.webp" alt="Scene from a YouTube video">
@@ -7741,6 +7815,15 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
           <p class="sub"></p>
         </div>
       </div>
+      <div class="forms twoforms">
+        <table>
+          <tbody>
+            <tr><th><span class="use polite">Polite</span></th><td>いいです</td></tr>
+            <tr><th><span class="use casual">Casual</span></th><td>いい</td></tr>
+          </tbody>
+        </table>
+        <p class="m">Same meaning: "it's good". Only the politeness changes.</p>
+      </div>
       <div class="lead">
         <span class="use casual">Casual</span>
         <img src="media/6986975951f.webp" alt="Scene from Shirokuma Cafe">
@@ -7907,6 +7990,15 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
           <p class="pattern">な-Adjective</p>
           <p class="sub"></p>
         </div>
+      </div>
+      <div class="forms twoforms">
+        <table>
+          <tbody>
+            <tr><th><span class="use polite">Polite</span></th><td>きれいです</td></tr>
+            <tr><th><span class="use casual">Casual</span></th><td>きれいだ <span class="hint">plain statement</span><br>きれい <span class="hint">just the word, very common</span></td></tr>
+          </tbody>
+        </table>
+        <p class="m">Same meaning: "it's pretty". Before a noun it's always な: きれいな夜景.</p>
       </div>
       <div class="lead">
         <span class="use polite">Polite</span>
@@ -8271,6 +8363,15 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
           <p class="pattern">い-Adjective (Past)</p>
           <p class="sub"></p>
         </div>
+      </div>
+      <div class="forms twoforms">
+        <table>
+          <tbody>
+            <tr><th><span class="use polite">Polite</span></th><td>良かったです</td></tr>
+            <tr><th><span class="use casual">Casual</span></th><td>良かった</td></tr>
+          </tbody>
+        </table>
+        <p class="m">Same meaning: "it was good". Only the politeness changes.</p>
       </div>
       <div class="lead">
         <span class="use casual">Casual</span>
@@ -8664,6 +8765,15 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
           <p class="pattern">な-Adjective (Past)</p>
           <p class="sub"></p>
         </div>
+      </div>
+      <div class="forms twoforms">
+        <table>
+          <tbody>
+            <tr><th><span class="use polite">Polite</span></th><td>綺麗でした</td></tr>
+            <tr><th><span class="use casual">Casual</span></th><td>綺麗だった</td></tr>
+          </tbody>
+        </table>
+        <p class="m">Same meaning: "it was beautiful". Only the politeness changes.</p>
       </div>
       <div class="lead">
         <img src="media/996e64a4fe8.webp" alt="Scene from a YouTube video">
@@ -10248,6 +10358,15 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
           <p class="sub"></p>
         </div>
       </div>
+      <div class="forms twoforms">
+        <table>
+          <tbody>
+            <tr><th><span class="use polite">Polite</span></th><td>入れます</td></tr>
+            <tr><th><span class="use casual">Casual</span></th><td>入れる</td></tr>
+          </tbody>
+        </table>
+        <p class="m">Same meaning: "to put in". Only the politeness changes.</p>
+      </div>
       <div class="lead">
         <img src="media/685b3cb0e2a.webp" alt="Scene from a YouTube video">
         <p class="src">YouTube · <a href="https://www.youtube.com/watch?v=cNDzCgsTeyg">video</a></p>
@@ -10417,6 +10536,15 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
           <p class="pattern">う-Verb (Dictionary)</p>
           <p class="sub"></p>
         </div>
+      </div>
+      <div class="forms twoforms">
+        <table>
+          <tbody>
+            <tr><th><span class="use polite">Polite</span></th><td>行きます</td></tr>
+            <tr><th><span class="use casual">Casual</span></th><td>行く</td></tr>
+          </tbody>
+        </table>
+        <p class="m">Same meaning: "to go". Only the politeness changes.</p>
       </div>
       <div class="intro">
         <p>う-verbs are the biggest group of Japanese verbs. Their dictionary form ends in an u sound: う, く, ぐ, す, つ, ぬ, ぶ, む or る. Watch out with る: many verbs ending in る are う-verbs (作る, 帰る), but not all (食べる isn't).</p>
@@ -10607,6 +10735,15 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
           <p class="sub"></p>
         </div>
       </div>
+      <div class="forms twoforms">
+        <table>
+          <tbody>
+            <tr><th><span class="use polite">Polite</span></th><td>足りません</td></tr>
+            <tr><th><span class="use casual">Casual</span></th><td>足りない</td></tr>
+          </tbody>
+        </table>
+        <p class="m">Same meaning: "isn't enough". Only the politeness changes.</p>
+      </div>
       <div class="lead">
         <span class="use casual">Casual</span>
         <img src="media/27a635a4a58.webp" alt="Scene from Shirokuma Cafe">
@@ -10740,6 +10877,15 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
           <p class="pattern">う-Verb (Negative)</p>
           <p class="sub"></p>
         </div>
+      </div>
+      <div class="forms twoforms">
+        <table>
+          <tbody>
+            <tr><th><span class="use polite">Polite</span></th><td>分かりません</td></tr>
+            <tr><th><span class="use casual">Casual</span></th><td>分からない</td></tr>
+          </tbody>
+        </table>
+        <p class="m">Same meaning: "don't know". Only the politeness changes.</p>
       </div>
       <div class="lead">
         <span class="use polite">Polite</span>
@@ -10875,6 +11021,15 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
           <p class="pattern">る-Verb (Past)</p>
           <p class="sub"></p>
         </div>
+      </div>
+      <div class="forms twoforms">
+        <table>
+          <tbody>
+            <tr><th><span class="use polite">Polite</span></th><td>食べました</td></tr>
+            <tr><th><span class="use casual">Casual</span></th><td>食べた</td></tr>
+          </tbody>
+        </table>
+        <p class="m">Same meaning: "ate". Only the politeness changes.</p>
       </div>
       <div class="lead">
         <span class="use casual">Casual</span>
@@ -11064,6 +11219,15 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
           <p class="pattern">う-Verb (Past)</p>
           <p class="sub"></p>
         </div>
+      </div>
+      <div class="forms twoforms">
+        <table>
+          <tbody>
+            <tr><th><span class="use polite">Polite</span></th><td>行きました</td></tr>
+            <tr><th><span class="use casual">Casual</span></th><td>行った</td></tr>
+          </tbody>
+        </table>
+        <p class="m">Same meaning: "went". Only the politeness changes.</p>
       </div>
       <div class="lead">
         <span class="use casual">Casual</span>
@@ -11255,6 +11419,15 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
           <p class="sub"></p>
         </div>
       </div>
+      <div class="forms twoforms">
+        <table>
+          <tbody>
+            <tr><th><span class="use polite">Polite</span></th><td>来ます (きます)</td></tr>
+            <tr><th><span class="use casual">Casual</span></th><td>来る (くる)</td></tr>
+          </tbody>
+        </table>
+        <p class="m">Same meaning: "to come". Only the politeness changes.</p>
+      </div>
       <div class="lead">
         <span class="use casual">Casual</span>
         <img src="media/35de219afac.webp" alt="Scene from a YouTube video">
@@ -11384,6 +11557,15 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
           <p class="pattern">する</p>
           <p class="sub"></p>
         </div>
+      </div>
+      <div class="forms twoforms">
+        <table>
+          <tbody>
+            <tr><th><span class="use polite">Polite</span></th><td>します</td></tr>
+            <tr><th><span class="use casual">Casual</span></th><td>する</td></tr>
+          </tbody>
+        </table>
+        <p class="m">Same meaning: "to do". Only the politeness changes.</p>
       </div>
       <div class="lead">
         <span class="use polite">Polite</span>
@@ -11681,6 +11863,15 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
           <p class="pattern">～たい</p>
           <p class="sub"></p>
         </div>
+      </div>
+      <div class="forms twoforms">
+        <table>
+          <tbody>
+            <tr><th><span class="use polite">Polite</span></th><td>～たいです</td></tr>
+            <tr><th><span class="use casual">Casual</span></th><td>～たい</td></tr>
+          </tbody>
+        </table>
+        <p class="m">Same meaning: "want to". Only the politeness changes.</p>
       </div>
       <div class="lead">
         <span class="use polite">Polite</span>
@@ -12066,6 +12257,15 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
           <p class="pattern">～つもりだ</p>
           <p class="sub"></p>
         </div>
+      </div>
+      <div class="forms twoforms">
+        <table>
+          <tbody>
+            <tr><th><span class="use polite">Polite</span></th><td>～つもりです</td></tr>
+            <tr><th><span class="use casual">Casual</span></th><td>～つもりだ <span class="hint">plain statement</span><br>～つもり <span class="hint">just the word, very common</span></td></tr>
+          </tbody>
+        </table>
+        <p class="m">Same meaning: "plan to". Only the politeness changes.</p>
       </div>
       <div class="lead">
         <span class="use polite">Polite</span>
@@ -12928,6 +13128,15 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
           <p class="sub"></p>
         </div>
       </div>
+      <div class="forms twoforms">
+        <table>
+          <tbody>
+            <tr><th><span class="use polite">Polite</span></th><td>～ですけど <span class="hint">everyday polite</span><br>～けれども <span class="hint">careful, to an audience</span></td></tr>
+            <tr><th><span class="use casual">Casual</span></th><td>～けど</td></tr>
+          </tbody>
+        </table>
+        <p class="m">Same meaning: "but". けど is fine in polite speech too.</p>
+      </div>
       <div class="lead">
         <span class="use casual">Casual</span>
         <img src="media/0d9d0da7e0c.webp" alt="Scene from a YouTube video">
@@ -13482,6 +13691,15 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
           <p class="sub"></p>
         </div>
       </div>
+      <div class="forms twoforms">
+        <table>
+          <tbody>
+            <tr><th><span class="use polite">Polite</span></th><td>～んですか</td></tr>
+            <tr><th><span class="use casual">Casual</span></th><td>～の？</td></tr>
+          </tbody>
+        </table>
+        <p class="m">Same meaning: asking for the story. Only the politeness changes.</p>
+      </div>
       <div class="lead">
         <span class="use casual">Casual</span>
         <img src="media/331dd533e74.webp" alt="Scene with a drink dispenser">
@@ -13685,6 +13903,15 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
           <p class="pattern">～んです・のです</p>
           <p class="sub"></p>
         </div>
+      </div>
+      <div class="forms twoforms">
+        <table>
+          <tbody>
+            <tr><th><span class="use polite">Polite</span></th><td>～んです <span class="hint">spoken</span><br>～のです <span class="hint">formal, written</span></td></tr>
+            <tr><th><span class="use casual">Casual</span></th><td>～んだ</td></tr>
+          </tbody>
+        </table>
+        <p class="m">Same meaning: giving the reason or story. Only the politeness changes.</p>
       </div>
       <div class="lead">
         <span class="use polite">Polite</span>
