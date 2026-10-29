@@ -156,12 +156,19 @@ var UPDATED = '29 Oct 2026';
     '<a class="brand" href="' + href('start') + '"><span class="t">Wabisebi Japanese</span></a>' +
     '<button class="burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="menu"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>' +
     '<div class="menu" id="menu">' +
-    '<a class="nav" href="' + href('kana') + '">あ Hiragana</a>' +
-    '<a class="nav" href="' + href('katakana') + '">ア Katakana</a>' +
+    // wide screens: one "Kana" item that opens Hiragana, Katakana and Kana Game; phones keep the three links in the ☰ menu
+    '<div class="kana-group"><button class="nav kana-btn" type="button" aria-expanded="false">あ Kana <svg class="chev" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>' +
+      '<div class="kana-drop">' +
+      '<a class="nav" href="' + href('kana') + '">あ Hiragana</a>' +
+      '<a class="nav" href="' + href('katakana') + '">ア Katakana</a>' +
+      '<a class="nav" href="' + href('kana-game') + '"><svg class="pad" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10a5 5 0 0 1 4.9 4l1 5a2.6 2.6 0 0 1-4.4 2.3L16.4 16H7.6l-3.1 2.3A2.6 2.6 0 0 1 .1 16l1-5A5 5 0 0 1 7 7z"/><path d="M7.5 10v3M6 11.5h3"/><circle cx="15.5" cy="10.6" r=".6"/><circle cx="17.7" cy="12.6" r=".6"/></svg> Kana Game</a>' +
+      '</div></div>' +
+    '<a class="nav m-only" href="' + href('kana') + '">あ Hiragana</a>' +
+    '<a class="nav m-only" href="' + href('katakana') + '">ア Katakana</a>' +
     '<a class="nav" href="' + href('home') + '"><svg class="pad" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></svg> Grammar</a>' +
     '<a class="nav" href="' + href('kanji') + '">字 Kanji</a>' +
     '<a class="nav" href="' + href('numbers') + '">数 Numbers &amp; Dates</a>' +
-    '<a class="nav" href="' + href('kana-game') + '"><svg class="pad" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10a5 5 0 0 1 4.9 4l1 5a2.6 2.6 0 0 1-4.4 2.3L16.4 16H7.6l-3.1 2.3A2.6 2.6 0 0 1 .1 16l1-5A5 5 0 0 1 7 7z"/><path d="M7.5 10v3M6 11.5h3"/><circle cx="15.5" cy="10.6" r=".6"/><circle cx="17.7" cy="12.6" r=".6"/></svg> Kana Game</a>' +
+    '<a class="nav m-only" href="' + href('kana-game') + '"><svg class="pad" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10a5 5 0 0 1 4.9 4l1 5a2.6 2.6 0 0 1-4.4 2.3L16.4 16H7.6l-3.1 2.3A2.6 2.6 0 0 1 .1 16l1-5A5 5 0 0 1 7 7z"/><path d="M7.5 10v3M6 11.5h3"/><circle cx="15.5" cy="10.6" r=".6"/><circle cx="17.7" cy="12.6" r=".6"/></svg> Kana Game</a>' +
     '<a class="nav" href="' + href('resources') + '">棚 Resources</a>' +
     '<div class="find"><input id="find" type="search" placeholder="Search: は, topic, wa…" aria-label="Search grammar" autocomplete="off">' +
       '<ol class="results" id="results" hidden></ol></div>' +
@@ -195,6 +202,14 @@ var UPDATED = '29 Oct 2026';
   // picking a link or a search result closes it (in index.html these only change the #page, so nothing reloads)
   top.querySelector('.menu').addEventListener('click', function(e){ if (e.target.closest('a')) setMenu(false); });
   window.addEventListener('hashchange', function(){ setMenu(false); });
+
+  // the Kana dropdown (wide screens): click or hover opens it, a click elsewhere or Esc closes it
+  var kanaGroup = top.querySelector('.kana-group'), kanaBtn = top.querySelector('.kana-btn');
+  function setKana(open){ kanaGroup.classList.toggle('open', open); kanaBtn.setAttribute('aria-expanded', String(open)); }
+  kanaBtn.addEventListener('click', function(){ setKana(!kanaGroup.classList.contains('open')); });
+  kanaGroup.addEventListener('click', function(e){ if (e.target.closest('a')) setKana(false); });
+  document.addEventListener('click', function(e){ if (!kanaGroup.contains(e.target)) setKana(false); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') setKana(false); });
 
   // home page: every grammar point as a card, grouped by level
   var grid = document.getElementById('grid');
