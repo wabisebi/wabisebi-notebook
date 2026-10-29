@@ -425,3 +425,15 @@ main:has(#kana:not([hidden])) .foot,main:has(#katakana:not([hidden])) .foot,main
 @media (max-width:520px){.rcard{grid-template-columns:44px minmax(0,1fr)}.rcard .av{grid-row:span 3}.rcard .tags{justify-content:flex-start}}
 .foot .credit{color:var(--muted);text-decoration:none}
 .foot .credit:hover{color:var(--gold)}
+
+/* forms table: one small family of forms (です, だ, じゃない...), the current page's row highlighted */
+.forms{background:var(--card);border:1px solid var(--card-line);border-radius:10px;padding:6px 16px 12px}
+.forms table{width:100%;border-collapse:collapse}
+.forms th,.forms td{padding:9px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+.forms thead th{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.forms tbody th{font-family:var(--mono);font-size:13px;font-weight:500;color:var(--muted);width:1%;white-space:nowrap}
+.forms td{font-size:17px;font-weight:500;line-height:1.5}
+.forms tr.here th,.forms tr.here td{background:color-mix(in srgb,var(--gram) 12%,transparent);color:var(--gram)}
+.forms tr.here th{box-shadow:inset 3px 0 0 var(--gram)}
+.forms .m{margin:10px 0 0;color:var(--muted);font-size:14px}
+@media (max-width:520px){.forms{padding:4px 10px 10px}.forms th,.forms td{padding:8px 6px}.forms td{font-size:15px}}
