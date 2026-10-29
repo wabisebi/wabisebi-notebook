@@ -351,7 +351,7 @@ var UPDATED = '29 Oct 2026';
       if (sp && b.dataset.on) { showYomi(sp, b); b.closest('.kana-board').classList.add('sheet-open'); }
     });
   });
-  // one toggle per chart (hiragana, katakana, kanji), each hides only its own romaji (or meanings, on the kanji chart)
+  // the meaning toggle on the kanji chart (the kana charts always show romaji)
   document.querySelectorAll('.romaji-toggle').forEach(function(romaji){
     romaji.addEventListener('click', function(){
       var off = romaji.closest('.kana-board').classList.toggle('no-romaji');

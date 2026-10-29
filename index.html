@@ -461,6 +461,12 @@ main:has(#kana-game:not([hidden])) .foot{display:none}
   :is(#kana,#katakana) .kanji-top .stroke-panel{flex:none;padding:18px 16px}
   :is(#kana,#katakana) .stroke-panel svg{height:150px}
 }
+
+/* resources: gold star for a beginner recommendation */
+.rcard .star,.legend .star{flex:none;fill:var(--gold)}
+.legend{display:flex;align-items:center;align-self:center;gap:6px;margin:0 0 0 auto;font-size:13px;color:var(--muted)}
+.level summary:has(.legend){flex-wrap:wrap}
+@media (max-width:600px){.level summary .legend{flex-basis:100%;margin:0}}
 </style>
 
 <header class="top" id="top"></header>
@@ -14113,7 +14119,6 @@ main:has(#kana-game:not([hidden])) .foot{display:none}
     <section class="home kana-board" id="kana" data-page hidden>
       <div class="home-head">
         <h1>Hiragana Chart</h1>
-        <button class="romaji-toggle" type="button" aria-pressed="true">Romaji: on</button>
       </div>
       <div class="kanji-top">
         <div class="stroke-panel" data-first="あ"></div>
@@ -14258,7 +14263,6 @@ main:has(#kana-game:not([hidden])) .foot{display:none}
     <section class="home kana-board" id="katakana" data-page hidden>
       <div class="home-head">
         <h1>Katakana Chart</h1>
-        <button class="romaji-toggle" type="button" aria-pressed="true">Romaji: on</button>
       </div>
       <div class="kanji-top">
         <div class="stroke-panel" data-first="ア"></div>
@@ -14708,7 +14712,19 @@ main:has(#kana-game:not([hidden])) .foot{display:none}
         </section>
         <section class="cat"><h3 class="label">Anki decks</h3>
         <ul class="rlist">
-          <li><a class="rcard" href="https://ankiweb.net/shared/info/1196762551" target="_blank" rel="noopener"><span class="av glyph">単</span><span class="t">Kaishi 1.5k: Basic Japanese Vocabulary</span><span class="tags"><span class="tag rec">Recommended</span></span><span class="d">A slimmed down version of the 2k/6k deck. The one I'd recommend.</span></a></li>
+          <li><a class="rcard" href="https://ankiweb.net/shared/info/911122782" target="_blank" rel="noopener"><span class="av glyph">耳</span><span class="t">Japanese course based on Tae Kim's grammar guide &amp; anime</span><span class="tags"><span class="lv n5">N5</span><span class="lv n4">N4</span></span><span class="d">Jlab's beginner course. Starts from zero and follows Tae Kim's guide, one new word or grammar point per card, with real anime clips.</span></a></li>
+          <li><a class="rcard" href="https://ankiweb.net/shared/info/1196762551" target="_blank" rel="noopener"><span class="av glyph">単</span><span class="t">Kaishi 1.5k: Basic Japanese Vocabulary</span><span class="tags"></span><span class="d">A slimmed down version of the 2k/6k deck. The one I'd recommend.</span></a></li>
+        </ul>
+        </section>
+        <section class="cat"><h3 class="label">Dictionaries</h3>
+        <ul class="rlist">
+          <li><a class="rcard" href="https://jisho.org/" target="_blank" rel="noopener"><span class="av glyph">書</span><span class="t">Jisho</span><span class="tags"></span><span class="d">Free online Japanese-English dictionary. Search in English, Japanese or romaji, with example sentences and kanji details.</span></a></li>
+          <li><a class="rcard" href="https://apps.apple.com/us/app/shirabe-jisho/id1005203380" target="_blank" rel="noopener"><span class="av glyph">辞</span><span class="t">Shirabe Jisho</span><span class="tags"></span><span class="d">Free Japanese dictionary for iPhone and iPad. Works offline, and you can draw a kanji to look it up.</span></a></li>
+        </ul>
+        </section>
+        <section class="cat"><h3 class="label">Sentence search</h3>
+        <ul class="rlist">
+          <li><a class="rcard" href="https://youglish.com/japanese" target="_blank" rel="noopener"><span class="av glyph">聴</span><span class="t">YouGlish</span><span class="tags"></span><span class="d">Type a word and hear it in real YouTube clips, with the subtitle line. Good for finding sentences to mine.</span></a></li>
         </ul>
         </section>
       </details>
@@ -14721,19 +14737,46 @@ main:has(#kana-game:not([hidden])) .foot{display:none}
         <section class="cat"><h3 class="label">YouTube</h3>
         <ul class="rlist">
           <li><a class="rcard" href="https://www.youtube.com/playlist?list=PLOcym2c7xnBy_L5_iQzgSrzMIXH7DUwB0" target="_blank" rel="noopener"><img class="av" src="media/resources/japanesefromzero.jpg" alt="" loading="lazy"><span class="t">Japanese From Zero! Book 1 Videos</span><span class="tags"><span class="lv n5">N5</span><span class="tag">Playlist</span></span><span class="d">Video lessons that follow the Book 1 course, from the very start: sounds, numbers, greetings, first sentences.</span></a></li>
+          <li><a class="rcard" href="https://www.youtube.com/playlist?list=PLOcym2c7xnByJ9SmrtEbdTmkn11XIGkgs" target="_blank" rel="noopener"><img class="av" src="media/resources/japanesefromzero.jpg" alt="" loading="lazy"><span class="t">Japanese From Zero! Book 2 Videos</span><span class="tags"><span class="lv n5">N5</span><span class="tag">Playlist</span></span><span class="d">Video lessons for Book 2: more everyday sentences, verbs and adjectives.</span></a></li>
+          <li><a class="rcard" href="https://www.youtube.com/playlist?list=PLOcym2c7xnBwd9T1IxfXxTiHwGlQ5CmxO" target="_blank" rel="noopener"><img class="av" src="media/resources/japanesefromzero.jpg" alt="" loading="lazy"><span class="t">Japanese From Zero! Book 3 Videos</span><span class="tags"><span class="lv n5">N5</span><span class="lv n4">N4</span><span class="tag">Playlist</span></span><span class="d">Video lessons for Book 3, from the end of N5 into N4.</span></a></li>
+          <li><a class="rcard" href="https://www.youtube.com/playlist?list=PLOcym2c7xnBzSNrIUesjD-hyEZQ1-S-W-" target="_blank" rel="noopener"><img class="av" src="media/resources/japanesefromzero.jpg" alt="" loading="lazy"><span class="t">Japanese From Zero! Book 4 Videos</span><span class="tags"><span class="lv n4">N4</span><span class="tag">Playlist</span></span><span class="d">Video lessons for Book 4, the longest one, mostly N4 grammar.</span></a></li>
+          <li><a class="rcard" href="https://www.youtube.com/playlist?list=PLOcym2c7xnBxkXIowh8DqFnEnZI1JDV8E" target="_blank" rel="noopener"><img class="av" src="media/resources/japanesefromzero.jpg" alt="" loading="lazy"><span class="t">Japanese From Zero! Book 5 Videos</span><span class="tags"><span class="lv n4">N4</span><span class="lv n3">N3</span><span class="tag">Playlist</span></span><span class="d">Video lessons for Book 5. Still growing, only a few videos so far.</span></a></li>
         </ul>
         </section>
       </details>
-      <details class="level" open><summary><span class="t">Immersion Videos</span><span class="label">Watch and listen</span></summary>
+      <details class="level" open><summary><span class="t">Immersion Videos</span><span class="label">Watch and listen</span><p class="legend"><svg class="star" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg>Recommended for beginners</p></summary>
         <section class="cat"><h3 class="label">YouTube</h3>
         <ul class="rlist">
-          <li><a class="rcard" href="https://www.youtube.com/@chienowajapanese1101" target="_blank" rel="noopener"><img class="av" src="media/resources/chienowa.jpg" alt="" loading="lazy"><span class="t">Chienowa Japanese</span><span class="tags"><span class="lv n5">N5</span></span><span class="d">Japanese immersion videos.</span></a></li>
-          <li><a class="rcard" href="https://www.youtube.com/@Japarrot_LetsLearnJP" target="_blank" rel="noopener"><img class="av" src="media/resources/japarrot.jpg" alt="" loading="lazy"><span class="t">Japarrot: Let's Learn Japanese</span><span class="tags"><span class="lv n5">N5</span></span><span class="d">Japanese immersion videos.</span></a></li>
-          <li><a class="rcard" href="https://www.youtube.com/@JapanesewithShun" target="_blank" rel="noopener"><img class="av" src="media/resources/shun.jpg" alt="" loading="lazy"><span class="t">Japanese with Shun</span><span class="tags"><span class="lv n5">N5</span><span class="lv n4">N4</span></span><span class="d">Easy Japanese immersion, good for N5 to N4.</span></a></li>
-          <li><a class="rcard" href="https://www.youtube.com/@kensanokaeri" target="_blank" rel="noopener"><img class="av" src="media/resources/kensan.jpg" alt="" loading="lazy"><span class="t">Kensan Okaeri Japanese</span><span class="tags"><span class="lv n5">N5</span><span class="lv n4">N4</span></span><span class="d">Japanese immersion videos.</span></a></li>
+          <li><a class="rcard" href="https://www.youtube.com/@Aki-SenseiJPN" target="_blank" rel="noopener"><img class="av" src="media/resources/akiko.jpg" alt="" loading="lazy"><span class="t">Akiko Japanese Conversations</span><span class="tags"><span class="lv n5">N5</span></span><span class="d">N5 listening practice in easy Japanese: short stories about daily life and the news.</span></a></li>
+          <li><a class="rcard" href="https://www.youtube.com/@chienowajapanese1101" target="_blank" rel="noopener"><img class="av" src="media/resources/chienowa.jpg" alt="" loading="lazy"><span class="t">Chienowa Japanese</span><span class="tags"><span class="lv n5">N5</span><svg class="star" viewBox="0 0 24 24" width="16" height="16" role="img" aria-label="Beginner recommendation"><title>Beginner recommendation</title><path d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg></span><span class="d">Japanese immersion videos.</span></a></li>
+          <li><a class="rcard" href="https://www.youtube.com/@Japarrot_LetsLearnJP" target="_blank" rel="noopener"><img class="av" src="media/resources/japarrot.jpg" alt="" loading="lazy"><span class="t">Japarrot: Let's Learn Japanese</span><span class="tags"><span class="lv n5">N5</span><svg class="star" viewBox="0 0 24 24" width="16" height="16" role="img" aria-label="Beginner recommendation"><title>Beginner recommendation</title><path d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg></span><span class="d">Japanese immersion videos.</span></a></li>
+          <li><a class="rcard" href="https://www.youtube.com/@JapanesewithShun" target="_blank" rel="noopener"><img class="av" src="media/resources/shun.jpg" alt="" loading="lazy"><span class="t">Japanese with Shun</span><span class="tags"><span class="lv n5">N5</span><span class="lv n4">N4</span><svg class="star" viewBox="0 0 24 24" width="16" height="16" role="img" aria-label="Beginner recommendation"><title>Beginner recommendation</title><path d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg></span><span class="d">Easy Japanese immersion, good for N5 to N4.</span></a></li>
+          <li><a class="rcard" href="https://www.youtube.com/@kensanokaeri" target="_blank" rel="noopener"><img class="av" src="media/resources/kensan.jpg" alt="" loading="lazy"><span class="t">Kensan Okaeri Japanese</span><span class="tags"><span class="lv n5">N5</span><span class="lv n4">N4</span><svg class="star" viewBox="0 0 24 24" width="16" height="16" role="img" aria-label="Beginner recommendation"><title>Beginner recommendation</title><path d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg></span><span class="d">Japanese immersion videos.</span></a></li>
+          <li><a class="rcard" href="https://www.youtube.com/@JSI55" target="_blank" rel="noopener"><img class="av" src="media/resources/jsi.jpg" alt="" loading="lazy"><span class="t">Japanese Super Immersion</span><span class="tags"><span class="lv n5">N5</span><span class="lv n4">N4</span><span class="lv n3">N3</span><svg class="star" viewBox="0 0 24 24" width="16" height="16" role="img" aria-label="Beginner recommendation"><title>Beginner recommendation</title><path d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg></span><span class="d">Immersion videos from absolute beginner up: easy conversations, listening practice and a Japanese radio show.</span></a></li>
           <li><a class="rcard" href="https://www.youtube.com/playlist?list=PLPdNX2arS9MaBClt3dN4cs5BPpTJ4ygxf" target="_blank" rel="noopener"><img class="av" src="media/resources/naturaljapanese.jpg" alt="" loading="lazy"><span class="t">Natural Japanese: Learn Japanese with Video Games</span><span class="tags"><span class="lv n5">N5</span><span class="lv n4">N4</span><span class="lv n3">N3</span><span class="tag">Playlist</span></span><span class="d">Learning Japanese through video games.</span></a></li>
           <li><a class="rcard" href="https://www.youtube.com/@OkkeiJapanese" target="_blank" rel="noopener"><img class="av" src="media/resources/okkei.jpg" alt="" loading="lazy"><span class="t">Okkei Japanese</span><span class="tags"><span class="lv n5">N5</span><span class="lv n4">N4</span><span class="lv n3">N3</span><span class="lv n2">N2</span></span><span class="d">Japanese immersion videos.</span></a></li>
           <li><a class="rcard" href="https://www.youtube.com/@JiroJapanese" target="_blank" rel="noopener"><img class="av" src="media/resources/jiro.jpg" alt="" loading="lazy"><span class="t">Jiro, just Japanese</span><span class="tags"><span class="lv n4">N4</span><span class="lv n3">N3</span><span class="lv n2">N2</span></span><span class="d">Podcasts, news and Tokyo walks, all in Japanese. Talks about everyday life and society.</span></a></li>
+          <li><a class="rcard" href="https://www.youtube.com/@harunonihongo" target="_blank" rel="noopener"><img class="av" src="media/resources/haru.jpg" alt="" loading="lazy"><span class="t">Haru no Nihongo</span><span class="tags"><span class="lv n2">N2</span><span class="lv n1">N1</span></span><span class="d">Japanese culture, news and daily life, all in Japanese. Free transcripts on the channel's website.</span></a></li>
+        </ul>
+        </section>
+      </details>
+      <details class="level" open><summary><span class="t">Immersion Audio</span><span class="label">Listen on the go</span><p class="legend"><svg class="star" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg>Recommended for beginners</p></summary>
+        <section class="cat"><h3 class="label">Podcast</h3>
+        <ul class="rlist">
+          <li><a class="rcard" href="https://podcasts.apple.com/us/podcast/japanese-with-shun/id1550709885" target="_blank" rel="noopener"><img class="av" src="media/resources/shun.jpg" alt="" loading="lazy"><span class="t">Japanese with Shun (podcast)</span><span class="tags"><span class="lv n5">N5</span><span class="lv n4">N4</span></span><span class="d">Weekly beginner podcast in easy Japanese, using mostly Genki 1 grammar. Same Shun as the YouTube channel.</span></a></li>
+          <li><a class="rcard" href="https://nihongoconteppei.com/" target="_blank" rel="noopener"><span class="av glyph">話</span><span class="t">Nihongo con Teppei</span><span class="tags"><span class="lv n5">N5</span><span class="lv n4">N4</span><span class="lv n3">N3</span><svg class="star" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg></span><span class="d">Short podcast episodes in natural, slow Japanese about everyday topics. Start with the beginner series.</span></a></li>
+        </ul>
+        </section>
+      </details>
+      <details class="level" open><summary><span class="t">Videos About Learning Japanese</span><span class="label">How others did it</span><p class="legend"><svg class="star" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg>Recommended for beginners</p></summary>
+        <section class="cat"><h3 class="label">YouTube</h3>
+        <ul class="rlist">
+          <li><a class="rcard" href="https://www.youtube.com/playlist?list=PLYLTtm-WITnklOP-i4NClO1qA2qTkLC7z" target="_blank" rel="noopener"><img class="av" src="media/resources/livakivi.jpg" alt="" loading="lazy"><span class="t">Livakivi: How To Learn Japanese</span><span class="tags"><span class="tag">Playlist</span><svg class="star" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg></span><span class="d">The method behind it all: Anki, immersion and what actually worked.</span></a></li>
+          <li><a class="rcard" href="https://www.youtube.com/playlist?list=PLYLTtm-WITnnjOEC9yJtPe5W17wlCKvcZ" target="_blank" rel="noopener"><img class="av" src="media/resources/livakivi.jpg" alt="" loading="lazy"><span class="t">Livakivi: Road to 30,000 Words</span><span class="tags"><span class="tag">Playlist</span></span><span class="d">Progress updates on the goal of learning 30,000 Japanese words with Anki.</span></a></li>
+          <li><a class="rcard" href="https://www.youtube.com/playlist?list=PLYLTtm-WITnkJ7QM-Tmrc3WyyBxQI1Kef" target="_blank" rel="noopener"><img class="av" src="media/resources/livakivi.jpg" alt="" loading="lazy"><span class="t">Livakivi: Yearly Japanese Progress Updates</span><span class="tags"><span class="tag">Playlist</span></span><span class="d">One check-in per year: how far the Japanese got and what changed.</span></a></li>
+          <li><a class="rcard" href="https://www.youtube.com/playlist?list=PLYLTtm-WITnnYOXob-LLYzM_WTok1GIKF" target="_blank" rel="noopener"><img class="av" src="media/resources/livakivi.jpg" alt="" loading="lazy"><span class="t">Livakivi: Japanese Output Videos + italki</span><span class="tags"><span class="tag">Playlist</span></span><span class="d">Speaking practice: italki lessons and talking in Japanese on camera.</span></a></li>
+          <li><a class="rcard" href="https://www.youtube.com/playlist?list=PLYLTtm-WITnlnYApC3kpxybzFpRcQT0Xf" target="_blank" rel="noopener"><img class="av" src="media/resources/livakivi.jpg" alt="" loading="lazy"><span class="t">Livakivi: Language Learning Videos</span><span class="tags"><span class="tag">Playlist</span></span><span class="d">Video essays about learning languages in general.</span></a></li>
+          <li><a class="rcard" href="https://www.youtube.com/playlist?list=PLMvomoJKJwo6oXJgS7Fsdy1YnhBKtJJdW" target="_blank" rel="noopener"><img class="av" src="media/resources/vaughngene.jpg" alt="" loading="lazy"><span class="t">Vaughn Gene: Japanese Stuff</span><span class="tags"><span class="tag">Playlist</span></span><span class="d">Honest talks about learning Japanese: early mistakes, perfectionism, speaking without overthinking, and practice sessions in Japanese.</span></a></li>
         </ul>
         </section>
       </details>
@@ -15099,7 +15142,7 @@ var UPDATED = '29 Oct 2026';
       if (sp && b.dataset.on) { showYomi(sp, b); b.closest('.kana-board').classList.add('sheet-open'); }
     });
   });
-  // one toggle per chart (hiragana, katakana, kanji), each hides only its own romaji (or meanings, on the kanji chart)
+  // the meaning toggle on the kanji chart (the kana charts always show romaji)
   document.querySelectorAll('.romaji-toggle').forEach(function(romaji){
     romaji.addEventListener('click', function(){
       var off = romaji.closest('.kana-board').classList.toggle('no-romaji');
