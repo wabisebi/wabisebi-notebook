@@ -320,55 +320,22 @@ main:has(.home:not([hidden])) .foot{max-width:1080px}
 @media (max-width:720px){
   .kanji-top{flex-direction:column;margin:0 0 8px}
   .onkun{align-self:stretch}
-  /* kanji chart on phones: the stroke panel is a bottom sheet, opened by tapping a tile */
-  #kanji .stroke-panel{position:fixed;left:0;right:0;bottom:0;z-index:50;margin:0;max-height:80vh;overflow-y:auto;border-radius:16px 16px 0 0;border-bottom:0;
+  /* kanji and kana charts on phones: the stroke panel is a bottom sheet, opened by tapping a tile */
+  .kana-board .stroke-panel{position:fixed;left:0;right:0;bottom:0;z-index:50;margin:0;max-height:80vh;overflow-y:auto;border-radius:16px 16px 0 0;border-bottom:0;
     padding:16px 16px calc(16px + env(safe-area-inset-bottom));box-shadow:0 -10px 30px var(--shadow);transform:translateY(105%);visibility:hidden;transition:transform .25s ease-out,visibility .25s}
-  #kanji.sheet-open .stroke-panel{transform:none;visibility:visible}
-  #kanji .stroke-panel svg{height:110px}
-  #kanji .stroke-panel .side{flex:1;min-width:0;padding-right:36px}
-  #kanji .stroke-panel .credit{font-size:10px}
-  #kanji .stroke-panel .yomi dd.words{grid-column:1 / -1}
-  #kanji .stroke-panel .yomi dt:nth-of-type(3){padding-top:4px}
-  #kanji .sheet-close{display:block;position:absolute;top:6px;right:6px;width:44px;height:44px;border:0;background:none;color:var(--muted);font-size:26px;line-height:1;cursor:pointer}
-  #kanji .sheet-close:hover{color:var(--gold)}
-  #kanji.sheet-open{padding-bottom:70vh}
+  .kana-board.sheet-open .stroke-panel{transform:none;visibility:visible}
+  .kana-board .stroke-panel svg{height:110px}
+  .kana-board .stroke-panel .side{flex:1;min-width:0;padding-right:36px}
+  .kana-board .stroke-panel .credit{font-size:10px}
+  .kana-board .stroke-panel .yomi dd.words{grid-column:1 / -1}
+  .kana-board .stroke-panel .yomi dt:nth-of-type(3){padding-top:4px}
+  .kana-board .sheet-close{display:block;position:absolute;top:6px;right:6px;width:44px;height:44px;border:0;background:none;color:var(--muted);font-size:26px;line-height:1;cursor:pointer}
+  .kana-board .sheet-close:hover{color:var(--gold)}
+  .kana-board.sheet-open{padding-bottom:70vh}
 }
-@media (prefers-reduced-motion:reduce){#kanji .stroke-panel{transition:none}}
+@media (prefers-reduced-motion:reduce){.kana-board .stroke-panel{transition:none}}
 .stroke-panel .credit{font-family:var(--mono);font-size:11px;color:var(--muted);text-decoration:none}
 .stroke-panel .credit:hover{color:var(--gold)}
-/* kana game */
-.game-sets{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0}
-.chip{font-family:var(--mono);font-size:13px;letter-spacing:.04em;padding:8px 16px;border-radius:999px;cursor:pointer;
-  background:var(--plain);border:1px solid var(--plain-line);color:var(--muted);transition:border-color .15s,color .15s,background .15s}
-.chip:hover{border-color:var(--gold);color:var(--gold)}
-.chip[aria-pressed="true"]{border-color:var(--gold);color:var(--gold);background:color-mix(in srgb,var(--gold) 14%,var(--card))}
-.chip:focus-visible{outline:2px solid var(--indigo);outline-offset:2px}
-.game-card{max-width:400px;display:flex;flex-direction:column;align-items:center;gap:10px;padding:22px 20px 16px;
-  background:var(--card);border:1px solid var(--card-line);border-radius:10px}
-.game-kana{font-size:clamp(80px,21vw,110px);line-height:1.15;font-weight:500;transition:color .15s}
-.game-card.ok .game-kana{color:var(--indigo)}
-.game-card.bad .game-kana{color:var(--gold)}
-.game-input{width:150px;font:inherit;font-family:var(--mono);font-size:16px;text-align:center;padding:7px 10px;border-radius:8px;
-  background:var(--paper);border:1px solid var(--card-line);color:var(--ink)}
-.game-input:focus{outline:none;border-color:var(--gold)}
-.game-msg{min-height:1.4em;margin:0;font-size:13px;color:var(--muted)}
-.game-card.bad .game-msg{color:var(--gold)}
-.game-score{margin:0;font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--muted)}
-.game-fonts{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 18px;max-width:460px}
-.ftile{width:44px;height:44px;font-size:22px;line-height:1;cursor:pointer;border-radius:8px;background:var(--plain);border:1px solid var(--plain-line);color:var(--muted);
-  transition:border-color .15s,color .15s,background .15s}
-.ftile:hover{border-color:var(--gold);color:var(--gold)}
-.ftile[aria-pressed="true"]{border-color:var(--gold);color:var(--gold);background:color-mix(in srgb,var(--gold) 14%,var(--card))}
-.ftile:focus-visible{outline:2px solid var(--indigo);outline-offset:2px}
-.game{align-items:center;text-align:center}
-.game .home-head{justify-content:center}
-.game-sets,.game-fonts{justify-content:center}
-.game-card{width:100%}
-/* the "Updated ... grammar points" line belongs to grammar pages and the grid only */
-main:has(#kana-game:not([hidden])) .foot{display:none}
-.game .game-fonts{display:grid;grid-template-columns:repeat(10,1fr);width:100%;max-width:520px}
-.game .ftile{width:100%;height:auto;aspect-ratio:1;font-size:clamp(16px,4vw,22px);padding:0}
-.game #game-fonts-all{margin-top:-14px;font-size:12px;padding:5px 14px}
 .top .nav .pad{vertical-align:-3px;margin-right:2px}
 
 /* book reference: where to read more in the physical dictionary */
@@ -450,7 +417,7 @@ main:has(#kana-game:not([hidden])) .foot{display:none}
 :is(#kana,#katakana) .stroke-panel svg{height:200px}
 :is(#kana,#katakana) .stroke-panel .side{flex-direction:row;align-items:center;gap:14px}
 @media (max-width:720px){
-  :is(#kana,#katakana) .kanji-top .stroke-panel{flex:none;padding:18px 16px}
+  :is(#kana,#katakana) .kanji-top .stroke-panel{flex:none;padding:18px 16px calc(18px + env(safe-area-inset-bottom))}
   :is(#kana,#katakana) .stroke-panel svg{height:150px}
 }
 
@@ -472,7 +439,7 @@ main:has(#kana-game:not([hidden])) .foot{display:none}
 .toc a.on{color:var(--gold);background:color-mix(in srgb,var(--gold) 10%,transparent)}
 @media (max-width:900px){.rwrap{display:block}.toc{display:none}}
 
-/* top bar: the Kana dropdown on wide screens (Hiragana, Katakana, Kana Game); phones show the three links in the ☰ menu instead */
+/* top bar: the Kana dropdown on wide screens (Hiragana, Katakana); phones show the two links in the ☰ menu instead */
 .kana-group{position:relative}
 .top .kana-btn{display:inline-flex;align-items:center;gap:5px;background:none;border:0;cursor:pointer}
 .kana-btn .chev{transition:transform .15s}

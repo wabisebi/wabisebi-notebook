@@ -10,7 +10,7 @@ def read(*p):
 
 site_js = read('strokes.js') + read('site.js')
 css = read('style.css')
-ids = ['start', 'home'] + re.findall(r"\['([a-z0-9-]+)',", site_js) + ['kana', 'katakana', 'kanji', 'kana-game', 'numbers', 'resources']  # start first: it's the page index.html opens on; start, kana, katakana, kanji, kana-game, numbers and resources are not in INDEX
+ids = ['start', 'home'] + re.findall(r"\['([a-z0-9-]+)',", site_js) + ['kana', 'katakana', 'kanji', 'numbers', 'resources']  # start first: it's the page index.html opens on; start, kana, katakana, kanji, numbers and resources are not in INDEX
 
 fonts = ''
 parts = []
@@ -22,6 +22,9 @@ for pid in ids:
     body = re.sub(r'<(article|section)([^>]*id="%s"[^>]*)>' % pid, r'<\1\2 data-page hidden>', body, count=1)
     body = re.sub(r'href="([a-z0-9-]+)\.html"', r'href="#\1"', body)
     body = body.replace('="../media/', '="media/')
+    # every image lazy: otherwise a phone downloads all ~600 of them the moment index.html opens (site.js loads the open page's own)
+    body = re.sub(r'<img(?![^>]*\bloading=)', '<img loading="lazy"', body)
+    body = re.sub(r'<img(?![^>]*\bdecoding=)', '<img decoding="async"', body)
     parts.append('    <!-- %s -->\n%s' % (pid, body))
 
 out = '''<!doctype html>

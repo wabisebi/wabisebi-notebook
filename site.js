@@ -157,18 +157,16 @@ var UPDATED = '29 Oct 2026';
     '<button class="burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="menu"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>' +
     '<div class="menu" id="menu">' +
     '<a class="nav" href="' + href('home') + '"><svg class="pad" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></svg> Grammar</a>' +
-    // wide screens: one "Kana" item that opens Hiragana, Katakana and Kana Game; phones keep the three links in the ☰ menu
+    // wide screens: one "Kana" item that opens Hiragana and Katakana; phones keep the two links in the ☰ menu
     '<div class="kana-group"><button class="nav kana-btn" type="button" aria-expanded="false">あ Kana <svg class="chev" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>' +
       '<div class="kana-drop">' +
       '<a class="nav" href="' + href('kana') + '">あ Hiragana</a>' +
       '<a class="nav" href="' + href('katakana') + '">ア Katakana</a>' +
-      '<a class="nav" href="' + href('kana-game') + '"><svg class="pad" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10a5 5 0 0 1 4.9 4l1 5a2.6 2.6 0 0 1-4.4 2.3L16.4 16H7.6l-3.1 2.3A2.6 2.6 0 0 1 .1 16l1-5A5 5 0 0 1 7 7z"/><path d="M7.5 10v3M6 11.5h3"/><circle cx="15.5" cy="10.6" r=".6"/><circle cx="17.7" cy="12.6" r=".6"/></svg> Kana Game</a>' +
       '</div></div>' +
     '<a class="nav m-only" href="' + href('kana') + '">あ Hiragana</a>' +
     '<a class="nav m-only" href="' + href('katakana') + '">ア Katakana</a>' +
     '<a class="nav" href="' + href('kanji') + '">字 Kanji</a>' +
     '<a class="nav" href="' + href('numbers') + '">数 Numbers</a>' +
-    '<a class="nav m-only" href="' + href('kana-game') + '"><svg class="pad" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10a5 5 0 0 1 4.9 4l1 5a2.6 2.6 0 0 1-4.4 2.3L16.4 16H7.6l-3.1 2.3A2.6 2.6 0 0 1 .1 16l1-5A5 5 0 0 1 7 7z"/><path d="M7.5 10v3M6 11.5h3"/><circle cx="15.5" cy="10.6" r=".6"/><circle cx="17.7" cy="12.6" r=".6"/></svg> Kana Game</a>' +
     '<a class="nav" href="' + href('resources') + '">棚 Resources</a>' +
     '<div class="find"><input id="find" type="search" placeholder="Search: は, topic, wa…" aria-label="Search grammar" autocomplete="off">' +
       '<ol class="results" id="results" hidden></ol></div>' +
@@ -293,13 +291,30 @@ var UPDATED = '29 Oct 2026';
     });
   }
 
-  document.querySelectorAll('.play').forEach(function(b){
-    var a = new Audio(b.getAttribute('data-src'));
-    b.addEventListener('click', function(){
-      if (a.paused) { a.currentTime = 0; a.play(); } else a.pause();
-    });
-    a.addEventListener('play', function(){ b.classList.add('on'); });
-    a.addEventListener('pause', function(){ b.classList.remove('on'); });
+  // one shared player for every play button: a player per button (600 in index.html) made iPhones slow and laggy.
+  // A clip only loads when its button is touched, and starting one stops the other.
+  var player = new Audio(), playBtn = null;
+  player.preload = 'none';
+  function cue(b){
+    var src = b.getAttribute('data-src');
+    if (player.dataset.src !== src) { player.dataset.src = src; player.src = src; }
+  }
+  player.addEventListener('play', function(){ if (playBtn) playBtn.classList.add('on'); });
+  player.addEventListener('pause', function(){ if (playBtn) playBtn.classList.remove('on'); });
+  // start loading as the finger lands, so the clip is (nearly) ready by the time the tap ends
+  document.addEventListener('pointerdown', function(e){
+    var b = e.target.closest('.play');
+    if (b && player.paused) cue(b);
+  });
+  document.addEventListener('click', function(e){
+    var b = e.target.closest('.play');
+    if (!b) return;
+    if (b === playBtn && !player.paused) { player.pause(); return; }
+    if (playBtn) playBtn.classList.remove('on');
+    player.pause(); cue(b); playBtn = b;
+    try { player.currentTime = 0; } catch (err) {}
+    var p = player.play();
+    if (p && p.catch) p.catch(function(){ b.classList.remove('on'); });
   });
 
 
@@ -318,7 +333,7 @@ var UPDATED = '29 Oct 2026';
     strokeBox.querySelector('.sv').innerHTML = n
       ? '<svg viewBox="0 0 ' + chars.length * 109 + ' 109" role="img" aria-label="Stroke order of ' + ch + '"><g class="ghost">' + ghost + '</g><g class="live">' + live + '</g></svg>'
       : '<div class="plain">' + ch + '</div>';
-    strokeBox.querySelector('.note').textContent = n ? n + ' strokes' : 'Stroke order coming soon';
+    strokeBox.querySelector('.note').textContent = n ? n + (n === 1 ? ' stroke' : ' strokes') : 'Stroke order coming soon';
     strokeBox.querySelector('.replay').style.visibility = n ? 'visible' : 'hidden';
     strokeBox.dataset.ch = ch;
   }
@@ -332,12 +347,13 @@ var UPDATED = '29 Oct 2026';
       strokeBox.classList.add('has-yomi');
       strokeBox.insertAdjacentHTML('beforeend', '<dl class="yomi"><dt>On\'yomi</dt><dd class="on"></dd><dt>Kun\'yomi</dt><dd class="kun"></dd><dt>Examples</dt><dd class="words"></dd></dl>');
       showYomi(strokeBox, first);
-      // on phones the panel is a bottom sheet: a tile opens it, × or Esc closes it
-      var board = strokeBox.closest('.kana-board');
-      strokeBox.insertAdjacentHTML('afterbegin', '<button class="sheet-close" type="button" aria-label="Close">×</button>');
-      strokeBox.querySelector('.sheet-close').addEventListener('click', function(){ board.classList.remove('sheet-open'); });
-      document.addEventListener('keydown', function(e){ if (e.key === 'Escape') board.classList.remove('sheet-open'); });
     }
+    // on phones the panel is a bottom sheet (kana and kanji charts): a tile opens it, × or Esc closes it.
+    // At the top of the page it played out of sight once you scrolled down to a tile.
+    var board = strokeBox.closest('.kana-board');
+    strokeBox.insertAdjacentHTML('afterbegin', '<button class="sheet-close" type="button" aria-label="Close">×</button>');
+    strokeBox.querySelector('.sheet-close').addEventListener('click', function(){ board.classList.remove('sheet-open'); });
+    document.addEventListener('keydown', function(e){ if (e.key === 'Escape') board.classList.remove('sheet-open'); });
   });
   // kanji chart: the on/kun explainer starts folded on phones
   if (window.matchMedia('(max-width:720px)').matches) document.querySelectorAll('details.onkun').forEach(function(d){ d.removeAttribute('open'); });
@@ -364,8 +380,8 @@ var UPDATED = '29 Oct 2026';
       if (kanaOn) kanaOn.classList.remove('on');
       kanaOn = b; b.classList.add('on');
       var sp = b.closest('.kana-board').querySelector('.stroke-panel');
-      if (sp) showStrokes(sp, b.querySelector('.k').textContent);
-      if (sp && b.dataset.on) { showYomi(sp, b); b.closest('.kana-board').classList.add('sheet-open'); }
+      if (sp) { showStrokes(sp, b.querySelector('.k').textContent); b.closest('.kana-board').classList.add('sheet-open'); }
+      if (sp && b.dataset.on) showYomi(sp, b);
     });
   });
   // resources: "On this page" list. Clicks scroll in place (index.html uses the #hash for pages), and the section in view is marked
@@ -402,177 +418,15 @@ var UPDATED = '29 Oct 2026';
     });
   });
 
-  // kana game: type the romaji of the kana shown. Tile data is here (not read from the chart pages) so it works in index.html too.
-  var gameCard = document.getElementById('game-kana');
-  if (gameCard) (function(){
-    function pairs(kana, rom){ return kana.split(' ').map(function(k, i){ return [k, rom[i]]; }); }
-    var HB = pairs('あ い う え お か き く け こ さ し す せ そ た ち つ て と な に ぬ ね の は ひ ふ へ ほ ま み む め も や ゆ よ ら り る れ ろ わ を ん',
-      'a i u e o ka ki ku ke ko sa shi su se so ta chi tsu te to na ni nu ne no ha hi fu he ho ma mi mu me mo ya yu yo ra ri ru re ro wa wo n'.split(' '));
-    var HD = pairs('が ぎ ぐ げ ご ざ じ ず ぜ ぞ だ ぢ づ で ど ば び ぶ べ ぼ ぱ ぴ ぷ ぺ ぽ',
-      'ga gi gu ge go za ji zu ze zo da ji zu de do ba bi bu be bo pa pi pu pe po'.split(' '));
-    var HC = pairs('きゃ きゅ きょ しゃ しゅ しょ ちゃ ちゅ ちょ にゃ にゅ にょ ひゃ ひゅ ひょ みゃ みゅ みょ りゃ りゅ りょ ぎゃ ぎゅ ぎょ じゃ じゅ じょ びゃ びゅ びょ ぴゃ ぴゅ ぴょ',
-      'kya kyu kyo sha shu sho cha chu cho nya nyu nyo hya hyu hyo mya myu myo rya ryu ryo gya gyu gyo ja ju jo bya byu byo pya pyu pyo'.split(' '));
-    // other spellings that are fine too
-    var ALT = {si:'shi', ti:'chi', tu:'tsu', hu:'fu', zi:'ji', nn:'n', sya:'sha', syu:'shu', syo:'sho', tya:'cha', tyu:'chu', tyo:'cho',
-      jya:'ja', jyu:'ju', jyo:'jo', zya:'ja', zyu:'ju', zyo:'jo'};
-    // ぢ and づ sound like じ and ず, but type as di and du on a Japanese keyboard
-    var DU = {'ぢ': 'di', 'ヂ': 'di', 'づ': 'du', 'ヅ': 'du'};
-    function answers(p){
-      var a = [p[1]];
-      Object.keys(ALT).forEach(function(k){ if (ALT[k] === p[1]) a.push(k); });
-      if (DU[p[0]]) a.push(DU[p[0]]);
-      return a;
-    }
-    function kata(s){ return s.replace(/[ぁ-ゖ]/g, function(c){ return String.fromCharCode(c.charCodeAt(0) + 0x60); }); }
-    function toKata(list){ return list.map(function(p){ return [kata(p[0]), p[1]]; }); }
-    var SETS = { hira: HB, kata: toKata(HB), dakuten: [], combo: [] };
-    var on = { hira: true, kata: false, dakuten: false, combo: false };
-    // remember the chosen scripts and fonts between visits (skipped quietly if the browser blocks storage)
-    var SAVE = 'wabisebi-kana-game';
-    try {
-      var saved = JSON.parse(localStorage.getItem(SAVE) || 'null');
-      if (saved && saved.on) Object.keys(on).forEach(function(k){ if (k in saved.on) on[k] = !!saved.on[k]; });
-      if (!on.hira && !on.kata) on.hira = true;
-    } catch (err) {}
-    function save(){ try { localStorage.setItem(SAVE, JSON.stringify({on: on, fonts: Object.keys(fontOn)})); } catch (err) {} }
-
-    // Japanese fonts: Google Fonts (same on every system, needs internet), each with a system font as fallback for offline
-    var SANS = '"Hiragino Sans","Yu Gothic","Noto Sans CJK JP",sans-serif', SERIF = '"Hiragino Mincho ProN","Yu Mincho","Noto Serif CJK JP",serif';
-    var FONTS = [
-      {n: 'IBM Plex Sans JP', f: '"IBM Plex Sans JP",' + SANS, w: 500},
-      {n: 'Noto Sans JP', f: '"Noto Sans JP",' + SANS, w: 500, q: 'Noto+Sans+JP:wght@500'},
-      {n: 'Noto Serif JP', f: '"Noto Serif JP",' + SERIF, w: 500, q: 'Noto+Serif+JP:wght@500'},
-      {n: 'Zen Maru Gothic', f: '"Zen Maru Gothic",' + SANS, w: 500, q: 'Zen+Maru+Gothic:wght@500'},
-      {n: 'Kiwi Maru', f: '"Kiwi Maru",' + SANS, w: 500, q: 'Kiwi+Maru:wght@500'},
-      {n: 'Klee One', f: '"Klee One",' + SANS, w: 600, q: 'Klee+One:wght@600'},
-      {n: 'Zen Kurenaido', f: '"Zen Kurenaido",' + SANS, w: 400, q: 'Zen+Kurenaido'},
-      {n: 'Yomogi', f: '"Yomogi",' + SANS, w: 400, q: 'Yomogi'},
-      {n: 'Yuji Syuku', f: '"Yuji Syuku",' + SERIF, w: 400, q: 'Yuji+Syuku'},
-      {n: 'Hachi Maru Pop', f: '"Hachi Maru Pop",' + SANS, w: 400, q: 'Hachi+Maru+Pop'},
-      {n: 'Dela Gothic One', f: '"Dela Gothic One",' + SANS, w: 400, q: 'Dela+Gothic+One'},
-      {n: 'M PLUS Rounded 1c', f: '"M PLUS Rounded 1c",' + SANS, w: 500, q: 'M+PLUS+Rounded+1c:wght@500'},
-      {n: 'Kosugi Maru', f: '"Kosugi Maru",' + SANS, w: 400, q: 'Kosugi+Maru'},
-      {n: 'Sawarabi Mincho', f: '"Sawarabi Mincho",' + SERIF, w: 400, q: 'Sawarabi+Mincho'},
-      {n: 'Zen Antique', f: '"Zen Antique",' + SERIF, w: 400, q: 'Zen+Antique'},
-      {n: 'Yusei Magic', f: '"Yusei Magic",' + SANS, w: 400, q: 'Yusei+Magic'},
-      {n: 'RocknRoll One', f: '"RocknRoll One",' + SANS, w: 400, q: 'RocknRoll+One'},
-      {n: 'Reggae One', f: '"Reggae One",' + SANS, w: 400, q: 'Reggae+One'},
-      {n: 'Potta One', f: '"Potta One",' + SANS, w: 400, q: 'Potta+One'},
-      {n: 'DotGothic16', f: '"DotGothic16",' + SANS, w: 400, q: 'DotGothic16'}
-    ];
-    var fontOn = {0: true};
-    try {
-      var sf = (JSON.parse(localStorage.getItem(SAVE) || 'null') || {}).fonts;
-      if (sf && sf.length) { fontOn = {}; sf.forEach(function(i){ if (FONTS[i]) fontOn[i] = true; }); }
-      if (!Object.keys(fontOn).length) fontOn = {0: true};
-    } catch (err) {}
-    var fl = document.createElement('link');
-    fl.rel = 'stylesheet';
-    fl.href = 'https://fonts.googleapis.com/css2?' + FONTS.filter(function(f){ return f.q; }).map(function(f){ return 'family=' + f.q; }).join('&') + '&display=swap';
-    document.head.appendChild(fl);
-    var fontBox = document.getElementById('game-fonts');
-    FONTS.forEach(function(f, i){
-      var b = document.createElement('button');
-      b.type = 'button'; b.className = 'ftile'; b.title = f.n; b.setAttribute('aria-label', f.n);
-      b.setAttribute('aria-pressed', String(!!fontOn[i]));
-      b.style.fontFamily = f.f; b.style.fontWeight = f.w; b.textContent = 'あ';
-      b.addEventListener('click', function(){
-        if (fontOn[i]) delete fontOn[i]; else fontOn[i] = true;
-        if (!Object.keys(fontOn).length) fontOn[i] = true;   // keep at least one font on
-        syncFonts(); save();
-      });
-      fontBox.appendChild(b);
-    });
-    // one button for the fonts: "Use all fonts" when some are off, "Reset to default" when all are on (the first font stays, one must remain)
-    var allBtn = document.getElementById('game-fonts-all');
-    function syncFonts(){
-      [].forEach.call(fontBox.children, function(t, j){ t.setAttribute('aria-pressed', String(!!fontOn[j])); });
-      allBtn.textContent = Object.keys(fontOn).length === FONTS.length ? 'Reset to default' : 'Use all fonts';
-    }
-    allBtn.addEventListener('click', function(){
-      var all = Object.keys(fontOn).length === FONTS.length;
-      fontOn = {};
-      if (all) fontOn[0] = true; else FONTS.forEach(function(f, i){ fontOn[i] = true; });
-      syncFonts(); save();
-    });
-    syncFonts();
-    function pickFont(){
-      var ids = Object.keys(fontOn), f = FONTS[ids[Math.floor(Math.random() * ids.length)]];
-      gameCard.style.fontFamily = f.f; gameCard.style.fontWeight = f.w;
-    }
-
-    var card = gameCard.closest('.game-card'), input = document.getElementById('game-input');
-    var msg = document.getElementById('game-msg'), scoreEl = document.getElementById('game-score');
-    var cur = null, last = null, waiting = false, right = 0, total = 0, streak = 0, again = [];
-
-    function pool(){
-      var out = [];
-      'hira kata'.split(' ').forEach(function(s){
-        if (on[s]) out = out.concat(SETS[s]);
-        if (on[s] && on.dakuten) out = out.concat(s === 'hira' ? HD : toKata(HD));
-        if (on[s] && on.combo) out = out.concat(s === 'hira' ? HC : toKata(HC));
-      });
-      return out;
-    }
-    function next(){
-      var p = pool();
-      if (!p.length) { on.hira = true; syncChips(); p = pool(); }
-      var pick;
-      // a missed kana comes back after a few others
-      if (again.length && Math.random() < 0.3) pick = again.shift();
-      else do { pick = p[Math.floor(Math.random() * p.length)]; } while (p.length > 1 && last && pick[0] === last[0]);
-      cur = pick; last = pick; waiting = false;
-      gameCard.textContent = pick[0]; pickFont();
-      input.value = ''; input.disabled = false; input.focus();
-      card.classList.remove('ok', 'bad');
-      msg.textContent = 'Type the romaji. Enter skips.';
-    }
-    function score(){
-      scoreEl.textContent = total ? right + ' / ' + total + '  ·  streak ' + streak : '';
-    }
-    function judge(ok){
-      total++; waiting = true;
-      if (ok) { right++; streak++; card.classList.add('ok'); msg.textContent = cur[1]; }
-      else {
-        streak = 0; card.classList.add('bad'); msg.textContent = 'It is ' + cur[1] + (DU[cur[0]] ? ' (or ' + DU[cur[0]] + ')' : '') + '. Enter for the next one.';
-        if (!again.some(function(x){ return x[0] === cur[0]; })) again.push(cur);
-      }
-      score();
-      if (ok) next();
-    }
-    input.addEventListener('input', function(){
-      if (waiting) return;
-      var v = input.value.trim().toLowerCase();
-      if (answers(cur).indexOf(v) >= 0) judge(true);
-    });
-    input.addEventListener('keydown', function(e){
-      if (e.key !== 'Enter') return;
-      e.preventDefault();
-      if (waiting) { next(); return; }
-      var v = input.value.trim().toLowerCase();
-      judge(answers(cur).indexOf(v) >= 0);
-    });
-    document.querySelectorAll('.game-sets .chip').forEach(function(chip){
-      chip.addEventListener('click', function(){
-        var s = chip.dataset.set;
-        on[s] = !on[s];
-        // keep at least one script on
-        if (!on.hira && !on.kata) on[s === 'hira' ? 'kata' : 'hira'] = true;
-        syncChips(); save(); again = []; next();
-      });
-    });
-    function syncChips(){
-      document.querySelectorAll('.game-sets .chip').forEach(function(c){ c.setAttribute('aria-pressed', String(on[c.dataset.set])); });
-    }
-    syncChips();
-    next();
-  })();
-
   if (BUNDLE) {
     var pages = [].slice.call(document.querySelectorAll('[data-page]'));
     var show = function(id){
       if (!pages.some(function(p){ return p.id === id; })) id = pages[0].id;
-      pages.forEach(function(p){ p.hidden = p.id !== id; });
+      pages.forEach(function(p){
+        p.hidden = p.id !== id;
+        // build.py makes every image lazy so hidden pages don't download theirs; the page being opened gets all of its own right away
+        if (!p.hidden) p.querySelectorAll('img[loading="lazy"]').forEach(function(img){ img.loading = 'eager'; });
+      });
       setFoot(id);
       find.value = ''; filterGrid(''); results.hidden = true;
       window.scrollTo({top: 0});
