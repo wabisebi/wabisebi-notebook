@@ -111,18 +111,18 @@ Categories marked *(new)* aren't on the site yet. They get added to `INDEX` when
 - [x] ～に行く・～に来る: go/come to do something
 - [x] ～な: don't (blunt order)
 
-## て-form *(empty on the site so far)*
-- [ ] て-Form: how to make it
-- [ ] ～て: and then (joining actions)
-- [ ] ～くて・～で: joining adjectives and nouns
+## て-form
+- [x] て-Form: how to make it
+- [x] ～て: and then (joining actions)
+- [x] ～くて・～で: joining adjectives and nouns
 - [x] ～てください: please do
-- [ ] ～ないでください: please don't
-- [ ] ～ている (Doing now): is ___ing
-- [ ] ～ている (State): is married, lives in
-- [ ] まだ～ていない: haven't yet
-- [ ] ～てもいい: it's okay to
-- [ ] ～てはいけない: must not
-- [ ] ～てから: after doing
+- [x] ～ないでください: please don't
+- [x] ～ている (Doing now): is ___ing
+- [x] ～ている (State): is married, lives in
+- [x] まだ～ていない: haven't yet
+- [x] ～てもいい: it's okay to
+- [x] ～てはいけない: must not
+- [x] ～てから: after doing
 
 ## Wanting and inviting *(empty on the site so far)*
 - [ ] ほしい: want (a thing)

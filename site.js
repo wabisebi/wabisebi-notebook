@@ -99,7 +99,17 @@ var INDEX = [
       ['na-dont', '～な (Don\'t)', 'Don\'t! (blunt order)']
     ]},
     {cat: 'て-form', pages: [
-      ['te-kudasai', '～てください', 'Please do (request)']
+      ['te-form', 'て-Form', 'How to make the て-form'],
+      ['te-and', '～て (And then)', 'Joining actions: do this, then that'],
+      ['kute-de', '～くて・～で', 'And: joining adjectives and nouns'],
+      ['te-kudasai', '～てください', 'Please do (request)'],
+      ['naide-kudasai', '～ないでください', 'Please don\'t'],
+      ['teiru', '～ている (Doing now)', 'Is ___ing'],
+      ['teiru-state', '～ている (State)', 'Lives in, is married: a state that lasts'],
+      ['mada-teinai', 'まだ～ていない', 'Haven\'t done it yet'],
+      ['temo-ii', '～てもいい', 'It\'s okay to, may I'],
+      ['tewa-ikenai', '～てはいけない', 'Must not'],
+      ['te-kara', '～てから', 'After doing']
     ]},
     {cat: 'Wanting and inviting', pages: [
       ['tai', '～たい', 'Want to (do something)'],
