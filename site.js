@@ -95,9 +95,12 @@ var INDEX = [
       ['u-verb-past', 'う-Verb (Past)', 'Did: った, んだ, いた and ました'],
       ['kuru', '来る', 'To come (irregular verb)'],
       ['suru', 'する', 'To do (irregular verb)'],
-      ['ni-iku', '～に行く・～に来る', 'Go to do, come to do']
+      ['ni-iku', '～に行く・～に来る', 'Go to do, come to do'],
+      ['na-dont', '～な (Don\'t)', 'Don\'t! (blunt order)']
     ]},
-    {cat: 'て-form', pages: []},
+    {cat: 'て-form', pages: [
+      ['te-kudasai', '～てください', 'Please do (request)']
+    ]},
     {cat: 'Wanting and inviting', pages: [
       ['tai', '～たい', 'Want to (do something)'],
       ['mashou', '～ましょう', 'Let\'s (casual: ～よう)'],

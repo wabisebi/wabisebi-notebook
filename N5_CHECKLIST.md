@@ -109,12 +109,13 @@ Categories marked *(new)* aren't on the site yet. They get added to `INDEX` when
 - [ ] なかった: didn't (casual)
 - [ ] Verb + Noun: describing a noun with a verb (食べる人)
 - [x] ～に行く・～に来る: go/come to do something
+- [x] ～な: don't (blunt order)
 
 ## て-form *(empty on the site so far)*
 - [ ] て-Form: how to make it
 - [ ] ～て: and then (joining actions)
 - [ ] ～くて・～で: joining adjectives and nouns
-- [ ] ～てください: please do
+- [x] ～てください: please do
 - [ ] ～ないでください: please don't
 - [ ] ～ている (Doing now): is ___ing
 - [ ] ～ている (State): is married, lives in
