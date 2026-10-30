@@ -356,6 +356,13 @@ main:has(.home:not([hidden])) .foot{max-width:1080px}
 .ntable tr.ask th,.ntable tr.ask td{border-bottom:0;border-top:1px solid var(--card-line)}
 .ntable .kj{display:block;font-size:12px;color:var(--muted);font-weight:400}
 .nnote{margin:12px 0 0;color:var(--muted);font-size:14px;line-height:1.55}
+.nmore{margin-top:16px;border-top:1px solid var(--line);padding-top:12px}
+.level .nmore summary{display:flex;align-items:baseline;gap:10px;cursor:pointer;list-style:none;font-size:15px;font-weight:600;padding:0;background:none;border:0}
+.nmore summary::-webkit-details-marker{display:none}
+.level .nmore summary::before{content:"";align-self:center;width:6px;height:6px;border-right:1.5px solid var(--muted);border-bottom:1.5px solid var(--muted);transform:rotate(45deg) translateY(-2px);transition:transform .15s}
+.level .nmore:not([open]) summary::before{transform:rotate(-45deg)}
+.nmore summary small{font-weight:400;font-size:15px;letter-spacing:.15em;color:var(--muted)}
+.nmore[open] summary{margin-bottom:10px}
 .ngrid{display:grid;gap:6px}
 .ngrid.seven{grid-template-columns:repeat(auto-fill,minmax(118px,1fr))}
 .ngrid.six{grid-template-columns:repeat(auto-fill,minmax(130px,1fr))}

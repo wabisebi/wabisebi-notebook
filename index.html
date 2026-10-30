@@ -365,6 +365,13 @@ main:has(.home:not([hidden])) .foot{max-width:1080px}
 .ntable tr.ask th,.ntable tr.ask td{border-bottom:0;border-top:1px solid var(--card-line)}
 .ntable .kj{display:block;font-size:12px;color:var(--muted);font-weight:400}
 .nnote{margin:12px 0 0;color:var(--muted);font-size:14px;line-height:1.55}
+.nmore{margin-top:16px;border-top:1px solid var(--line);padding-top:12px}
+.level .nmore summary{display:flex;align-items:baseline;gap:10px;cursor:pointer;list-style:none;font-size:15px;font-weight:600;padding:0;background:none;border:0}
+.nmore summary::-webkit-details-marker{display:none}
+.level .nmore summary::before{content:"";align-self:center;width:6px;height:6px;border-right:1.5px solid var(--muted);border-bottom:1.5px solid var(--muted);transform:rotate(45deg) translateY(-2px);transition:transform .15s}
+.level .nmore:not([open]) summary::before{transform:rotate(-45deg)}
+.nmore summary small{font-weight:400;font-size:15px;letter-spacing:.15em;color:var(--muted)}
+.nmore[open] summary{margin-bottom:10px}
 .ngrid{display:grid;gap:6px}
 .ngrid.seven{grid-template-columns:repeat(auto-fill,minmax(118px,1fr))}
 .ngrid.six{grid-template-columns:repeat(auto-fill,minmax(130px,1fr))}
@@ -14767,41 +14774,57 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
         <h1>Numbers &amp; Dates</h1>
         <p class="nlegend"><span class="irr">Blue</span> = the odd ones. Those are the ones to learn.</p>
       </div>
-      <details class="level" open><summary><span class="t">Numbers</span><span class="label">1 to 9,999</span></summary>
+      <details class="level" open><summary><span class="t">Numbers</span><span class="label">1 to 900,000,000</span></summary>
         <div class="npad">
-        <div class="nwrap"><table class="ntable"><thead><tr><th></th><th>1–9<small></small></th><th>×10<small>十</small></th><th>×100<small>百</small></th><th>×1,000<small>千</small></th></tr></thead><tbody>
-            <tr><th>1</th><td>いち</td><td>じゅう</td><td>ひゃく</td><td>せん</td></tr>
-            <tr><th>2</th><td>に</td><td>にじゅう</td><td>にひゃく</td><td>にせん</td></tr>
-            <tr><th>3</th><td>さん</td><td>さんじゅう</td><td class="irr">さんびゃく</td><td class="irr">さんぜん</td></tr>
-            <tr><th>4</th><td>よん・し</td><td>よんじゅう</td><td>よんひゃく</td><td>よんせん</td></tr>
-            <tr><th>5</th><td>ご</td><td>ごじゅう</td><td>ごひゃく</td><td>ごせん</td></tr>
-            <tr><th>6</th><td>ろく</td><td>ろくじゅう</td><td class="irr">ろっぴゃく</td><td>ろくせん</td></tr>
-            <tr><th>7</th><td>なな・しち</td><td>ななじゅう</td><td>ななひゃく</td><td>ななせん</td></tr>
-            <tr><th>8</th><td>はち</td><td>はちじゅう</td><td class="irr">はっぴゃく</td><td class="irr">はっせん</td></tr>
-            <tr><th>9</th><td>きゅう・く</td><td>きゅうじゅう</td><td>きゅうひゃく</td><td>きゅうせん</td></tr>
+        <div class="nwrap"><table class="ntable"><thead><tr><th></th><th>1–9<small></small></th><th>×10<small>十</small></th><th>×100<small>百</small></th><th>×1,000<small>千</small></th><th>×10,000<small>万</small></th><th>×100,000<small>十万</small></th><th>×100,000,000<small>億</small></th></tr></thead><tbody>
+            <tr><th>1</th><td>いち</td><td>じゅう</td><td>ひゃく</td><td>せん</td><td class="irr">いちまん</td><td>じゅうまん</td><td class="irr">いちおく</td></tr>
+            <tr><th>2</th><td>に</td><td>にじゅう</td><td>にひゃく</td><td>にせん</td><td>にまん</td><td>にじゅうまん</td><td>におく</td></tr>
+            <tr><th>3</th><td>さん</td><td>さんじゅう</td><td class="irr">さんびゃく</td><td class="irr">さんぜん</td><td>さんまん</td><td>さんじゅうまん</td><td>さんおく</td></tr>
+            <tr><th>4</th><td>よん・し</td><td>よんじゅう</td><td>よんひゃく</td><td>よんせん</td><td>よんまん</td><td>よんじゅうまん</td><td>よんおく</td></tr>
+            <tr><th>5</th><td>ご</td><td>ごじゅう</td><td>ごひゃく</td><td>ごせん</td><td>ごまん</td><td>ごじゅうまん</td><td>ごおく</td></tr>
+            <tr><th>6</th><td>ろく</td><td>ろくじゅう</td><td class="irr">ろっぴゃく</td><td>ろくせん</td><td>ろくまん</td><td>ろくじゅうまん</td><td>ろくおく</td></tr>
+            <tr><th>7</th><td>なな・しち</td><td>ななじゅう</td><td>ななひゃく</td><td>ななせん</td><td>ななまん</td><td>ななじゅうまん</td><td>ななおく</td></tr>
+            <tr><th>8</th><td>はち</td><td>はちじゅう</td><td class="irr">はっぴゃく</td><td class="irr">はっせん</td><td>はちまん</td><td>はちじゅうまん</td><td>はちおく</td></tr>
+            <tr><th>9</th><td>きゅう・く</td><td>きゅうじゅう</td><td>きゅうひゃく</td><td>きゅうせん</td><td>きゅうまん</td><td>きゅうじゅうまん</td><td>きゅうおく</td></tr>
           </tbody></table></div>
-        <p class="nnote">Big numbers go in steps of four zeros: 10,000 is 一万 (いちまん), 100,000 is 十万 (じゅうまん), 1,000,000 is 百万 (ひゃくまん). 0 is ゼロ or れい.</p>
+        <p class="nnote">Big numbers go in steps of four zeros, not three: 10,000 is 一万 (いちまん), 1,000,000 is 百万 (ひゃくまん), 10,000,000 is 千万 (せんまん). 万 and 億 always take いち: いちまん, never まん. 0 is ゼロ or れい.</p>
         </div>
       </details>
-      <details class="level" open><summary><span class="t">Counters</span><span class="label">how many</span></summary>
+      <details class="level"><summary><span class="t">Counters</span><span class="label">how many</span></summary>
         <div class="npad">
-        <div class="nwrap"><table class="ntable"><thead><tr><th></th><th>つ<small>things</small></th><th>人<small>people</small></th><th>本<small>long things</small></th><th>枚<small>flat things</small></th><th>冊<small>books</small></th><th>台<small>machines</small></th><th>匹<small>small animals</small></th><th>杯<small>cups, bowls</small></th><th>歳<small>age</small></th><th>回<small>times</small></th></tr></thead><tbody>
-            <tr><th>1</th><td class="irr">ひとつ</td><td class="irr">ひとり</td><td class="irr">いっぽん</td><td>いちまい</td><td class="irr">いっさつ</td><td>いちだい</td><td class="irr">いっぴき</td><td class="irr">いっぱい</td><td class="irr">いっさい</td><td class="irr">いっかい</td></tr>
-            <tr><th>2</th><td class="irr">ふたつ</td><td class="irr">ふたり</td><td>にほん</td><td>にまい</td><td>にさつ</td><td>にだい</td><td>にひき</td><td>にはい</td><td>にさい</td><td>にかい</td></tr>
-            <tr><th>3</th><td class="irr">みっつ</td><td>さんにん</td><td class="irr">さんぼん</td><td>さんまい</td><td>さんさつ</td><td>さんだい</td><td class="irr">さんびき</td><td class="irr">さんばい</td><td>さんさい</td><td>さんかい</td></tr>
-            <tr><th>4</th><td class="irr">よっつ</td><td class="irr">よにん</td><td>よんほん</td><td>よんまい</td><td>よんさつ</td><td>よんだい</td><td>よんひき</td><td>よんはい</td><td>よんさい</td><td>よんかい</td></tr>
-            <tr><th>5</th><td class="irr">いつつ</td><td>ごにん</td><td>ごほん</td><td>ごまい</td><td>ごさつ</td><td>ごだい</td><td>ごひき</td><td>ごはい</td><td>ごさい</td><td>ごかい</td></tr>
-            <tr><th>6</th><td class="irr">むっつ</td><td>ろくにん</td><td class="irr">ろっぽん</td><td>ろくまい</td><td>ろくさつ</td><td>ろくだい</td><td class="irr">ろっぴき</td><td class="irr">ろっぱい</td><td>ろくさい</td><td class="irr">ろっかい</td></tr>
-            <tr><th>7</th><td class="irr">ななつ</td><td>ななにん</td><td>ななほん</td><td>ななまい</td><td>ななさつ</td><td>ななだい</td><td>ななひき</td><td>ななはい</td><td>ななさい</td><td>ななかい</td></tr>
-            <tr><th>8</th><td class="irr">やっつ</td><td>はちにん</td><td class="irr">はっぽん</td><td>はちまい</td><td class="irr">はっさつ</td><td>はちだい</td><td class="irr">はっぴき</td><td class="irr">はっぱい</td><td class="irr">はっさい</td><td class="irr">はっかい</td></tr>
-            <tr><th>9</th><td class="irr">ここのつ</td><td>きゅうにん</td><td>きゅうほん</td><td>きゅうまい</td><td>きゅうさつ</td><td>きゅうだい</td><td>きゅうひき</td><td>きゅうはい</td><td>きゅうさい</td><td>きゅうかい</td></tr>
-            <tr><th>10</th><td class="irr">とお</td><td>じゅうにん</td><td class="irr">じゅっぽん</td><td>じゅうまい</td><td class="irr">じゅっさつ</td><td>じゅうだい</td><td class="irr">じゅっぴき</td><td class="irr">じゅっぱい</td><td class="irr">じゅっさい</td><td class="irr">じゅっかい</td></tr>
-            <tr class="ask"><th>?</th><td>いくつ</td><td>なんにん</td><td class="irr">なんぼん</td><td>なんまい</td><td>なんさつ</td><td>なんだい</td><td class="irr">なんびき</td><td class="irr">なんばい</td><td>なんさい</td><td>なんかい</td></tr>
+        <div class="nwrap"><table class="ntable"><thead><tr><th></th><th>つ<small>things</small></th><th>個<small>small things</small></th><th>人<small>people</small></th><th>本<small>long things</small></th><th>枚<small>flat things</small></th><th>冊<small>books</small></th><th>台<small>machines</small></th><th>杯<small>cups, bowls</small></th><th>匹<small>small animals</small></th><th>歳<small>age</small></th></tr></thead><tbody>
+            <tr><th>1</th><td class="irr">ひとつ</td><td class="irr">いっこ</td><td class="irr">ひとり</td><td class="irr">いっぽん</td><td>いちまい</td><td class="irr">いっさつ</td><td>いちだい</td><td class="irr">いっぱい</td><td class="irr">いっぴき</td><td class="irr">いっさい</td></tr>
+            <tr><th>2</th><td class="irr">ふたつ</td><td>にこ</td><td class="irr">ふたり</td><td>にほん</td><td>にまい</td><td>にさつ</td><td>にだい</td><td>にはい</td><td>にひき</td><td>にさい</td></tr>
+            <tr><th>3</th><td class="irr">みっつ</td><td>さんこ</td><td>さんにん</td><td class="irr">さんぼん</td><td>さんまい</td><td>さんさつ</td><td>さんだい</td><td class="irr">さんばい</td><td class="irr">さんびき</td><td>さんさい</td></tr>
+            <tr><th>4</th><td class="irr">よっつ</td><td>よんこ</td><td class="irr">よにん</td><td>よんほん</td><td>よんまい</td><td>よんさつ</td><td>よんだい</td><td>よんはい</td><td>よんひき</td><td>よんさい</td></tr>
+            <tr><th>5</th><td class="irr">いつつ</td><td>ごこ</td><td>ごにん</td><td>ごほん</td><td>ごまい</td><td>ごさつ</td><td>ごだい</td><td>ごはい</td><td>ごひき</td><td>ごさい</td></tr>
+            <tr><th>6</th><td class="irr">むっつ</td><td class="irr">ろっこ</td><td>ろくにん</td><td class="irr">ろっぽん</td><td>ろくまい</td><td>ろくさつ</td><td>ろくだい</td><td class="irr">ろっぱい</td><td class="irr">ろっぴき</td><td>ろくさい</td></tr>
+            <tr><th>7</th><td class="irr">ななつ</td><td>ななこ</td><td>ななにん</td><td>ななほん</td><td>ななまい</td><td>ななさつ</td><td>ななだい</td><td>ななはい</td><td>ななひき</td><td>ななさい</td></tr>
+            <tr><th>8</th><td class="irr">やっつ</td><td class="irr">はっこ</td><td>はちにん</td><td class="irr">はっぽん</td><td>はちまい</td><td class="irr">はっさつ</td><td>はちだい</td><td class="irr">はっぱい</td><td class="irr">はっぴき</td><td class="irr">はっさい</td></tr>
+            <tr><th>9</th><td class="irr">ここのつ</td><td>きゅうこ</td><td>きゅうにん</td><td>きゅうほん</td><td>きゅうまい</td><td>きゅうさつ</td><td>きゅうだい</td><td>きゅうはい</td><td>きゅうひき</td><td>きゅうさい</td></tr>
+            <tr><th>10</th><td class="irr">とお</td><td class="irr">じゅっこ</td><td>じゅうにん</td><td class="irr">じゅっぽん</td><td>じゅうまい</td><td class="irr">じゅっさつ</td><td>じゅうだい</td><td class="irr">じゅっぱい</td><td class="irr">じゅっぴき</td><td class="irr">じゅっさい</td></tr>
+            <tr class="ask"><th>?</th><td>いくつ</td><td>なんこ</td><td>なんにん</td><td class="irr">なんぼん</td><td>なんまい</td><td>なんさつ</td><td>なんだい</td><td class="irr">なんばい</td><td class="irr">なんびき</td><td>なんさい</td></tr>
           </tbody></table></div>
-        <p class="nnote">The number goes after the particle: りんごを三つ買った. From 11 on, つ isn't used, just the plain number (じゅういち). 20 years old is はたち. じゅっ can also be said じっ.</p>
+        <p class="nnote">The number goes after the particle: りんごを三つ買った. From 11 on, つ isn't used, just the plain number (じゅういち). 個 is very common in speech, often in place of つ. 20 years old is はたち. じゅっ can also be said じっ.</p>
+        <details class="nmore"><summary>More counters <small>回 度 番 階 軒 足 着 頭 羽 通</small></summary>
+        <div class="nwrap"><table class="ntable"><thead><tr><th></th><th>回<small>times</small></th><th>度<small>times, degrees</small></th><th>番<small>number, order</small></th><th>階<small>floors</small></th><th>軒<small>houses, shops</small></th><th>足<small>shoes, socks</small></th><th>着<small>clothes</small></th><th>頭<small>big animals</small></th><th>羽<small>birds</small></th><th>通<small>letters</small></th></tr></thead><tbody>
+            <tr><th>1</th><td class="irr">いっかい</td><td>いちど</td><td>いちばん</td><td class="irr">いっかい</td><td class="irr">いっけん</td><td class="irr">いっそく</td><td class="irr">いっちゃく</td><td class="irr">いっとう</td><td>いちわ</td><td class="irr">いっつう</td></tr>
+            <tr><th>2</th><td>にかい</td><td>にど</td><td>にばん</td><td>にかい</td><td>にけん</td><td>にそく</td><td>にちゃく</td><td>にとう</td><td>にわ</td><td>につう</td></tr>
+            <tr><th>3</th><td>さんかい</td><td>さんど</td><td>さんばん</td><td class="irr">さんがい</td><td class="irr">さんげん</td><td class="irr">さんぞく</td><td>さんちゃく</td><td>さんとう</td><td>さんわ</td><td>さんつう</td></tr>
+            <tr><th>4</th><td>よんかい</td><td>よんど</td><td>よんばん</td><td>よんかい</td><td>よんけん</td><td>よんそく</td><td>よんちゃく</td><td>よんとう</td><td>よんわ</td><td>よんつう</td></tr>
+            <tr><th>5</th><td>ごかい</td><td>ごど</td><td>ごばん</td><td>ごかい</td><td>ごけん</td><td>ごそく</td><td>ごちゃく</td><td>ごとう</td><td>ごわ</td><td>ごつう</td></tr>
+            <tr><th>6</th><td class="irr">ろっかい</td><td>ろくど</td><td>ろくばん</td><td class="irr">ろっかい</td><td class="irr">ろっけん</td><td>ろくそく</td><td>ろくちゃく</td><td>ろくとう</td><td>ろくわ</td><td>ろくつう</td></tr>
+            <tr><th>7</th><td>ななかい</td><td>ななど</td><td>ななばん</td><td>ななかい</td><td>ななけん</td><td>ななそく</td><td>ななちゃく</td><td>ななとう</td><td>ななわ</td><td>ななつう</td></tr>
+            <tr><th>8</th><td class="irr">はっかい</td><td>はちど</td><td>はちばん</td><td class="irr">はっかい</td><td class="irr">はっけん</td><td class="irr">はっそく</td><td class="irr">はっちゃく</td><td class="irr">はっとう</td><td>はちわ</td><td class="irr">はっつう</td></tr>
+            <tr><th>9</th><td>きゅうかい</td><td>きゅうど</td><td>きゅうばん</td><td>きゅうかい</td><td>きゅうけん</td><td>きゅうそく</td><td>きゅうちゃく</td><td>きゅうとう</td><td>きゅうわ</td><td>きゅうつう</td></tr>
+            <tr><th>10</th><td class="irr">じゅっかい</td><td>じゅうど</td><td>じゅうばん</td><td class="irr">じゅっかい</td><td class="irr">じゅっけん</td><td class="irr">じゅっそく</td><td class="irr">じゅっちゃく</td><td class="irr">じゅっとう</td><td>じゅうわ</td><td class="irr">じゅっつう</td></tr>
+            <tr class="ask"><th>?</th><td>なんかい</td><td>なんど</td><td>なんばん</td><td class="irr">なんがい</td><td class="irr">なんげん</td><td class="irr">なんぞく</td><td>なんちゃく</td><td>なんとう</td><td>なんわ</td><td>なんつう</td></tr>
+          </tbody></table></div>
+        <p class="nnote">Add 目 to 番 for "the Nth one": 二番目 (にばんめ), the second one. 羽 is also used for rabbits. 階 and 回 sound the same (いっかい), only 階 turns into がい after 3 and なん.</p>
+        </details>
         </div>
       </details>
-      <details class="level" open><summary><span class="t">Time</span><span class="label">what time, how long</span></summary>
+      <details class="level"><summary><span class="t">Time</span><span class="label">what time, how long</span></summary>
         <div class="npad">
         <div class="nwrap"><table class="ntable"><thead><tr><th></th><th>時<small>o'clock</small></th><th>分<small>minutes</small></th><th>時間<small>hours (how long)</small></th></tr></thead><tbody>
             <tr><th>1</th><td>いちじ</td><td class="irr">いっぷん</td><td>いちじかん</td></tr>
@@ -14821,7 +14844,7 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
         <p class="nnote">半 (はん) is half past: 三時半 = 3:30. 午前 (ごぜん) is a.m., 午後 (ごご) is p.m., and they go first: 午後二時. 分 is the same word for "5 past" and "5 minutes long".</p>
         </div>
       </details>
-      <details class="level" open><summary><span class="t">Days of the week</span><span class="label">曜日</span></summary>
+      <details class="level"><summary><span class="t">Days of the week</span><span class="label">曜日</span></summary>
         <div class="npad">
         <div class="ngrid seven">
           <div class="nt"><span class="n">月</span><span class="r">げつようび</span></div>
@@ -14835,7 +14858,7 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
         <p class="nnote">Which day? 何曜日 (なんようび). In speech the び is often dropped: 月曜 (げつよう).</p>
         </div>
       </details>
-      <details class="level" open><summary><span class="t">Months</span><span class="label">月</span></summary>
+      <details class="level"><summary><span class="t">Months</span><span class="label">月</span></summary>
         <div class="npad">
         <div class="ngrid six">
           <div class="nt"><span class="n">1月</span><span class="r">いちがつ</span></div>
@@ -14854,7 +14877,7 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
         <p class="nnote">Which month? 何月 (なんがつ). For "two months long" it's ～か月: 二か月 (にかげつ).</p>
         </div>
       </details>
-      <details class="level" open><summary><span class="t">Days of the month</span><span class="label">日</span></summary>
+      <details class="level"><summary><span class="t">Days of the month</span><span class="label">日</span></summary>
         <div class="npad">
         <div class="ngrid seven">
           <div class="nt odd"><span class="n">1</span><span class="r">ついたち</span></div>
@@ -14892,7 +14915,7 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
         <p class="nnote">Which day? 何日 (なんにち). 2 to 10 also mean "for that many days": 三日 (みっか) = 3 days. But 1 day is いちにち, not ついたち.</p>
         </div>
       </details>
-      <details class="level" open><summary><span class="t">Last, this, next</span><span class="label">when</span></summary>
+      <details class="level"><summary><span class="t">Last, this, next</span><span class="label">when</span></summary>
         <div class="npad">
         <div class="nwrap"><table class="ntable when"><thead><tr><th></th><th>Last<small>past</small></th><th>This<small>now</small></th><th>Next<small>coming</small></th><th>Every<small>毎</small></th></tr></thead><tbody>
             <tr><th>day</th><td><span class="kj">昨日</span>きのう</td><td><span class="kj">今日</span>きょう</td><td><span class="kj">明日</span>あした</td><td><span class="kj">毎日</span>まいにち</td></tr>
