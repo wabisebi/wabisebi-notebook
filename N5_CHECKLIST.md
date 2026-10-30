@@ -79,9 +79,9 @@ Categories marked *(new)* aren't on the site yet. They get added to `INDEX` when
 - [x] 好き・嫌い: like, dislike (～が好き)
 - [x] 上手・下手: good at, bad at
 - [x] ～くなる・～になる: to become
-- [ ] Adjective as adverb: ～く・～に (早く, 静かに)
-- [ ] より: than
-- [ ] ～の方が: ___ is more
+- [x] Adjective as adverb: ～く・～に (早く, 静かに)
+- [x] より: than
+- [x] ～の方が: ___ is more (on the より page)
 - [x] ～の中で～が一番: the most (of all)
 
 ## Adverbs *(new)*
@@ -95,7 +95,7 @@ Categories marked *(new)* aren't on the site yet. They get added to `INDEX` when
 
 ## Verbs: basic forms
 - [x] ます: polite verb endings
-- [ ] る-Verb (Dictionary): 食べる, 見る
+- [x] る-Verb (Dictionary): 食べる, 見る
 - [x] う-Verb (Dictionary): 飲む, 行く
 - [x] する: irregular verb
 - [x] 来る: to come (irregular verb)
@@ -103,11 +103,11 @@ Categories marked *(new)* aren't on the site yet. They get added to `INDEX` when
 - [x] う-Verb (Negative): u → a + ない
 - [x] る-Verb (Past): た, ました
 - [x] う-Verb (Past): った・んだ・いた, ました
-- [ ] ました: did (polite)
-- [ ] ませんでした: didn't (polite)
-- [ ] た-Form: did (casual)
-- [ ] なかった: didn't (casual)
-- [ ] Verb + Noun: describing a noun with a verb (食べる人)
+- [x] ました: did (polite) (on the る-Verb and う-Verb (Past) pages)
+- [x] ませんでした: didn't (polite) (page Verb (Past negative), with なかった)
+- [x] た-Form: did (casual) (on the る-Verb and う-Verb (Past) pages)
+- [x] なかった: didn't (casual)
+- [x] Verb + Noun: describing a noun with a verb (食べる人)
 - [x] ～に行く・～に来る: go/come to do something
 - [x] ～な: don't (blunt order)
 
@@ -124,12 +124,12 @@ Categories marked *(new)* aren't on the site yet. They get added to `INDEX` when
 - [x] ～てはいけない: must not
 - [x] ～てから: after doing
 
-## Wanting and inviting *(empty on the site so far)*
-- [ ] ほしい: want (a thing)
+## Wanting and inviting
+- [x] ほしい: want (a thing)
 - [x] ～たい: want to do (たいです and たくない on the same page)
-- [ ] ～ませんか: won't you, why don't we
+- [x] ～ませんか: won't you, why don't we
 - [x] ～ましょう: let's (casual ～よう on the same page)
-- [ ] ～ましょうか: shall I, shall we
+- [x] ～ましょうか: shall I, shall we
 - [x] でも (Or something): noun + でも, a soft suggestion
 
 ## Giving and receiving *(new)*
@@ -138,16 +138,16 @@ Categories marked *(new)* aren't on the site yet. They get added to `INDEX` when
 - [x] くれる・てくれる: someone gives me, does something for me
 
 ## Joining sentences *(new)*
-- [ ] そして・それから: and, and then
+- [x] そして・それから: and, and then
 - [x] でも: but (start of a sentence)
 - [x] が (But): but (polite)
 - [x] けど: but (casual), page けど・けれども
 - [x] から (Because): because, so
 - [x] ので: because, so (softer than から)
 - [x] ～前に: before
-- [ ] ～た後で: after
-- [ ] ～とき: when
-- [ ] ～たり～たりする: things like, doing this and that
+- [x] ～た後で: after
+- [x] ～とき: when
+- [x] ～たり～たりする: things like, doing this and that
 
 ## Explaining (の)
 - [x] ～の: asking for the story behind something

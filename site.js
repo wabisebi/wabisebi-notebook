@@ -75,6 +75,8 @@ var INDEX = [
       ['suki-kirai', '好き・嫌い', 'Like, dislike (～が好き)'],
       ['jouzu-heta', '上手・下手', 'Good at, bad at (～が上手)'],
       ['naru', '～くなる・～になる', 'To become, to get (bigger, colder...)'],
+      ['adverb-ku-ni', '～く・～に (Adverbs)', 'How you do it: 早く, 静かに'],
+      ['yori', 'より・～の方が', 'Comparing: than, ___ is more'],
       ['ichiban', '一番 (いちばん)', 'The most, number one']
     ]},
     {cat: 'Adverbs', pages: [
@@ -88,13 +90,16 @@ var INDEX = [
     ]},
     {cat: 'Verbs: basic forms', pages: [
       ['masu', 'ます', 'Polite verb endings'],
+      ['ru-verb', 'る-Verb (Dictionary)', 'Ichidan verbs: plain and polite'],
       ['u-verb', 'う-Verb (Dictionary)', 'Godan verbs: plain and polite'],
       ['ru-verb-neg', 'る-Verb (Negative)', 'Not doing: ない and ません'],
       ['u-verb-neg', 'う-Verb (Negative)', 'Not doing: u sound → a + ない'],
       ['ru-verb-past', 'る-Verb (Past)', 'Did: た and ました'],
       ['u-verb-past', 'う-Verb (Past)', 'Did: った, んだ, いた and ました'],
+      ['verb-past-neg', 'Verb (Past negative)', 'Didn\'t: なかった and ませんでした'],
       ['kuru', '来る', 'To come (irregular verb)'],
       ['suru', 'する', 'To do (irregular verb)'],
+      ['verb-noun', 'Verb + Noun', 'Describing a noun with a verb: 食べる人'],
       ['ni-iku', '～に行く・～に来る', 'Go to do, come to do'],
       ['na-dont', '～な (Don\'t)', 'Don\'t! (blunt order)']
     ]},
@@ -112,8 +117,11 @@ var INDEX = [
       ['te-kara', '～てから', 'After doing']
     ]},
     {cat: 'Wanting and inviting', pages: [
+      ['hoshii', 'ほしい (欲しい)', 'Want (a thing)'],
       ['tai', '～たい', 'Want to (do something)'],
+      ['masenka', '～ませんか', 'Won\'t you, why don\'t we (inviting)'],
       ['mashou', '～ましょう', 'Let\'s (casual: ～よう)'],
+      ['mashouka', '～ましょうか', 'Shall I, shall we (offering)'],
       ['demo-or', 'でも (Or something)', 'Or something: a soft suggestion'],
       ['tsumori', '～つもりだ', 'Plan to, intend to']
     ]},
@@ -123,12 +131,16 @@ var INDEX = [
       ['kureru', 'くれる・てくれる', 'Someone gives me, does something for me']
     ]},
     {cat: 'Joining sentences', pages: [
+      ['soshite', 'そして・それから', 'And, and then (start of a sentence)'],
       ['demo', 'でも', 'But (start of a sentence)'],
       ['ga-but', 'が (But)', 'But, however (polite)'],
       ['kedo', 'けど・けれども', 'But (everyday)'],
       ['kara-because', 'から (Because)', 'Because, so: giving a reason'],
       ['node', 'ので', 'Because, so (softer than から)'],
-      ['mae-ni', '～前に', 'Before doing something']
+      ['mae-ni', '～前に', 'Before doing something'],
+      ['ato-de', '～た後で', 'After (something happens)'],
+      ['toki', '～とき (時)', 'When, at the time'],
+      ['tari', '～たり～たりする', 'Doing things like A and B']
     ]},
     {cat: 'Explaining (の)', pages: [
       ['no', '～の', 'Asking for the story behind something'],
