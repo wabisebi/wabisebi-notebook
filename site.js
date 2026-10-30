@@ -223,20 +223,28 @@ var UPDATED = '30 Oct 2026';
   document.addEventListener('click', function(e){ if (!kanaGroup.contains(e.target)) setKana(false); });
   document.addEventListener('keydown', function(e){ if (e.key === 'Escape') setKana(false); });
 
-  // home page: every grammar point as a card, grouped by level
+  // home page: every grammar point as a card, grouped by level, with an "On this page" list of the categories (same as on Resources)
   var grid = document.getElementById('grid');
   if (grid) {
-    grid.innerHTML = INDEX.map(function(g){
+    var catId = function(g, i){ return 'g-' + g.level.toLowerCase() + '-' + i; };
+    var toc = INDEX.map(function(g){
+      return (INDEX.length > 1 ? '<li class="lvl">' + g.level + '</li>' : '') + g.cats.map(function(c, i){
+        return c.pages.length ? '<li><a href="#' + catId(g, i) + '">' + c.cat + '</a></li>' : '';
+      }).join('');
+    }).join('');
+    grid.innerHTML = '<div class="rwrap"><div class="rcol">' + INDEX.map(function(g){
       var cards = function(pages){ return pages.map(function(p){
         return '<li><a class="gcard" href="' + href(p[0]) + '" data-k="' + (p[0] + ' ' + p[1] + ' ' + p[2]).toLowerCase() + '">' +
           '<span class="p">' + p[1] + '</span><span class="d">' + p[2] + '</span><span class="lv ' + g.level.toLowerCase() + '">' + g.level + '</span></a></li>';
       }).join(''); };
-      var cats = g.cats.filter(function(c){ return c.pages.length; }).map(function(c){
-        return '<section class="cat"><h3 class="label">' + c.cat + '</h3><ol class="cards">' + cards(c.pages) + '</ol></section>';
+      var cats = g.cats.map(function(c, i){
+        if (!c.pages.length) return '';
+        return '<section class="cat" id="' + catId(g, i) + '"><h3 class="label">' + c.cat + '</h3><ol class="cards">' + cards(c.pages) + '</ol></section>';
       }).join('');
       return '<details class="level" open><summary><span class="t">' + g.level + '</span><span class="label">' + g.pages.length + (g.pages.length === 1 ? ' grammar point' : ' grammar points') + '</span></summary>' +
         cats + '</details>';
-    }).join('') + '<p class="empty" id="gnone" hidden>No match.</p>';
+    }).join('') + '<p class="empty" id="gnone" hidden>No match.</p></div>' +
+      '<nav class="toc" aria-label="On this page"><p class="label">On this page</p><ul>' + toc + '</ul></nav></div>';
   }
   var filterGrid = function(q){
     if (!grid) return;
@@ -247,6 +255,8 @@ var UPDATED = '30 Oct 2026';
     });
     grid.querySelectorAll('.cat').forEach(function(c){
       c.hidden = !c.querySelector('li:not([hidden])');
+      var link = grid.querySelector('.toc a[href="#' + c.id + '"]');
+      if (link) link.parentNode.hidden = c.hidden;
     });
     grid.querySelectorAll('.level').forEach(function(l){
       l.hidden = !l.querySelector('li:not([hidden])');
@@ -398,7 +408,7 @@ var UPDATED = '30 Oct 2026';
       if (sp && b.dataset.on) showYomi(sp, b);
     });
   });
-  // resources: "On this page" list. Clicks scroll in place (index.html uses the #hash for pages), and the section in view is marked
+  // resources and the grammar grid: "On this page" list. Clicks scroll in place (index.html uses the #hash for pages), and the section in view is marked
   document.querySelectorAll('.toc').forEach(function(toc){
     var bar = document.querySelector('.top');
     function barHeight(){ if (bar) document.documentElement.style.setProperty('--topbar', bar.offsetHeight + 'px'); }   // the top bar wraps to different heights
@@ -409,7 +419,7 @@ var UPDATED = '30 Oct 2026';
         e.preventDefault(); e.stopPropagation();   // keep index.html's page router from treating it as a page link
         var sec = document.getElementById(a.getAttribute('href').slice(1));
         if (!sec) return;
-        sec.open = true;
+        var box = sec.closest('details'); if (box) box.open = true;   // a category sits inside its level box
         sec.scrollIntoView({behavior: matchMedia('(prefers-reduced-motion:reduce)').matches ? 'auto' : 'smooth', block: 'start'});
       });
     });
@@ -419,7 +429,7 @@ var UPDATED = '30 Oct 2026';
       entries.forEach(function(en){ seen[en.target.id] = en.isIntersecting; });
       var cur = links.find(function(a){ return seen[a.getAttribute('href').slice(1)]; });
       links.forEach(function(a){ a.classList.toggle('on', a === cur); });
-    }, {rootMargin: '-' + ((bar && bar.offsetHeight) || 72) + 'px 0px -55% 0px'});
+    }, {rootMargin: '-' + (((bar && bar.offsetHeight) || 72) + 24) + 'px 0px -55% 0px'});   // +24: a section scrolled to sits 16px under the bar, so the one above it is out of the band
     links.forEach(function(a){ var sec = document.getElementById(a.getAttribute('href').slice(1)); if (sec) io.observe(sec); });
   });
 
