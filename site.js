@@ -73,6 +73,7 @@ var INDEX = [
       ['na-adj-neg', 'な-Adjective (Negative)', 'Isn\'t: じゃない'],
       ['na-adj-past', 'な-Adjective (Past)', 'Was: だった and でした'],
       ['suki-kirai', '好き・嫌い', 'Like, dislike (～が好き)'],
+      ['jouzu-heta', '上手・下手', 'Good at, bad at (～が上手)'],
       ['naru', '～くなる・～になる', 'To become, to get (bigger, colder...)'],
       ['ichiban', '一番 (いちばん)', 'The most, number one']
     ]},
@@ -123,7 +124,7 @@ var INDEX = [
     ]}
   ]}
 ];
-var UPDATED = '29 Oct 2026';
+var UPDATED = '30 Oct 2026';
 
 (function(){
   // index.html (made by build.py) has every page in one file, so links switch pages instead of loading files

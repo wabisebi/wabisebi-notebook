@@ -44,7 +44,6 @@ Categories marked *(new)* aren't on the site yet. They get added to `INDEX` when
 - [x] と: and (joining nouns)
 - [x] か (Or): or
 - [x] や: and, among other things
-- [ ] など: and so on
 - [x] が: subject marker
 - [x] を: object marker
 - [x] に: in, at, to, for, on
@@ -78,7 +77,7 @@ Categories marked *(new)* aren't on the site yet. They get added to `INDEX` when
 - [x] な-Adjective (Negative): じゃない
 - [x] な-Adjective (Past): だった・でした
 - [x] 好き・嫌い: like, dislike (～が好き)
-- [ ] 上手・下手: good at, bad at
+- [x] 上手・下手: good at, bad at
 - [x] ～くなる・～になる: to become
 - [ ] Adjective as adverb: ～く・～に (早く, 静かに)
 - [ ] より: than
@@ -164,3 +163,4 @@ Categories marked *(new)* aren't on the site yet. They get added to `INDEX` when
 - [ ] ～た方がいい: should, had better
 - [ ] ～すぎる: too much
 - [ ] という: called, named
+- [ ] など: and so on (moved here 30 Oct 2026, Seb counts it as N4)
