@@ -429,8 +429,11 @@ main:has(.home:not([hidden])) .foot{max-width:1080px}
 .forms tr.here th,.forms tr.here td{background:color-mix(in srgb,var(--gram) 12%,transparent);color:var(--gram)}
 .forms tr.here th{box-shadow:inset 3px 0 0 var(--gram)}
 .forms .m{margin:10px 0 0;color:var(--muted);font-size:14px}
-.note-entry .forms{margin:0 0 20px}
-.note-entry+.note-entry{margin-top:48px}
+.note .forms{margin:0 0 20px}
+.rlist.notes{display:grid;gap:10px}
+.rlist.notes li{background:var(--card);border:1px solid var(--card-line);border-radius:10px;overflow:hidden}
+.rlist.notes li+li{border-top:1px solid var(--card-line)}
+.rlist.notes li:hover{border-color:var(--gold)}
 @media (max-width:520px){.forms{padding:4px 10px 10px}.forms th,.forms td{padding:8px 6px}.forms td{font-size:15px}}
 
 /* two forms cheatsheet: polite and casual at the top of a page, in the .forms table style */
@@ -21627,8 +21630,15 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
     <section class="home" id="notes" data-page hidden>
       <div class="home-head"><h1>Notes</h1></div>
 
-      <section class="note-entry" id="note-polite-careful">
-        <h2>Polite vs careful: です and では</h2>
+      <ul class="rlist notes">
+        <li><a class="rcard" href="#note-polite-careful"><span class="av glyph">礼</span><span class="t">Polite vs careful: です and では</span><span class="tags"></span><span class="d">Why ではなかった sounds careful but still counts as casual.</span></a></li>
+      </ul>
+    </section>
+
+    <!-- note-polite-careful -->
+    <article class="note has-back" id="note-polite-careful" data-page hidden>
+      <a class="back" href="#notes"><span class="tri" aria-hidden="true"></span>All notes</a>
+      <div class="home-head"><h1>Polite vs careful: です and では</h1></div>
         <div class="intro">
           <p>When you say "it wasn't" in Japanese, you make two separate choices.</p>
           <p><b>1. Polite or not: is there a です at the end?</b> This is about who you're talking to. Add です and you're being polite to the listener. Leave it out and you're not.</p>
@@ -21665,8 +21675,7 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
           <p><b>Why ではなかった is under "Casual" on the <a class="xref" href="#janakatta">じゃなかった</a> page.</b> On the site, "Casual" just means no です. It doesn't mean relaxed. ではなかった has no です, so it goes there, even though it sounds careful.</p>
           <p><b>Once です is at the end, it's always polite.</b> Some polite forms are just softer than others.</p>
         </div>
-      </section>
-    </section>
+    </article>
 
     <p class="foot" id="foot"></p>
   </main>
