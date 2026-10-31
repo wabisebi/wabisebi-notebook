@@ -429,6 +429,8 @@ main:has(.home:not([hidden])) .foot{max-width:1080px}
 .forms tr.here th,.forms tr.here td{background:color-mix(in srgb,var(--gram) 12%,transparent);color:var(--gram)}
 .forms tr.here th{box-shadow:inset 3px 0 0 var(--gram)}
 .forms .m{margin:10px 0 0;color:var(--muted);font-size:14px}
+.note-entry .forms{margin:0 0 20px}
+.note-entry+.note-entry{margin-top:48px}
 @media (max-width:520px){.forms{padding:4px 10px 10px}.forms th,.forms td{padding:8px 6px}.forms td{font-size:15px}}
 
 /* two forms cheatsheet: polite and casual at the top of a page, in the .forms table style */
@@ -499,6 +501,7 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
         <a class="hcard" href="#kanji"><span class="g">字</span><span class="t">Kanji</span><span class="d">The N5 kanji with stroke order</span></a>
         <a class="hcard" href="#numbers"><span class="g">数</span><span class="t">Numbers &amp; Dates</span><span class="d">Counters, time and dates at a glance</span></a>
         <a class="hcard" href="#resources"><span class="g">棚</span><span class="t">Resources</span><span class="d">Useful channels, sites and tools</span></a>
+        <a class="hcard" href="#notes"><span class="g">記</span><span class="t">Notes</span><span class="d">Short notes on things that confuse me</span></a>
       </nav>
     </section>
 
@@ -21618,6 +21621,38 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
           <li><a href="#res-videos-about-learning-japanese">Videos About Learning Japanese</a></li>
         </ul></nav>
       </div>
+    </section>
+
+    <!-- notes -->
+    <section class="home" id="notes" data-page hidden>
+      <div class="home-head"><h1>Notes</h1></div>
+
+      <section class="note-entry" id="note-polite-careful">
+        <h2>Polite vs careful: です and では</h2>
+        <div class="intro">
+          <p>Japanese has two separate switches.</p>
+          <p><b>1. Polite or not: is there a です at the end?</b> This is about who you're talking to. Add です and you're being polite to the listener. Leave it out and you're not.</p>
+          <p><b>2. Relaxed or careful: じゃ or では?</b> This is about how carefully you word it. じゃ is the squashed, spoken version. では is the full version. Like English "wasn't" vs "was not": same meaning, and "was not" isn't more polite, just more careful.</p>
+          <p>The two switches mix freely:</p>
+        </div>
+        <div class="forms">
+          <table>
+            <thead><tr><th></th><th>Relaxed (じゃ)</th><th>Careful (では)</th></tr></thead>
+            <tbody>
+              <tr><th>No です</th><td>じゃなかった</td><td>ではなかった</td></tr>
+              <tr><th>With です</th><td>じゃなかったです</td><td>ではありませんでした</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="intro">
+          <p><b>じゃなかった</b>: talking to a friend.<br>
+          <b>ではなかった</b>: books, articles, a big dramatic line. Nobody to be polite to, but carefully worded.<br>
+          <b>じゃなかったです</b>: polite, but friendly and relaxed.<br>
+          <b>ではありませんでした</b>: polite and formal, like news or speeches.</p>
+          <p><b>Why ではなかった is under "Casual" on the <a class="xref" href="#janakatta">じゃなかった</a> page.</b> On the site, "Casual" just means no です. It doesn't mean relaxed. ではなかった has no です, so it goes there, even though it sounds careful.</p>
+          <p><b>Once です is at the end, it's always polite.</b> Some polite forms are just softer than others.</p>
+        </div>
+      </section>
     </section>
 
     <p class="foot" id="foot"></p>

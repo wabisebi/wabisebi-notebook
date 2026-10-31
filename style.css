@@ -420,6 +420,8 @@ main:has(.home:not([hidden])) .foot{max-width:1080px}
 .forms tr.here th,.forms tr.here td{background:color-mix(in srgb,var(--gram) 12%,transparent);color:var(--gram)}
 .forms tr.here th{box-shadow:inset 3px 0 0 var(--gram)}
 .forms .m{margin:10px 0 0;color:var(--muted);font-size:14px}
+.note-entry .forms{margin:0 0 20px}
+.note-entry+.note-entry{margin-top:48px}
 @media (max-width:520px){.forms{padding:4px 10px 10px}.forms th,.forms td{padding:8px 6px}.forms td{font-size:15px}}
 
 /* two forms cheatsheet: polite and casual at the top of a page, in the .forms table style */
