@@ -62,6 +62,7 @@ Each grammar point is its own file in `pages/`. To make a new one, copy an exist
 - Lead card (every grammar page has one since 22 Oct 2026): a `.lead` box right under `.head`. Screenshot, `.src`, a `.line` with `.play` + a short `.jp` sentence, `.en` with implied context in `<span class="ctx">[brackets]</span>`, then `.explain`.
   - Only Seb's OWN mined cards (same Migaku cards and media as sentence mining). Never use cards or media from the Jlab deck; it was only the inspiration.
   - Just pick the BEST cards (changed 23 Oct 2026): clear, natural, short. It doesn't matter where in the sentence the grammar is, or if other grammar comes after it (よ, けど, んで, の, etc. are all fine). Search the Sentence field. Later grammar can use longer sentences. Don't repeat the same card in Sentence mining below.
+  - `.explain` order (31 Oct 2026): the rule first, then the sentence about the clip starts with "On this card," (so it doesn't jump abruptly to the scene). Don't repeat the polite/casual forms the top box already shows, and don't open a second card with "Casual version:" (its `.use` label says that).
   - `.explain` must clearly DESCRIBE the grammar, not hint at a feeling: what it does, what it attaches to, what question this sentence answers, then the polite/casual (or other) variant. 3 short sentences, plain words, our own wording.
   - Polite and casual forms of the same grammar live on ONE page (decided 22 Oct 2026, no exceptions; です and だ were split for a while and merged back). Not an exception but worth knowing: でしょう and だろう are two pages (23 Oct 2026), because in speech the real split is neutral でしょ vs masculine だろ, not polite vs casual. でしょう and でしょ share the でしょう page. If a point has another form, add a second card right under the first: `.lead.second`, its own real clip, a `.use` label ("Polite"/"Casual"), and only 1 or 2 sentences of `.explain`. The first card then gets a `.use` label too. Now on です / だ, ～の, ～んです, い-adj past.
   - New pages always get one. If no own card fits, ask Seb instead of using someone else's.
@@ -94,7 +95,7 @@ Each grammar point is its own file in `pages/`. To make a new one, copy an exist
 
 ## Design (settled, don't change unless asked)
 - Quiet dark theme: ink navy background, warm off-white text, one gold accent, soft blue for grammar and "with" boxes. Light theme (28 Oct 2026): warm paper background, navy ink, the same gold and blue only deeper.
-- Fonts: Newsreader (headings), IBM Plex Sans / Plex Sans JP (body), Noto Sans JP 600 for the big pattern title on grammar pages (29 Oct 2026, it was Shippori Mincho before; loaded with an `@import` at the top of `style.css`), IBM Plex Mono (small labels).
+- Fonts: Newsreader (site title in the top bar; section headings `h2` switched to the body sans, weight 600, on 31 Oct 2026 because the serif + mincho mix looked old), IBM Plex Sans / Plex Sans JP (body), Noto Sans JP 600 for the big pattern title on grammar pages (29 Oct 2026, it was Shippori Mincho before; loaded with an `@import` at the top of `style.css`), IBM Plex Mono (small labels).
 - No glows, no orange or red for grammar.
 - Top bar and home grid (Oct 2026): cards use the same `--card` surfaces as scene cards, gold border on hover. Inspired by Bunpro's grammar grid but in our palette.
 
