@@ -171,13 +171,21 @@ h2::before{background:var(--gold);width:3px}
 .gcard .p{font-size:20px;font-weight:700;line-height:1.35}
 .gcard .d{color:var(--muted);font-size:14px;margin-bottom:10px}
 .gcard .lv{margin-top:auto;align-self:flex-start}
+/* learned check: bottom right of the card, on the same line as the level tag (a sibling of the link, so clicking it doesn't open the page) */
+.cards li{position:relative}
+.learn{position:absolute;right:13px;bottom:13px;width:22px;height:22px;padding:0;border-radius:50%;cursor:pointer;display:grid;place-items:center;
+  background:transparent;border:1.5px solid color-mix(in srgb,var(--muted) 45%,transparent);color:transparent;transition:border-color .15s,background .15s,color .15s}
+.learn svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+.learn:hover{border-color:var(--polite);color:color-mix(in srgb,var(--polite) 55%,transparent)}
+.learn[aria-pressed="true"]{background:var(--polite);border-color:var(--polite);color:var(--paper)}
+.learn:focus-visible{outline:2px solid var(--indigo);outline-offset:2px}
 .gcard .lv,.rcard .lv{font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.08em;color:var(--lv,var(--gram));background:color-mix(in srgb,var(--lv,var(--gram)) 18%,transparent);border:1px solid color-mix(in srgb,var(--lv,var(--gram)) 45%,transparent);border-radius:999px;padding:0 8px}
 .gcard .lv.n5,.rcard .lv.n5{--lv:var(--n5)}
 .gcard .lv.n4,.rcard .lv.n4{--lv:var(--n4)}
 .gcard .lv.n3,.rcard .lv.n3{--lv:var(--n3)}
 .gcard .lv.n2,.rcard .lv.n2{--lv:var(--n2)}
 .gcard .lv.n1,.rcard .lv.n1{--lv:var(--n1)}
-@media (max-width:520px){.cards{grid-template-columns:1fr 1fr;padding:12px;gap:8px}.cat h3{padding:14px 12px 0}.cat .cards{padding-top:8px}.gcard{padding:12px}.gcard .p{font-size:18px}}
+@media (max-width:520px){.cards{grid-template-columns:1fr 1fr;padding:12px;gap:8px}.cat h3{padding:14px 12px 0}.cat .cards{padding-top:8px}.gcard{padding:12px}.gcard .p{font-size:18px}.learn{right:11px;bottom:11px}}
 main:has(.home:not([hidden])) .foot{max-width:1080px}
 
 /* top bar: title, search */

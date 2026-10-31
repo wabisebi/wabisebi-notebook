@@ -237,6 +237,10 @@ var UPDATED = '30 Oct 2026';
 
   // home page: every grammar point as a card, grouped by level, with an "On this page" list of the categories (same as on Resources)
   var grid = document.getElementById('grid');
+  // the check at the bottom right of each card: points Seb has learned, remembered in this browser
+  var LEARNED = 'wabisebi-learned';
+  var learned = [];
+  try { learned = JSON.parse(localStorage.getItem(LEARNED)) || []; } catch (err) {}
   if (grid) {
     var catId = function(g, i){ return 'g-' + g.level.toLowerCase() + '-' + i; };
     var toc = INDEX.map(function(g){
@@ -247,7 +251,9 @@ var UPDATED = '30 Oct 2026';
     grid.innerHTML = '<div class="rwrap"><div class="rcol">' + INDEX.map(function(g){
       var cards = function(pages){ return pages.map(function(p){
         return '<li><a class="gcard" href="' + href(p[0]) + '" data-k="' + (p[0] + ' ' + p[1] + ' ' + p[2]).toLowerCase() + '">' +
-          '<span class="p">' + p[1] + '</span><span class="d">' + p[2] + '</span><span class="lv ' + g.level.toLowerCase() + '">' + g.level + '</span></a></li>';
+          '<span class="p">' + p[1] + '</span><span class="d">' + p[2] + '</span><span class="lv ' + g.level.toLowerCase() + '">' + g.level + '</span></a>' +
+          '<button class="learn" type="button" data-id="' + p[0] + '" aria-pressed="' + (learned.indexOf(p[0]) > -1) + '" aria-label="Learned" title="Learned">' +
+          '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 12.5l3.5 3.5 7.5-8"/></svg></button></li>';
       }).join(''); };
       var cats = g.cats.map(function(c, i){
         if (!c.pages.length) return '';
@@ -257,6 +263,14 @@ var UPDATED = '30 Oct 2026';
         cats + '</details>';
     }).join('') + '<p class="empty" id="gnone" hidden>No match.</p></div>' +
       '<nav class="toc" aria-label="On this page"><p class="label">On this page</p><ul>' + toc + '</ul></nav></div>';
+    grid.addEventListener('click', function(e){
+      var b = e.target.closest('.learn');
+      if (!b) return;
+      var id = b.getAttribute('data-id'), i = learned.indexOf(id);
+      if (i > -1) learned.splice(i, 1); else learned.push(id);
+      b.setAttribute('aria-pressed', i < 0);
+      try { localStorage.setItem(LEARNED, JSON.stringify(learned)); } catch (err) {}
+    });
   }
   var filterGrid = function(q){
     if (!grid) return;
