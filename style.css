@@ -421,6 +421,7 @@ main:has(.home:not([hidden])) .foot{max-width:1080px}
 .forms tr.here th{box-shadow:inset 3px 0 0 var(--gram)}
 .forms .m{margin:10px 0 0;color:var(--muted);font-size:14px}
 .note .forms{margin:0 0 20px}
+.note .intro .jp{font-size:24px;font-weight:600;margin:4px 0 8px}
 .rlist.notes{display:grid;gap:10px}
 .rlist.notes li{background:var(--card);border:1px solid var(--card-line);border-radius:10px;overflow:hidden}
 .rlist.notes li+li{border-top:1px solid var(--card-line)}
