@@ -431,6 +431,10 @@ main:has(.home:not([hidden])) .foot{max-width:1080px}
 /* two forms cheatsheet: polite and casual at the top of a page, in the .forms table style */
 .twoforms .use{margin:0}
 .twoforms .m{margin-top:0;padding-top:12px}
+.twoforms tbody th.ends{font-family:var(--body);font-size:16px;color:var(--ink);word-spacing:4px}
+.twoforms th.ends~td{white-space:nowrap}
+@media (max-width:520px){.twoforms tbody th.ends{word-spacing:0;font-size:15px}.twoforms th.ends~td{padding-left:4px;padding-right:4px}}
+.twoforms tbody th.ends.odd{font-family:var(--mono);font-size:12px;color:var(--muted)}
 .twoforms .hint{margin-left:10px;font-size:13px;font-weight:400;color:var(--muted)}
 
 /* kana charts: the stroke panel sits beside the explainer, half and half; the character is centered with its controls under it, so the panel has no empty corner when the explainer is open */
