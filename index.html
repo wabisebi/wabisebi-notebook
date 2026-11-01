@@ -169,6 +169,14 @@ h2::before{background:var(--gold);width:3px}
 .level:not([open]) summary{border-bottom:0}
 .level summary .t{font-family:var(--display);font-size:24px;font-weight:500}
 .level summary:focus-visible{outline:2px solid var(--indigo);outline-offset:-2px}
+/* grammar grid: each level box takes a faint wash of its level color */
+.level.lvl.n5{--lv:var(--n5)}.level.lvl.n4{--lv:var(--n4)}.level.lvl.n3{--lv:var(--n3)}.level.lvl.n2{--lv:var(--n2)}.level.lvl.n1{--lv:var(--n1)}
+.level.lvl{background:color-mix(in srgb,var(--lv) 4%,var(--sheet));border-color:color-mix(in srgb,var(--lv) 28%,var(--line))}
+.level.lvl summary{background:color-mix(in srgb,var(--lv) 10%,var(--sheet));border-bottom-color:color-mix(in srgb,var(--lv) 22%,var(--line))}
+.level.lvl summary .t{color:var(--lv)}
+.level.lvl .cat h3{color:color-mix(in srgb,var(--lv) 55%,var(--muted))}
+.level.lvl .gcard{background:color-mix(in srgb,var(--lv) 5%,var(--card));border-color:color-mix(in srgb,var(--lv) 18%,var(--card-line))}
+.level.lvl .gcard:hover{border-color:var(--gold);background:color-mix(in srgb,var(--lv) 7%,var(--hover))}
 /* categories inside a level: a small label, then that category's cards */
 .cat + .cat{border-top:1px solid var(--line)}
 .cat h3{margin:0;padding:18px 16px 0}
@@ -22179,7 +22187,7 @@ var UPDATED = '1 Nov 2026';
         if (!c.pages.length) return '';
         return '<section class="cat" id="' + catId(g, i) + '"><h3 class="label">' + c.cat + '</h3><ol class="cards">' + cards(c.pages) + '</ol></section>';
       }).join('');
-      return '<details class="level" open><summary><span class="t">' + g.level + '</span><span class="label">' + g.pages.length + (g.pages.length === 1 ? ' grammar point' : ' grammar points') + '</span></summary>' +
+      return '<details class="level lvl ' + g.level.toLowerCase() + '" open><summary><span class="t">' + g.level + '</span><span class="label">' + g.pages.length + (g.pages.length === 1 ? ' grammar point' : ' grammar points') + '</span></summary>' +
         cats + '</details>';
     }).join('') + '<p class="empty" id="gnone" hidden>No match.</p></div>' +
       '<nav class="toc" aria-label="On this page"><p class="label">On this page</p><ul>' + toc + '</ul></nav></div>';

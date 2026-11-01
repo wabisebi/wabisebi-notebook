@@ -264,7 +264,7 @@ var UPDATED = '1 Nov 2026';
         if (!c.pages.length) return '';
         return '<section class="cat" id="' + catId(g, i) + '"><h3 class="label">' + c.cat + '</h3><ol class="cards">' + cards(c.pages) + '</ol></section>';
       }).join('');
-      return '<details class="level" open><summary><span class="t">' + g.level + '</span><span class="label">' + g.pages.length + (g.pages.length === 1 ? ' grammar point' : ' grammar points') + '</span></summary>' +
+      return '<details class="level lvl ' + g.level.toLowerCase() + '" open><summary><span class="t">' + g.level + '</span><span class="label">' + g.pages.length + (g.pages.length === 1 ? ' grammar point' : ' grammar points') + '</span></summary>' +
         cats + '</details>';
     }).join('') + '<p class="empty" id="gnone" hidden>No match.</p></div>' +
       '<nav class="toc" aria-label="On this page"><p class="label">On this page</p><ul>' + toc + '</ul></nav></div>';
