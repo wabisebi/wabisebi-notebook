@@ -274,7 +274,7 @@ var UPDATED = '1 Nov 2026';
       return '<details class="level" open><summary><span class="t">' + g.level + '</span><span class="label">' + g.pages.length + (g.pages.length === 1 ? ' grammar point' : ' grammar points') + '</span></summary>' +
         cats + '</details>';
     }).join('') + '<p class="empty gnone" hidden>No match.</p></div>' +
-      '<nav class="toc" aria-label="On this page"><p class="label">On this page</p><ul>' + toc + '</ul></nav></div>';
+      '<nav class="toc" aria-label="On this page"><p class="label">' + grid.getAttribute('data-level') + ' Grammar</p><ul>' + toc + '</ul></nav></div>';
     grid.addEventListener('click', function(e){
       var b = e.target.closest('.learn');
       if (!b) return;
