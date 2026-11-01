@@ -180,6 +180,8 @@ var UPDATED = '1 Nov 2026';
     }); });
   });
   var count = points.length;
+  // one grid page per level: home is N5, the others home-n3 etc.
+  var gridId = function(level){ return level === 'N5' ? 'home' : 'home-' + level.toLowerCase(); };
 
 
   var top = document.getElementById('top');
@@ -187,8 +189,10 @@ var UPDATED = '1 Nov 2026';
     '<a class="brand" href="' + href('start') + '"><span class="t">Wabisebi Japanese</span></a>' +
     '<button class="burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="menu"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>' +
     '<div class="menu" id="menu">' +
-    '<a class="nav" href="' + href('home') + '"><svg class="pad" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></svg> Grammar</a>' +
-    // wide screens: one "Kana" item that opens Hiragana and Katakana; phones keep the two links in the ☰ menu
+    // wide screens: "Grammar" and "Kana" are dropdowns (one grid page per level; Hiragana and Katakana); phones keep the links in the ☰ menu
+    '<div class="kana-group"><button class="nav kana-btn" type="button" aria-expanded="false"><svg class="pad" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></svg> Grammar <svg class="chev" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>' +
+      '<div class="kana-drop">' + INDEX.map(function(g){ return '<a class="nav" href="' + href(gridId(g.level)) + '">' + g.level + ' Grammar</a>'; }).join('') + '</div></div>' +
+    INDEX.map(function(g){ return '<a class="nav m-only" href="' + href(gridId(g.level)) + '"><svg class="pad" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></svg> ' + g.level + ' Grammar</a>'; }).join('') +
     '<div class="kana-group"><button class="nav kana-btn" type="button" aria-expanded="false">あ Kana <svg class="chev" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>' +
       '<div class="kana-drop">' +
       '<a class="nav" href="' + href('kana') + '">あ Hiragana</a>' +
@@ -232,28 +236,31 @@ var UPDATED = '1 Nov 2026';
   top.querySelector('.menu').addEventListener('click', function(e){ if (e.target.closest('a')) setMenu(false); });
   window.addEventListener('hashchange', function(){ setMenu(false); });
 
-  // the Kana dropdown (wide screens): click or hover opens it, a click elsewhere or Esc closes it
-  var kanaGroup = top.querySelector('.kana-group'), kanaBtn = top.querySelector('.kana-btn');
-  function setKana(open){ kanaGroup.classList.toggle('open', open); kanaBtn.setAttribute('aria-expanded', String(open)); }
-  kanaBtn.addEventListener('click', function(){ setKana(!kanaGroup.classList.contains('open')); });
-  kanaGroup.addEventListener('click', function(e){ if (e.target.closest('a')) setKana(false); });
-  document.addEventListener('click', function(e){ if (!kanaGroup.contains(e.target)) setKana(false); });
-  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') setKana(false); });
+  // the Grammar and Kana dropdowns (wide screens): click or hover opens one, a click elsewhere or Esc closes it
+  top.querySelectorAll('.kana-group').forEach(function(group){
+    var btn = group.querySelector('.kana-btn');
+    function setOpen(open){ group.classList.toggle('open', open); btn.setAttribute('aria-expanded', String(open)); }
+    btn.addEventListener('click', function(){ setOpen(!group.classList.contains('open')); });
+    group.addEventListener('click', function(e){ if (e.target.closest('a')) setOpen(false); });
+    document.addEventListener('click', function(e){ if (!group.contains(e.target)) setOpen(false); });
+    document.addEventListener('keydown', function(e){ if (e.key === 'Escape') setOpen(false); });
+  });
 
-  // home page: every grammar point as a card, grouped by level, with an "On this page" list of the categories (same as on Resources)
-  var grid = document.getElementById('grid');
+  // grid pages (one per level): every grammar point of that level as a card, with an "On this page" list of the categories (same as on Resources)
+  var grids = [].slice.call(document.querySelectorAll('.grid[data-level]'));
   // the check at the bottom right of each card: points Seb has learned, remembered in this browser
   var LEARNED = 'wabisebi-learned';
   var learned = [];
   try { learned = JSON.parse(localStorage.getItem(LEARNED)) || []; } catch (err) {}
-  if (grid) {
+  grids.forEach(function(grid){
+    var lvl = INDEX.filter(function(g){ return g.level === grid.getAttribute('data-level'); });
     var catId = function(g, i){ return 'g-' + g.level.toLowerCase() + '-' + i; };
-    var toc = INDEX.map(function(g){
-      return (INDEX.length > 1 ? '<li class="lvl">' + g.level + '</li>' : '') + g.cats.map(function(c, i){
+    var toc = lvl.map(function(g){
+      return g.cats.map(function(c, i){
         return c.pages.length ? '<li><a href="#' + catId(g, i) + '">' + c.cat + '</a></li>' : '';
       }).join('');
     }).join('');
-    grid.innerHTML = '<div class="rwrap"><div class="rcol">' + INDEX.map(function(g){
+    grid.innerHTML = '<div class="rwrap"><div class="rcol">' + lvl.map(function(g){
       var cards = function(pages){ return pages.map(function(p){
         return '<li><a class="gcard" href="' + href(p[0]) + '" data-k="' + (p[0] + ' ' + p[1] + ' ' + p[2]).toLowerCase() + '">' +
           '<span class="p">' + p[1] + '</span><span class="d">' + p[2] + '</span><span class="lv ' + g.level.toLowerCase() + '">' + g.level + '</span></a>' +
@@ -264,9 +271,9 @@ var UPDATED = '1 Nov 2026';
         if (!c.pages.length) return '';
         return '<section class="cat" id="' + catId(g, i) + '"><h3 class="label">' + c.cat + '</h3><ol class="cards">' + cards(c.pages) + '</ol></section>';
       }).join('');
-      return '<details class="level lvl ' + g.level.toLowerCase() + '" open><summary><span class="t">' + g.level + '</span><span class="label">' + g.pages.length + (g.pages.length === 1 ? ' grammar point' : ' grammar points') + '</span></summary>' +
+      return '<details class="level" open><summary><span class="t">' + g.level + '</span><span class="label">' + g.pages.length + (g.pages.length === 1 ? ' grammar point' : ' grammar points') + '</span></summary>' +
         cats + '</details>';
-    }).join('') + '<p class="empty" id="gnone" hidden>No match.</p></div>' +
+    }).join('') + '<p class="empty gnone" hidden>No match.</p></div>' +
       '<nav class="toc" aria-label="On this page"><p class="label">On this page</p><ul>' + toc + '</ul></nav></div>';
     grid.addEventListener('click', function(e){
       var b = e.target.closest('.learn');
@@ -276,9 +283,11 @@ var UPDATED = '1 Nov 2026';
       b.setAttribute('aria-pressed', i < 0);
       try { localStorage.setItem(LEARNED, JSON.stringify(learned)); } catch (err) {}
     });
-  }
-  var filterGrid = function(q){
-    if (!grid) return;
+  });
+  // the grid page on screen (index.html holds them all, the others are hidden)
+  var openGrid = function(){ return grids.find(function(g){ return !g.closest('[hidden]'); }); };
+  var filterGrid = function(q, grid){
+    if (!grid) return false;
     var any = false;
     grid.querySelectorAll('.gcard').forEach(function(a){
       var m = !q || a.getAttribute('data-k').indexOf(q) > -1;
@@ -293,16 +302,17 @@ var UPDATED = '1 Nov 2026';
       l.hidden = !l.querySelector('li:not([hidden])');
       if (q) l.open = true;
     });
-    document.getElementById('gnone').hidden = any;
+    grid.querySelector('.gnone').hidden = any || !!q;
+    return any;
   };
-  var onHome = function(){ var h = document.getElementById('home'); return !!h && !h.hidden; };
 
-  // search: on the home page it filters the cards, on other pages it drops down a list of matches
+  // search: on a grid page it filters the cards (and drops down the list when only other levels match), on other pages it drops down a list of matches
   var find = document.getElementById('find'), results = document.getElementById('results');
   find.addEventListener('input', function(){
     var q = find.value.trim().toLowerCase();
-    if (onHome()) { filterGrid(q); results.hidden = true; return; }
-    if (!q) { results.hidden = true; return; }
+    var grid = openGrid();
+    if (!q) { filterGrid('', grid); results.hidden = true; return; }
+    if (filterGrid(q, grid)) { results.hidden = true; return; }
     var m = points.filter(function(p){ return p.k.indexOf(q) > -1; });
     results.innerHTML = m.length ? m.map(function(p){
       return '<li><a href="' + href(p.id) + '"><span>' + p.pat + '</span>' + (p.d ? '<span class="d">' + p.d + '</span>' : '') + '</a></li>';
@@ -311,7 +321,7 @@ var UPDATED = '1 Nov 2026';
   });
   find.addEventListener('keydown', function(e){
     if (e.key === 'Enter') { var a = results.hidden ? null : results.querySelector('a'); if (a) a.click(); }
-    if (e.key === 'Escape') { find.value = ''; filterGrid(''); results.hidden = true; }
+    if (e.key === 'Escape') { find.value = ''; filterGrid('', openGrid()); results.hidden = true; }
   });
   document.addEventListener('click', function(e){
     if (!e.target.closest('.find')) results.hidden = true;
@@ -321,7 +331,7 @@ var UPDATED = '1 Nov 2026';
   var foot = document.getElementById('foot');
   function setFoot(id){
     if (!foot) return;
-    if (id === 'home' || points.some(function(p){ return p.id === id; })) foot.textContent = 'Updated ' + UPDATED + ' · ' + count + ' grammar points';
+    if (grids.some(function(g){ return g.closest('[id]').id === id; }) || points.some(function(p){ return p.id === id; })) foot.textContent = 'Updated ' + UPDATED + ' · ' + count + ' grammar points';
     else if (id === 'kanji' || id === 'kana' || id === 'katakana') foot.innerHTML = '<a class="credit" href="https://kanjivg.tagaini.net" target="_blank" rel="noopener">Stroke data: KanjiVG, CC BY-SA 3.0</a>';
     else foot.textContent = '';
   }
@@ -333,7 +343,7 @@ var UPDATED = '1 Nov 2026';
     if (sub) sub.textContent = p.d;
     if (label) label.textContent = p.level + ' Grammar · ' + p.cat;
     // a button back to the grid, just above the page's card on the left (inside the article, so index.html shows it with the page)
-    if (page && !page.querySelector('.back')) { page.classList.add('has-back'); page.insertAdjacentHTML('afterbegin', '<a class="back" href="' + href('home') + '"><span class="tri" aria-hidden="true"></span>All grammar</a>'); }
+    if (page && !page.querySelector('.back')) { page.classList.add('has-back'); page.insertAdjacentHTML('afterbegin', '<a class="back" href="' + href(gridId(p.level)) + '"><span class="tri" aria-hidden="true"></span>' + p.level + ' grammar</a>'); }
   });
 
   // inside the Claude panel media/ can't load: swap the broken image for a short hint
@@ -483,7 +493,7 @@ var UPDATED = '1 Nov 2026';
         if (!p.hidden) p.querySelectorAll('img[loading="lazy"]').forEach(function(img){ img.loading = 'eager'; });
       });
       setFoot(id);
-      find.value = ''; filterGrid(''); results.hidden = true;
+      find.value = ''; grids.forEach(function(g){ filterGrid('', g); }); results.hidden = true;
       window.scrollTo({top: 0});
     };
     // one listener for every in-page link, including the search results that get rebuilt on each keystroke
