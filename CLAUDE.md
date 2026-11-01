@@ -89,7 +89,7 @@ Each grammar point is its own file in `pages/`. To make a new one, copy an exist
 - No literal-translation lines under `.en` (tried 22 Oct 2026, Seb found it cluttered). A "Literally ..." inside a `.note` is fine when it really helps.
 
 ## Index (home grid and search)
-- Grouped by JLPT level (currently only N5).
+- Grouped by JLPT level: N5, plus N3 since 1 Nov 2026 (category Casual speech, first point さ, the casual filler; Seb asked for it, and every level will come eventually). The N5 checklist only covers N5.
 - Lives in the `INDEX` list at the top of `site.js`. Each level has categories (`cats`), each category its `pages`. Each item: `['id', 'pattern', 'short description']`, where id is the file name in `pages/`. The short description is a Bunpro-style label ("Subject marker", "Explaining, giving the reason") and shows on the grid card and under the pattern on the page.
 - Categories (added 23 Oct 2026, so ~120 N5 points stay easy to scan), in learning order: First steps, Question words, Particles, Sentence endings, Adjectives, Verbs: basic forms, て-form, Wanting and inviting, Explaining (の). They show as small headings inside the level box; empty ones are hidden. Each point lives in ONE category. Adjust or add categories when a point really doesn't fit, and mention it to Seb.
 - The home page ("All grammar") shows one foldable box per level (N5 etc., no lessons) with a grid of cards: pattern, short description, small level tag like "N5" (Seb likes it, keep it). No SRS stuff (no "Adept" or progress), this is a reference, not a learning tool. A new level is just a new group in `INDEX`.

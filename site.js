@@ -147,9 +147,14 @@ var INDEX = [
       ['ndesu', '～んです・のです', 'Explaining, giving the reason'],
       ['noha-noga', 'のは・のが', 'Turning an action into a noun']
     ]}
+  ]},
+  {level: 'N3', cats: [
+    {cat: 'Casual speech', pages: [
+      ['sa', 'さ', 'Casual filler: "like", "you know"']
+    ]}
   ]}
 ];
-var UPDATED = '30 Oct 2026';
+var UPDATED = '1 Nov 2026';
 
 (function(){
   // index.html (made by build.py) has every page in one file, so links switch pages instead of loading files
