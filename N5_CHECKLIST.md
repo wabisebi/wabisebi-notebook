@@ -5,6 +5,8 @@ Every N5 grammar point we plan to have in the notebook, sorted into the site's c
 
 There's no official JLPT list, so this is our own. The "Maybe N4" section at the bottom has points some lists call N5 and others N4. Do those last.
 
+Checked against Bunpro's N5 list on 1 Nov 2026: the points marked *(Bunpro)* were missing and are on Bunpro's N5 list.
+
 Categories marked *(new)* aren't on the site yet. They get added to `INDEX` when their first page is made.
 
 ## First steps
@@ -20,6 +22,7 @@ Categories marked *(new)* aren't on the site yet. They get added to `INDEX` when
 - [x] こちら・そちら・あちら: this way, that way (also polite "here")
 - [x] がある: there is (things)
 - [x] がいる: there is (people, animals)
+- [x] がある + Noun: 時間がある日 *(Bunpro)*
 - [x] ～たち: plural for people (私たち)
 
 ## Question words
@@ -53,6 +56,7 @@ Categories marked *(new)* aren't on the site yet. They get added to `INDEX` when
 - [x] と (With): with someone
 - [x] と (Quotation): と思う, と言う, って
 - [x] の (Possession): my, 's
+- [x] の (Noun left out): これは私のです *(Bunpro)*
 - [x] から (From): from
 - [x] まで: until, up to
 - [x] だけ: only
@@ -77,8 +81,10 @@ Categories marked *(new)* aren't on the site yet. They get added to `INDEX` when
 - [x] な-Adjective (Negative): じゃない
 - [x] な-Adjective (Past): だった・でした
 - [x] 好き・嫌い: like, dislike (～が好き)
+- [x] ～のが好き: like doing *(Bunpro)*
 - [x] 上手・下手: good at, bad at
 - [x] ～くなる・～になる: to become
+- [x] ～すぎる: too much *(Bunpro, was in Maybe N4)*
 - [x] Adjective as adverb: ～く・～に (早く, 静かに)
 - [x] より: than
 - [x] ～の方が: ___ is more (on the より page)
@@ -92,6 +98,8 @@ Categories marked *(new)* aren't on the site yet. They get added to `INDEX` when
 - [x] いつも・よく・時々: always, often, sometimes
 - [x] もう: already
 - [x] まだ: still, not yet
+- [x] たくさん: a lot *(Bunpro)*
+- [x] けっこう: quite, fine / no thanks *(Bunpro)*
 
 ## Verbs: basic forms
 - [x] ます: polite verb endings
@@ -108,6 +116,10 @@ Categories marked *(new)* aren't on the site yet. They get added to `INDEX` when
 - [x] た-Form: did (casual) (on the る-Verb and う-Verb (Past) pages)
 - [x] なかった: didn't (casual)
 - [x] Verb + Noun: describing a noun with a verb (食べる人)
+- [x] が → の in a noun phrase: 私の作ったケーキ *(Bunpro)*
+- [x] ～にする: to decide on (コーヒーにする) *(Bunpro)*
+- [x] ～たことがある: have done before *(Bunpro, was in Maybe N4)*
+- [x] ～た方がいい・～ない方がいい: should, shouldn't *(Bunpro, was in Maybe N4)*
 - [x] ～に行く・～に来る: go/come to do something
 - [x] ～な: don't (blunt order)
 
@@ -119,9 +131,11 @@ Categories marked *(new)* aren't on the site yet. They get added to `INDEX` when
 - [x] ～ないでください: please don't
 - [x] ～ている (Doing now): is ___ing
 - [x] ～ている (State): is married, lives in
+- [x] ～ている (Habit): things you do regularly *(Bunpro)*
 - [x] まだ～ていない: haven't yet
 - [x] ～てもいい: it's okay to
 - [x] ～てはいけない: must not
+- [x] ～なくてはいけない・～なくてはならない・～なくちゃ・～なきゃ: must *(Bunpro, was ～なければならない in Maybe N4)*
 - [x] ～てから: after doing
 
 ## Wanting and inviting
@@ -155,14 +169,10 @@ Categories marked *(new)* aren't on the site yet. They get added to `INDEX` when
 - [x] のは・のが: turning an action into a noun
 
 ## Maybe N4 (do last)
-- [ ] ～たことがある: have done before
-- [ ] ～なければならない: must
 - [ ] ～なくてもいい: don't have to
 - [ ] ～ことができる: can
 - [x] ～つもりだ: plan to
 - [ ] ～ながら: while
-- [ ] ～た方がいい: should, had better
-- [ ] ～すぎる: too much
 - [ ] という: called, named
 - [ ] など: and so on (moved here 30 Oct 2026, Seb counts it as N4)
 

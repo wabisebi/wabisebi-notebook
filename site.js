@@ -17,6 +17,7 @@ var INDEX = [
       ['kochira-sochira-achira', 'こちら・そちら・あちら', 'This way, that way (polite here, there)'],
       ['gaaru', 'がある', 'To be, there is'],
       ['gairu', 'がいる', 'There is (people, animals)'],
+      ['aru-noun', 'がある + Noun', 'A ___ with ___: 時間がある日'],
       ['tachi', '～たち', 'Plural for people: 私たち, 子どもたち']
     ]},
     {cat: 'Question words', pages: [
@@ -49,6 +50,7 @@ var INDEX = [
       ['to-with', 'と (With)', 'With: doing something together'],
       ['to-quote', 'と (Quotation)', 'Quoting: と思う, と言う (casual: って)'],
       ['no-pos', 'の (Possession)', 'Possession: my, \'s'],
+      ['no-noun', 'の (Noun left out)', 'Mine, yours: これは私のです'],
       ['kara', 'から (From)', 'From: starting point (place, time, person)'],
       ['made', 'まで', 'Until, up to, even'],
       ['dake', 'だけ', 'Only, just'],
@@ -73,8 +75,10 @@ var INDEX = [
       ['na-adj-neg', 'な-Adjective (Negative)', 'Isn\'t: じゃない'],
       ['na-adj-past', 'な-Adjective (Past)', 'Was: だった and でした'],
       ['suki-kirai', '好き・嫌い', 'Like, dislike (～が好き)'],
+      ['noga-suki', '～のが好き', 'Like doing (泳ぐのが好き)'],
       ['jouzu-heta', '上手・下手', 'Good at, bad at (～が上手)'],
       ['naru', '～くなる・～になる', 'To become, to get (bigger, colder...)'],
+      ['sugiru', '～すぎる', 'Too much (食べすぎる, 高すぎる)'],
       ['adverb-ku-ni', '～く・～に (Adverbs)', 'How you do it: 早く, 静かに'],
       ['yori', 'より・～の方が', 'Comparing: than, ___ is more'],
       ['ichiban', '一番 (いちばん)', 'The most, number one']
@@ -82,6 +86,8 @@ var INDEX = [
     {cat: 'Adverbs', pages: [
       ['totemo', 'とても', 'Very'],
       ['chotto', 'ちょっと', 'A little, a bit (and softening)'],
+      ['takusan', 'たくさん', 'A lot, many'],
+      ['kekkou', 'けっこう (結構)', 'Quite, pretty; no thanks (結構です)'],
       ['amari', 'あまり～ない', 'Not very, not much'],
       ['zenzen', '全然～ない', 'Not at all'],
       ['itsumo', 'いつも・よく・時々', 'Always, often, sometimes'],
@@ -100,6 +106,10 @@ var INDEX = [
       ['kuru', '来る', 'To come (irregular verb)'],
       ['suru', 'する', 'To do (irregular verb)'],
       ['verb-noun', 'Verb + Noun', 'Describing a noun with a verb: 食べる人'],
+      ['ga-no', 'が → の', 'の instead of が before a noun: 私の作ったケーキ'],
+      ['ni-suru', '～にする', 'To decide on, go with (コーヒーにする)'],
+      ['ta-koto', '～たことがある', 'Have done before (experience)'],
+      ['hou-ga-ii', '～た方がいい・～ない方がいい', 'Should, had better / shouldn\'t'],
       ['ni-iku', '～に行く・～に来る', 'Go to do, come to do'],
       ['na-dont', '～な (Don\'t)', 'Don\'t! (blunt order)']
     ]},
@@ -111,9 +121,11 @@ var INDEX = [
       ['naide-kudasai', '～ないでください', 'Please don\'t'],
       ['teiru', '～ている (Doing now)', 'Is ___ing'],
       ['teiru-state', '～ている (State)', 'Lives in, is married: a state that lasts'],
+      ['teiru-habit', '～ている (Habit)', 'Things you do regularly'],
       ['mada-teinai', 'まだ～ていない', 'Haven\'t done it yet'],
       ['temo-ii', '～てもいい', 'It\'s okay to, may I'],
       ['tewa-ikenai', '～てはいけない', 'Must not'],
+      ['nakute-wa', '～なくてはいけない・～なきゃ', 'Must, have to'],
       ['te-kara', '～てから', 'After doing']
     ]},
     {cat: 'Wanting and inviting', pages: [
