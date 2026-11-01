@@ -159,6 +159,9 @@ h2::before{background:var(--gold);width:3px}
 /* home: every grammar point as a card grid, one section per level */
 .home{max-width:1080px;margin:0 auto;display:flex;flex-direction:column;gap:28px}
 .home-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap}
+.lvl-note{background:color-mix(in srgb,var(--n3) 8%,transparent);border:1px solid color-mix(in srgb,var(--n3) 25%,transparent);border-radius:10px;padding:14px 18px;margin:14px 0 20px;max-width:720px}
+.lvl-note p{margin:0;font-size:14px;line-height:1.55;color:var(--muted)}
+.lvl-note p.label{margin-bottom:6px;color:var(--n3)}
 .home h1{font-family:var(--body);font-weight:600;font-size:clamp(30px,5.5vw,40px);letter-spacing:-.01em;line-height:1.15;margin:4px 0 0}
 .level + .level{margin-top:28px}
 .level{background:var(--sheet);border:1px solid var(--line);border-radius:10px;overflow:hidden}
@@ -516,12 +519,20 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
     <!-- home -->
     <section class="home" id="home" data-page hidden>
       <div class="home-head"><h1>N5 Grammar</h1></div>
+      <div class="lvl-note">
+        <p class="label">No official list</p>
+        <p>The JLPT hasn't published grammar lists since 2010, so every N5 list you'll find is someone's best guess, based on the old official lists and past tests. The lists mostly agree but differ at the edges: a point can be N5 in one list and N4 in another.</p>
+      </div>
       <div class="grid" data-level="N5"></div>
     </section>
 
     <!-- home-n3 -->
     <section class="home" id="home-n3" data-page hidden>
       <div class="home-head"><h1>N3 Grammar</h1></div>
+      <div class="lvl-note">
+        <p class="label">No official list</p>
+        <p>The JLPT hasn't published grammar lists since 2010, so every N3 list you'll find is someone's best guess, based on the old official lists and past tests. The lists mostly agree but differ at the edges: a point can be N3 in one list and N2 or N4 in another.</p>
+      </div>
       <div class="grid" data-level="N3"></div>
     </section>
 
