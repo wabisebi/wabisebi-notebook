@@ -214,6 +214,7 @@ var UPDATED = '1 Nov 2026';
     '<a class="nav m-only" href="' + href('katakana') + '">ア Katakana</a>' +
     '<a class="nav" href="' + href('kanji') + '">字 Kanji</a>' +
     '<a class="nav" href="' + href('numbers') + '">数 Numbers</a>' +
+    '<a class="nav" href="' + href('notes') + '">記 Notes</a>' +
     '<a class="nav" href="' + href('resources') + '">棚 Resources</a>' +
     '<div class="find"><input id="find" type="search" placeholder="Search: は, topic, wa…" aria-label="Search grammar" autocomplete="off">' +
       '<ol class="results" id="results" hidden></ol></div>' +
