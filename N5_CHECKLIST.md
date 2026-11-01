@@ -165,3 +165,6 @@ Categories marked *(new)* aren't on the site yet. They get added to `INDEX` when
 - [ ] ～すぎる: too much
 - [ ] という: called, named
 - [ ] など: and so on (moved here 30 Oct 2026, Seb counts it as N4)
+
+## N4 (parked, start after N5)
+- [ ] ～ようになる: come to, start doing (habit change) / become able to (with potential form). Lead card idea: サインペンを使うようになったかな (parked 1 Nov 2026)
