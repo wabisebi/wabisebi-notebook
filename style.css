@@ -267,10 +267,16 @@ main:has(.home:not([hidden])) .foot{max-width:1080px}
 .kgrid{display:grid;gap:8px;padding:16px;max-width:620px}
 .kgrid.five{grid-template-columns:repeat(5,1fr)}
 .kgrid.three{grid-template-columns:repeat(3,1fr);max-width:380px}
+.kanji-top ~ .kgrid{padding-left:0;padding-right:0}
+.kanji-top ~ .kgrid{max-width:none;grid-template-columns:repeat(auto-fill,minmax(96px,1fr))}
+@media (max-width:520px){.kanji-top ~ .kgrid{grid-template-columns:repeat(4,minmax(0,1fr))}.kanji-top ~ .kgrid .r{font-size:11px;letter-spacing:0;text-align:center;overflow-wrap:anywhere}}
 .kana{font:inherit;display:flex;flex-direction:column;align-items:center;gap:0;padding:12px 4px 10px;border-radius:8px;cursor:pointer;
   background:var(--card);border:1px solid var(--card-line);color:var(--ink);transition:border-color .15s,background .15s,color .15s}
 .kana .k{font-size:clamp(28px,6vw,40px);font-weight:500;line-height:1.2}
 .kana .r{font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--muted)}
+.khead{margin:28px 0 0}
+.khead::before{display:none}
+.khead .label{margin-left:6px}
 .kana:hover{border-color:var(--gold);background:var(--hover);color:var(--gold)}
 .kana:hover .r{color:var(--gold)}
 .kana.on{border-color:var(--gold);background:color-mix(in srgb,var(--gold) 14%,var(--card));color:var(--gold)}
