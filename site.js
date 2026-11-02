@@ -355,7 +355,7 @@ var UPDATED = '1 Nov 2026';
     var page = document.getElementById(p.id), sub = page && page.querySelector('.sub'), label = page && page.querySelector('.head .label');
     if (sub) sub.textContent = p.d;
     if (label) label.textContent = p.level + ' Grammar · ' + p.cat;
-    // a button back to the grid, just above the page's card on the left (inside the article, so index.html shows it with the page)
+    // a button back to the grid: left of the card and following the page down on wide screens, just above the card on narrow ones (inside the article, so index.html shows it with the page)
     if (page && !page.querySelector('.back')) { page.classList.add('has-back'); page.insertAdjacentHTML('afterbegin', '<a class="back" href="' + href(gridId(p.level)) + '"><span class="tri" aria-hidden="true"></span>' + p.level + ' grammar</a>'); }
   });
 
