@@ -454,6 +454,13 @@ main:has(.home:not([hidden])) .foot{max-width:1080px}
 .twoforms tbody th.ends.odd{font-family:var(--mono);font-size:12px;color:var(--muted)}
 .twoforms .hint{margin-left:10px;font-size:13px;font-weight:400;color:var(--muted)}
 
+/* がある + Noun: the noun before and the noun after, softly tinted so がある stays the loudest */
+.nb{color:color-mix(in srgb,var(--n5) 55%,var(--muted))}
+.na{color:color-mix(in srgb,var(--n2) 55%,var(--muted))}
+.formula{padding:12px 26px}
+.formula p{margin:0;font-size:20px;font-weight:600;color:var(--muted)}
+.formula .m{margin-top:8px;font-size:14px;font-weight:400}
+
 /* kana charts: the stroke panel sits beside the explainer, half and half; the character is centered with its controls under it, so the panel has no empty corner when the explainer is open */
 :is(#kana,#katakana) .kanji-top .stroke-panel{flex:1 1 0;flex-direction:column;justify-content:center;gap:16px;padding:24px 16px}
 :is(#kana,#katakana) .kanji-top .onkun{flex:1 1 0}

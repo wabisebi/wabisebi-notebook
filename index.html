@@ -463,6 +463,13 @@ main:has(.home:not([hidden])) .foot{max-width:1080px}
 .twoforms tbody th.ends.odd{font-family:var(--mono);font-size:12px;color:var(--muted)}
 .twoforms .hint{margin-left:10px;font-size:13px;font-weight:400;color:var(--muted)}
 
+/* がある + Noun: the noun before and the noun after, softly tinted so がある stays the loudest */
+.nb{color:color-mix(in srgb,var(--n5) 55%,var(--muted))}
+.na{color:color-mix(in srgb,var(--n2) 55%,var(--muted))}
+.formula{padding:12px 26px}
+.formula p{margin:0;font-size:20px;font-weight:600;color:var(--muted)}
+.formula .m{margin-top:8px;font-size:14px;font-weight:400}
+
 /* kana charts: the stroke panel sits beside the explainer, half and half; the character is centered with its controls under it, so the panel has no empty corner when the explainer is open */
 :is(#kana,#katakana) .kanji-top .stroke-panel{flex:1 1 0;flex-direction:column;justify-content:center;gap:16px;padding:24px 16px}
 :is(#kana,#katakana) .kanji-top .onkun{flex:1 1 0}
@@ -2831,20 +2838,22 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
         </table>
         <p class="m">This grammar has no polite or casual version: it looks the same either way. Only the end of the sentence sets the politeness.</p>
       </div>
+      <div class="forms formula">
+        <p><span class="nb">Noun</span> + <mark class="g">がある</mark> + <span class="na">Noun</span></p>
+        <p class="m">がある describes the noun after it, using the noun before it.</p>
+        <p class="m"><span class="nb">庭</span>がある<span class="na">家</span> = "a house with a garden"<br><span class="nb">時間</span>がある<span class="na">日</span> = "a day with time (to spare)"<br><span class="nb">生け簀</span>がある<span class="na">カフェ</span> = "a café with a fish tank"</p>
+      </div>
       <div class="lead">
         <span class="use casual">Casual</span>
         <img decoding="async" loading="lazy" src="media/shirokumacafes01e02_09m12s510ms.webp" alt="Scene from Shirokuma Cafe">
         <p class="src">Shirokuma Cafe · Season 1, Episode 2</p>
         <div class="line">
           <button class="play" type="button" data-src="media/shirokumacafes01e02_09m10s940ms_09m13s520ms.mp3" aria-label="Play audio"></button>
-          <p class="jp">生け簀<mark class="g">があるカフェ</mark>なんてないよ。</p>
+          <p class="jp"><span class="nb">生け簀</span><mark class="g">がある</mark><span class="na">カフェ</span>なんてないよ。</p>
         </div>
         <p class="en">"There's no such thing as a café with a fish tank."</p>
         <div class="explain">
-          <p><mark class="g">がある</mark> describes the noun that follows it: <b>A がある B</b> = "a B with A".</p>
-          <p>庭がある家 = "a house with a garden"<br>時間がある日 = "a day with time (to spare)"<br>生け簀があるカフェ = "a café with a fish tank"</p>
-          <p>So you read the noun at the end first (café), then go back to see what it has (a fish tank).</p>
-          <p>On this card, someone dreams of a café with live fish in a tank, and gets told 生け簀があるカフェ doesn't exist.</p>
+          <p>On this card, someone dreams of a café with live fish in a tank, and gets told <span class="nb">生け簀</span>がある<span class="na">カフェ</span> doesn't exist.</p>
         </div>
       </div>
       <div class="lead second">
@@ -2853,11 +2862,11 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
         <p class="src">The Journalist · Episode 4</p>
         <div class="line">
           <button class="play" type="button" data-src="media/the_journalist_000001841.mp3" aria-label="Play audio"></button>
-          <p class="jp">これは確実に 記事にする価値<mark class="g">がある物</mark>です。</p>
+          <p class="jp">これは確実に <span class="nb">記事にする価値</span><mark class="g">がある</mark><span class="na">物</span>です。</p>
         </div>
         <p class="en">"This is definitely something worth writing an article about."</p>
         <div class="explain">
-          <p>Same pattern: 価値がある + 物 = "a thing that has value". ある stays plain in front of the noun, and only the です at the end makes it polite.</p>
+          <p>Same pattern: <span class="nb">価値</span>がある + <span class="na">物</span> = "a thing that has value". ある stays plain in front of the noun, and only the です at the end makes it polite.</p>
         </div>
       </div>
       <section>
@@ -2865,27 +2874,27 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
         <div class="scenes">
           <div class="scene">
             <p class="sit">Talking about where you'd like to live one day.</p>
-            <p class="jp">庭<mark class="g">がある家</mark>に住みたいです。</p>
+            <p class="jp"><span class="nb">庭</span><mark class="g">がある</mark><span class="na">家</span>に住みたいです。</p>
             <p class="en">"I want to live in a house with a garden."</p>
             <span class="use polite">Polite</span>
           </div>
           <div class="scene">
             <p class="sit">A coworker asks what you do on your days off.</p>
-            <p class="jp">時間<mark class="g">がある日</mark>は、散歩します。</p>
+            <p class="jp"><span class="nb">時間</span><mark class="g">がある</mark><span class="na">日</span>は、散歩します。</p>
             <p class="en">"On days when I have time, I go for a walk."</p>
-            <p class="note">Polite sentence, but still ある before the noun: 時間が<b>ある</b>日, never 時間があります日.</p>
+            <p class="note">Polite sentence, but still ある before the noun: <span class="nb">時間</span>が<b>ある</b><span class="na">日</span>, never 時間があります日.</p>
             <span class="use polite">Polite</span>
           </div>
           <div class="scene">
             <p class="sit">The teacher looks around at the end of class.</p>
-            <p class="jp">質問<mark class="g">がある人</mark>？</p>
+            <p class="jp"><span class="nb">質問</span><mark class="g">がある</mark><span class="na">人</span>？</p>
             <p class="en">"Anyone with a question?"</p>
-            <p class="note">質問がある + 人 = "a person who has a question".</p>
+            <p class="note"><span class="nb">質問</span>がある + <span class="na">人</span> = "a person who has a question".</p>
             <span class="use casual">Casual</span>
           </div>
           <div class="scene">
             <p class="sit">Planning a drive with a friend.</p>
-            <p class="jp">駐車場<mark class="g">がある店</mark>、知ってる？</p>
+            <p class="jp"><span class="nb">駐車場</span><mark class="g">がある</mark><span class="na">店</span>、知ってる？</p>
             <p class="en">"Do you know a shop with a parking lot?"</p>
             <span class="use casual">Casual</span>
           </div>
@@ -2901,7 +2910,7 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
           </div>
           <div class="cbox yes">
             <span class="label">With がある + Noun</span>
-            <p class="jp">庭<mark class="g">がある家</mark>に住みたい。</p>
+            <p class="jp"><span class="nb">庭</span><mark class="g">がある</mark><span class="na">家</span>に住みたい。</p>
             <p>"I want to live in a house with a garden." Now you say which kind.</p>
           </div>
         </div>
@@ -2915,10 +2924,10 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
             <p class="src">I'm Taking the Day Off · Episode 3</p>
             <div class="line">
               <button class="play" type="button" data-src="media/i_m_taking_the_day_off_000001828.mp3" aria-label="Play audio"></button>
-              <p class="jp">時間<mark class="g">があるとき</mark>は 凝った料理も作りますよ</p>
+              <p class="jp"><span class="nb">時間</span><mark class="g">がある</mark><span class="na">とき</span>は 凝った料理も作りますよ</p>
             </div>
             <p class="en">"When I have time, I make fancy dishes too."</p>
-            <p class="note">時間がある + とき ("time, when") = "when I have time". 凝った料理: elaborate cooking.</p>
+            <p class="note"><span class="nb">時間</span>がある + <span class="na">とき</span> ("time, when") = "when I have time". 凝った料理: elaborate cooking.</p>
           </div>
           <div class="mine">
             <span class="use polite">Polite</span>
@@ -2926,10 +2935,10 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
             <p class="src">Weakest Beast · Episode 2</p>
             <div class="line">
               <button class="play" type="button" data-src="media/weakest_beast_000001173.mp3" aria-label="Play audio"></button>
-              <p class="jp">所詮 余裕<mark class="g">がある人間</mark>の することなんですよ</p>
+              <p class="jp">所詮 <span class="nb">余裕</span><mark class="g">がある</mark><span class="na">人間</span>の することなんですよ</p>
             </div>
             <p class="en">"In the end, it's something only people with room to spare do."</p>
-            <p class="note">余裕がある + 人間 = "people who have room to spare" (time, money, energy). 所詮: "in the end, after all".</p>
+            <p class="note"><span class="nb">余裕</span>がある + <span class="na">人間</span> = "people who have room to spare" (time, money, energy). 所詮: "in the end, after all".</p>
           </div>
           <div class="mine">
             <span class="use casual">Casual</span>
@@ -2937,10 +2946,10 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
             <p class="src">Quartet · Episode 5</p>
             <div class="line">
               <button class="play" type="button" data-src="media/quartet_000002209.mp3" aria-label="Play audio"></button>
-              <p class="jp">裏表<mark class="g">がある人</mark>なんだよ</p>
+              <p class="jp"><span class="nb">裏表</span><mark class="g">がある</mark><span class="na">人</span>なんだよ</p>
             </div>
             <p class="en">"She's a two-faced person."</p>
-            <p class="note">裏表 is "back and front". 裏表がある人: a person who shows two different sides.</p>
+            <p class="note">裏表 is "back and front". <span class="nb">裏表</span>がある<span class="na">人</span>: a person who shows two different sides.</p>
           </div>
           <div class="mine">
             <span class="use casual">Casual</span>
@@ -2948,10 +2957,10 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
             <p class="src">Good Morning Call · Season 2, Episode 8</p>
             <div class="line">
               <button class="play" type="button" data-src="media/good_morning_call_000014233.mp3" aria-label="Play audio"></button>
-              <p class="jp">やましいこと<mark class="g">がある時</mark>でしょ</p>
+              <p class="jp"><span class="nb">やましいこと</span><mark class="g">がある</mark><span class="na">時</span>でしょ</p>
             </div>
             <p class="en">"That's when they've got something to hide, right?"</p>
-            <p class="note">やましいことがある + 時 = "when you have a guilty secret".</p>
+            <p class="note"><span class="nb">やましいこと</span>がある + <span class="na">時</span> = "when you have a guilty secret".</p>
           </div>
           <div class="mine">
             <span class="use casual">Casual</span>
@@ -2959,10 +2968,10 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
             <p class="src">Border · Episode 4</p>
             <div class="line">
               <button class="play" type="button" data-src="media/border_000003898.mp3" aria-label="Play audio"></button>
-              <p class="jp">右手の甲に やけどの痕<mark class="g">があるヤツ</mark>を探せ</p>
+              <p class="jp">右手の甲に <span class="nb">やけどの痕</span><mark class="g">がある</mark><span class="na">ヤツ</span>を探せ</p>
             </div>
             <p class="en">"Find a guy with a burn scar on the back of his right hand."</p>
-            <p class="note">やけどの痕がある + ヤツ ("guy"). The noun can be anything: a person, a place, a time.</p>
+            <p class="note"><span class="nb">やけどの痕</span>がある + <span class="na">ヤツ</span> ("guy"). The noun can be anything: a person, a place, a time.</p>
           </div>
           <div class="mine">
             <span class="use casual">Casual</span>
@@ -2970,10 +2979,10 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
             <p class="src">Frieren · Episode 4</p>
             <div class="line">
               <button class="play" type="button" data-src="media/frieren_beyond_journey_s_end_000001036.mp3" aria-label="Play audio"></button>
-              <p class="jp">今は魔王城<mark class="g">がある場所</mark>だ</p>
+              <p class="jp">今は<span class="nb">魔王城</span><mark class="g">がある</mark><span class="na">場所</span>だ</p>
             </div>
             <p class="en">"It's where the Demon King's castle stands now."</p>
-            <p class="note">魔王城がある + 場所 ("place") = "the place where the castle is".</p>
+            <p class="note"><span class="nb">魔王城</span>がある + <span class="na">場所</span> ("place") = "the place where the castle is".</p>
           </div>
           <div class="mine">
             <span class="use casual">Casual</span>
@@ -2981,10 +2990,10 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
             <p class="src">1 Litre of Tears · Episode 9</p>
             <div class="line">
               <button class="play" type="button" data-src="media/1_litre_of_tears_000005783.mp3" aria-label="Play audio"></button>
-              <p class="jp">聞く気持ち<mark class="g">がある人</mark>には 必ず伝わるから。</p>
+              <p class="jp"><span class="nb">聞く気持ち</span><mark class="g">がある</mark><span class="na">人</span>には 必ず伝わるから。</p>
             </div>
             <p class="en">"It'll always reach people who are willing to listen."</p>
-            <p class="note">聞く気持ちがある + 人 = "people who have the will to listen".</p>
+            <p class="note"><span class="nb">聞く気持ち</span>がある + <span class="na">人</span> = "people who have the will to listen".</p>
           </div>
         </div>
       </section>
@@ -25744,7 +25753,7 @@ var INDEX = [
       ['kochira-sochira-achira', 'こちら・そちら・あちら', 'This way, that way (polite here, there)'],
       ['gaaru', 'がある', 'To be, there is'],
       ['gairu', 'がいる', 'There is (people, animals)'],
-      ['aru-noun', 'がある + Noun', 'A ___ with ___: 時間がある日'],
+      ['aru-noun', 'がある + Noun', 'With, that has, who has'],
       ['tachi', '～たち', 'Plural for people: 私たち, 子どもたち']
     ]},
     {cat: 'Question words', pages: [

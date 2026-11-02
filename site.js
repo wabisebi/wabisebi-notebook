@@ -17,7 +17,7 @@ var INDEX = [
       ['kochira-sochira-achira', 'こちら・そちら・あちら', 'This way, that way (polite here, there)'],
       ['gaaru', 'がある', 'To be, there is'],
       ['gairu', 'がいる', 'There is (people, animals)'],
-      ['aru-noun', 'がある + Noun', 'A ___ with ___: 時間がある日'],
+      ['aru-noun', 'がある + Noun', 'With, that has, who has'],
       ['tachi', '～たち', 'Plural for people: 私たち, 子どもたち']
     ]},
     {cat: 'Question words', pages: [
