@@ -463,9 +463,10 @@ main:has(.home:not([hidden])) .foot{max-width:1080px}
 .twoforms tbody th.ends.odd{font-family:var(--mono);font-size:12px;color:var(--muted)}
 .twoforms .hint{margin-left:10px;font-size:13px;font-weight:400;color:var(--muted)}
 
-/* がある + Noun: the noun before and the noun after, softly tinted so がある stays the loudest */
+/* がある + Noun and Verb + Noun: the parts color coded, nouns softly tinted so the grammar stays the loudest */
 .nb{color:color-mix(in srgb,var(--n5) 55%,var(--muted))}
 .na{color:color-mix(in srgb,var(--n2) 55%,var(--muted))}
+.nv{color:var(--gram)}
 .formula{padding:12px 26px}
 .formula p{margin:0;font-size:20px;font-weight:600;color:var(--muted)}
 .formula .m{margin-top:8px;font-size:14px;font-weight:400}
@@ -16271,19 +16272,23 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
         </table>
         <p class="m">This grammar has no polite or casual version: it looks the same either way. Only the end of the sentence sets the politeness.</p>
       </div>
+      <div class="forms formula">
+        <p><mark class="g">Verb</mark> + <span class="na">Noun</span></p>
+        <p class="m">A verb right before a noun describes that noun. Nothing goes in between: no の, no な.</p>
+        <p class="m"><span class="nv">買った</span><span class="na">本</span> = "the book I bought"<br><span class="nv">飲んでいる</span><span class="na">人</span> = "the person drinking"<br><span class="nv">住んでいる</span><span class="na">ところ</span> = "the place where I live"</p>
+      </div>
       <div class="lead">
         <span class="use casual">Casual</span>
         <img decoding="async" loading="lazy" src="media/3e4dc061b75.webp" alt="Scene from a YouTube video">
         <p class="src">YouTube · <a href="https://www.youtube.com/watch?v=r-iRdoRadTU">video</a></p>
         <div class="line">
           <button class="play" type="button" data-src="media/c061b75a44c.mp3" aria-label="Play audio"></button>
-          <p class="jp">今<mark class="g">住んでいるところ</mark>は千葉県。</p>
+          <p class="jp">今<mark class="g">住んでいる</mark><span class="na">ところ</span>は千葉県。</p>
         </div>
         <p class="en">"Where I live now is Chiba."</p>
         <div class="explain">
-          <p>A verb can sit <b>right before a noun</b> to describe it. Here 住んでいる (live) + ところ (place) = <b>the place where I live</b>.</p>
-          <p>Just put the plain verb in front: no の, no な, nothing in between. On this card, it answers "Which place?": the one I live in now.</p>
-          <p>The verb before the noun stays plain even in polite speech: 住んでいるところ<b>です</b>. Only the end of the sentence shows the politeness.</p>
+          <p>On this card, <span class="nv">住んでいる</span> (live) + <span class="na">ところ</span> (place) = <b>the place where I live</b>. It answers "Which place?": the one I live in now.</p>
+          <p>In polite speech it's still <span class="nv">住んでいる</span><span class="na">ところ</span><b>です</b>, never ます before the noun. Only the end of the sentence shows the politeness.</p>
         </div>
       </div>
       <div class="lead second">
@@ -16292,11 +16297,11 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
         <p class="src">YouTube · <a href="https://www.youtube.com/watch?v=3sc74_39swM">video</a></p>
         <div class="line">
           <button class="play" type="button" data-src="media/5387692bd58.mp3" aria-label="Play audio"></button>
-          <p class="jp">2025年に、<mark class="g">大ヒットした映画</mark>があります。</p>
+          <p class="jp">2025年に、<mark class="g">大ヒットした</mark><span class="na">映画</span>があります。</p>
         </div>
         <p class="en">"There's a movie that was a huge hit in 2025."</p>
         <div class="explain">
-          <p>Past works too: 大ヒットした (was a big hit) + 映画 = <b>a movie that was a big hit</b>. Polite only because of あります at the end.</p>
+          <p>Past works too: <span class="nv">大ヒットした</span> (was a big hit) + <span class="na">映画</span> = <b>a movie that was a big hit</b>. Polite only because of あります at the end.</p>
         </div>
       </div>
       <section>
@@ -16304,30 +16309,30 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
         <div class="scenes">
           <div class="scene">
             <p class="sit">At a party, pointing at someone.</p>
-            <p class="jp">あそこでビールを<mark class="g">飲んでいる人</mark>は誰？</p>
+            <p class="jp">あそこでビールを<mark class="g">飲んでいる</mark><span class="na">人</span>は誰？</p>
             <p class="en">"Who's that guy drinking beer over there?"</p>
-            <p class="note">Everything before 人 describes the person.</p>
+            <p class="note">Everything before <span class="na">人</span> describes the person.</p>
             <span class="use casual">Casual</span>
           </div>
           <div class="scene">
             <p class="sit">Telling a coworker about a book.</p>
-            <p class="jp">昨日<mark class="g">買った本</mark>はとても面白いです。</p>
+            <p class="jp">昨日<mark class="g">買った</mark><span class="na">本</span>はとても面白いです。</p>
             <p class="en">"The book I bought yesterday is really good."</p>
-            <p class="note">買った (bought) + 本 = the book I bought.</p>
+            <p class="note"><span class="nv">買った</span> (bought) + <span class="na">本</span> = the book I bought.</p>
             <span class="use polite">Polite</span>
           </div>
           <div class="scene">
             <p class="sit">Looking at a menu with a friend.</p>
-            <p class="jp"><mark class="g">食べたいもの</mark>、ある？</p>
+            <p class="jp"><mark class="g">食べたい</mark><span class="na">もの</span>、ある？</p>
             <p class="en">"Anything you want to eat?"</p>
-            <p class="note">たい works too: 食べたい + もの = a thing I want to eat.</p>
+            <p class="note">たい works too: <span class="nv">食べたい</span> + <span class="na">もの</span> = a thing I want to eat.</p>
             <span class="use casual">Casual</span>
           </div>
           <div class="scene">
             <p class="sit">Asking a station worker.</p>
-            <p class="jp">新宿に<mark class="g">行く電車</mark>はどれですか。</p>
+            <p class="jp">新宿に<mark class="g">行く</mark><span class="na">電車</span>はどれですか。</p>
             <p class="en">"Which train goes to Shinjuku?"</p>
-            <p class="note">行く + 電車 = the train that goes.</p>
+            <p class="note"><span class="nv">行く</span> + <span class="na">電車</span> = the train that goes.</p>
             <span class="use polite">Polite</span>
           </div>
         </div>
@@ -16342,7 +16347,7 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
           </div>
           <div class="cbox yes">
             <span class="label">With Verb + Noun</span>
-            <p class="jp">これは昨日<mark class="g">買った本</mark>です。</p>
+            <p class="jp">これは昨日<mark class="g">買った</mark><span class="na">本</span>です。</p>
             <p>"This is the book I bought yesterday." The verb tells you which book.</p>
           </div>
         </div>
@@ -16356,10 +16361,10 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
             <p class="src">YouTube · <a href="https://www.youtube.com/watch?v=XdmYsZnYXRI">video</a></p>
             <div class="line">
               <button class="play" type="button" data-src="media/bfa109847a6.mp3" aria-label="Play audio"></button>
-              <p class="jp">卵アレルギーの人でも<mark class="g">食べられるもの</mark>、ありますか？</p>
+              <p class="jp">卵アレルギーの人でも<mark class="g">食べられる</mark><span class="na">もの</span>、ありますか？</p>
             </div>
             <p class="en">"Is there anything people with an egg allergy can eat?"</p>
-            <p class="note">食べられる (can eat) + もの = things you can eat.</p>
+            <p class="note"><span class="nv">食べられる</span> (can eat) + <span class="na">もの</span> = things you can eat.</p>
           </div>
           <div class="mine">
             <span class="use polite">Polite</span>
@@ -16367,10 +16372,10 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
             <p class="src">Source unknown <span class="tag">No source</span></p>
             <div class="line">
               <button class="play" type="button" data-src="media/975a63ed463.mp3" aria-label="Play audio"></button>
-              <p class="jp">このへんに、キャンプに<mark class="g">来る人</mark>も多いです。</p>
+              <p class="jp">このへんに、キャンプに<mark class="g">来る</mark><span class="na">人</span>も多いです。</p>
             </div>
             <p class="en">"Lots of people come camping around here too."</p>
-            <p class="note">来る + 人 = people who come.</p>
+            <p class="note"><span class="nv">来る</span> + <span class="na">人</span> = people who come.</p>
           </div>
           <div class="mine">
             <span class="use polite">Polite</span>
@@ -16378,10 +16383,10 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
             <p class="src">Source unknown <span class="tag">No source</span></p>
             <div class="line">
               <button class="play" type="button" data-src="media/cb8a76d7c50.mp3" aria-label="Play audio"></button>
-              <p class="jp">１回<mark class="g">揚げたもの</mark>を、もう一度揚げます。</p>
+              <p class="jp">１回<mark class="g">揚げた</mark><span class="na">もの</span>を、もう一度揚げます。</p>
             </div>
             <p class="en">"Take what you fried once and fry it again."</p>
-            <p class="note">揚げた (fried) + もの = the thing you fried.</p>
+            <p class="note"><span class="nv">揚げた</span> (fried) + <span class="na">もの</span> = the thing you fried.</p>
           </div>
           <div class="mine">
             <span class="use casual">Casual</span>
@@ -16389,10 +16394,10 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
             <p class="src">Fullmetal Alchemist: Brotherhood · Episode 63</p>
             <div class="line">
               <button class="play" type="button" data-src="media/fullmetal_alchemist_brotherhood_000016711.mp3" aria-label="Play audio"></button>
-              <p class="jp"><mark class="g">充実した人生</mark>だった。</p>
+              <p class="jp"><mark class="g">充実した</mark><span class="na">人生</span>だった。</p>
             </div>
             <p class="en">"It was a fulfilling life."</p>
-            <p class="note">充実した describes 人生: a life that was full.</p>
+            <p class="note"><span class="nv">充実した</span> describes <span class="na">人生</span>: a life that was full.</p>
           </div>
           <div class="mine">
             <span class="use casual">Casual</span>
@@ -16400,10 +16405,10 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
             <p class="src">YouTube · <a href="https://www.youtube.com/watch?v=q3kvrK7KDSw">video</a></p>
             <div class="line">
               <button class="play" type="button" data-src="media/c9693cec858.mp3" aria-label="Play audio"></button>
-              <p class="jp">こんな感じで、電化製品とかを<mark class="g">売っている場所</mark>が多いね。</p>
+              <p class="jp">こんな感じで、電化製品とかを<mark class="g">売っている</mark><span class="na">場所</span>が多いね。</p>
             </div>
             <p class="en">"There are lots of places like this that sell electronics."</p>
-            <p class="note">売っている (are selling) + 場所 = places that sell.</p>
+            <p class="note"><span class="nv">売っている</span> (are selling) + <span class="na">場所</span> = places that sell.</p>
           </div>
           <div class="mine">
             <span class="use casual">Casual</span>
@@ -16411,10 +16416,10 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
             <p class="src">YouTube · <a href="https://www.youtube.com/watch?v=fDtOgmm4uk0">video</a></p>
             <div class="line">
               <button class="play" type="button" data-src="media/b921541b4ea.mp3" aria-label="Play audio"></button>
-              <p class="jp">あ、夜、夜<mark class="g">食べる人</mark>はもうサクっと食べて。</p>
+              <p class="jp">あ、夜、夜<mark class="g">食べる</mark><span class="na">人</span>はもうサクっと食べて。</p>
             </div>
             <p class="en">"Oh, if you're having it at night, just eat it quick."</p>
-            <p class="note">食べる + 人 = people who eat.</p>
+            <p class="note"><span class="nv">食べる</span> + <span class="na">人</span> = people who eat.</p>
           </div>
           <div class="mine">
             <span class="use casual">Casual</span>
@@ -16422,10 +16427,10 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
             <p class="src">Pokémon The Series: Indigo League · Episode 1</p>
             <div class="line">
               <button class="play" type="button" data-src="media/00886783e29.mp3" aria-label="Play audio"></button>
-              <p class="jp">あのね、ピカチュウ、この状態ずーっと<mark class="g">続ける気</mark>？</p>
+              <p class="jp">あのね、ピカチュウ、この状態ずーっと<mark class="g">続ける</mark><span class="na">気</span>？</p>
             </div>
             <p class="en">"Hey, Pikachu, you plan to keep this up forever?"</p>
-            <p class="note">続ける (to keep going) + 気 (intention) = the plan to keep going.</p>
+            <p class="note"><span class="nv">続ける</span> (to keep going) + <span class="na">気</span> (intention) = the plan to keep going.</p>
           </div>
           <div class="mine">
             <span class="use casual">Casual</span>
@@ -16433,10 +16438,10 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
             <p class="src">YouTube · <a href="https://www.youtube.com/watch?v=nwaGQbObwjo">video</a></p>
             <div class="line">
               <button class="play" type="button" data-src="media/7220deb3371.mp3" aria-label="Play audio"></button>
-              <p class="jp">春になると、桜アンマン、しかも、中にお餅が<mark class="g">入っているもの</mark>。</p>
+              <p class="jp">春になると、桜アンマン、しかも、中にお餅が<mark class="g">入っている</mark><span class="na">もの</span>。</p>
             </div>
             <p class="en">"In spring there are sakura buns, and even ones with mochi inside."</p>
-            <p class="note">入っている (is inside) + もの = ones that have it inside.</p>
+            <p class="note"><span class="nv">入っている</span> (is inside) + <span class="na">もの</span> = ones that have it inside.</p>
           </div>
         </div>
       </section>
