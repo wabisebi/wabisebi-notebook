@@ -124,7 +124,7 @@ var INDEX = [
       ['teiru-habit', '～ている (Habit)', 'Things you do regularly'],
       ['mada-teinai', 'まだ～ていない', 'Haven\'t done it yet'],
       ['temo-ii', '～てもいい', 'It\'s okay to, may I'],
-      ['tewa-ikenai', '～てはいけない', 'Must not'],
+      ['tewa-ikenai', '～てはいけない・～ちゃいけない', 'Must not'],
       ['nakute-wa', '～なくてはいけない・～なきゃ', 'Must, have to'],
       ['te-kara', '～てから', 'After doing']
     ]},
@@ -166,7 +166,7 @@ var INDEX = [
     ]}
   ]}
 ];
-var UPDATED = '1 Nov 2026';
+var UPDATED = '2 Nov 2026';
 
 (function(){
   // index.html (made by build.py) has every page in one file, so links switch pages instead of loading files

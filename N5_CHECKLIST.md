@@ -134,7 +134,7 @@ Categories marked *(new)* aren't on the site yet. They get added to `INDEX` when
 - [x] ～ている (Habit): things you do regularly *(Bunpro)*
 - [x] まだ～ていない: haven't yet
 - [x] ～てもいい: it's okay to
-- [x] ～てはいけない: must not
+- [x] ～てはいけない・～ちゃいけない: must not
 - [x] ～なくてはいけない・～なくてはならない・～なくちゃ・～なきゃ: must *(Bunpro, was ～なければならない in Maybe N4)*
 - [x] ～てから: after doing
 

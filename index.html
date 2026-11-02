@@ -19183,7 +19183,7 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
       <div class="head">
         <div>
           <span class="label">N5 Grammar</span>
-          <p class="pattern">～てはいけない</p>
+          <p class="pattern">～てはいけない・<br>～ちゃいけない</p>
           <p class="sub"></p>
         </div>
       </div>
@@ -19191,10 +19191,10 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
         <table>
           <tbody>
             <tr><th><span class="use polite">Polite</span></th><td>～てはいけません</td></tr>
-            <tr><th><span class="use casual">Casual</span></th><td>～てはいけない <span class="hint">firm, rules</span> ～ちゃだめ <span class="hint">spoken, softer</span></td></tr>
+            <tr><th><span class="use casual">Casual</span></th><td>～てはいけない <span class="hint">firm, rules</span><br>～ちゃいけない <span class="hint">same, said faster</span><br>～ちゃだめ <span class="hint">spoken, softer</span></td></tr>
           </tbody>
         </table>
-        <p class="m">Same meaning: "you must not". Only the politeness changes.</p>
+        <p class="m">Same meaning: "you must not". Only the politeness changes. In speech, ～ては becomes ～ちゃ, and ～では becomes ～じゃ.</p>
       </div>
       <section>
         <h2>Examples</h2>
@@ -19225,6 +19225,20 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
             <p class="jp">まだ開け<mark class="g">ちゃだめ</mark>！</p>
             <p class="en">"Don't open it yet!"</p>
             <p class="note">開けて + は → 開けちゃ.</p>
+            <span class="use casual">Casual</span>
+          </div>
+          <div class="scene">
+            <p class="sit">Your little brother reaches for the hot pan.</p>
+            <p class="jp">それ、触<mark class="g">っちゃいけない</mark>よ。</p>
+            <p class="en">"You can't touch that."</p>
+            <p class="note">触って + は → 触っちゃ. Same as 触ってはいけない, just said faster.</p>
+            <span class="use casual">Casual</span>
+          </div>
+          <div class="scene">
+            <p class="sit">Hiking with a friend, who bends down to a stream.</p>
+            <p class="jp">この水は飲<mark class="g">んじゃいけない</mark>よ。</p>
+            <p class="en">"You can't drink this water."</p>
+            <p class="note">飲んで + は → 飲んじゃ. The て-form ends in で, so you get じゃ, not ちゃ.</p>
             <span class="use casual">Casual</span>
           </div>
         </div>
@@ -19312,6 +19326,17 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
             </div>
             <p class="en">"You mustn't hurt people."</p>
             <p class="note">傷つける ("hurt") → 傷つけて + はいけない = "mustn't hurt". んだぞ: said firmly, like a lesson.</p>
+          </div>
+          <div class="mine">
+            <span class="use casual">Casual</span>
+            <img decoding="async" src="media/1_litre_of_tears_000001214.jpg" alt="Scene from 1 Litre of Tears" loading="lazy">
+            <p class="src">1 Litre of Tears · Episode 2</p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/1_litre_of_tears_000001214.mp3" aria-label="Play audio"></button>
+              <p class="jp">動物飼<mark class="g">っちゃいけない</mark>の。</p>
+            </div>
+            <p class="en">"We're not allowed to keep animals."</p>
+            <p class="note">飼う ("keep a pet") → 飼って + は, said 飼っちゃ + いけない. の: explaining the situation.</p>
           </div>
           <div class="mine">
             <span class="use casual">Casual</span>
@@ -25878,7 +25903,7 @@ var INDEX = [
       ['teiru-habit', '～ている (Habit)', 'Things you do regularly'],
       ['mada-teinai', 'まだ～ていない', 'Haven\'t done it yet'],
       ['temo-ii', '～てもいい', 'It\'s okay to, may I'],
-      ['tewa-ikenai', '～てはいけない', 'Must not'],
+      ['tewa-ikenai', '～てはいけない・～ちゃいけない', 'Must not'],
       ['nakute-wa', '～なくてはいけない・～なきゃ', 'Must, have to'],
       ['te-kara', '～てから', 'After doing']
     ]},
@@ -25920,7 +25945,7 @@ var INDEX = [
     ]}
   ]}
 ];
-var UPDATED = '1 Nov 2026';
+var UPDATED = '2 Nov 2026';
 
 (function(){
   // index.html (made by build.py) has every page in one file, so links switch pages instead of loading files
