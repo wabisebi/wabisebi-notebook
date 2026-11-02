@@ -201,10 +201,14 @@ var UPDATED = '1 Nov 2026';
     '<a class="brand" href="' + href('start') + '"><span class="t">Wabisebi Japanese</span></a>' +
     '<button class="burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="menu"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>' +
     '<div class="menu" id="menu">' +
-    // wide screens: "Grammar" and "Kana" are dropdowns (one grid page per level; Hiragana and Katakana); phones keep the links in the ☰ menu
+    // wide screens: "Grammar", "Vocabulary" and "Kana" are dropdowns (one page per level; Hiragana and Katakana); phones keep the links in the ☰ menu
     '<div class="kana-group"><button class="nav kana-btn" type="button" aria-expanded="false"><svg class="pad" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></svg> Grammar <svg class="chev" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>' +
       '<div class="kana-drop">' + INDEX.map(function(g){ return '<a class="nav" href="' + href(gridId(g.level)) + '">' + g.level + ' Grammar</a>'; }).join('') + '</div></div>' +
     INDEX.map(function(g){ return '<a class="nav m-only" href="' + href(gridId(g.level)) + '"><svg class="pad" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></svg> ' + g.level + ' Grammar</a>'; }).join('') +
+    '<div class="kana-group"><button class="nav kana-btn" type="button" aria-expanded="false">語 Vocabulary <svg class="chev" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>' +
+      '<div class="kana-drop"><a class="nav" href="' + href('numbers') + '">Numbers &amp; Dates</a><a class="nav" href="' + href('vocab-n5') + '">N5 Vocabulary</a></div></div>' +
+    '<a class="nav m-only" href="' + href('numbers') + '">数 Numbers &amp; Dates</a>' +
+    '<a class="nav m-only" href="' + href('vocab-n5') + '">語 N5 Vocabulary</a>' +
     '<div class="kana-group"><button class="nav kana-btn" type="button" aria-expanded="false">あ Kana <svg class="chev" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>' +
       '<div class="kana-drop">' +
       '<a class="nav" href="' + href('kana') + '">あ Hiragana</a>' +
@@ -213,7 +217,6 @@ var UPDATED = '1 Nov 2026';
     '<a class="nav m-only" href="' + href('kana') + '">あ Hiragana</a>' +
     '<a class="nav m-only" href="' + href('katakana') + '">ア Katakana</a>' +
     '<a class="nav" href="' + href('kanji') + '">字 Kanji</a>' +
-    '<a class="nav" href="' + href('numbers') + '">数 Numbers</a>' +
     '<a class="nav" href="' + href('notes') + '">記 Notes</a>' +
     '<a class="nav" href="' + href('resources') + '">棚 Resources</a>' +
     '<div class="find"><input id="find" type="search" placeholder="Search: は, topic, wa…" aria-label="Search grammar" autocomplete="off">' +
