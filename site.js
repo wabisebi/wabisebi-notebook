@@ -432,7 +432,7 @@ var UPDATED = '1 Nov 2026';
     var first = [].find.call(strokeBox.closest('.kana-board').querySelectorAll('.kana[data-on]'), function(b){ return b.querySelector('.k').textContent === strokeBox.dataset.first; });
     if (first) {
       strokeBox.classList.add('has-yomi');
-      strokeBox.insertAdjacentHTML('beforeend', '<dl class="yomi"><dt class="parts-l">Parts</dt><dd class="parts"></dd><dt>On\'yomi</dt><dd class="on"></dd><dt>Kun\'yomi</dt><dd class="kun"></dd><dt>Examples</dt><dd class="words"></dd></dl>');
+      strokeBox.insertAdjacentHTML('beforeend', '<dl class="yomi"><dt>On\'yomi</dt><dd class="on"></dd><dt>Kun\'yomi</dt><dd class="kun"></dd><dt>Examples</dt><dd class="words"></dd></dl>');
       showYomi(strokeBox, first);
     }
     // on phones the panel is a bottom sheet (kana and kanji charts): a tile opens it, × or Esc closes it.
@@ -451,13 +451,6 @@ var UPDATED = '1 Nov 2026';
       var r = rare ? rare.split('・').join('、') : '';
       return (c || (r ? '' : '–')) + (r ? '<span class="rare">' + (c ? '、' : '') + r + '</span>' : '');
     }
-    // the parts it's built from; basic shapes have none, so the row hides
-    var parts = strokeBox.querySelector('.yomi .parts');
-    parts.hidden = strokeBox.querySelector('.yomi .parts-l').hidden = !b.dataset.parts;
-    parts.innerHTML = (b.dataset.parts || '').split('、').filter(Boolean).map(function(x){
-      var p = x.split(':');
-      return '<span class="pt"><span class="pj">' + p[0] + '</span><span class="pn">' + p[1] + '</span></span>';
-    }).join('<span class="plus">+</span>');
     var ch = b.querySelector('.k').textContent;
     strokeBox.querySelector('.yomi .on').innerHTML = list(b.dataset.on, b.dataset.onRare);
     strokeBox.querySelector('.yomi .kun').innerHTML = list(b.dataset.kun, b.dataset.kunRare);
