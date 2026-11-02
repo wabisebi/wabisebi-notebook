@@ -206,9 +206,9 @@ var UPDATED = '1 Nov 2026';
       '<div class="kana-drop">' + INDEX.map(function(g){ return '<a class="nav" href="' + href(gridId(g.level)) + '">' + g.level + ' Grammar</a>'; }).join('') + '</div></div>' +
     INDEX.map(function(g){ return '<a class="nav m-only" href="' + href(gridId(g.level)) + '"><svg class="pad" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></svg> ' + g.level + ' Grammar</a>'; }).join('') +
     '<div class="kana-group"><button class="nav kana-btn" type="button" aria-expanded="false">語 Vocabulary <svg class="chev" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>' +
-      '<div class="kana-drop"><a class="nav" href="' + href('numbers') + '">Numbers &amp; Dates</a><a class="nav" href="' + href('vocab-n5') + '">N5 Vocab List</a></div></div>' +
+      '<div class="kana-drop"><a class="nav" href="' + href('vocab-n5') + '">N5 Vocabulary List</a><a class="nav" href="' + href('numbers') + '">Numbers &amp; Dates</a></div></div>' +
+    '<a class="nav m-only" href="' + href('vocab-n5') + '">語 N5 Vocabulary List</a>' +
     '<a class="nav m-only" href="' + href('numbers') + '">数 Numbers &amp; Dates</a>' +
-    '<a class="nav m-only" href="' + href('vocab-n5') + '">語 N5 Vocab List</a>' +
     '<div class="kana-group"><button class="nav kana-btn" type="button" aria-expanded="false">あ Kana <svg class="chev" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>' +
       '<div class="kana-drop">' +
       '<a class="nav" href="' + href('kana') + '">あ Hiragana</a>' +
@@ -217,8 +217,8 @@ var UPDATED = '1 Nov 2026';
     '<a class="nav m-only" href="' + href('kana') + '">あ Hiragana</a>' +
     '<a class="nav m-only" href="' + href('katakana') + '">ア Katakana</a>' +
     '<a class="nav" href="' + href('kanji') + '">字 Kanji</a>' +
-    '<a class="nav" href="' + href('notes') + '">記 Notes</a>' +
-    '<a class="nav" href="' + href('resources') + '">棚 Resources</a>' +
+    '<a class="nav" href="' + href('notes') + '"><svg class="pad" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l1-4.5L16.5 4a2.1 2.1 0 0 1 3 0l.5.5a2.1 2.1 0 0 1 0 3L8.5 19 4 20z"/><path d="M14.5 6l3.5 3.5"/></svg> Notes</a>' +
+    '<a class="nav" href="' + href('resources') + '"><svg class="pad" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6.5C10.5 5 8 4.5 3.5 4.5v14c4.5 0 7 .5 8.5 2 1.5-1.5 4-2 8.5-2v-14C16 4.5 13.5 5 12 6.5z"/><path d="M12 6.5v14"/></svg> Resources</a>' +
     '<div class="find"><input id="find" type="search" placeholder="Search: は, topic, wa…" aria-label="Search grammar" autocomplete="off">' +
       '<ol class="results" id="results" hidden></ol></div>' +
     '</div>' +
@@ -258,6 +258,12 @@ var UPDATED = '1 Nov 2026';
     function setOpen(open){ group.classList.toggle('open', open); btn.setAttribute('aria-expanded', String(open)); }
     btn.addEventListener('click', function(){ setOpen(!group.classList.contains('open')); });
     group.addEventListener('click', function(e){ if (e.target.closest('a')) setOpen(false); });
+    // hovering one closes a dropdown left open by a click, so two never show at once
+    group.addEventListener('mouseenter', function(){
+      top.querySelectorAll('.kana-group.open').forEach(function(other){
+        if (other !== group) { other.classList.remove('open'); other.querySelector('.kana-btn').setAttribute('aria-expanded', 'false'); }
+      });
+    });
     document.addEventListener('click', function(e){ if (!group.contains(e.target)) setOpen(false); });
     document.addEventListener('keydown', function(e){ if (e.key === 'Escape') setOpen(false); });
   });
