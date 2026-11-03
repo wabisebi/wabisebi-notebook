@@ -107,6 +107,21 @@ Each grammar point is its own file in `pages/`. To make a new one, copy an exist
 - No glows, no orange or red for grammar.
 - Top bar and home grid (Oct 2026): cards use the same `--card` surfaces as scene cards, gold border on hover. Inspired by Bunpro's grammar grid but in our palette.
 
+## Mining i+1 cards from a local show (first test 3 Nov 2026)
+When Seb says something like "sentence mine i+1 cards from episodes 10-15 of <show>": find subtitle lines with exactly one word he doesn't know, cut the clip and screenshot, and add them to Anki. This is separate from the site: no pages change. First test: Shirokuma Cafe episodes 10-15, 32 cards, tag `shirokuma-test`. Seb hasn't given a verdict on it yet.
+
+Needs on the device: the show's video and Japanese subtitle files (Shirokuma: `~/Documents/Shirokuma Cafe (2012)/Season 01`, at least on the MacBook; copy them over if missing, one file is named `E003`), ffmpeg, Anki open with AnkiConnect (`localhost:8765`). The scripts were throwaway, so rewrite them in the scratchpad:
+1. Tokenizer: a venv in the scratchpad with `fugashi` and `unidic-lite`. Compare words by dictionary form (`feature.lemma`, `orthBase`, `kanaBase`), and by reading so kana spellings match too.
+2. Known words: copy `~/Library/Application Support/Anki2/User 1/collection.anki2` and read the copy only. A word is known if it's the target word on a card with at least one review (Core 2.6K, Migaku, Tango, Jlab `Jlab-Kanji` / `Jlab-Hiragana`), or appears in the sentence of a reviewed Core or Migaku card. Notes with no reviews still count as "in the deck", so don't mine those words either.
+3. Subtitle lines: read the `.ass` file and keep only the Japanese style (Shirokuma: `白熊日文`; the same file also has Chinese lines; other shows may differ, so count the styles first). Skip names, numbers and particles. Keep lines with exactly one unknown word.
+4. Pick by hand, this is the part that matters (about 215 lines passed the filter, 32 were good enough). Keep useful everyday words in a line that makes sense alone. Skip repeats, sound effects, puns, typos in the subtitles, and words that are parsed wrongly. Read the lines around each one to translate it properly. Search the deck for each word and its related forms first (持ち込む known means skip 持ち込み), watching for false hits (親切な contains 切な).
+5. Cut with ffmpeg: audio from 0.15s before the subtitle to 0.2s after, mono mp3 at 128k. Screenshot from the middle of the line, 640 wide jpg. Name both `<show><ep>_<min>m<sec>s`. Put the screenshots on a contact sheet and look at them, using the same image rules as the site (no big text in the middle). `silencedetect` shows if a clip has odd gaps, but Claude can't hear, so Seb flags clips that sound off.
+6. Add with AnkiConnect (`storeMediaFile`, `canAddNotes`, `addNotes`) to deck `Sentence Mining`, note type `Migaku Japanese CUSTOM STYLING`. Fields: Expression (the word), Sentence (word wrapped in `<t>`), Sentence Translation (our own), Definitions (`<p>word (reading)</p><p>∙ meaning</p>`), Sentence Audio (`[sound:file.mp3]`), Images (`<img src="file.jpg">`), Source (`Shirokuma Cafe · Episode 10`). Tags: `Claude` plus one for the batch, so it's easy to find or delete.
+
+These clips are for Anki. To use one on the site as well, the rules under Page structure still apply (each card once, mix the shows, etc.).
+
+Limits to tell Seb each time: "unknown" only means not in Anki, so he may know some words from immersion; the filter checks vocabulary, not grammar; subtitles may be fansubs, so the audio can differ.
+
 ## Finishing things (asked by Seb, 23 Oct 2026)
 Seb tends to widen a project mid-way and then leave it half done (the soundboard, the light/dark toggle). Help Seb finish:
 - When a new idea comes up mid-task, point it out kindly and suggest parking it until the current thing is done.
