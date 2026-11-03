@@ -166,7 +166,7 @@ var INDEX = [
     ]}
   ]}
 ];
-var UPDATED = '2 Nov 2026';
+var UPDATED = '3 Nov 2026';
 
 (function(){
   // index.html (made by build.py) has every page in one file, so links switch pages instead of loading files
