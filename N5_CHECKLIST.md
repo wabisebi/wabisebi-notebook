@@ -30,7 +30,8 @@ Categories marked *(new)* aren't on the site yet. They get added to `INDEX` when
 - [x] 誰: who
 - [x] どこ: where
 - [x] いつ: when
-- [x] どれ・どの: which
+- [x] どれ: which one
+- [x] どの: which + noun
 - [x] どちら・どっち: which (of two), which way
 - [x] どう・いかが: how
 - [x] どんな: what kind of
