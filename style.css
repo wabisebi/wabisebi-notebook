@@ -183,12 +183,12 @@ h2::before{background:var(--gold);width:3px}
 .learn:hover{border-color:var(--polite);color:color-mix(in srgb,var(--polite) 55%,transparent)}
 .learn[aria-pressed="true"]{background:var(--polite);border-color:var(--polite);color:var(--paper)}
 .learn:focus-visible{outline:2px solid var(--indigo);outline-offset:2px}
-.gcard .lv,.rcard .lv{font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.08em;color:var(--lv,var(--gram));background:color-mix(in srgb,var(--lv,var(--gram)) 18%,transparent);border:1px solid color-mix(in srgb,var(--lv,var(--gram)) 45%,transparent);border-radius:999px;padding:0 8px}
-.gcard .lv.n5,.rcard .lv.n5{--lv:var(--n5)}
-.gcard .lv.n4,.rcard .lv.n4{--lv:var(--n4)}
-.gcard .lv.n3,.rcard .lv.n3{--lv:var(--n3)}
-.gcard .lv.n2,.rcard .lv.n2{--lv:var(--n2)}
-.gcard .lv.n1,.rcard .lv.n1{--lv:var(--n1)}
+.gcard .lv,.rcard .lv,.jlpt .lv{font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.08em;color:var(--lv,var(--gram));background:color-mix(in srgb,var(--lv,var(--gram)) 18%,transparent);border:1px solid color-mix(in srgb,var(--lv,var(--gram)) 45%,transparent);border-radius:999px;padding:0 8px}
+.gcard .lv.n5,.rcard .lv.n5,.jlpt .lv.n5{--lv:var(--n5)}
+.gcard .lv.n4,.rcard .lv.n4,.jlpt .lv.n4{--lv:var(--n4)}
+.gcard .lv.n3,.rcard .lv.n3,.jlpt .lv.n3{--lv:var(--n3)}
+.gcard .lv.n2,.rcard .lv.n2,.jlpt .lv.n2{--lv:var(--n2)}
+.gcard .lv.n1,.rcard .lv.n1,.jlpt .lv.n1{--lv:var(--n1)}
 @media (max-width:520px){.cards{grid-template-columns:1fr 1fr;padding:12px;gap:8px}.cat h3{padding:14px 12px 0}.cat .cards{padding-top:8px}.gcard{padding:12px}.gcard .p{font-size:18px}.learn{right:11px;bottom:11px}}
 main:has(.home:not([hidden])) .foot{max-width:1080px}
 
@@ -525,3 +525,5 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
 .jlpt .forms td{font-size:15px;font-weight:400}
 .jlpt .forms tbody th{white-space:normal;width:auto;min-width:64px}
 .jlpt .forms tr:last-child th,.jlpt .forms tr:last-child td{border-bottom:0}
+@media (max-width:520px){.jlpt .forms thead th{font-size:10px;letter-spacing:.02em}}
+@media (max-width:520px){#jlpt-test .forms th,#jlpt-test .forms td{padding:8px 3px;font-size:13px}#jlpt-test .forms thead th{font-size:10px}#jlpt-test .forms td:not([colspan]){white-space:nowrap}#jlpt-test .forms tbody th{min-width:0}}
