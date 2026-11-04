@@ -226,7 +226,7 @@ main:has(.home:not([hidden])) .foot{max-width:1080px}
 .theme{flex:none;display:flex;align-items:center;justify-content:center;width:36px;height:36px;margin:-4px 0;border:1px solid var(--plain-line);border-radius:50%;background:var(--plain);color:var(--ink);cursor:pointer;padding:0}
 .theme:hover{color:var(--gold);border-color:var(--gold)}
 .theme:focus-visible{outline:2px solid var(--indigo);outline-offset:2px}
-@media (max-width:960px){
+@media (max-width:1060px){
   .brand .label{display:none}
   .burger{display:flex;align-items:center;justify-content:center;width:44px;height:44px;margin:-6px -8px -6px 0;border:0;border-radius:8px;background:none;color:var(--ink);cursor:pointer}
   .burger{order:1}
@@ -510,8 +510,8 @@ main:has(.home:not([hidden])) .foot{max-width:1080px}
 .kana-group.open .kana-drop,.kana-group:hover .kana-drop{display:flex}
 .kana-drop .nav{padding:8px 10px;border-radius:6px}
 .kana-drop .nav:hover{background:color-mix(in srgb,var(--gold) 10%,transparent)}
-@media (min-width:961px){.top .m-only{display:none}}
-@media (max-width:960px){.kana-group{display:none}}
+@media (min-width:1061px){.top .m-only{display:none}}
+@media (max-width:1060px){.kana-group{display:none}}
 
 /* grammar pages: "N5 grammar" button back to the grid. Narrow screens: above the card on the left, stays there when scrolling.
    Wide screens: in the empty space left of the card, sticky so it follows the page down just under the top bar. The margins cancel its height and the article's gap, so it takes no room in the card. */
@@ -524,6 +524,16 @@ article .back{position:absolute;left:0;top:-44px;display:inline-flex;align-items
 }
 article .back:hover{border-color:var(--gold);color:var(--gold)}
 article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:transparent currentColor transparent transparent}   /* the play button's triangle, pointing left */
+
+/* JLPT page: plain reading text and tables */
+.jlpt .npad>p,.jlpt .npad li{font-size:15px;line-height:1.6}
+.jlpt .npad>p{margin:0 0 12px}
+.jlpt .npad ul,.jlpt .npad ol{margin:0 0 4px;padding-left:22px}
+.jlpt .npad li{margin-bottom:8px}
+.jlpt .forms{margin:0 0 12px}
+.jlpt .forms td{font-size:15px;font-weight:400}
+.jlpt .forms tbody th{white-space:normal;width:auto;min-width:64px}
+.jlpt .forms tr:last-child th,.jlpt .forms tr:last-child td{border-bottom:0}
 </style>
 
 <header class="top" id="top"></header>
@@ -541,6 +551,7 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
         <a class="hcard" href="#vocab-n5"><span class="g">語</span><span class="t">N5 Vocabulary List</span><span class="d">Every N5 word with kana, romaji and meaning</span></a>
         <a class="hcard" href="#resources"><span class="g">棚</span><span class="t">Resources</span><span class="d">Useful channels, sites and tools</span></a>
         <a class="hcard" href="#notes"><span class="g">記</span><span class="t">Notes</span><span class="d">Short notes on things that confuse me</span></a>
+        <a class="hcard" href="#jlpt"><span class="g">試</span><span class="t">JLPT</span><span class="d">How the N5 and N4 tests work, and when they are</span></a>
       </nav>
     </section>
 
@@ -552,16 +563,6 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
         <p>The JLPT hasn't published grammar lists since 2010, so every N5 list you'll find is someone's best guess, based on the old official lists and past tests. The lists mostly agree but differ at the edges: a point can be N5 in one list and N4 in another.</p>
       </div>
       <div class="grid" data-level="N5"></div>
-    </section>
-
-    <!-- home-n3 -->
-    <section class="home" id="home-n3" data-page hidden>
-      <div class="home-head"><h1>N3 Grammar</h1></div>
-      <div class="lvl-note">
-        <p class="label">No official list</p>
-        <p>The JLPT hasn't published grammar lists since 2010, so every N3 list you'll find is someone's best guess, based on the old official lists and past tests. The lists mostly agree but differ at the edges: a point can be N3 in one list and N2 or N4 in another.</p>
-      </div>
-      <div class="grid" data-level="N3"></div>
     </section>
 
     <!-- desu -->
@@ -25894,180 +25895,6 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
       </section>
     </article>
 
-    <!-- sa -->
-    <article id="sa" data-page hidden>
-      <div class="head">
-        <div>
-          <span class="label">N3 Grammar</span>
-          <p class="pattern">さ</p>
-          <p class="sub"></p>
-        </div>
-      </div>
-      <div class="lead">
-        <span class="use casual">Casual</span>
-        <img decoding="async" loading="lazy" src="media/shirokumacafe03_20m31s605ms.webp" alt="Scene from Shirokuma Cafe">
-        <p class="src">Shirokuma Cafe · Season 1, Episode 3</p>
-        <div class="line">
-          <button class="play" type="button" data-src="media/shirokumacafe03_20m31s570ms_20m35s580ms.mp3" aria-label="Play audio"></button>
-          <p class="jp">僕なんて<mark class="g">さ</mark>、パン屋に行くたびに思うよ。</p>
-        </div>
-        <p class="en">"Me, <b>like</b>, every time I go to a bakery, I think that."</p>
-        <div class="explain">
-          <p><mark class="g">さ</mark> is a <b>casual filler</b>, like "like" or "you know". You drop it right after a chunk of the sentence (a word, a phrase), at the spot where you'd pause. It adds no meaning. It just says "stay with me, there's more coming".</p>
-          <p>On this card, the penguin starts with 僕なんて ("me, I...") and adds さ to hold the floor before he gets to his point. Take さ out and the sentence means exactly the same.</p>
-          <p>Casual speech only, never with です or ます. It also often sits on the end of a sentence you leave hanging: ～けどさ ("..., but"), ～でさ ("and so...").</p>
-        </div>
-      </div>
-      <section>
-        <h2>Examples</h2>
-        <div class="scenes">
-          <div class="scene">
-            <p class="sit">You start telling a friend what happened yesterday.</p>
-            <p class="jp">昨日<mark class="g">さ</mark>、駅で先生に会ったよ。</p>
-            <p class="en">"Yesterday, like, I ran into our teacher at the station."</p>
-            <span class="use casual">Casual</span>
-          </div>
-          <div class="scene">
-            <p class="sit">You want your roommate's attention for a second.</p>
-            <p class="jp">あの<mark class="g">さ</mark>、ちょっといい？</p>
-            <p class="en">"Hey, got a sec?"</p>
-            <span class="use casual">Casual</span>
-          </div>
-          <div class="scene">
-            <p class="sit">A friend asks why you're late. You sigh.</p>
-            <p class="jp">電車が止まって<mark class="g">さ</mark>。</p>
-            <p class="en">"The train stopped, and, you know..."</p>
-            <p class="note">The rest ("so I couldn't get here") is left unsaid.</p>
-            <span class="use casual">Casual</span>
-          </div>
-          <div class="scene">
-            <p class="sit">You're about to suggest something to a friend.</p>
-            <p class="jp">今度<mark class="g">さ</mark>、一緒に行こうよ。</p>
-            <p class="en">"Next time, let's go together."</p>
-            <span class="use casual">Casual</span>
-          </div>
-        </div>
-      </section>
-      <section>
-        <h2>With and without</h2>
-        <div class="compare">
-          <div class="cbox">
-            <span class="label">Without</span>
-            <p class="jp">昨日、駅で先生に会った。</p>
-            <p>"Yesterday I ran into the teacher at the station." Just the fact.</p>
-          </div>
-          <div class="cbox yes">
-            <span class="label">With さ</span>
-            <p class="jp">昨日<mark class="g">さ</mark>、駅で先生に会った。</p>
-            <p>Same meaning, but now it sounds like you're starting a story with a friend.</p>
-          </div>
-          <div class="cbox">
-            <span class="label">Polite</span>
-            <p class="jp">あの、すみません。</p>
-            <p>"Um, excuse me." Getting a stranger's attention.</p>
-          </div>
-          <div class="cbox yes">
-            <span class="label">With さ</span>
-            <p class="jp">あの<mark class="g">さ</mark></p>
-            <p>"Hey, listen." Only to friends and family.</p>
-          </div>
-        </div>
-      </section>
-      <section>
-        <h2>Sentence mining</h2>
-        <div class="mines">
-          <div class="mine">
-            <span class="use casual">Casual</span>
-            <img decoding="async" src="media/shirokumacafes01e04_11m16s092ms.webp" alt="Scene from Shirokuma Cafe" loading="lazy">
-            <p class="src">Shirokuma Cafe · Season 1, Episode 4</p>
-            <div class="line">
-              <button class="play" type="button" data-src="media/shirokumacafes01e04_11m16s070ms_11m19s130ms.mp3" aria-label="Play audio"></button>
-              <p class="jp">今日も、縦列駐車ができなくって<mark class="g">さ</mark>。</p>
-            </div>
-            <p class="en">"I couldn't parallel park again today, you know."</p>
-            <p class="note">さ on the end: he leaves the rest (how annoying it was) unsaid.</p>
-          </div>
-          <div class="mine">
-            <span class="use casual">Casual</span>
-            <img decoding="async" src="media/e492d12ae70.webp" alt="A film set with a camera crew" loading="lazy">
-            <p class="src">Source unknown <span class="tag">No source</span></p>
-            <div class="line">
-              <button class="play" type="button" data-src="media/91545e492d1.m4a" aria-label="Play audio"></button>
-              <p class="jp">あの最後の目線なんだけど<mark class="g">さ</mark>。</p>
-            </div>
-            <p class="en">"About that last look into the camera..."</p>
-            <p class="note">～なんだけどさ: a common way to bring up a topic before you say what you think.</p>
-          </div>
-          <div class="mine">
-            <span class="use casual">Casual</span>
-            <img decoding="async" src="media/681692e9aef.webp" alt="A woman in glasses at a dinner table" loading="lazy">
-            <p class="src">Source unknown <span class="tag">No source</span></p>
-            <div class="line">
-              <button class="play" type="button" data-src="media/92e9aefb430.mp3" aria-label="Play audio"></button>
-              <p class="jp">あんた<mark class="g">さ</mark>、ホント情けないわね。</p>
-            </div>
-            <p class="en">"You know what? You're really pathetic."</p>
-            <p class="note">さ right after あんた: she grabs his attention first, then hits him with it.</p>
-          </div>
-          <div class="mine">
-            <span class="use casual">Casual</span>
-            <img decoding="async" src="media/quartet_000001027.jpg" alt="Scene from Quartet" loading="lazy">
-            <p class="src">Quartet · Episode 2</p>
-            <div class="line">
-              <button class="play" type="button" data-src="media/quartet_000001027.mp3" aria-label="Play audio"></button>
-              <p class="jp">あっちに<mark class="g">さ</mark> かわいいカフェあるんだけど</p>
-            </div>
-            <p class="en">"Over there, there's this cute cafe..."</p>
-            <p class="note">A little pause after あっちに before the news.</p>
-          </div>
-          <div class="mine">
-            <span class="use casual">Casual</span>
-            <img decoding="async" src="media/good_morning_call_000014754.jpg" alt="Scene from Good Morning Call" loading="lazy">
-            <p class="src">Good Morning Call · Season 2, Episode 9</p>
-            <div class="line">
-              <button class="play" type="button" data-src="media/good_morning_call_000014754.mp3" aria-label="Play audio"></button>
-              <p class="jp">それで 徹夜で<mark class="g">さ</mark></p>
-            </div>
-            <p class="en">"So we were up all night, and..."</p>
-            <p class="note">～でさ: the story keeps rolling, "and so...".</p>
-          </div>
-          <div class="mine">
-            <span class="use casual">Casual</span>
-            <img decoding="async" src="media/1_litre_of_tears_000000231.jpg" alt="Scene from 1 Litre of Tears" loading="lazy">
-            <p class="src">1 Litre of Tears · Episode 1</p>
-            <div class="line">
-              <button class="play" type="button" data-src="media/1_litre_of_tears_000000231.mp3" aria-label="Play audio"></button>
-              <p class="jp">別に怒ってないけど<mark class="g">さ</mark>。</p>
-            </div>
-            <p class="en">"I'm not angry or anything, but..."</p>
-            <p class="note">～けどさ: a soft "but...", and the rest hangs in the air.</p>
-          </div>
-          <div class="mine">
-            <span class="use casual">Casual</span>
-            <img decoding="async" src="media/million_yen_woman_000002226.jpg" alt="Scene from Million Yen Woman" loading="lazy">
-            <p class="src">Million Yen Woman · Episode 5</p>
-            <div class="line">
-              <button class="play" type="button" data-src="media/million_yen_woman_000002226.mp3" aria-label="Play audio"></button>
-              <p class="jp">今日の 自信作なんだけど<mark class="g">さあ</mark></p>
-            </div>
-            <p class="en">"This is today's best dish, so..."</p>
-            <p class="note">さあ is just a stretched さ.</p>
-          </div>
-          <div class="mine">
-            <span class="use casual">Casual</span>
-            <img decoding="async" src="media/the_journalist_000000405.jpg" alt="Scene from The Journalist" loading="lazy">
-            <p class="src">The Journalist · Episode 1</p>
-            <div class="line">
-              <button class="play" type="button" data-src="media/the_journalist_000000405.mp3" aria-label="Play audio"></button>
-              <p class="jp">いや 分かってんだけど<mark class="g">さ</mark></p>
-            </div>
-            <p class="en">"Yeah, I know, but..."</p>
-            <p class="note">Same けどさ, said while pushing back a little.</p>
-          </div>
-        </div>
-      </section>
-    </article>
-
     <!-- kana -->
     <section class="home kana-board" id="kana" data-page hidden>
       <div class="home-head">
@@ -27787,6 +27614,114 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
       </ul>
     </section>
 
+    <!-- jlpt -->
+    <section class="home jlpt" id="jlpt" data-page hidden>
+      <div class="home-head"><h1>JLPT: N5 and N4</h1></div>
+      <div class="lvl-note">
+        <p class="label">Next test</p>
+        <p>The next one is 6 December 2026, but sign-up for it has most likely closed by now. So the realistic next one is July 2027. Its date isn't announced yet: going by past years it should be Sunday 4 July, with sign-up around March or April. Checked 4 Nov 2026, so check again on the <a class="xref" href="https://www.jlpt.jp/e/application/overseas_index.html" target="_blank" rel="noopener">official site</a>.</p>
+      </div>
+      <div class="rwrap">
+        <div class="rcol">
+          <details class="level" id="jlpt-what" open><summary><span class="t">What it is</span></summary>
+            <div class="npad">
+              <p>The official Japanese test, run by the Japan Foundation and JEES, in Japan and many other countries. There are five levels: N5 is the easiest, N1 the hardest.</p>
+              <ul>
+                <li><b>Only reading and listening.</b> It's a multiple choice answer sheet with no speaking or writing. Most questions have four choices, some listening ones have three.</li>
+                <li><b>You pick your level.</b> The official site doesn't ask for a lower level first, it just says to choose one that suits you. There's no age limit.</li>
+                <li><b>The certificate never expires,</b> though a company or school can set its own limit.</li>
+              </ul>
+            </div>
+          </details>
+          <details class="level" id="jlpt-levels" open><summary><span class="t">N5 and N4</span></summary>
+            <div class="npad">
+              <div class="forms"><table>
+                <thead><tr><th></th><th>Reading</th><th>Listening</th></tr></thead>
+                <tbody>
+                  <tr><th><span class="lv n5">N5</span></th><td>Typical sentences in hiragana, katakana and basic kanji</td><td>Pick out what you need from short, slow conversations</td></tr>
+                  <tr><th><span class="lv n4">N4</span></th><td>Short passages on everyday topics, in basic words and kanji</td><td>Mostly follow everyday conversations, if they're fairly slow</td></tr>
+                </tbody>
+              </table></div>
+            </div>
+          </details>
+          <details class="level" id="jlpt-test" open><summary><span class="t">The test</span></summary>
+            <div class="npad">
+              <div class="forms"><table>
+                <thead><tr><th>Part</th><th>N5</th><th>N4</th></tr></thead>
+                <tbody>
+                  <tr><th>Vocabulary</th><td>20 min</td><td>25 min</td></tr>
+                  <tr><th>Grammar and reading</th><td>40 min</td><td>55 min</td></tr>
+                  <tr><th>Listening</th><td>30 min</td><td>35 min</td></tr>
+                  <tr><th>Total</th><td>90 min</td><td>115 min</td></tr>
+                </tbody>
+              </table></div>
+              <p class="nnote">Times can change a little, listening especially. You always take every part: you can't retake only the part you failed, and missing a part means you fail.</p>
+            </div>
+          </details>
+          <details class="level" id="jlpt-pass" open><summary><span class="t">Passing</span></summary>
+            <div class="npad">
+              <p>You need two things: enough points in total, and the minimum in each of the two scores.</p>
+              <div class="forms"><table>
+                <thead><tr><th>Score</th><th>Out of</th><th>You need</th></tr></thead>
+                <tbody>
+                  <tr><th>Vocabulary, grammar and reading</th><td>120</td><td>38</td></tr>
+                  <tr><th>Listening</th><td>60</td><td>19</td></tr>
+                  <tr><th>Total</th><td>180</td><td><span class="lv n5">N5</span> 80 &nbsp; <span class="lv n4">N4</span> 90</td></tr>
+                </tbody>
+              </table></div>
+              <p class="nnote">So 100 points in total with 15 for listening is a fail, on both levels. Scores are scaled, not a count of right answers, so there's no fixed number of correct answers that passes.</p>
+            </div>
+          </details>
+          <details class="level" id="jlpt-study" open><summary><span class="t">What to study</span></summary>
+            <div class="npad">
+              <p>The JLPT hasn't published official lists since 2010, so every number here is an estimate. The ones you'll see most:</p>
+              <div class="forms"><table>
+                <thead><tr><th></th><th>Words</th><th>Kanji</th><th>Hours from zero</th></tr></thead>
+                <tbody>
+                  <tr><th><span class="lv n5">N5</span></th><td>about 800</td><td>about 100</td><td>250 to 600</td></tr>
+                  <tr><th><span class="lv n4">N4</span></th><td>about 1,500</td><td>about 300</td><td>400 to 1,000</td></tr>
+                </tbody>
+              </table></div>
+              <p class="nnote">N4's numbers include N5's. Hours vary a lot between sources, and people who already know kanji need fewer.</p>
+              <p>A simple order:</p>
+              <ol>
+                <li><b>See the format first.</b> Try the official sample questions: <a class="xref" href="https://www.jlpt.jp/e/samples/n5/index.html" target="_blank" rel="noopener">N5</a>, <a class="xref" href="https://www.jlpt.jp/e/samples/n4/index.html" target="_blank" rel="noopener">N4</a>.</li>
+                <li><b>Learn the material.</b> On this site: <a class="xref" href="#home">N5 grammar</a>, the <a class="xref" href="#vocab-n5">N5 vocabulary list</a> and the <a class="xref" href="#kanji">N5 and N4 kanji</a>.</li>
+                <li><b>Listen every week.</b> It has its own minimum score, so strong reading can't make up for weak listening.</li>
+                <li><b>Do timed practice.</b> Near the test, use the <a class="xref" href="https://www.jlpt.jp/e/samples/sampleindex.html" target="_blank" rel="noopener">Official Practice Workbook</a> with a clock running.</li>
+              </ol>
+            </div>
+          </details>
+          <details class="level" id="jlpt-dates" open><summary><span class="t">Dates and deadlines</span></summary>
+            <div class="npad">
+              <p>The test is twice a year, on a Sunday in July and December. Some cities outside Japan only hold one of them.</p>
+              <div class="forms"><table>
+                <thead><tr><th></th><th>July test</th><th>December test</th></tr></thead>
+                <tbody>
+                  <tr><th>Sign up</th><td>about March to April</td><td>about August to September</td></tr>
+                  <tr><th>Voucher arrives</th><td>early July</td><td>early December</td></tr>
+                  <tr><th>Test in 2026</th><td>5 July</td><td>6 December</td></tr>
+                  <tr><th>Results, in Japan</th><td>early September</td><td>early February</td></tr>
+                  <tr><th>Results, abroad</th><td>early October</td><td>early March</td></tr>
+                </tbody>
+              </table></div>
+              <p class="nnote">Sign-up months are a rough guide, because every test city sets its own deadline and fee.</p>
+              <p><b>Signing up:</b> outside Japan, find your city and its local organizer in the <a class="xref" href="https://www.jlpt.jp/e/application/overseas_list.html" target="_blank" rel="noopener">official list of test cities</a>, then follow their instructions and pay them. In Japan, it goes through the <a class="xref" href="https://www.jlpt.jp/e/application/domestic_index.html" target="_blank" rel="noopener">Japan sign-up page</a>.</p>
+              <p><b>Results:</b> everyone gets a score report, and if you pass, a certificate too.</p>
+            </div>
+          </details>
+        </div>
+        <nav class="toc" aria-label="JLPT"><p class="label">JLPT</p><ul>
+          <li><a href="#jlpt-what">What it is</a></li>
+          <li><a href="#jlpt-levels">N5 and N4</a></li>
+          <li><a href="#jlpt-test">The test</a></li>
+          <li><a href="#jlpt-pass">Passing</a></li>
+          <li><a href="#jlpt-study">What to study</a></li>
+          <li><a href="#jlpt-dates">Dates and deadlines</a></li>
+        </ul></nav>
+      </div>
+    </section>
+
     <!-- note-polite-careful -->
     <article class="note has-back" id="note-polite-careful" data-page hidden>
       <a class="back" href="#notes"><span class="tri" aria-hidden="true"></span>All notes</a>
@@ -27994,12 +27929,13 @@ var INDEX = [
       ['ndesu', '～んです・のです', 'Explaining, giving the reason'],
       ['noha-noga', 'のは・のが', 'Turning an action into a noun']
     ]}
-  ]},
-  {level: 'N3', cats: [
-    {cat: 'Casual speech', pages: [
-      ['sa', 'さ', 'Casual filler: "like", "you know"']
-    ]}
   ]}
+  // N3 is hidden for now (the site is N5-N4 only). To bring it back: uncomment this group and empty HIDDEN in build.py.
+  // ,{level: 'N3', cats: [
+  //   {cat: 'Casual speech', pages: [
+  //     ['sa', 'さ', 'Casual filler: "like", "you know"']
+  //   ]}
+  // ]}
 ];
 var UPDATED = '4 Nov 2026';
 
@@ -28054,6 +27990,7 @@ var UPDATED = '4 Nov 2026';
     '<a class="nav" href="' + href('kanji') + '">字 Kanji</a>' +
     '<a class="nav" href="' + href('notes') + '"><svg class="pad" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l1-4.5L16.5 4a2.1 2.1 0 0 1 3 0l.5.5a2.1 2.1 0 0 1 0 3L8.5 19 4 20z"/><path d="M14.5 6l3.5 3.5"/></svg> Notes</a>' +
     '<a class="nav" href="' + href('resources') + '"><svg class="pad" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6.5C10.5 5 8 4.5 3.5 4.5v14c4.5 0 7 .5 8.5 2 1.5-1.5 4-2 8.5-2v-14C16 4.5 13.5 5 12 6.5z"/><path d="M12 6.5v14"/></svg> Resources</a>' +
+    '<a class="nav" href="' + href('jlpt') + '">試 JLPT</a>' +
     '<div class="find"><input id="find" type="search" placeholder="Search: は, topic, wa…" aria-label="Search grammar" autocomplete="off">' +
       '<ol class="results" id="results" hidden></ol></div>' +
     '</div>' +

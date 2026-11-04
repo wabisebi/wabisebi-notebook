@@ -217,7 +217,7 @@ main:has(.home:not([hidden])) .foot{max-width:1080px}
 .theme{flex:none;display:flex;align-items:center;justify-content:center;width:36px;height:36px;margin:-4px 0;border:1px solid var(--plain-line);border-radius:50%;background:var(--plain);color:var(--ink);cursor:pointer;padding:0}
 .theme:hover{color:var(--gold);border-color:var(--gold)}
 .theme:focus-visible{outline:2px solid var(--indigo);outline-offset:2px}
-@media (max-width:960px){
+@media (max-width:1060px){
   .brand .label{display:none}
   .burger{display:flex;align-items:center;justify-content:center;width:44px;height:44px;margin:-6px -8px -6px 0;border:0;border-radius:8px;background:none;color:var(--ink);cursor:pointer}
   .burger{order:1}
@@ -501,8 +501,8 @@ main:has(.home:not([hidden])) .foot{max-width:1080px}
 .kana-group.open .kana-drop,.kana-group:hover .kana-drop{display:flex}
 .kana-drop .nav{padding:8px 10px;border-radius:6px}
 .kana-drop .nav:hover{background:color-mix(in srgb,var(--gold) 10%,transparent)}
-@media (min-width:961px){.top .m-only{display:none}}
-@media (max-width:960px){.kana-group{display:none}}
+@media (min-width:1061px){.top .m-only{display:none}}
+@media (max-width:1060px){.kana-group{display:none}}
 
 /* grammar pages: "N5 grammar" button back to the grid. Narrow screens: above the card on the left, stays there when scrolling.
    Wide screens: in the empty space left of the card, sticky so it follows the page down just under the top bar. The margins cancel its height and the article's gap, so it takes no room in the card. */
@@ -515,3 +515,13 @@ article .back{position:absolute;left:0;top:-44px;display:inline-flex;align-items
 }
 article .back:hover{border-color:var(--gold);color:var(--gold)}
 article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:transparent currentColor transparent transparent}   /* the play button's triangle, pointing left */
+
+/* JLPT page: plain reading text and tables */
+.jlpt .npad>p,.jlpt .npad li{font-size:15px;line-height:1.6}
+.jlpt .npad>p{margin:0 0 12px}
+.jlpt .npad ul,.jlpt .npad ol{margin:0 0 4px;padding-left:22px}
+.jlpt .npad li{margin-bottom:8px}
+.jlpt .forms{margin:0 0 12px}
+.jlpt .forms td{font-size:15px;font-weight:400}
+.jlpt .forms tbody th{white-space:normal;width:auto;min-width:64px}
+.jlpt .forms tr:last-child th,.jlpt .forms tr:last-child td{border-bottom:0}

@@ -10,7 +10,9 @@ def read(*p):
 
 site_js = read('strokes.js') + read('site.js')
 css = read('style.css')
-ids = ['start', 'home', 'home-n3'] + re.findall(r"\['([a-z0-9-]+)',", site_js) + ['kana', 'katakana', 'kanji', 'numbers', 'vocab-n5', 'resources', 'notes'] + sorted(f[:-5] for f in os.listdir(os.path.join(root, 'pages')) if f.startswith('note-'))  # start first: it's the page index.html opens on; start, kana, katakana, kanji, numbers, vocab-n5, resources, notes and the note-* pages are not in INDEX
+HIDDEN = ['home-n3', 'sa']  # kept in pages/ but left out of the site for now (the N3 group is commented out in site.js)
+ids = ['start', 'home'] + re.findall(r"\['([a-z0-9-]+)',", site_js) + ['kana', 'katakana', 'kanji', 'numbers', 'vocab-n5', 'resources', 'notes', 'jlpt'] + sorted(f[:-5] for f in os.listdir(os.path.join(root, 'pages')) if f.startswith('note-'))  # start first: it's the page index.html opens on; start, kana, katakana, kanji, numbers, vocab-n5, resources, notes and the note-* pages are not in INDEX
+ids = [i for i in ids if i not in HIDDEN]
 
 fonts = ''
 parts = []

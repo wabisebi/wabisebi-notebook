@@ -160,12 +160,13 @@ var INDEX = [
       ['ndesu', '～んです・のです', 'Explaining, giving the reason'],
       ['noha-noga', 'のは・のが', 'Turning an action into a noun']
     ]}
-  ]},
-  {level: 'N3', cats: [
-    {cat: 'Casual speech', pages: [
-      ['sa', 'さ', 'Casual filler: "like", "you know"']
-    ]}
   ]}
+  // N3 is hidden for now (the site is N5-N4 only). To bring it back: uncomment this group and empty HIDDEN in build.py.
+  // ,{level: 'N3', cats: [
+  //   {cat: 'Casual speech', pages: [
+  //     ['sa', 'さ', 'Casual filler: "like", "you know"']
+  //   ]}
+  // ]}
 ];
 var UPDATED = '4 Nov 2026';
 
@@ -220,6 +221,7 @@ var UPDATED = '4 Nov 2026';
     '<a class="nav" href="' + href('kanji') + '">字 Kanji</a>' +
     '<a class="nav" href="' + href('notes') + '"><svg class="pad" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l1-4.5L16.5 4a2.1 2.1 0 0 1 3 0l.5.5a2.1 2.1 0 0 1 0 3L8.5 19 4 20z"/><path d="M14.5 6l3.5 3.5"/></svg> Notes</a>' +
     '<a class="nav" href="' + href('resources') + '"><svg class="pad" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6.5C10.5 5 8 4.5 3.5 4.5v14c4.5 0 7 .5 8.5 2 1.5-1.5 4-2 8.5-2v-14C16 4.5 13.5 5 12 6.5z"/><path d="M12 6.5v14"/></svg> Resources</a>' +
+    '<a class="nav" href="' + href('jlpt') + '">試 JLPT</a>' +
     '<div class="find"><input id="find" type="search" placeholder="Search: は, topic, wa…" aria-label="Search grammar" autocomplete="off">' +
       '<ol class="results" id="results" hidden></ol></div>' +
     '</div>' +
