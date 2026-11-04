@@ -152,6 +152,9 @@ h2::before{background:var(--gold);width:3px}
 .home-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap}
 .lvl-note{background:color-mix(in srgb,var(--n3) 8%,transparent);border:1px solid color-mix(in srgb,var(--n3) 25%,transparent);border-radius:10px;padding:14px 18px;margin:14px 0 20px;max-width:720px}
 .lvl-note p{margin:0;font-size:14px;line-height:1.55;color:var(--muted)}
+.lvl-note.welcome{background:color-mix(in srgb,var(--n3) 22%,transparent);border-color:color-mix(in srgb,var(--n3) 60%,transparent)}
+.lvl-note.welcome p{font-size:16px;color:var(--ink)}
+.lvl-note.welcome p+p{margin-top:8px}
 .lvl-note p.label{margin-bottom:6px;color:var(--n3)}
 .home h1{font-family:var(--body);font-weight:600;font-size:clamp(30px,5.5vw,40px);letter-spacing:-.01em;line-height:1.15;margin:4px 0 0}
 .level + .level{margin-top:28px}

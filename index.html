@@ -161,6 +161,9 @@ h2::before{background:var(--gold);width:3px}
 .home-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap}
 .lvl-note{background:color-mix(in srgb,var(--n3) 8%,transparent);border:1px solid color-mix(in srgb,var(--n3) 25%,transparent);border-radius:10px;padding:14px 18px;margin:14px 0 20px;max-width:720px}
 .lvl-note p{margin:0;font-size:14px;line-height:1.55;color:var(--muted)}
+.lvl-note.welcome{background:color-mix(in srgb,var(--n3) 22%,transparent);border-color:color-mix(in srgb,var(--n3) 60%,transparent)}
+.lvl-note.welcome p{font-size:16px;color:var(--ink)}
+.lvl-note.welcome p+p{margin-top:8px}
 .lvl-note p.label{margin-bottom:6px;color:var(--n3)}
 .home h1{font-family:var(--body);font-weight:600;font-size:clamp(30px,5.5vw,40px);letter-spacing:-.01em;line-height:1.15;margin:4px 0 0}
 .level + .level{margin-top:28px}
@@ -543,18 +546,11 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
   <main>
     <!-- start -->
     <section class="home" id="start" data-page hidden>
-      <div class="home-head"><h1>Wabisebi Notebook</h1></div>
-      <nav class="hub">
-        <a class="hcard" href="#home"><span class="g">文</span><span class="t">Grammar</span><span class="d">Every grammar point, one page each</span></a>
-        <a class="hcard" href="#kana"><span class="g">あ</span><span class="t">Hiragana</span><span class="d">Chart with stroke order</span></a>
-        <a class="hcard" href="#katakana"><span class="g">ア</span><span class="t">Katakana</span><span class="d">Chart with stroke order</span></a>
-        <a class="hcard" href="#kanji"><span class="g">字</span><span class="t">Kanji</span><span class="d">The N5 and N4 kanji with stroke order</span></a>
-        <a class="hcard" href="#vocab-n5"><span class="g">語</span><span class="t">N5 Vocabulary List</span><span class="d">Every N5 word with kana, romaji and meaning</span></a>
-        <a class="hcard" href="#vocab-n4"><span class="g">彙</span><span class="t">N4 Vocabulary List</span><span class="d">The N4 words on top of N5, with kana, romaji and meaning</span></a>
-        <a class="hcard" href="#resources"><span class="g">棚</span><span class="t">Resources</span><span class="d">Useful channels, sites and tools</span></a>
-        <a class="hcard" href="#notes"><span class="g">記</span><span class="t">Notes</span><span class="d">Short notes on things that confuse me</span></a>
-        <a class="hcard" href="#jlpt"><span class="g">試</span><span class="t">JLPT</span><span class="d">How the five levels work, and when the tests are</span></a>
-      </nav>
+      <div class="home-head"><h1>Welcome to Wabisebi Notebook</h1></div>
+      <div class="lvl-note welcome">
+        <p>This is my personal Japanese notebook: one page per grammar point, with real clips from shows, plus kana and kanji charts, vocabulary lists, JLPT info and useful resources.</p>
+        <p>Everything is in the menu at the top.</p>
+      </div>
     </section>
 
     <!-- home -->
@@ -28210,15 +28206,6 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
       </div>
     </section>
 
-    <!-- notes -->
-    <section class="home" id="notes" data-page hidden>
-      <div class="home-head"><h1>Notes</h1></div>
-
-      <ul class="rlist notes">
-        <li><a class="rcard" href="#note-polite-careful"><span class="av glyph">礼</span><span class="t">Sounding formal isn't being polite</span><span class="tags"></span><span class="d">ではなかった sounds formal, but only です makes a sentence polite.</span></a></li>
-      </ul>
-    </section>
-
     <!-- jlpt -->
     <section class="home jlpt" id="jlpt" data-page hidden>
       <div class="home-head"><h1>JLPT</h1></div>
@@ -28338,44 +28325,6 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
         </ul></nav>
       </div>
     </section>
-
-    <!-- note-polite-careful -->
-    <article class="note has-back" id="note-polite-careful" data-page hidden>
-      <a class="back" href="#notes"><span class="tri" aria-hidden="true"></span>All notes</a>
-      <div class="home-head"><h1>Sounding formal isn't being polite</h1></div>
-        <div class="intro">
-          <p>ではなかった sounds stiff and formal. But it isn't polite. In Japanese, those are two different things:</p>
-          <p><b>Polite</b> = です at the end. Respect for the person you're talking to.<br>
-          <b>Formal-sounding</b> = では instead of じゃ. Just the wording. (じゃ is では said quickly.)</p>
-          <p class="jp">休み<mark class="g">じゃなかった</mark>。</p>
-          <p>"It wasn't a day off." Here it is four ways. All four mean the same thing.</p>
-        </div>
-        <div class="forms">
-          <table>
-            <thead><tr><th></th><th>Sounds relaxed</th><th>Sounds formal</th></tr></thead>
-            <tbody>
-              <tr><th>Not polite</th><td>じゃなかった</td><td>ではなかった</td></tr>
-              <tr><th>Polite</th><td>じゃなかったです</td><td>ではなかったです</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="intro">
-          <p>English works the same way. Think of "sir" as です:</p>
-        </div>
-        <div class="forms">
-          <table>
-            <thead><tr><th></th><th>Sounds relaxed</th><th>Sounds formal</th></tr></thead>
-            <tbody>
-              <tr><th>Not polite</th><td>It wasn't.</td><td>It was not.</td></tr>
-              <tr><th>Polite</th><td>It wasn't, sir.</td><td>It was not, sir.</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="intro">
-          <p>"It was not." sounds formal, but it isn't polite. Same with ではなかった.</p>
-          <p><b>To remember:</b> only です makes it polite. じゃ or では only changes how it sounds.</p>
-        </div>
-    </article>
 
     <p class="foot" id="foot"></p>
   </main>
@@ -28606,7 +28555,6 @@ var UPDATED = '4 Nov 2026';
     '<a class="nav m-only" href="' + href('kana') + '">あ Hiragana</a>' +
     '<a class="nav m-only" href="' + href('katakana') + '">ア Katakana</a>' +
     '<a class="nav" href="' + href('kanji') + '">字 Kanji</a>' +
-    '<a class="nav" href="' + href('notes') + '"><svg class="pad" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l1-4.5L16.5 4a2.1 2.1 0 0 1 3 0l.5.5a2.1 2.1 0 0 1 0 3L8.5 19 4 20z"/><path d="M14.5 6l3.5 3.5"/></svg> Notes</a>' +
     '<a class="nav" href="' + href('resources') + '"><svg class="pad" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6.5C10.5 5 8 4.5 3.5 4.5v14c4.5 0 7 .5 8.5 2 1.5-1.5 4-2 8.5-2v-14C16 4.5 13.5 5 12 6.5z"/><path d="M12 6.5v14"/></svg> Resources</a>' +
     '<div class="find"><input id="find" type="search" placeholder="Search: は, topic, wa…" aria-label="Search grammar" autocomplete="off">' +
       '<ol class="results" id="results" hidden></ol></div>' +
