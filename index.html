@@ -27972,6 +27972,7 @@ var UPDATED = '4 Nov 2026';
     '<a class="brand" href="' + href('start') + '"><span class="t">Wabisebi Japanese</span></a>' +
     '<button class="burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="menu"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>' +
     '<div class="menu" id="menu">' +
+    '<a class="nav" href="' + href('jlpt') + '"><svg class="pad" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4.5" width="14" height="16.5" rx="2"/><path d="M9 3h6v3H9z"/><path d="M8.5 13l2.5 2.5 4.5-5"/></svg> JLPT</a>' +
     // wide screens: "Grammar", "Vocabulary" and "Kana" are dropdowns (one page per level; Hiragana and Katakana); phones keep the links in the ☰ menu
     '<div class="kana-group"><button class="nav kana-btn" type="button" aria-expanded="false"><svg class="pad" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></svg> Grammar <svg class="chev" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>' +
       '<div class="kana-drop">' + INDEX.map(function(g){ return '<a class="nav" href="' + href(gridId(g.level)) + '">' + g.level + ' Grammar</a>'; }).join('') + '</div></div>' +
@@ -27990,7 +27991,6 @@ var UPDATED = '4 Nov 2026';
     '<a class="nav" href="' + href('kanji') + '">字 Kanji</a>' +
     '<a class="nav" href="' + href('notes') + '"><svg class="pad" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l1-4.5L16.5 4a2.1 2.1 0 0 1 3 0l.5.5a2.1 2.1 0 0 1 0 3L8.5 19 4 20z"/><path d="M14.5 6l3.5 3.5"/></svg> Notes</a>' +
     '<a class="nav" href="' + href('resources') + '"><svg class="pad" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6.5C10.5 5 8 4.5 3.5 4.5v14c4.5 0 7 .5 8.5 2 1.5-1.5 4-2 8.5-2v-14C16 4.5 13.5 5 12 6.5z"/><path d="M12 6.5v14"/></svg> Resources</a>' +
-    '<a class="nav" href="' + href('jlpt') + '">試 JLPT</a>' +
     '<div class="find"><input id="find" type="search" placeholder="Search: は, topic, wa…" aria-label="Search grammar" autocomplete="off">' +
       '<ol class="results" id="results" hidden></ol></div>' +
     '</div>' +
