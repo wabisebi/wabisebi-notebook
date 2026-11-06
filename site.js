@@ -275,6 +275,7 @@ var UPDATED = '4 Nov 2026';
   // the check at the bottom right of each card: points Seb has learned, remembered in this browser
   var LEARNED = 'wabisebi-learned';
   var learned = [];
+  var NOCHECK = ['nani', 'dare', 'doko', 'itsu', 'dore', 'dono']; // no Learned check on these cards (Seb, 6 Nov 2026)
   try { learned = JSON.parse(localStorage.getItem(LEARNED)) || []; } catch (err) {}
   grids.forEach(function(grid){
     var lvl = INDEX.filter(function(g){ return g.level === grid.getAttribute('data-level'); });
@@ -287,7 +288,7 @@ var UPDATED = '4 Nov 2026';
     grid.innerHTML = '<div class="rwrap"><div class="rcol">' + lvl.map(function(g){
       var cards = function(pages, check){ return pages.map(function(p){
         return '<li><a class="gcard" href="' + href(p[0]) + '" data-k="' + (p[0] + ' ' + p[1] + ' ' + p[2]).toLowerCase() + '">' +
-          '<span class="p">' + p[1] + '</span><span class="d">' + p[2] + '</span><span class="lv ' + g.level.toLowerCase() + '">' + g.level + '</span></a>' + (!check ? '' :
+          '<span class="p">' + p[1] + '</span><span class="d">' + p[2] + '</span><span class="lv ' + g.level.toLowerCase() + '">' + g.level + '</span></a>' + (!check || NOCHECK.indexOf(p[0]) > -1 ? '' :
           '<button class="learn" type="button" data-id="' + p[0] + '" aria-pressed="' + (learned.indexOf(p[0]) > -1) + '" aria-label="Learned" title="Learned">' +
           '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 12.5l3.5 3.5 7.5-8"/></svg></button>') + '</li>';
       }).join(''); };
