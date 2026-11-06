@@ -245,6 +245,9 @@ main:has(.home:not([hidden])) .foot{max-width:1080px}
 .lead .explain{margin-top:12px;padding-top:14px;border-top:1px solid var(--mine-line);display:grid;gap:8px}
 .lead .explain p{margin:0}
 .lead .explain b{color:var(--gram);font-weight:600}
+.lead .explain .exlist{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.lead .explain .exlist .jp{font-size:inherit;margin:0;display:inline}
+.lead .explain .exlist .tr{color:var(--muted)}
 .sub{font-size:18px;color:var(--muted);margin:6px 0 0}
 .lead .use{margin:0 0 8px}
 /* second intro card: the other form (polite/casual), kept short */
