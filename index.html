@@ -468,6 +468,9 @@ main:has(.home:not([hidden])) .foot{max-width:1080px}
 @media (max-width:520px){.twoforms tbody th.ends{word-spacing:0;font-size:15px}.twoforms th.ends~td{padding-left:4px;padding-right:4px}}
 .twoforms tbody th.ends.odd{font-family:var(--mono);font-size:12px;color:var(--muted)}
 .twoforms .hint{margin-left:10px;font-size:13px;font-weight:400;color:var(--muted)}
+/* が page: the は vs が box, deep-topic line on top */
+.forms.deep .m{margin:8px 0 4px;padding:0 0 12px;border-bottom:1px solid var(--line);color:var(--ink)}
+.forms.deep tr:last-child td{border-bottom:0}
 
 /* がある + Noun and Verb + Noun: the parts color coded, nouns softly tinted so the grammar stays the loudest */
 .nb{color:color-mix(in srgb,var(--n5) 55%,var(--muted))}
@@ -6603,32 +6606,43 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
           <p class="sub"></p>
         </div>
       </div>
+      <div class="forms twoforms deep">
+        <p class="m">は vs が is a deep topic: whole books are written about it. This rule covers most sentences you'll meet. The rest comes with time and lots of listening.</p>
+        <table>
+          <thead><tr><th></th><th>A bit more emphasis on</th><th>Example</th></tr></thead>
+          <tbody>
+            <tr><td><mark class="g">が</mark></td><td>what comes <span class="nb">before</span> it</td><td><span class="nb">私</span><mark class="g">が</mark>行く<span class="hint">"It's <b class="nb">ME</b> who goes." (not someone else)</span></td></tr>
+            <tr><td>は</td><td>what comes <span class="nb">after</span> it</td><td>私は<span class="nb">行く</span><span class="hint">"As for me, I'll <b class="nb">GO</b>." (not stay home)</span></td></tr>
+          </tbody>
+        </table>
+      </div>
       <div class="lead">
-        <span class="use polite">Polite</span>
-        <img decoding="async" loading="lazy" src="media/9a0ddcb3e91.webp" alt="Cherry blossoms in full bloom">
-        <p class="src">Source unknown</p>
+        <span class="use casual">Casual</span>
+        <img decoding="async" loading="lazy" src="media/demonslayer2_05_07m58s.jpg" alt="Scene from Demon Slayer">
+        <p class="src">Demon Slayer · Mugen Train Arc · Episode 5</p>
         <div class="line">
-          <button class="play" type="button" data-src="media/dcb3e91ca6e.m4a" aria-label="Play audio"></button>
-          <p class="jp">桜<mark class="g">が</mark>満開です</p>
+          <button class="play" type="button" data-src="media/demonslayer2_05_07m58s.mp3" aria-label="Play audio"></button>
+          <p class="jp">禰豆子ちゃんは 俺<mark class="g">が</mark>守る</p>
         </div>
-        <p class="en">"The cherry blossoms are in full bloom."</p>
+        <p class="en">"Nezuko-chan... it's <b class="nb">ME</b> who protects her!"</p>
         <div class="explain">
-          <p><mark class="g">が</mark> marks <b>who or what does something or is in some state</b>, when that's new information. It goes right after the noun: 桜 + が + 満開です.</p>
-          <p>On this card, you notice something new: the blossoms are out. The sentence answers "What's happening?", and が presents 桜 as the news.</p>
-          <p>With は (桜は満開です) it would mean "as for the cherry blossoms, they're in full bloom": talking about blossoms you were already discussing, not announcing them.</p>
+          <p><mark class="g">が</mark> goes right after a noun and puts <b>a bit more emphasis on that noun</b>. Here the noun is 俺: 俺 + が + 守る.</p>
+          <p>On this card, Zenitsu decides he will protect Nezuko. 禰豆子ちゃんは sets the topic, and 俺が puts the emphasis on him: "it's ME, not someone else."</p>
+          <p>Hidden question: who protects Nezuko? Answer: <b>me</b>.</p>
         </div>
       </div>
       <div class="lead second">
-        <span class="use casual">Casual</span>
-        <img decoding="async" loading="lazy" src="media/09ed8bef100.webp" alt="Scene from a YouTube video">
-        <p class="src">YouTube · <a href="https://www.youtube.com/watch?v=UJyBgOdh9IA">video</a></p>
+        <span class="use polite">Polite</span>
+        <img decoding="async" loading="lazy" src="media/litreoftears01_44m09s.jpg" alt="Scene from 1 Litre of Tears">
+        <p class="src">1 Litre of Tears · Episode 1</p>
         <div class="line">
-          <button class="play" type="button" data-src="media/8bef1002444.mp3" aria-label="Play audio"></button>
-          <p class="jp">なんか、建物<mark class="g">が</mark>めちゃめちゃ高い！</p>
+          <button class="play" type="button" data-src="media/litreoftears01_44m09s.mp3" aria-label="Play audio"></button>
+          <p class="jp">検査の結果<mark class="g">が</mark>出ました。</p>
         </div>
-        <p class="en">"Whoa, the buildings are super tall!"</p>
+        <p class="en">"The test results are in." <span class="ctx">[the doctor, calling out of the blue]</span></p>
         <div class="explain">
-          <p><mark class="g">が</mark> points at the thing you just noticed. On this card, he has just noticed the buildings, so 建物 gets が. No です at the end, so it's casual.</p>
+          <p>The emphasis can also be soft. On this card, the doctor just puts the test results up front, because that's why he's calling.</p>
+          <p>With は (検査の結果は出ました) the emphasis moves to 出ました: "The results? They're <b>IN</b>."</p>
         </div>
       </div>
       <section>
@@ -6650,22 +6664,48 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
             <p class="sit">A friend asks what kind of animals you like.</p>
             <p class="jp">猫<mark class="g">が</mark>好き。</p>
             <p class="en">"I like cats."</p>
+            <p class="note">With 好き, the thing you like always takes が. That's just how 好き works, no extra emphasis.</p>
             <span class="use casual">Casual</span>
           </div>
         </div>
       </section>
       <section>
         <h2>は or が?</h2>
+        <p style="margin:0 0 14px">With <b>が</b>, the emphasis is on the word <b>before</b> it. With <b>は</b>, the word before is just the topic, and the emphasis is on what comes <b>after</b>.</p>
         <div class="compare">
           <div class="cbox">
             <span class="label">With は</span>
             <p class="jp">私はセブです。</p>
-            <p>Introducing yourself. "Me? I'm Seb."</p>
+            <p>Introducing yourself. "Me? I'm SEB." The emphasis is on <b>セブ</b>.</p>
           </div>
           <div class="cbox yes">
             <span class="label">With が</span>
             <p class="jp">私<mark class="g">が</mark>セブです。</p>
-            <p>A client looks around asking "which one is Seb?" You raise your hand: "I'm Seb."</p>
+            <p>A client looks around asking "which one is Seb?" You raise your hand: "It's ME, I'm Seb." The emphasis is on <b>私</b>.</p>
+          </div>
+        </div>
+        <div class="compare" style="margin-top:12px">
+          <div class="cbox">
+            <span class="label">With は</span>
+            <p class="jp">田中さんは来たよ。</p>
+            <p>A friend asks "And Tanaka?" You answer: "Tanaka? He came." Tanaka is the topic, the emphasis is on <b>来た</b>.</p>
+          </div>
+          <div class="cbox yes">
+            <span class="label">With が</span>
+            <p class="jp">田中さん<mark class="g">が</mark>来たよ。</p>
+            <p>A friend asks "Who came?" You answer: "TANAKA came." The emphasis is on <b>田中さん</b>, the answer to "who".</p>
+          </div>
+        </div>
+        <div class="compare" style="margin-top:12px">
+          <div class="cbox">
+            <span class="label">With は</span>
+            <p class="jp">猫はソファーにいるよ。</p>
+            <p>Someone asks where the cat is. "The cat? It's on the SOFA." The emphasis is on <b>where</b>.</p>
+          </div>
+          <div class="cbox yes">
+            <span class="label">With が</span>
+            <p class="jp">あ、猫<mark class="g">が</mark>いる！</p>
+            <p>You walk into a room and spot a cat. "Oh, there's a CAT!" The emphasis is on <b>the cat</b>.</p>
           </div>
         </div>
       </section>
@@ -6674,25 +6714,25 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
         <div class="mines">
           <div class="mine">
             <span class="use polite">Polite</span>
-            <img decoding="async" src="media/646716a93ae.webp" alt="Scene from a YouTube video" loading="lazy">
-            <p class="src">YouTube · <a href="https://www.youtube.com/watch?v=L1ETlgnoN9E">video</a></p>
+            <img decoding="async" src="media/kekkon11_32m03s.jpg" alt="Scene from Kekkon Dekinai Otoko" loading="lazy">
+            <p class="src">Kekkon Dekinai Otoko · Episode 11</p>
             <div class="line">
-              <button class="play" type="button" data-src="media/ae64d11e8f9.mp3" aria-label="Play audio"></button>
-              <p class="jp">お腹<mark class="g">が</mark>ぺこぺこです。</p>
+              <button class="play" type="button" data-src="media/kekkon11_32m03s.mp3" aria-label="Play audio"></button>
+              <p class="jp">今夜から みちるちゃんは 私<mark class="g">が</mark>家まで送ります</p>
             </div>
-            <p class="en">"I'm starving."</p>
-            <p class="note">Literally "my stomach is empty". が marks what's empty: the stomach.</p>
+            <p class="en">"From tonight, it's <b class="nb">ME</b> who takes Michiru home." <span class="ctx">[not you]</span></p>
+            <p class="note">みちるちゃんは sets the topic, 私が puts the emphasis on her. Next she says: "I won't ask you anymore."</p>
           </div>
           <div class="mine">
             <span class="use polite">Polite</span>
-            <img decoding="async" src="media/c24b0743529.webp" alt="Scene from a YouTube video" loading="lazy">
-            <p class="src">YouTube · <a href="https://www.youtube.com/watch?v=yYgTimxVU3Y">video</a></p>
+            <img decoding="async" src="media/goodmorningcall12_34m58s.jpg" alt="Scene from Good Morning Call" loading="lazy">
+            <p class="src">Good Morning Call · Episode 12</p>
             <div class="line">
-              <button class="play" type="button" data-src="media/29507173fbe.mp3" aria-label="Play audio"></button>
-              <p class="jp">けっこう短めの方<mark class="g">が</mark>好きです。</p>
+              <button class="play" type="button" data-src="media/goodmorningcall12_34m58s.mp3" aria-label="Play audio"></button>
+              <p class="jp">全部 俺<mark class="g">が</mark>悪いんです</p>
             </div>
-            <p class="en">"I like it on the shorter side."</p>
-            <p class="note">Likes take が, like 猫が好き. Here the thing liked is 短めの方 (the shorter option).</p>
+            <p class="en">"It's all <b class="nb">MY</b> fault." <span class="ctx">[not hers]</span></p>
+            <p class="note">Hidden question: whose fault is it? Answer: <b>me</b>. He takes the blame so she doesn't get it.</p>
           </div>
           <div class="mine">
             <span class="use polite">Polite</span>
@@ -6703,7 +6743,7 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
               <p class="jp">一緒に住む カップル<mark class="g">が</mark>いました</p>
             </div>
             <p class="en">"There was a couple living together."</p>
-            <p class="note">カップル + が: が marks who was there.</p>
+            <p class="note">The emphasis is on カップル: that's who was there.</p>
           </div>
           <div class="mine">
             <span class="use polite">Polite</span>
@@ -6714,29 +6754,7 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
               <p class="jp">家族<mark class="g">が</mark>いました</p>
             </div>
             <p class="en">"He had a family."</p>
-            <p class="note">家族 ("family") + が + いました: が marks who existed.</p>
-          </div>
-          <div class="mine">
-            <span class="use casual">Casual</span>
-            <img decoding="async" src="media/shirokumacafes01e02_13m36s107ms.webp" alt="Scene from Shirokuma Cafe" loading="lazy">
-            <p class="src">Shirokuma Cafe · Season 1, Episode 2</p>
-            <div class="line">
-              <button class="play" type="button" data-src="media/shirokumacafes01e02_13m34s660ms_13m36s150ms.mp3" aria-label="Play audio"></button>
-              <p class="jp">情緒<mark class="g">が</mark>ないなぁ</p>
-            </div>
-            <p class="en">"No sense of atmosphere."</p>
-            <p class="note">が marks what's missing: 情緒 is the thing that isn't there.</p>
-          </div>
-          <div class="mine">
-            <span class="use casual">Casual</span>
-            <img decoding="async" src="media/59ae0ae70e3.webp" alt="Scene from Shirokuma Cafe" loading="lazy">
-            <p class="src">Shirokuma Cafe · Season 1, Episode 1</p>
-            <div class="line">
-              <button class="play" type="button" data-src="media/0ae70e39fcd.mp3" aria-label="Play audio"></button>
-              <p class="jp">うん人手<mark class="g">が</mark>足りなくて</p>
-            </div>
-            <p class="en">"Yeah, they're short on staff."</p>
-            <p class="note">が marks what isn't enough: hands, staff.</p>
+            <p class="note">The emphasis is on 家族 (family): that's what he had.</p>
           </div>
           <div class="mine">
             <span class="use casual">Casual</span>
@@ -6747,7 +6765,40 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
               <p class="jp">これ<mark class="g">が</mark>わたしたちの手配写真。</p>
             </div>
             <p class="en">"THIS is our wanted poster."</p>
-            <p class="note">This one, right here. Like 私が描きました, が points a finger. With これは it would just be "this is our poster".</p>
+            <p class="note">The emphasis is on これ: THIS one, right here. With これは it would just be "this is our poster".</p>
+          </div>
+          <div class="mine">
+            <span class="use casual">Casual</span>
+            <img decoding="async" src="media/litreoftears02_07m43s.jpg" alt="Scene from 1 Litre of Tears" loading="lazy">
+            <p class="src">1 Litre of Tears · Episode 2</p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/litreoftears02_07m43s.mp3" aria-label="Play audio"></button>
+              <p class="jp">今日は私<mark class="g">が</mark>やる。</p>
+            </div>
+            <p class="en">"Today it's <b class="nb">ME</b> who does it." <span class="ctx">[not you, Mom, you're tired]</span></p>
+            <p class="note">Hidden question: who does the cooking today? Answer: <b>me</b>, not Mom.</p>
+          </div>
+          <div class="mine">
+            <span class="use casual">Casual</span>
+            <img decoding="async" src="media/kekkon11_40m25s.jpg" alt="Scene from Kekkon Dekinai Otoko" loading="lazy">
+            <p class="src">Kekkon Dekinai Otoko · Episode 11</p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/kekkon11_40m25s.mp3" aria-label="Play audio"></button>
+              <p class="jp">私<mark class="g">が</mark>話す</p>
+            </div>
+            <p class="en">"It's <b class="nb">ME</b> who talks to him." <span class="ctx">[not you]</span></p>
+            <p class="note">Someone strange is waiting outside, and her friend asks "Then what do we do?" Hidden question: who talks to him? Answer: <b>me</b>, you don't have to.</p>
+          </div>
+          <div class="mine">
+            <span class="use casual">Casual</span>
+            <img decoding="async" src="media/kotaro10_03m28s.jpg" alt="Scene from Kotaro Lives Alone" loading="lazy">
+            <p class="src">Kotaro Lives Alone · Episode 10</p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/kotaro10_03m28s.mp3" aria-label="Play audio"></button>
+              <p class="jp">だったら私<mark class="g">が</mark>行くよ</p>
+            </div>
+            <p class="en">"Then it's <b class="nb">ME</b> who goes." <span class="ctx">[shopping, not you]</span></p>
+            <p class="note">Hidden question: who goes shopping? Answer: <b>me</b>, because you're busy.</p>
           </div>
         </div>
       </section>
