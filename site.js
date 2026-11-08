@@ -168,7 +168,14 @@ var INDEX = [
   //   ]}
   // ]}
 ];
-var UPDATED = '4 Nov 2026';
+var UPDATED = '8 Nov 2026';
+// N5 points in the order they first come up in Jlab's beginner course (worked out from the Anki deck, so roughly right). Any N5 page not listed here shows under "Not in Jlab".
+var JLAB = ('desu janai deshita janakatta wa mo u-verb ru-verb ga gairu yo na-adj ne suki-kirai i-adj i-adj-neg i-adj-past na-adj-past i-adj-past-neg na-adj-neg ' +
+  'u-verb-neg ru-verb-neg gaaru ru-verb-past u-verb-past tachi wo doushite nani ii kuru ni dare doko to-quote he kara made de de-means koko-soko-asoko deshou ' +
+  'kochira-sochira-achira soshite kara-because verb-noun to-with to no-pos ga-no noha-noga ndesu no yone verb-past-neg adverb-ku-ni naru suru masu ka zenzen totemo ' +
+  'demo teiru ni-suru masenka ni-iku kore-sore-are kono-sono-ano mou itsumo tsumori itsu dore kurai ikura dou nanika nanimo darou nandemo chotto kute-de te-form te-and ' +
+  'ta-koto dake node kedo no-noun ga-but tari noga-suki teiru-habit mada-teinai teiru-state ichiban toki aru-noun mashou morau tewa-ikenai nakute-wa temo-ii tai hoshii ' +
+  'te-kara mashouka ageru kureru te-kudasai naide-kudasai na-dont takusan shika sugiru dono ya mada ato-de yori hou-ga-ii jouzu-heta kekkou amari ka-or').split(' ');
 
 (function(){
   // index.html (made by build.py) has every page in one file, so links switch pages instead of loading files
@@ -281,18 +288,42 @@ var UPDATED = '4 Nov 2026';
       }).join('');
     }).join('');
     grid.innerHTML = '<div class="rwrap"><div class="rcol">' + lvl.map(function(g){
-      var cards = function(pages){ return pages.map(function(p){
-        return '<li><a class="gcard" href="' + href(p[0]) + '" data-k="' + (p[0] + ' ' + p[1] + ' ' + p[2]).toLowerCase() + '">' +
+      var cards = function(pages, numbered){ return pages.map(function(p, n){
+        return '<li><a class="gcard" href="' + href(p[0]) + '" data-k="' + (p[0] + ' ' + p[1] + ' ' + p[2]).toLowerCase() + '">' + (numbered ? '<span class="n">' + (n + 1) + '</span>' : '') +
           '<span class="p">' + p[1] + '</span><span class="d">' + p[2] + '</span><span class="lv ' + g.level.toLowerCase() + '">' + g.level + '</span></a></li>';
       }).join(''); };
       var cats = g.cats.map(function(c, i){
         if (!c.pages.length) return '';
         return '<section class="cat" id="' + catId(g, i) + '"><h3 class="label">' + c.cat + '</h3><ol class="cards">' + cards(c.pages) + '</ol></section>';
       }).join('');
+      if (g.level === 'N5') {   // the same cards again in Jlab's order; CSS shows one set or the other
+        var all = [].concat.apply([], g.cats.map(function(c){ return c.pages; }));
+        var inJlab = JLAB.map(function(id){ return all.find(function(p){ return p[0] === id; }); }).filter(Boolean);
+        var rest = all.filter(function(p){ return JLAB.indexOf(p[0]) < 0; });
+        cats += '<section class="cat jlab"><h3 class="label">Jlab\'s beginner course</h3><ol class="cards">' + cards(inJlab, true) + '</ol></section>' +
+          (rest.length ? '<section class="cat jlab"><h3 class="label">Not in Jlab</h3><ol class="cards">' + cards(rest) + '</ol></section>' : '');
+      }
       return '<details class="level" open><summary><span class="t">' + g.level + '</span><span class="label">' + g.pages.length + (g.pages.length === 1 ? ' grammar point' : ' grammar points') + '</span></summary>' +
         cats + '</details>';
     }).join('') + '<p class="empty gnone" hidden>No match.</p></div>' +
-      '<nav class="toc" aria-label="On this page"><p class="label">' + grid.getAttribute('data-level') + ' Grammar</p><ul>' + toc + '</ul></nav></div>';
+      '<div class="side"><nav class="toc" aria-label="On this page"><p class="label">' + grid.getAttribute('data-level') + ' Grammar</p><ul>' + toc + '</ul></nav>' +
+      (grid.getAttribute('data-level') === 'N5' ? '<div class="order" role="group" aria-label="Card order"><p class="label">Order</p><button type="button" data-o="cat">Categories</button><button type="button" data-o="jlab">Jlab</button></div>' : '') +
+      '</div></div>';
+    // Categories or Jlab order, remembered per browser
+    var ORDER = 'wabisebi-order';
+    var setOrder = function(o){
+      grid.setAttribute('data-order', o);
+      grid.querySelectorAll('.order button').forEach(function(b){ b.setAttribute('aria-pressed', b.getAttribute('data-o') === o ? 'true' : 'false'); });
+    };
+    var saved = 'cat';
+    try { if (localStorage.getItem(ORDER) === 'jlab') saved = 'jlab'; } catch (err) {}
+    setOrder(saved);
+    grid.querySelectorAll('.order button').forEach(function(b){
+      b.addEventListener('click', function(){
+        setOrder(b.getAttribute('data-o'));
+        try { localStorage.setItem(ORDER, b.getAttribute('data-o')); } catch (err) {}
+      });
+    });
   });
   // the grid page on screen (index.html holds them all, the others are hidden)
   var openGrid = function(){ return grids.find(function(g){ return !g.closest('[hidden]'); }); };
