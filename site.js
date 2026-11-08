@@ -272,11 +272,6 @@ var UPDATED = '4 Nov 2026';
 
   // grid pages (one per level): every grammar point of that level as a card, with an "On this page" list of the categories (same as on Resources)
   var grids = [].slice.call(document.querySelectorAll('.grid[data-level]'));
-  // the check at the bottom right of each card: points Seb has learned, remembered in this browser
-  var LEARNED = 'wabisebi-learned';
-  var learned = [];
-  var NOCHECK = ['nani', 'dare', 'doko', 'itsu', 'dore', 'dono']; // no Learned check on these cards (Seb, 6 Nov 2026)
-  try { learned = JSON.parse(localStorage.getItem(LEARNED)) || []; } catch (err) {}
   grids.forEach(function(grid){
     var lvl = INDEX.filter(function(g){ return g.level === grid.getAttribute('data-level'); });
     var catId = function(g, i){ return 'g-' + g.level.toLowerCase() + '-' + i; };
@@ -286,28 +281,18 @@ var UPDATED = '4 Nov 2026';
       }).join('');
     }).join('');
     grid.innerHTML = '<div class="rwrap"><div class="rcol">' + lvl.map(function(g){
-      var cards = function(pages, check){ return pages.map(function(p){
+      var cards = function(pages){ return pages.map(function(p){
         return '<li><a class="gcard" href="' + href(p[0]) + '" data-k="' + (p[0] + ' ' + p[1] + ' ' + p[2]).toLowerCase() + '">' +
-          '<span class="p">' + p[1] + '</span><span class="d">' + p[2] + '</span><span class="lv ' + g.level.toLowerCase() + '">' + g.level + '</span></a>' + (!check || NOCHECK.indexOf(p[0]) > -1 ? '' :
-          '<button class="learn" type="button" data-id="' + p[0] + '" aria-pressed="' + (learned.indexOf(p[0]) > -1) + '" aria-label="Learned" title="Learned">' +
-          '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 12.5l3.5 3.5 7.5-8"/></svg></button>') + '</li>';
+          '<span class="p">' + p[1] + '</span><span class="d">' + p[2] + '</span><span class="lv ' + g.level.toLowerCase() + '">' + g.level + '</span></a></li>';
       }).join(''); };
       var cats = g.cats.map(function(c, i){
         if (!c.pages.length) return '';
-        return '<section class="cat" id="' + catId(g, i) + '"><h3 class="label">' + c.cat + '</h3><ol class="cards">' + cards(c.pages, c.cat !== 'First steps') + '</ol></section>';
+        return '<section class="cat" id="' + catId(g, i) + '"><h3 class="label">' + c.cat + '</h3><ol class="cards">' + cards(c.pages) + '</ol></section>';
       }).join('');
       return '<details class="level" open><summary><span class="t">' + g.level + '</span><span class="label">' + g.pages.length + (g.pages.length === 1 ? ' grammar point' : ' grammar points') + '</span></summary>' +
         cats + '</details>';
     }).join('') + '<p class="empty gnone" hidden>No match.</p></div>' +
       '<nav class="toc" aria-label="On this page"><p class="label">' + grid.getAttribute('data-level') + ' Grammar</p><ul>' + toc + '</ul></nav></div>';
-    grid.addEventListener('click', function(e){
-      var b = e.target.closest('.learn');
-      if (!b) return;
-      var id = b.getAttribute('data-id'), i = learned.indexOf(id);
-      if (i > -1) learned.splice(i, 1); else learned.push(id);
-      b.setAttribute('aria-pressed', i < 0);
-      try { localStorage.setItem(LEARNED, JSON.stringify(learned)); } catch (err) {}
-    });
   });
   // the grid page on screen (index.html holds them all, the others are hidden)
   var openGrid = function(){ return grids.find(function(g){ return !g.closest('[hidden]'); }); };
