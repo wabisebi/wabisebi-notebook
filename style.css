@@ -359,6 +359,9 @@ main:has(.home:not([hidden])) .foot{max-width:1080px}
 .book{background:var(--card);border:1px solid var(--card-line);border-radius:10px;padding:14px 18px;display:flex;flex-direction:column;gap:2px}
 .book .title{margin:0;font-weight:700}
 .book .where{margin:0;font-family:var(--mono);font-size:12.5px;letter-spacing:.04em;color:var(--muted)}
+.book+.book{margin-top:10px}
+.book .where a{color:var(--gold);text-decoration:underline;text-underline-offset:3px}
+.book .where a:hover,.book .where a:focus-visible{color:var(--ink);outline:none}
 
 /* numbers & dates: reference tables and tiles. Blue (.irr / .odd) marks the odd readings */
 .nlegend{margin:0;color:var(--muted);font-size:14px}
