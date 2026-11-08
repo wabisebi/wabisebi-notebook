@@ -50,6 +50,7 @@ To keep token use low: when working on a grammar point, read only that page's fi
 - Don't add new section types (rules, frames, warnings) on your own. Suggest first, add only when Seb says yes.
 - The site-wide structure and consistency pass happens later, only when Seb asks.
 - Never use em dashes in anything written for Seb, on the site or in replies.
+- Never use Seb's name (Seb, セブ) in examples on the site (8 Nov 2026). Use a common Japanese name like 山田 or 田中 instead.
 - Never copy sentences or examples from other sites (Bunpro etc.). Seb shares them only to show what clicked. Write our own.
 - Keep replies direct, short and informal.
 

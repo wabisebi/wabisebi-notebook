@@ -59,6 +59,7 @@ h2{font-family:var(--display);font-size:20px;margin:0 0 12px}
 .cbox{background:var(--tint);border:1px solid var(--line);border-radius:10px;padding:14px 16px;min-width:0}
 .cbox.yes{background:var(--card);border-color:var(--card-line);box-shadow:0 6px 16px -10px var(--shadow)}
 .cbox .jp{font-size:20px;font-weight:700;margin:4px 0}
+.cbox .q{color:var(--muted);font-size:14px;margin-top:8px}
 .cbox p{margin:0}
 .cbox.yes .label{color:var(--indigo)}
 .rule{display:grid;gap:8px;margin:0;padding:0;list-style:none}

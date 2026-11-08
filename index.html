@@ -68,6 +68,7 @@ h2{font-family:var(--display);font-size:20px;margin:0 0 12px}
 .cbox{background:var(--tint);border:1px solid var(--line);border-radius:10px;padding:14px 16px;min-width:0}
 .cbox.yes{background:var(--card);border-color:var(--card-line);box-shadow:0 6px 16px -10px var(--shadow)}
 .cbox .jp{font-size:20px;font-weight:700;margin:4px 0}
+.cbox .q{color:var(--muted);font-size:14px;margin-top:8px}
 .cbox p{margin:0}
 .cbox.yes .label{color:var(--indigo)}
 .rule{display:grid;gap:8px;margin:0;padding:0;list-style:none}
@@ -1431,8 +1432,8 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
         <div class="scenes">
           <div class="scene">
             <p class="sit">Meeting a new client. You introduce yourself.</p>
-            <p class="jp">私<mark class="g">は</mark>セブです。</p>
-            <p class="en">"As for me, I'm Seb."</p>
+            <p class="jp">私<mark class="g">は</mark>山田です。</p>
+            <p class="en">"As for me, I'm Yamada."</p>
             <span class="use polite">Polite</span>
           </div>
           <div class="scene">
@@ -1476,7 +1477,7 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
               <p class="jp">私<mark class="g">は</mark>車酔いもしやすいです。</p>
             </div>
             <p class="en">"I also get carsick easily."</p>
-            <p class="note">As for me... Like 私はセブです: は sets the topic (me), then comes the comment.</p>
+            <p class="note">As for me... Like 私は山田です: は sets the topic (me), then comes the comment.</p>
           </div>
           <div class="mine">
             <span class="use polite">Polite</span>
@@ -6671,41 +6672,47 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
       </section>
       <section>
         <h2>は or が?</h2>
-        <p style="margin:0 0 14px">With <b>が</b>, the emphasis is on the word <b>before</b> it. With <b>は</b>, the word before is just the topic, and the emphasis is on what comes <b>after</b>.</p>
+        <p style="margin:0 0 14px">The <span class="nb">green</span> part gets the emphasis. With <b>が</b>, it's the word <span class="nb">before</span> が. With <b>は</b>, the word before is just the topic, and the emphasis goes to what comes <span class="nb">after</span>.</p>
         <div class="compare">
           <div class="cbox">
             <span class="label">With は</span>
-            <p class="jp">私はセブです。</p>
-            <p>Introducing yourself. "Me? I'm SEB." The emphasis is on <b>セブ</b>.</p>
+            <p class="q">Introducing yourself.</p>
+            <p class="jp">私は<span class="nb">山田</span>です。</p>
+            <p class="en">"Me? I'm <span class="nb">YAMADA</span>."</p>
           </div>
           <div class="cbox yes">
             <span class="label">With が</span>
-            <p class="jp">私<mark class="g">が</mark>セブです。</p>
-            <p>A client looks around asking "which one is Seb?" You raise your hand: "It's ME, I'm Seb." The emphasis is on <b>私</b>.</p>
+            <p class="q">Someone asks: "Which one is Yamada?"</p>
+            <p class="jp"><span class="nb">私</span><mark class="g">が</mark>山田です。</p>
+            <p class="en">"<span class="nb">ME</span>, I'm Yamada."</p>
           </div>
         </div>
         <div class="compare" style="margin-top:12px">
           <div class="cbox">
             <span class="label">With は</span>
-            <p class="jp">田中さんは来たよ。</p>
-            <p>A friend asks "And Tanaka?" You answer: "Tanaka? He came." Tanaka is the topic, the emphasis is on <b>来た</b>.</p>
+            <p class="q">A friend asks: "And Tanaka?"</p>
+            <p class="jp">田中さんは<span class="nb">来た</span>よ。</p>
+            <p class="en">"Tanaka? He <span class="nb">CAME</span>."</p>
           </div>
           <div class="cbox yes">
             <span class="label">With が</span>
-            <p class="jp">田中さん<mark class="g">が</mark>来たよ。</p>
-            <p>A friend asks "Who came?" You answer: "TANAKA came." The emphasis is on <b>田中さん</b>, the answer to "who".</p>
+            <p class="q">A friend asks: "Who came?"</p>
+            <p class="jp"><span class="nb">田中さん</span><mark class="g">が</mark>来たよ。</p>
+            <p class="en">"<span class="nb">TANAKA</span> came."</p>
           </div>
         </div>
         <div class="compare" style="margin-top:12px">
           <div class="cbox">
             <span class="label">With は</span>
-            <p class="jp">猫はソファーにいるよ。</p>
-            <p>Someone asks where the cat is. "The cat? It's on the SOFA." The emphasis is on <b>where</b>.</p>
+            <p class="q">Someone asks: "Where's the cat?"</p>
+            <p class="jp">猫は<span class="nb">ソファーにいる</span>よ。</p>
+            <p class="en">"The cat? It's on the <span class="nb">SOFA</span>."</p>
           </div>
           <div class="cbox yes">
             <span class="label">With が</span>
-            <p class="jp">あ、猫<mark class="g">が</mark>いる！</p>
-            <p>You walk into a room and spot a cat. "Oh, there's a CAT!" The emphasis is on <b>the cat</b>.</p>
+            <p class="q">You walk into a room and spot something.</p>
+            <p class="jp">あ、<span class="nb">猫</span><mark class="g">が</mark>いる！</p>
+            <p class="en">"Oh, there's a <span class="nb">CAT</span>!"</p>
           </div>
         </div>
       </section>
