@@ -254,6 +254,11 @@ main:has(.home:not([hidden])) .foot{max-width:1080px}
 .chart .jp{font-size:20px;font-weight:500}
 .chart .arrow,.chart .en{color:var(--muted)}
 .chart .en{font-size:14px}
+.chart .tricky{margin:8px -8px 10px;padding:10px 8px 2px;border:1px solid color-mix(in srgb,var(--n2) 45%,transparent);border-radius:8px;background:color-mix(in srgb,var(--n2) 10%,transparent)}
+.chart .tricky .tlabel{margin:0;font-size:14px;line-height:1.5}
+.chart .tricky .tlabel b{color:var(--n2);font-weight:600}
+.chart .tricky .row{border-top:0}
+.chart .tricky mark.g{color:var(--n2);border-color:var(--n2);text-decoration-color:var(--n2)}
 .chart .row.hd{font-family:var(--mono);font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
 .chart .row.hd span:nth-child(2){visibility:hidden}
 
@@ -456,6 +461,9 @@ main:has(.home:not([hidden])) .foot{max-width:1080px}
 .twoforms tbody th.ends.odd{font-family:var(--mono);font-size:12px;color:var(--muted)}
 .twoforms .hint,.iiyoi .hint{margin-left:10px;font-size:13px;font-weight:400;color:var(--muted)}
 .iiyoi .more{margin-top:12px;padding-top:12px;border-top:1px solid var(--card-line)}
+.vtypes{margin-top:14px}
+.vtypes .hint{display:block;margin-top:2px;font-family:var(--body);font-size:13px;font-weight:400;color:var(--muted)}
+.forms.vtypes tr.here .hint{color:inherit;opacity:.8}
 /* が page: the は vs が box, deep-topic line on top */
 .forms.deep .m{margin:8px 0 4px;padding:0 0 12px;border-bottom:1px solid var(--line);color:var(--ink)}
 .forms.deep tr:last-child td{border-bottom:0}
