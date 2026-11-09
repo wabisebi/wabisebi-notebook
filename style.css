@@ -213,7 +213,7 @@ main:has(.home:not([hidden])) .foot{max-width:1080px}
 .theme{flex:none;display:flex;align-items:center;justify-content:center;width:36px;height:36px;margin:-4px 0;border:1px solid var(--plain-line);border-radius:50%;background:var(--plain);color:var(--ink);cursor:pointer;padding:0}
 .theme:hover{color:var(--gold);border-color:var(--gold)}
 .theme:focus-visible{outline:2px solid var(--indigo);outline-offset:2px}
-@media (max-width:1060px){
+@media (max-width:1170px){
   .brand .label{display:none}
   .burger{display:flex;align-items:center;justify-content:center;width:44px;height:44px;margin:-6px -8px -6px 0;border:0;border-radius:8px;background:none;color:var(--ink);cursor:pointer}
   .burger{order:1}
@@ -519,8 +519,8 @@ main:has(.home:not([hidden])) .foot{max-width:1080px}
 .kana-group.open .kana-drop,.kana-group:hover .kana-drop{display:flex}
 .kana-drop .nav{padding:8px 10px;border-radius:6px}
 .kana-drop .nav:hover{background:color-mix(in srgb,var(--gold) 10%,transparent)}
-@media (min-width:1061px){.top .m-only{display:none}}
-@media (max-width:1060px){.kana-group{display:none}}
+@media (min-width:1171px){.top .m-only{display:none}}
+@media (max-width:1170px){.kana-group{display:none}}
 
 /* grammar pages: "N5 grammar" button back to the grid. Narrow screens: above the card on the left, stays there when scrolling.
    Wide screens: in the empty space left of the card, sticky so it follows the page down just under the top bar. The margins cancel its height and the article's gap, so it takes no room in the card. */
@@ -581,3 +581,4 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
 .conj-menu small{font-size:12px;color:var(--muted);white-space:nowrap}
 .conj-me{margin-left:auto;padding-left:12px;font-size:13px;color:var(--muted);text-align:right;min-width:0}
 .conj.no-furi .conj-menu small{display:none}
+.brand .t{white-space:nowrap}
