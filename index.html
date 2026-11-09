@@ -505,18 +505,18 @@ main:has(.home:not([hidden])) .foot{max-width:1080px}
 .toc a:hover{color:var(--gold)}
 .toc a.on{color:var(--gold);background:color-mix(in srgb,var(--gold) 10%,transparent)}
 @media (max-width:900px){.rwrap{display:block}.toc{display:none}}
-/* grammar grid: Categories / Jlab order switch, under the side list (above the cards on small screens) */
+/* grammar grid: Categories / Jlab / Minna order switch, above the side list (above the cards on small screens) */
 .side{position:sticky;top:calc(var(--topbar,72px) + 16px);display:flex;flex-direction:column;gap:10px}
 .side .toc{position:static}
-.order{display:flex;flex-wrap:wrap;gap:6px;padding:14px 16px;border-radius:10px;background:var(--card);border:1px solid var(--card-line)}
-.order .label{margin:0;width:100%}
-.order button{flex:1;padding:5px 8px;border:1px solid var(--plain-line);border-radius:999px;background:transparent;color:var(--ink);font:inherit;font-size:13px;cursor:pointer}
-.order button:hover{border-color:var(--gold);color:var(--gold)}
+.order{display:flex;flex-direction:column;gap:2px;padding:14px 16px;border-radius:10px;background:var(--card);border:1px solid var(--card-line)}
+.order .label{margin:0 0 6px}
+.order button{display:block;width:calc(100% + 16px);padding:5px 8px;margin:0 -8px;border:0;border-radius:6px;background:transparent;color:var(--ink);font:inherit;font-size:13.5px;line-height:1.35;text-align:left;cursor:pointer}
+.order button:hover{color:var(--gold)}
 .order button:focus-visible{outline:2px solid var(--indigo);outline-offset:2px}
-.order button[aria-pressed="true"]{border-color:var(--gold);color:var(--gold);background:color-mix(in srgb,var(--gold) 10%,transparent)}
-.grid[data-order="jlab"] .cat:not(.jlab),.grid[data-order="jlab"] .toc,.grid:not([data-order="jlab"]) .cat.jlab{display:none}
+.order button[aria-pressed="true"]{color:var(--gold);background:color-mix(in srgb,var(--gold) 10%,transparent)}
+.grid[data-order="jlab"] .cat:not(.jlab),.grid[data-order="jlab"] .toc,.grid:not([data-order="jlab"]) .cat.jlab,.grid[data-order="minna"] .cat:not(.minna),.grid[data-order="minna"] .toc,.grid:not([data-order="minna"]) .cat.minna{display:none}
 .gcard .n{font-family:var(--mono);font-size:11px;color:var(--muted)}
-@media (max-width:900px){.grid .rwrap{display:flex;flex-direction:column;gap:12px}.grid .side{position:static;order:-1}.grid .rcol{width:100%}.order .label{width:auto;align-self:center;margin-right:6px}.order button{flex:0 1 auto;padding:5px 14px}}
+@media (max-width:900px){.grid .rwrap{display:flex;flex-direction:column;gap:12px}.grid .side{position:static;order:-1}.grid .rcol{width:100%}}
 
 /* top bar: the Kana dropdown on wide screens (Hiragana, Katakana); phones show the two links in the ☰ menu instead */
 .kana-group{position:relative}
@@ -28321,6 +28321,58 @@ var JLAB = ('desu janai deshita janakatta wa mo u-verb ru-verb ga gairu yo na-ad
   'demo teiru ni-suru masenka ni-iku kore-sore-are kono-sono-ano mou itsumo tsumori itsu dore kurai ikura dou nanika nanimo darou nandemo chotto kute-de te-form te-and ' +
   'ta-koto dake node kedo no-noun ga-but tari noga-suki teiru-habit mada-teinai teiru-state ichiban toki aru-noun mashou morau tewa-ikenai nakute-wa temo-ii tai hoshii ' +
   'te-kara mashouka ageru kureru te-kudasai naide-kudasai na-dont takusan shika sugiru dono ya mada ato-de yori hou-ga-ii jouzu-heta kekkou amari ka-or').split(' ');
+// N5 points in the order they come up in Minna no Nihongo Books 1 and 2, one line per lesson, line 1 = lesson 1 (study list at the back of each book, small words searched in the text). An empty line is a lesson with no page on the site, it doesn't show. Any N5 page not listed here shows under "Not in Minna".
+var MINNA = [
+  'desu janai wa ka mo no-pos dare',
+  'kore-sore-are kono-sono-ano no-noun nani',
+  'koko-soko-asoko kochira-sochira-achira doko dochira ikura',
+  'masu ni kara made to ne',
+  'he kuru de-means to-with itsu yo nanimo',
+  'wo de suru masenka mashou chotto soshite itsumo',
+  'morau ageru mou mada',
+  'i-adj ii na-adj i-adj-neg na-adj-neg amari totemo donna dou kekkou ga-but',
+  'ga suki-kirai jouzu-heta kara-because doushite zenzen takusan adverb-ku-ni',
+  'gaaru gairu ya',
+  'ikutsu kurai dake',
+  'deshita janakatta i-adj-past i-adj-past-neg na-adj-past yori ichiban',
+  'hoshii tai ni-iku nanika goro',
+  'te-form te-kudasai mashouka teiru',
+  'temo-ii tewa-ikenai teiru-state',
+  'te-and te-kara kute-de dore dono',
+  'ru-verb-neg u-verb-neg naide-kudasai nakute-wa',
+  'ru-verb u-verb mae-ni',
+  'ru-verb-past u-verb-past ta-koto tari naru demo',
+  'verb-past-neg kedo',
+  'to-quote deshou demo-or',
+  'verb-noun tachi',
+  'toki',
+  'kureru',
+  '',  // 25
+  'ndesu',  // 26
+  'shika nandemo',  // 27
+  'teiru-habit',  // 28
+  '',  // 29
+  '',  // 30
+  'mada-teinai tsumori',  // 31
+  'hou-ga-ii',  // 32
+  'na-dont',  // 33
+  'ato-de',  // 34
+  'ka-or',  // 35
+  '',  // 36
+  '',  // 37
+  'noha-noga noga-suki',  // 38
+  'node',  // 39
+  '',  // 40
+  '',  // 41
+  '',  // 42
+  '',  // 43
+  'sugiru ni-suru',  // 44
+  '',  // 45
+  '',  // 46
+  '',  // 47
+  '',  // 48
+  'yone'  // 49
+];
 
 (function(){
   // index.html (made by build.py) has every page in one file, so links switch pages instead of loading files
@@ -28434,34 +28486,45 @@ var JLAB = ('desu janai deshita janakatta wa mo u-verb ru-verb ga gairu yo na-ad
     }).join('');
     grid.innerHTML = '<div class="rwrap"><div class="rcol">' + lvl.map(function(g){
       var cards = function(pages, numbered){ return pages.map(function(p, n){
-        return '<li><a class="gcard" href="' + href(p[0]) + '" data-k="' + (p[0] + ' ' + p[1] + ' ' + p[2]).toLowerCase() + '">' + (numbered ? '<span class="n">' + (n + 1) + '</span>' : '') +
+        return '<li><a class="gcard" href="' + href(p[0]) + '" data-k="' + (p[0] + ' ' + p[1] + ' ' + p[2]).toLowerCase() + '">' + (numbered ? '<span class="n">' + (n + numbered) + '</span>' : '') +
           '<span class="p">' + p[1] + '</span><span class="d">' + p[2] + '</span><span class="lv ' + g.level.toLowerCase() + '">' + g.level + '</span></a></li>';
       }).join(''); };
       var cats = g.cats.map(function(c, i){
         if (!c.pages.length) return '';
         return '<section class="cat" id="' + catId(g, i) + '"><h3 class="label">' + c.cat + '</h3><ol class="cards">' + cards(c.pages) + '</ol></section>';
       }).join('');
-      if (g.level === 'N5') {   // the same cards again in Jlab's order; CSS shows one set or the other
+      if (g.level === 'N5') {   // the same cards again in Jlab's and Minna's order; CSS shows one set at a time
         var all = [].concat.apply([], g.cats.map(function(c){ return c.pages; }));
-        var inJlab = JLAB.map(function(id){ return all.find(function(p){ return p[0] === id; }); }).filter(Boolean);
-        var rest = all.filter(function(p){ return JLAB.indexOf(p[0]) < 0; });
-        cats += '<section class="cat jlab"><h3 class="label">Jlab\'s beginner course</h3><ol class="cards">' + cards(inJlab, true) + '</ol></section>' +
-          (rest.length ? '<section class="cat jlab"><h3 class="label">Not in Jlab</h3><ol class="cards">' + cards(rest) + '</ol></section>' : '');
+        var pagesOf = function(ids){ return ids.map(function(id){ return all.find(function(p){ return p[0] === id; }); }).filter(Boolean); };
+        var section = function(cls, title, html){ return '<section class="cat ' + cls + '"><h3 class="label">' + title + '</h3><ol class="cards">' + html + '</ol></section>'; };
+        var notIn = function(ids, cls, title){
+          var rest = all.filter(function(p){ return ids.indexOf(p[0]) < 0; });
+          return rest.length ? section(cls, title, cards(rest)) : '';
+        };
+        cats += section('jlab', 'Jlab\'s beginner course', cards(pagesOf(JLAB), 1)) + notIn(JLAB, 'jlab', 'Not in Jlab');
+        var num = 1;   // Minna: one section per lesson, the numbers run on across lessons
+        cats += MINNA.map(function(line, i){
+          var pages = pagesOf(line.split(' '));
+          if (!pages.length) return '';
+          var html = section('minna', 'Book ' + (i < 25 ? 1 : 2) + ' · Lesson ' + (i + 1), cards(pages, num));
+          num += pages.length;
+          return html;
+        }).join('') + notIn(MINNA.join(' ').split(' '), 'minna', 'Not in Minna');
       }
       return '<details class="level" open><summary><span class="t">' + g.level + '</span><span class="label">' + g.pages.length + (g.pages.length === 1 ? ' grammar point' : ' grammar points') + '</span></summary>' +
         cats + '</details>';
     }).join('') + '<p class="empty gnone" hidden>No match.</p></div>' +
-      '<div class="side"><nav class="toc" aria-label="On this page"><p class="label">' + grid.getAttribute('data-level') + ' Grammar</p><ul>' + toc + '</ul></nav>' +
-      (grid.getAttribute('data-level') === 'N5' ? '<div class="order" role="group" aria-label="Card order"><p class="label">Order</p><button type="button" data-o="cat">Categories</button><button type="button" data-o="jlab">Jlab</button></div>' : '') +
+      '<div class="side">' + (grid.getAttribute('data-level') === 'N5' ? '<div class="order" role="group" aria-label="Card order"><p class="label">Order</p><button type="button" data-o="cat">Categories</button><button type="button" data-o="jlab">Jlab Anki Deck</button><button type="button" data-o="minna">Minna No Nihongo</button></div>' : '') +
+      '<nav class="toc" aria-label="On this page"><p class="label">' + grid.getAttribute('data-level') + ' Grammar</p><ul>' + toc + '</ul></nav>' +
       '</div></div>';
-    // Categories or Jlab order, remembered per browser
+    // Categories, Jlab or Minna order, remembered per browser
     var ORDER = 'wabisebi-order';
     var setOrder = function(o){
       grid.setAttribute('data-order', o);
       grid.querySelectorAll('.order button').forEach(function(b){ b.setAttribute('aria-pressed', b.getAttribute('data-o') === o ? 'true' : 'false'); });
     };
     var saved = 'cat';
-    try { if (localStorage.getItem(ORDER) === 'jlab') saved = 'jlab'; } catch (err) {}
+    try { var so = localStorage.getItem(ORDER); if (so === 'jlab' || so === 'minna') saved = so; } catch (err) {}
     setOrder(saved);
     grid.querySelectorAll('.order button').forEach(function(b){
       b.addEventListener('click', function(){
