@@ -570,10 +570,14 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
 .conj-type{margin-left:auto;font-family:var(--mono);font-size:12px;color:var(--gram)}
 .conj .forms ruby rt{font-size:.55em;font-weight:400;color:var(--muted)}
 .conj .forms tr:last-child th,.conj .forms tr:last-child td{border-bottom:0}
-.conj-more{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
-.conj-more button{font:inherit;font-size:15px;color:var(--ink);background:var(--card);border:1px solid var(--card-line);border-radius:8px;padding:6px 10px;cursor:pointer}
-.conj-more button:hover{border-color:var(--gold);background:var(--hover)}
-.conj-more small{color:var(--muted);font-size:12px}
 .conj.no-furi rt{display:none}
 .conj-none{color:var(--muted);margin-top:16px}
 #conjugator .home-head{max-width:640px}
+.conj-field{position:relative}
+.conj-menu{position:absolute;z-index:20;left:0;right:0;top:calc(100% + 6px);max-height:320px;overflow-y:auto;background:var(--card);border:1px solid var(--card-line);border-radius:10px;padding:4px;box-shadow:0 8px 24px rgba(0,0,0,.28)}
+.conj-menu button{display:flex;align-items:baseline;gap:8px;width:100%;text-align:left;font:inherit;color:var(--ink);background:transparent;border:0;border-radius:7px;padding:8px 10px;cursor:pointer}
+.conj-menu button:hover,.conj-menu button.on{background:var(--hover)}
+.conj-mw{font-size:17px;font-weight:500;white-space:nowrap}
+.conj-menu small{font-size:12px;color:var(--muted);white-space:nowrap}
+.conj-me{margin-left:auto;padding-left:12px;font-size:13px;color:var(--muted);text-align:right;min-width:0}
+.conj.no-furi .conj-menu small{display:none}

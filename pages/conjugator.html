@@ -12,7 +12,10 @@
     <section class="home" id="conjugator">
       <div class="home-head"><h1>Verb Conjugator</h1><button class="conj-furi" type="button" aria-pressed="true">Furigana: on</button></div>
       <div class="conj">
-        <input class="conj-q" type="search" placeholder="歩く, あるく, aruku or walk" aria-label="Type a verb" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" lang="ja">
+        <div class="conj-field">
+          <input class="conj-q" type="search" placeholder="歩く, あるく, aruku or walk" aria-label="Type a verb" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" lang="ja">
+          <div class="conj-menu" role="listbox" hidden></div>
+        </div>
         <div class="conj-out" aria-live="polite"></div>
       </div>
       <script type="text/plain" class="conj-verbs">

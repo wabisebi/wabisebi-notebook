@@ -655,6 +655,7 @@ var MINNA = [
       var isEn = /^[a-z ]+$/.test(low);
       var start = VERBS.filter(function(v){ return v.k.indexOf(q) === 0 || v.r.indexOf(q) === 0 || v.m.indexOf(low) === 0; });
       var en = isEn && low.length > 1 ? VERBS.filter(function(v){ return word.test(v.en.toLowerCase()); }) : [];
+      en.sort(function(x, y){ return x.en.toLowerCase().search(word) - y.en.toLowerCase().search(word); });
       var seen = [], all = exact.concat(start, en).filter(function(v){ if (seen.indexOf(v) > -1) return false; seen.push(v); return true; });
       return all;
     }
@@ -672,29 +673,50 @@ var MINNA = [
       if (v.t === 'u' && v.r.slice(-1) === 'る' && IE.indexOf(v.r.slice(-2, -1)) > -1) return 'う-verb (looks like a る-verb)';
       return TYPE[v.t];
     }
-    function pick(v, others){
-      var chips = others.length ? '<div class="conj-more">' + others.slice(0, 8).map(function(o){
-        return '<button type="button" data-i="' + VERBS.indexOf(o) + '">' + esc(o.w) + (o.k ? ' <small>' + o.r + '</small>' : '') + '</button>';
-      }).join('') + '</div>' : '';
-      out.innerHTML = table(v, labelOf(v)) + chips;
+    var menu = box.querySelector('.conj-menu'), shown = [], active = -1;
+    function pick(v){ out.innerHTML = table(v, labelOf(v)); }
+    function closeMenu(){ menu.hidden = true; active = -1; }
+    function openMenu(hits, q){
+      shown = hits.slice(0, 30);
+      if (!shown.length || (hits.length === 1 && (hits[0].w === q || hits[0].r === q))) { closeMenu(); return; }
+      active = -1;
+      menu.innerHTML = shown.map(function(v, n){
+        return '<button type="button" role="option" data-n="' + n + '"><span class="conj-mw">' + esc(v.w) + '</span>' + (v.k ? '<small>' + v.r + '</small>' : '') + '<span class="conj-me">' + esc(v.en) + '</span></button>';
+      }).join('');
+      menu.hidden = false;
+      menu.scrollTop = 0;
+    }
+    function choose(v){ input.value = v.w; pick(v); closeMenu(); }
+    function move(step){
+      if (menu.hidden || !shown.length) return;
+      active = (active + step + shown.length) % shown.length;
+      [].forEach.call(menu.children, function(b, n){ b.classList.toggle('on', n === active); });
+      menu.children[active].scrollIntoView({ block:'nearest' });
+      pick(shown[active]);
     }
     function run(){
       var q = input.value.trim();
-      if (!q) { pick(VERBS.filter(function(v){ return v.w === '歩く'; })[0], []); return; }
+      if (!q) { closeMenu(); pick(VERBS.filter(function(v){ return v.w === '歩く'; })[0]); return; }
       var hits = find(q);
-      if (hits.length) { pick(hits[0], hits.slice(1)); return; }
+      if (hits.length) { pick(hits[0]); openMenu(hits, q); return; }
+      closeMenu();
       var g = guess(q);
       if (g) { out.innerHTML = table({ w:g.w, t:g.t, k:'', r:g.w, en:'' }, g.label, g.sure === false ? "This verb isn't on our N5 and N4 lists, so the type is a guess." : ''); return; }
       out.innerHTML = '<p class="conj-none">No verb found. Try the dictionary form, like 飲む.</p>';
     }
     input.addEventListener('input', run);
-    out.addEventListener('click', function(e){
-      var b = e.target.closest('button[data-i]');
-      if (!b) return;
-      var v = VERBS[+b.getAttribute('data-i')];
-      input.value = v.w;
-      pick(v, find(v.w).filter(function(o){ return o !== v; }));
+    input.addEventListener('focus', function(){ var q = input.value.trim(); if (q) openMenu(find(q), q); });
+    input.addEventListener('keydown', function(e){
+      if (e.key === 'ArrowDown') { e.preventDefault(); move(1); }
+      else if (e.key === 'ArrowUp') { e.preventDefault(); move(-1); }
+      else if (e.key === 'Escape') closeMenu();
+      else if (e.key === 'Enter' && !menu.hidden && shown.length) { e.preventDefault(); choose(shown[active > -1 ? active : 0]); input.blur(); }
     });
+    menu.addEventListener('click', function(e){
+      var b = e.target.closest('button[data-n]');
+      if (b) choose(shown[+b.getAttribute('data-n')]);
+    });
+    document.addEventListener('click', function(e){ if (!e.target.closest('.conj-field')) closeMenu(); });
     run();
   })();
 
