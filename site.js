@@ -265,8 +265,9 @@ var MINNA = [
     '<a class="nav" href="' + href('jlpt') + '"><svg class="pad" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4.5" width="14" height="16.5" rx="2"/><path d="M9 3h6v3H9z"/><path d="M8.5 13l2.5 2.5 4.5-5"/></svg> JLPT</a>' +
     // wide screens: "Grammar", "Vocabulary" and "Kana" are dropdowns (one page per level; Hiragana and Katakana); phones keep the links in the ☰ menu
     '<div class="kana-group"><button class="nav kana-btn" type="button" aria-expanded="false"><svg class="pad" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></svg> Grammar <svg class="chev" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>' +
-      '<div class="kana-drop">' + INDEX.map(function(g){ return '<a class="nav" href="' + href(gridId(g.level)) + '">' + g.level + ' Grammar</a>'; }).join('') + '</div></div>' +
+      '<div class="kana-drop">' + INDEX.map(function(g){ return '<a class="nav" href="' + href(gridId(g.level)) + '">' + g.level + ' Grammar</a>'; }).join('') + '<a class="nav" href="' + href('conjugator') + '">Verb Conjugator</a></div></div>' +
     INDEX.map(function(g){ return '<a class="nav m-only" href="' + href(gridId(g.level)) + '"><svg class="pad" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></svg> ' + g.level + ' Grammar</a>'; }).join('') +
+    '<a class="nav m-only" href="' + href('conjugator') + '">活 Verb Conjugator</a>' +
     '<div class="kana-group"><button class="nav kana-btn" type="button" aria-expanded="false">語 Vocabulary <svg class="chev" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>' +
       '<div class="kana-drop"><a class="nav" href="' + href('vocab-n5') + '">N5 Vocabulary List</a><a class="nav" href="' + href('vocab-n4') + '">N4 Vocabulary List</a></div></div>' +
     '<a class="nav m-only" href="' + href('vocab-n5') + '">語 N5 Vocabulary List</a>' +
@@ -586,6 +587,104 @@ var MINNA = [
       romaji.setAttribute('aria-pressed', String(!off));
     });
   });
+
+  // Verb Conjugator: the verbs (N5 + N4 lists, tagged by type) live as text in pages/conjugator.html
+  (function(){
+    var box = document.querySelector('.conj');
+    if (!box) return;
+    var input = box.querySelector('.conj-q'), out = box.querySelector('.conj-out');
+    var TYPE = { r:'る-verb', u:'う-verb', s:'する-verb', k:'Irregular', a:'う-verb, with an odd negative', i:'う-verb, with an odd て-form', h:'う-verb, with an odd ます-form' };
+    var ROW = { 'う':'わい', 'く':'かき', 'ぐ':'がぎ', 'す':'さし', 'つ':'たち', 'ぬ':'なに', 'ぶ':'ばび', 'む':'まみ', 'る':'らり' };
+    var TE = { 'う':'って', 'つ':'って', 'る':'って', 'く':'いて', 'ぐ':'いで', 'す':'して', 'ぬ':'んで', 'ぶ':'んで', 'む':'んで' };
+    var IE = 'いきしちにひみりぎじびぴえけせてねへめれげぜでべぺ';
+    var esc = function(t){ return t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); };
+    var VERBS = box.parentNode.querySelector('.conj-verbs').textContent.trim().split('\n').map(function(l){
+      var p = l.trim().split('|');
+      return { k:p[0], r:p[1], m:p[2], en:p[3], t:p[4], w:p[0] || p[1] };
+    });
+    // polite present, casual present, polite negative, casual negative, polite past, casual past, polite past negative, casual past negative, て-form
+    function forms(word, t){
+      var last = word.slice(-1), base = word.slice(0, -1), a;
+      var make = function(m, plain, nai, ta, te){ return [m + 'ます', plain, m + 'ません', nai, m + 'ました', ta, m + 'ませんでした', nai.slice(0, -1) + 'かった', te]; };
+      if (t === 'r') return make(base, word, base + 'ない', base + 'た', base + 'て');
+      if (t === 's') { base = word.slice(0, -2); return make(base + 'し', word, base + 'しない', base + 'した', base + 'して'); }
+      if (t === 'k') { var kanji = word.slice(-2, -1) === '来'; base = word.slice(0, -2); return make(base + (kanji ? '来' : 'き'), word, base + (kanji ? '来' : 'こ') + 'ない', base + (kanji ? '来' : 'き') + 'た', base + (kanji ? '来' : 'き') + 'て'); }
+      if (t === 'h') return make(base + 'い', word, base + 'らない', base + 'った', base + 'って');
+      a = ROW[last];
+      var te = t === 'i' ? 'って' : TE[last];
+      return make(base + a[1], word, t === 'a' ? 'ない' : base + a[0] + 'ない', base + te.slice(0, -1) + (te.slice(-1) === 'て' ? 'た' : 'だ'), base + te);
+    }
+    // the form written with kanji, furigana only over the kanji; 来 is the one kanji whose reading changes
+    function written(v, form){
+      if (!v.k) return esc(form);
+      var segs = v.k.match(/[一-龯々]+|[^一-龯々]+/g), isK = function(x){ return /[一-龯々]/.test(x); };
+      var m = v.r.match(new RegExp('^' + segs.map(function(x){ return isK(x) ? '(.+?)' : x; }).join('') + '$'));
+      if (!m) return esc(form);
+      var html = '', pos = 0, n = 0;
+      segs.forEach(function(x, i){
+        if (isK(x)) { var r = m[++n]; if (v.t === 'k') r = form.charAt(pos); html += '<ruby>' + x + '<rt>' + r + '</rt></ruby>'; pos += r.length; }
+        else if (i < segs.length - 1) { html += x; pos += x.length; }
+      });
+      return html + form.slice(pos);
+    }
+    function guess(q){
+      var last = q.slice(-1), prev = q.slice(-2, -1);
+      if (/する$/.test(q)) return { w:q, t:'s', label:TYPE.s };
+      if (!ROW[last] || q.length < 2) return null;
+      if (/行く$/.test(q)) return { w:q, t:'i', label:'う-verb, with an odd て-form', sure:false };
+      if (/(来|てく)る$/.test(q)) return { w:q, t:'k', label:'Irregular' };
+      if (last === 'る' && IE.indexOf(prev) > -1) return { w:q, t:'r', label:'Probably a る-verb', sure:false };
+      if (last === 'る' && /[一-龯々]/.test(prev)) return { w:q, t:'u', label:'Probably an う-verb', sure:false };
+      return { w:q, t:'u', label:TYPE.u, sure:false };
+    }
+    function find(q){
+      var low = q.toLowerCase().replace(/^to /, ''), word = new RegExp('(^|[^a-z])' + low.replace(/[^a-z ]/g, '') + '([^a-z]|$)');
+      var exact = VERBS.filter(function(v){ return v.w === q || v.r === q || v.m === low; });
+      var isEn = /^[a-z ]+$/.test(low);
+      var start = VERBS.filter(function(v){ return v.k.indexOf(q) === 0 || v.r.indexOf(q) === 0 || v.m.indexOf(low) === 0; });
+      var en = isEn && low.length > 1 ? VERBS.filter(function(v){ return word.test(v.en.toLowerCase()); }) : [];
+      var seen = [], all = exact.concat(start, en).filter(function(v){ if (seen.indexOf(v) > -1) return false; seen.push(v); return true; });
+      return all;
+    }
+    function table(v, label, note){
+      var f = forms(v.w === v.k ? v.r : v.w, v.t), w = function(x){ return v.en ? written(v, x) : esc(x); };
+      if (!v.en) f = forms(v.w, v.t);
+      var rows = [['Present', 0], ['Negative', 2], ['Past', 4], ['Past negative', 6]].map(function(r){
+        return '<tr><th>' + r[0] + '</th><td>' + w(f[r[1]]) + '</td><td>' + w(f[r[1] + 1]) + '</td></tr>';
+      }).join('');
+      return '<div class="conj-head"><span class="conj-w">' + (v.en ? written(v, v.r) : esc(v.w)) + '</span>' + (v.en ? '<span class="conj-en">' + esc(v.en) + '</span>' : '') + '<span class="conj-type">' + esc(label) + '</span></div>' +
+        '<div class="forms twoforms"><table><thead><tr><th></th><th>Polite</th><th>Casual</th></tr></thead><tbody>' + rows +
+        '<tr class="conj-te"><th>て-form</th><td colspan="2">' + w(f[8]) + '</td></tr></tbody></table>' + (note ? '<p class="m">' + note + '</p>' : '') + '</div>';
+    }
+    function labelOf(v){
+      if (v.t === 'u' && v.r.slice(-1) === 'る' && IE.indexOf(v.r.slice(-2, -1)) > -1) return 'う-verb (looks like a る-verb)';
+      return TYPE[v.t];
+    }
+    function pick(v, others){
+      var chips = others.length ? '<div class="conj-more">' + others.slice(0, 8).map(function(o){
+        return '<button type="button" data-i="' + VERBS.indexOf(o) + '">' + esc(o.w) + (o.k ? ' <small>' + o.r + '</small>' : '') + '</button>';
+      }).join('') + '</div>' : '';
+      out.innerHTML = table(v, labelOf(v)) + chips;
+    }
+    function run(){
+      var q = input.value.trim();
+      if (!q) { pick(VERBS.filter(function(v){ return v.w === '歩く'; })[0], []); return; }
+      var hits = find(q);
+      if (hits.length) { pick(hits[0], hits.slice(1)); return; }
+      var g = guess(q);
+      if (g) { out.innerHTML = table({ w:g.w, t:g.t, k:'', r:g.w, en:'' }, g.label, g.sure === false ? "This verb isn't on our N5 and N4 lists, so the type is a guess." : ''); return; }
+      out.innerHTML = '<p class="conj-none">No verb found. Try the dictionary form, like 飲む.</p>';
+    }
+    input.addEventListener('input', run);
+    out.addEventListener('click', function(e){
+      var b = e.target.closest('button[data-i]');
+      if (!b) return;
+      var v = VERBS[+b.getAttribute('data-i')];
+      input.value = v.w;
+      pick(v, find(v.w).filter(function(o){ return o !== v; }));
+    });
+    run();
+  })();
 
   if (BUNDLE) {
     var pages = [].slice.call(document.querySelectorAll('[data-page]'));

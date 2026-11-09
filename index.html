@@ -568,6 +568,22 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
 .vcard .en{margin:0;font-weight:500}
 .vcard .ctx{color:var(--muted)}
 @media (max-width:720px){.vcards{grid-template-columns:1fr}}
+
+/* Verb Conjugator */
+.conj{max-width:640px;margin-top:18px}
+.conj-q{width:100%;box-sizing:border-box;font:inherit;font-size:18px;color:var(--ink);background:var(--card);border:1px solid var(--card-line);border-radius:10px;padding:12px 14px;outline:0}
+.conj-q:focus{border-color:var(--gold)}
+.conj-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;margin:20px 0 10px}
+.conj-w{font-size:26px;font-weight:600}
+.conj-en{color:var(--muted);font-size:15px}
+.conj-type{margin-left:auto;font-family:var(--mono);font-size:12px;color:var(--gram)}
+.conj .forms ruby rt{font-size:.55em;font-weight:400;color:var(--muted)}
+.conj .forms tr:last-child th,.conj .forms tr:last-child td{border-bottom:0}
+.conj-more{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.conj-more button{font:inherit;font-size:15px;color:var(--ink);background:var(--card);border:1px solid var(--card-line);border-radius:8px;padding:6px 10px;cursor:pointer}
+.conj-more button:hover{border-color:var(--gold);background:var(--hover)}
+.conj-more small{color:var(--muted);font-size:12px}
+.conj-none{color:var(--muted);margin-top:16px}
 </style>
 
 <header class="top" id="top"></header>
@@ -27912,6 +27928,283 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
       </div>
     </section>
 
+    <!-- conjugator -->
+    <section class="home" id="conjugator" data-page hidden>
+      <div class="home-head"><h1>Verb Conjugator</h1></div>
+      <div class="conj">
+        <input class="conj-q" type="search" placeholder="歩く, あるく, aruku or walk" aria-label="Type a verb" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" lang="ja">
+        <div class="conj-out" aria-live="polite"></div>
+      </div>
+      <script type="text/plain" class="conj-verbs">
+|ある|aru|to be, to exist (things)|a
+|いる|iru|to be, to exist (people, animals)|r
+|する|suru|to do|s
+|なる|naru|to become|u
+出来る|できる|dekiru|to be able to, can; to be done|r
+要る|いる|iru|to need|u
+行く|いく|iku|to go|i
+来る|くる|kuru|to come|k
+帰る|かえる|kaeru|to go home; to return|u
+出かける|でかける|dekakeru|to go out|r
+歩く|あるく|aruku|to walk|u
+走る|はしる|hashiru|to run|u
+飛ぶ|とぶ|tobu|to fly|u
+泳ぐ|およぐ|oyogu|to swim|u
+乗る|のる|noru|to get on; to ride|u
+降りる|おりる|oriru|to get off; to go down|r
+着く|つく|tsuku|to arrive|u
+入る|はいる|hairu|to enter|u
+出る|でる|deru|to leave; to go out|r
+渡る|わたる|wataru|to cross|u
+曲がる|まがる|magaru|to turn; to bend|u
+登る|のぼる|noboru|to climb|u
+止まる|とまる|tomaru|to stop|u
+立つ|たつ|tatsu|to stand|u
+座る|すわる|suwaru|to sit|u
+並ぶ|ならぶ|narabu|to line up|u
+並べる|ならべる|naraberu|to line up (things)|r
+起きる|おきる|okiru|to get up; to wake up|r
+寝る|ねる|neru|to sleep|r
+休む|やすむ|yasumu|to rest; to take time off|u
+食べる|たべる|taberu|to eat|r
+飲む|のむ|nomu|to drink|u
+吸う|すう|suu|to smoke; to breathe in|u
+見る|みる|miru|to see; to watch|r
+見せる|みせる|miseru|to show|r
+聞く|きく|kiku|to listen; to hear; to ask|u
+読む|よむ|yomu|to read|u
+書く|かく|kaku|to write|u
+話す|はなす|hanasu|to speak|u
+言う|いう|iu|to say|u
+歌う|うたう|utau|to sing|u
+答える|こたえる|kotaeru|to answer|r
+呼ぶ|よぶ|yobu|to call|u
+頼む|たのむ|tanomu|to ask; to order|u
+習う|ならう|narau|to learn|u
+教える|おしえる|oshieru|to teach; to tell|r
+覚える|おぼえる|oboeru|to remember; to memorize|r
+忘れる|わすれる|wasureru|to forget|r
+分かる|わかる|wakaru|to understand|u
+知る|しる|shiru|to know|u
+思う|おもう|omou|to think|u
+困る|こまる|komaru|to be in trouble|u
+違う|ちがう|chigau|to be different; to be wrong|u
+働く|はたらく|hataraku|to work|u
+勤める|つとめる|tsutomeru|to work (for a company)|r
+使う|つかう|tsukau|to use|u
+作る|つくる|tsukuru|to make|u
+遊ぶ|あそぶ|asobu|to play|u
+弾く|ひく|hiku|to play (an instrument)|u
+撮る|とる|toru|to take (a photo)|u
+買う|かう|kau|to buy|u
+売る|うる|uru|to sell|u
+貸す|かす|kasu|to lend|u
+借りる|かりる|kariru|to borrow|r
+返す|かえす|kaesu|to give back|u
+渡す|わたす|watasu|to hand over|u
+送る|おくる|okuru|to send|u
+貼る|はる|haru|to stick|u
+持つ|もつ|motsu|to have; to hold|u
+置く|おく|oku|to put|u
+取る|とる|toru|to take|u
+出す|だす|dasu|to take out; to send|u
+入れる|いれる|ireru|to put in|r
+開ける|あける|akeru|to open|r
+閉める|しめる|shimeru|to close|r
+開く|あく|aku|to open|u
+閉まる|しまる|shimaru|to be closed|u
+始まる|はじまる|hajimaru|to begin|u
+終わる|おわる|owaru|to end|u
+点ける|つける|tsukeru|to turn on|r
+消す|けす|kesu|to turn off; to erase|u
+消える|きえる|kieru|to go out; to disappear|r
+付ける|つける|tsukeru|to attach; to put on|r
+着る|きる|kiru|to wear (upper body)|r
+脱ぐ|ぬぐ|nugu|to take off (clothes)|u
+履く|はく|haku|to wear (shoes, trousers)|u
+被る|かぶる|kaburu|to put on (a hat)|u
+締める|しめる|shimeru|to tie; to fasten|r
+洗う|あらう|arau|to wash|u
+浴びる|あびる|abiru|to take (a shower)|r
+磨く|みがく|migaku|to brush; to polish|u
+切る|きる|kiru|to cut|u
+押す|おす|osu|to push|u
+引く|ひく|hiku|to pull|u
+上げる|あげる|ageru|to raise; to give|r
+|かける|kakeru|to hang; to make (a call); to wear (glasses)|r
+|かかる|kakaru|to take (time, money)|u
+差す|さす|sasu|to put up (an umbrella)|u
+|やる|yaru|to do; to give|u
+|なくす|nakusu|to lose (something)|u
+住む|すむ|sumu|to live (somewhere)|u
+会う|あう|au|to meet|u
+待つ|まつ|matsu|to wait|u
+生まれる|うまれる|umareru|to be born|r
+死ぬ|しぬ|shinu|to die|u
+疲れる|つかれる|tsukareru|to get tired|r
+晴れる|はれる|hareru|to clear up|r
+曇る|くもる|kumoru|to get cloudy|u
+降る|ふる|furu|to fall (rain, snow)|u
+吹く|ふく|fuku|to blow|u
+咲く|さく|saku|to bloom|u
+鳴く|なく|naku|to cry (animals), to sing (birds)|u
+上がる|あがる|agaru|to go up; to rise|u
+下がる|さがる|sagaru|to go down|u
+下げる|さげる|sageru|to lower|r
+下りる|おりる|oriru|to go down; to come down|r
+起こす|おこす|okosu|to wake someone; to cause|u
+落ちる|おちる|ochiru|to fall|r
+落とす|おとす|otosu|to drop|u
+折る|おる|oru|to break; to fold|u
+折れる|おれる|oreru|to break; to snap|r
+壊す|こわす|kowasu|to break (something)|u
+壊れる|こわれる|kowareru|to break (by itself)|r
+割れる|われる|wareru|to crack; to shatter|r
+焼く|やく|yaku|to burn; to grill|u
+焼ける|やける|yakeru|to be burned; to be grilled|r
+沸かす|わかす|wakasu|to boil (water)|u
+沸く|わく|waku|to come to the boil|u
+集める|あつめる|atsumeru|to collect|r
+集まる|あつまる|atsumaru|to gather|u
+決める|きめる|kimeru|to decide|r
+決まる|きまる|kimaru|to be decided|u
+見つける|みつける|mitsukeru|to find|r
+見つかる|みつかる|mitsukaru|to be found|u
+続ける|つづける|tsuzukeru|to continue (something)|r
+続く|つづく|tsuzuku|to continue (by itself)|u
+変える|かえる|kaeru|to change (something)|r
+変わる|かわる|kawaru|to change (by itself)|u
+直す|なおす|naosu|to fix; to correct|u
+治る|なおる|naoru|to get better; to heal|u
+止める|とめる|tomeru|to stop (something)|r
+止む|やむ|yamu|to stop (rain, noise)|u
+|やめる|yameru|to quit; to give up|r
+建てる|たてる|tateru|to build|r
+植える|うえる|ueru|to plant|r
+育てる|そだてる|sodateru|to raise; to grow|r
+動く|うごく|ugoku|to move; to work|u
+運ぶ|はこぶ|hakobu|to carry|u
+移る|うつる|utsuru|to move (place)|u
+写す|うつす|utsusu|to copy; to photograph|u
+打つ|うつ|utsu|to hit|u
+投げる|なげる|nageru|to throw|r
+噛む|かむ|kamu|to bite; to chew|u
+踏む|ふむ|fumu|to step on|u
+触る|さわる|sawaru|to touch|u
+塗る|ぬる|nuru|to paint; to spread|u
+包む|つつむ|tsutsumu|to wrap|u
+釣る|つる|tsuru|to fish|u
+拾う|ひろう|hirou|to pick up|u
+捨てる|すてる|suteru|to throw away|r
+飾る|かざる|kazaru|to decorate|u
+片付ける|かたづける|katazukeru|to tidy up|r
+探す|さがす|sagasu|to look for|u
+調べる|しらべる|shiraberu|to look up; to investigate|r
+比べる|くらべる|kuraberu|to compare|r
+選ぶ|えらぶ|erabu|to choose|u
+考える|かんがえる|kangaeru|to think about|r
+思い出す|おもいだす|omoidasu|to remember|u
+知らせる|しらせる|shiraseru|to let someone know|r
+伝える|つたえる|tsutaeru|to tell; to pass on|r
+尋ねる|たずねる|tazuneru|to ask|r
+届ける|とどける|todokeru|to deliver|r
+謝る|あやまる|ayamaru|to apologise|u
+祈る|いのる|inoru|to pray|u
+褒める|ほめる|homeru|to praise|r
+叱る|しかる|shikaru|to scold|u
+怒る|おこる|okoru|to get angry|u
+笑う|わらう|warau|to laugh; to smile|u
+泣く|なく|naku|to cry|u
+喜ぶ|よろこぶ|yorokobu|to be happy about|u
+驚く|おどろく|odoroku|to be surprised|u
+楽しむ|たのしむ|tanoshimu|to enjoy|u
+騒ぐ|さわぐ|sawagu|to make noise|u
+踊る|おどる|odoru|to dance|u
+急ぐ|いそぐ|isogu|to hurry|u
+遅れる|おくれる|okureru|to be late|r
+間に合う|まにあう|maniau|to be in time|u
+通う|かよう|kayou|to commute; to go regularly|u
+通る|とおる|tooru|to pass through|u
+進む|すすむ|susumu|to go forward|u
+向かう|むかう|mukau|to head for|u
+迎える|むかえる|mukaeru|to go to meet; to welcome|r
+戻る|もどる|modoru|to go back; to return|u
+回る|まわる|mawaru|to go around; to turn|u
+過ぎる|すぎる|sugiru|to pass; to go past|r
+寄る|よる|yoru|to stop by|u
+泊まる|とまる|tomaru|to stay overnight|u
+逃げる|にげる|nigeru|to run away|r
+倒れる|たおれる|taoreru|to fall over; to collapse|r
+滑る|すべる|suberu|to slip; to slide|u
+揺れる|ゆれる|yureru|to shake; to sway|r
+乾く|かわく|kawaku|to dry|u
+濡れる|ぬれる|nureru|to get wet|r
+汚れる|よごれる|yogoreru|to get dirty|r
+冷える|ひえる|hieru|to get cold|r
+光る|ひかる|hikaru|to shine|u
+鳴る|なる|naru|to ring; to sound|u
+空く|あく|aku|to become empty; to open|u
+空く|すく|suku|to become less crowded|u
+込む|こむ|komu|to get crowded|u
+残る|のこる|nokoru|to remain|u
+足りる|たりる|tariru|to be enough|r
+足す|たす|tasu|to add|u
+増える|ふえる|fueru|to increase|r
+無くなる|なくなる|nakunaru|to be lost; to run out|u
+太る|ふとる|futoru|to gain weight|u
+痩せる|やせる|yaseru|to lose weight|r
+似る|にる|niru|to look like|r
+合う|あう|au|to fit; to match|u
+慣れる|なれる|nareru|to get used to|r
+眠る|ねむる|nemuru|to sleep|u
+引っ越す|ひっこす|hikkosu|to move house|u
+生きる|いきる|ikiru|to live; to be alive|r
+受ける|うける|ukeru|to receive; to take (an exam)|r
+勝つ|かつ|katsu|to win|u
+負ける|まける|makeru|to lose|r
+行う|おこなう|okonau|to carry out|u
+手伝う|てつだう|tetsudau|to help|u
+頑張る|がんばる|ganbaru|to do your best|u
+払う|はらう|harau|to pay|u
+連れる|つれる|tsureru|to bring along (a person)|r
+捕まえる|つかまえる|tsukamaeru|to catch|r
+盗む|ぬすむ|nusumu|to steal|u
+|いじめる|ijimeru|to bully|r
+別れる|わかれる|wakareru|to separate; to break up|r
+間違える|まちがえる|machigaeru|to make a mistake|r
+乗り換える|のりかえる|norikaeru|to change (trains)|r
+取り替える|とりかえる|torikaeru|to swap; to replace|r
+引き出す|ひきだす|hikidasu|to withdraw; to pull out|u
+降り出す|ふりだす|furidasu|to start raining|u
+暮れる|くれる|kureru|to get dark|r
+開く|ひらく|hiraku|to open|u
+付く|つく|tsuku|to be attached; to come on|u
+漬ける|つける|tsukeru|to soak; to pickle|r
+済む|すむ|sumu|to be finished|u
+構う|かまう|kamau|to mind; to care|u
+役に立つ|やくにたつ|yakunitatsu|to be useful|u
+|もらう|morau|to receive|u
+|しまう|shimau|to put away; to finish|u
+見える|みえる|mieru|to be visible; can see|r
+聞こえる|きこえる|kikoeru|to be audible; can hear|r
+始める|はじめる|hajimeru|to start (something)|r
+|いらっしゃる|irassharu|to come; to go; to be (respectful)|h
+|おいでになる|oideninaru|to come; to go; to be (respectful)|u
+|おっしゃる|ossharu|to say (respectful)|h
+|なさる|nasaru|to do (respectful)|h
+|くださる|kudasaru|to give me (respectful)|h
+召し上がる|めしあがる|meshiagaru|to eat; to drink (respectful)|u
+ご覧になる|ごらんになる|goranninaru|to see (respectful)|u
+致す|いたす|itasu|to do (humble)|u
+伺う|うかがう|ukagau|to visit; to ask (humble)|u
+参る|まいる|mairu|to come; to go (humble)|u
+申す|もうす|mousu|to say (humble)|u
+申し上げる|もうしあげる|moushiageru|to say (humble)|r
+差し上げる|さしあげる|sashiageru|to give (humble)|r
+|いただく|itadaku|to receive; to eat (humble)|u
+      </script>
+    </section>
+
     <!-- resources -->
     <section class="home" id="resources" data-page hidden>
       <div class="home-head"><h1>Resources</h1></div>
@@ -28410,8 +28703,9 @@ var MINNA = [
     '<a class="nav" href="' + href('jlpt') + '"><svg class="pad" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4.5" width="14" height="16.5" rx="2"/><path d="M9 3h6v3H9z"/><path d="M8.5 13l2.5 2.5 4.5-5"/></svg> JLPT</a>' +
     // wide screens: "Grammar", "Vocabulary" and "Kana" are dropdowns (one page per level; Hiragana and Katakana); phones keep the links in the ☰ menu
     '<div class="kana-group"><button class="nav kana-btn" type="button" aria-expanded="false"><svg class="pad" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></svg> Grammar <svg class="chev" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>' +
-      '<div class="kana-drop">' + INDEX.map(function(g){ return '<a class="nav" href="' + href(gridId(g.level)) + '">' + g.level + ' Grammar</a>'; }).join('') + '</div></div>' +
+      '<div class="kana-drop">' + INDEX.map(function(g){ return '<a class="nav" href="' + href(gridId(g.level)) + '">' + g.level + ' Grammar</a>'; }).join('') + '<a class="nav" href="' + href('conjugator') + '">Verb Conjugator</a></div></div>' +
     INDEX.map(function(g){ return '<a class="nav m-only" href="' + href(gridId(g.level)) + '"><svg class="pad" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></svg> ' + g.level + ' Grammar</a>'; }).join('') +
+    '<a class="nav m-only" href="' + href('conjugator') + '">活 Verb Conjugator</a>' +
     '<div class="kana-group"><button class="nav kana-btn" type="button" aria-expanded="false">語 Vocabulary <svg class="chev" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>' +
       '<div class="kana-drop"><a class="nav" href="' + href('vocab-n5') + '">N5 Vocabulary List</a><a class="nav" href="' + href('vocab-n4') + '">N4 Vocabulary List</a></div></div>' +
     '<a class="nav m-only" href="' + href('vocab-n5') + '">語 N5 Vocabulary List</a>' +
@@ -28731,6 +29025,104 @@ var MINNA = [
       romaji.setAttribute('aria-pressed', String(!off));
     });
   });
+
+  // Verb Conjugator: the verbs (N5 + N4 lists, tagged by type) live as text in pages/conjugator.html
+  (function(){
+    var box = document.querySelector('.conj');
+    if (!box) return;
+    var input = box.querySelector('.conj-q'), out = box.querySelector('.conj-out');
+    var TYPE = { r:'る-verb', u:'う-verb', s:'する-verb', k:'Irregular', a:'う-verb, with an odd negative', i:'う-verb, with an odd て-form', h:'う-verb, with an odd ます-form' };
+    var ROW = { 'う':'わい', 'く':'かき', 'ぐ':'がぎ', 'す':'さし', 'つ':'たち', 'ぬ':'なに', 'ぶ':'ばび', 'む':'まみ', 'る':'らり' };
+    var TE = { 'う':'って', 'つ':'って', 'る':'って', 'く':'いて', 'ぐ':'いで', 'す':'して', 'ぬ':'んで', 'ぶ':'んで', 'む':'んで' };
+    var IE = 'いきしちにひみりぎじびぴえけせてねへめれげぜでべぺ';
+    var esc = function(t){ return t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); };
+    var VERBS = box.parentNode.querySelector('.conj-verbs').textContent.trim().split('\n').map(function(l){
+      var p = l.trim().split('|');
+      return { k:p[0], r:p[1], m:p[2], en:p[3], t:p[4], w:p[0] || p[1] };
+    });
+    // polite present, casual present, polite negative, casual negative, polite past, casual past, polite past negative, casual past negative, て-form
+    function forms(word, t){
+      var last = word.slice(-1), base = word.slice(0, -1), a;
+      var make = function(m, plain, nai, ta, te){ return [m + 'ます', plain, m + 'ません', nai, m + 'ました', ta, m + 'ませんでした', nai.slice(0, -1) + 'かった', te]; };
+      if (t === 'r') return make(base, word, base + 'ない', base + 'た', base + 'て');
+      if (t === 's') { base = word.slice(0, -2); return make(base + 'し', word, base + 'しない', base + 'した', base + 'して'); }
+      if (t === 'k') { var kanji = word.slice(-2, -1) === '来'; base = word.slice(0, -2); return make(base + (kanji ? '来' : 'き'), word, base + (kanji ? '来' : 'こ') + 'ない', base + (kanji ? '来' : 'き') + 'た', base + (kanji ? '来' : 'き') + 'て'); }
+      if (t === 'h') return make(base + 'い', word, base + 'らない', base + 'った', base + 'って');
+      a = ROW[last];
+      var te = t === 'i' ? 'って' : TE[last];
+      return make(base + a[1], word, t === 'a' ? 'ない' : base + a[0] + 'ない', base + te.slice(0, -1) + (te.slice(-1) === 'て' ? 'た' : 'だ'), base + te);
+    }
+    // the form written with kanji, furigana only over the kanji; 来 is the one kanji whose reading changes
+    function written(v, form){
+      if (!v.k) return esc(form);
+      var segs = v.k.match(/[一-龯々]+|[^一-龯々]+/g), isK = function(x){ return /[一-龯々]/.test(x); };
+      var m = v.r.match(new RegExp('^' + segs.map(function(x){ return isK(x) ? '(.+?)' : x; }).join('') + '$'));
+      if (!m) return esc(form);
+      var html = '', pos = 0, n = 0;
+      segs.forEach(function(x, i){
+        if (isK(x)) { var r = m[++n]; if (v.t === 'k') r = form.charAt(pos); html += '<ruby>' + x + '<rt>' + r + '</rt></ruby>'; pos += r.length; }
+        else if (i < segs.length - 1) { html += x; pos += x.length; }
+      });
+      return html + form.slice(pos);
+    }
+    function guess(q){
+      var last = q.slice(-1), prev = q.slice(-2, -1);
+      if (/する$/.test(q)) return { w:q, t:'s', label:TYPE.s };
+      if (!ROW[last] || q.length < 2) return null;
+      if (/行く$/.test(q)) return { w:q, t:'i', label:'う-verb, with an odd て-form', sure:false };
+      if (/(来|てく)る$/.test(q)) return { w:q, t:'k', label:'Irregular' };
+      if (last === 'る' && IE.indexOf(prev) > -1) return { w:q, t:'r', label:'Probably a る-verb', sure:false };
+      if (last === 'る' && /[一-龯々]/.test(prev)) return { w:q, t:'u', label:'Probably an う-verb', sure:false };
+      return { w:q, t:'u', label:TYPE.u, sure:false };
+    }
+    function find(q){
+      var low = q.toLowerCase().replace(/^to /, ''), word = new RegExp('(^|[^a-z])' + low.replace(/[^a-z ]/g, '') + '([^a-z]|$)');
+      var exact = VERBS.filter(function(v){ return v.w === q || v.r === q || v.m === low; });
+      var isEn = /^[a-z ]+$/.test(low);
+      var start = VERBS.filter(function(v){ return v.k.indexOf(q) === 0 || v.r.indexOf(q) === 0 || v.m.indexOf(low) === 0; });
+      var en = isEn && low.length > 1 ? VERBS.filter(function(v){ return word.test(v.en.toLowerCase()); }) : [];
+      var seen = [], all = exact.concat(start, en).filter(function(v){ if (seen.indexOf(v) > -1) return false; seen.push(v); return true; });
+      return all;
+    }
+    function table(v, label, note){
+      var f = forms(v.w === v.k ? v.r : v.w, v.t), w = function(x){ return v.en ? written(v, x) : esc(x); };
+      if (!v.en) f = forms(v.w, v.t);
+      var rows = [['Present', 0], ['Negative', 2], ['Past', 4], ['Past negative', 6]].map(function(r){
+        return '<tr><th>' + r[0] + '</th><td>' + w(f[r[1]]) + '</td><td>' + w(f[r[1] + 1]) + '</td></tr>';
+      }).join('');
+      return '<div class="conj-head"><span class="conj-w">' + (v.en ? written(v, v.r) : esc(v.w)) + '</span>' + (v.en ? '<span class="conj-en">' + esc(v.en) + '</span>' : '') + '<span class="conj-type">' + esc(label) + '</span></div>' +
+        '<div class="forms twoforms"><table><thead><tr><th></th><th>Polite</th><th>Casual</th></tr></thead><tbody>' + rows +
+        '<tr class="conj-te"><th>て-form</th><td colspan="2">' + w(f[8]) + '</td></tr></tbody></table>' + (note ? '<p class="m">' + note + '</p>' : '') + '</div>';
+    }
+    function labelOf(v){
+      if (v.t === 'u' && v.r.slice(-1) === 'る' && IE.indexOf(v.r.slice(-2, -1)) > -1) return 'う-verb (looks like a る-verb)';
+      return TYPE[v.t];
+    }
+    function pick(v, others){
+      var chips = others.length ? '<div class="conj-more">' + others.slice(0, 8).map(function(o){
+        return '<button type="button" data-i="' + VERBS.indexOf(o) + '">' + esc(o.w) + (o.k ? ' <small>' + o.r + '</small>' : '') + '</button>';
+      }).join('') + '</div>' : '';
+      out.innerHTML = table(v, labelOf(v)) + chips;
+    }
+    function run(){
+      var q = input.value.trim();
+      if (!q) { pick(VERBS.filter(function(v){ return v.w === '歩く'; })[0], []); return; }
+      var hits = find(q);
+      if (hits.length) { pick(hits[0], hits.slice(1)); return; }
+      var g = guess(q);
+      if (g) { out.innerHTML = table({ w:g.w, t:g.t, k:'', r:g.w, en:'' }, g.label, g.sure === false ? "This verb isn't on our N5 and N4 lists, so the type is a guess." : ''); return; }
+      out.innerHTML = '<p class="conj-none">No verb found. Try the dictionary form, like 飲む.</p>';
+    }
+    input.addEventListener('input', run);
+    out.addEventListener('click', function(e){
+      var b = e.target.closest('button[data-i]');
+      if (!b) return;
+      var v = VERBS[+b.getAttribute('data-i')];
+      input.value = v.w;
+      pick(v, find(v.w).filter(function(o){ return o !== v; }));
+    });
+    run();
+  })();
 
   if (BUNDLE) {
     var pages = [].slice.call(document.querySelectorAll('[data-page]'));

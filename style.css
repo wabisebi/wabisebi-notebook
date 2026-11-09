@@ -559,3 +559,19 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
 .vcard .en{margin:0;font-weight:500}
 .vcard .ctx{color:var(--muted)}
 @media (max-width:720px){.vcards{grid-template-columns:1fr}}
+
+/* Verb Conjugator */
+.conj{max-width:640px;margin-top:18px}
+.conj-q{width:100%;box-sizing:border-box;font:inherit;font-size:18px;color:var(--ink);background:var(--card);border:1px solid var(--card-line);border-radius:10px;padding:12px 14px;outline:0}
+.conj-q:focus{border-color:var(--gold)}
+.conj-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;margin:20px 0 10px}
+.conj-w{font-size:26px;font-weight:600}
+.conj-en{color:var(--muted);font-size:15px}
+.conj-type{margin-left:auto;font-family:var(--mono);font-size:12px;color:var(--gram)}
+.conj .forms ruby rt{font-size:.55em;font-weight:400;color:var(--muted)}
+.conj .forms tr:last-child th,.conj .forms tr:last-child td{border-bottom:0}
+.conj-more{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.conj-more button{font:inherit;font-size:15px;color:var(--ink);background:var(--card);border:1px solid var(--card-line);border-radius:8px;padding:6px 10px;cursor:pointer}
+.conj-more button:hover{border-color:var(--gold);background:var(--hover)}
+.conj-more small{color:var(--muted);font-size:12px}
+.conj-none{color:var(--muted);margin-top:16px}
