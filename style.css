@@ -444,6 +444,9 @@ main:has(.home:not([hidden])) .foot{max-width:1080px}
 .forms tr.here th,.forms tr.here td{background:color-mix(in srgb,var(--gram) 12%,transparent);color:var(--gram)}
 .forms tr.here th{box-shadow:inset 3px 0 0 var(--gram)}
 .forms .m{margin:10px 0 0;color:var(--muted);font-size:14px}
+.forms .vt-top{margin:10px 10px 12px;font-size:16px;font-weight:600}
+.forms .vt-n{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;margin-right:7px;border:1.5px solid currentColor;border-radius:50%;font-size:13px;font-weight:600;line-height:1;vertical-align:1px}
+@media (max-width:520px){.forms.vtypes tbody th{white-space:normal;width:32%}.forms.vtypes tbody th .hint{white-space:normal}}
 .note .forms{margin:0 0 20px}
 .note .intro .jp{font-size:24px;font-weight:600;margin:4px 0 8px}
 .rlist.notes{display:grid;gap:10px}
@@ -462,6 +465,16 @@ main:has(.home:not([hidden])) .foot{max-width:1080px}
 .twoforms .hint,.iiyoi .hint{margin-left:10px;font-size:13px;font-weight:400;color:var(--muted)}
 .iiyoi .more{margin-top:12px;padding-top:12px;border-top:1px solid var(--card-line)}
 .vtypes{margin-top:14px}
+.vt-fold summary{margin:12px 10px 8px;color:var(--gold);font-size:15px;font-weight:600;cursor:pointer;list-style:none}
+.vt-fold summary::-webkit-details-marker{display:none}
+.vt-fold summary::before{content:"▸";display:inline-block;margin-right:7px;transition:transform .15s}
+.vt-fold[open] summary::before{transform:rotate(90deg)}
+.vt-steps{list-style:none;margin:0;padding:0}
+.vt-steps li{display:grid;grid-template-columns:58px 1fr;gap:8px;padding:9px 10px;border-bottom:1px solid var(--line)}
+.vt-steps p{margin:0;font-size:15px;color:var(--muted)}
+.vt-steps p.vt-q{color:inherit;font-size:16px;margin-bottom:2px}
+.vt-steps b{color:var(--gram);font-weight:600}
+.vt-s{font-size:13px;font-weight:600;color:var(--muted);padding-top:2px}
 .vtypes .hint{display:block;margin-top:2px;font-family:var(--body);font-size:13px;font-weight:400;color:var(--muted)}
 .forms.vtypes tr.here .hint{color:inherit;opacity:.8}
 /* が page: the は vs が box, deep-topic line on top */

@@ -453,6 +453,9 @@ main:has(.home:not([hidden])) .foot{max-width:1080px}
 .forms tr.here th,.forms tr.here td{background:color-mix(in srgb,var(--gram) 12%,transparent);color:var(--gram)}
 .forms tr.here th{box-shadow:inset 3px 0 0 var(--gram)}
 .forms .m{margin:10px 0 0;color:var(--muted);font-size:14px}
+.forms .vt-top{margin:10px 10px 12px;font-size:16px;font-weight:600}
+.forms .vt-n{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;margin-right:7px;border:1.5px solid currentColor;border-radius:50%;font-size:13px;font-weight:600;line-height:1;vertical-align:1px}
+@media (max-width:520px){.forms.vtypes tbody th{white-space:normal;width:32%}.forms.vtypes tbody th .hint{white-space:normal}}
 .note .forms{margin:0 0 20px}
 .note .intro .jp{font-size:24px;font-weight:600;margin:4px 0 8px}
 .rlist.notes{display:grid;gap:10px}
@@ -471,6 +474,16 @@ main:has(.home:not([hidden])) .foot{max-width:1080px}
 .twoforms .hint,.iiyoi .hint{margin-left:10px;font-size:13px;font-weight:400;color:var(--muted)}
 .iiyoi .more{margin-top:12px;padding-top:12px;border-top:1px solid var(--card-line)}
 .vtypes{margin-top:14px}
+.vt-fold summary{margin:12px 10px 8px;color:var(--gold);font-size:15px;font-weight:600;cursor:pointer;list-style:none}
+.vt-fold summary::-webkit-details-marker{display:none}
+.vt-fold summary::before{content:"▸";display:inline-block;margin-right:7px;transition:transform .15s}
+.vt-fold[open] summary::before{transform:rotate(90deg)}
+.vt-steps{list-style:none;margin:0;padding:0}
+.vt-steps li{display:grid;grid-template-columns:58px 1fr;gap:8px;padding:9px 10px;border-bottom:1px solid var(--line)}
+.vt-steps p{margin:0;font-size:15px;color:var(--muted)}
+.vt-steps p.vt-q{color:inherit;font-size:16px;margin-bottom:2px}
+.vt-steps b{color:var(--gram);font-weight:600}
+.vt-s{font-size:13px;font-weight:600;color:var(--muted);padding-top:2px}
 .vtypes .hint{display:block;margin-top:2px;font-family:var(--body);font-size:13px;font-weight:400;color:var(--muted)}
 .forms.vtypes tr.here .hint{color:inherit;opacity:.8}
 /* が page: the は vs が box, deep-topic line on top */
@@ -15569,15 +15582,24 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
         <p class="m">Same meaning. Only the politeness changes.</p>
       </div>
       <div class="forms vtypes">
+        <p class="vt-top">Japanese has three types of verbs. This page is about the second one, the る-verbs.</p>
         <table>
           <thead><tr><th>Verb type</th><th>Dictionary</th><th>Polite</th></tr></thead>
           <tbody>
-            <tr><th><a class="xref" href="#u-verb">う-verb</a><span class="hint">most verbs</span></th><td>書く</td><td>書<mark class="g">き</mark>ます<span class="hint">u sound → i sound, add ます</span></td></tr>
-            <tr class="here"><th>る-verb</th><td>食べる</td><td>食べます<span class="hint">drop る, add ます</span></td></tr>
-            <tr><th>Irregular<span class="hint">only two</span></th><td><a class="xref" href="#suru">する</a><br><a class="xref" href="#kuru">来る</a></td><td>します<br>来ます<span class="hint">just learn these</span></td></tr>
+            <tr><th><span class="vt-n">1</span><a class="xref" href="#u-verb">う-verb</a><span class="hint">most verbs</span></th><td>書く<span class="hint">also 飲む, 話す, 買う...</span></td><td>書<mark class="g">き</mark>ます<span class="hint">u sound → i sound, add ます</span></td></tr>
+            <tr class="here"><th><span class="vt-n">2</span>る-verb<span class="hint">this page</span></th><td>食べる<span class="hint">also 見る, 起きる, 寝る...</span></td><td>食べます<span class="hint">drop る, add ます</span></td></tr>
+            <tr><th><span class="vt-n">3</span>Irregular<span class="hint">just these two verbs</span></th><td><a class="xref" href="#suru">する</a><br><a class="xref" href="#kuru">来る</a></td><td>します<br>来ます<span class="hint">just learn these</span></td></tr>
           </tbody>
         </table>
-        <p class="m">Doesn't end in る? It's a う-verb. Ends in る? Usually a る-verb if the sound before it is i or e, and a う-verb if not.</p>
+        <details class="vt-fold">
+          <summary>How to tell which type a verb is</summary>
+          <ol class="vt-steps">
+            <li><span class="vt-s">Step 1</span><div><p class="vt-q">Is it する or 来る?</p><p>Yes: <b>Irregular</b>. No: go to step 2.</p></div></li>
+            <li><span class="vt-s">Step 2</span><div><p class="vt-q">Does it end in る?</p><p>No: <b>う-verb</b> (書く, 飲む). Yes: go to step 3.</p></div></li>
+            <li><span class="vt-s">Step 3</span><div><p class="vt-q">Is the sound just before る an i or an e?</p><p>No: <b>う-verb</b> (分かる wa-ka-ru, 作る tsu-ku-ru).</p><p>Yes: usually a <b>る-verb</b> (見る mi-ru, 食べる ta-be-ru).</p></div></li>
+          </ol>
+          <p class="m">A few break step 3. These look like る-verbs but are う-verbs: 帰る, 入る, 走る, 知る.</p>
+        </details>
       </div>
       <div class="intro">
         <p>る-verbs are the second big group of Japanese verbs. Their dictionary form always ends in る, and the sound right before it is an i or an e sound: 見る (m<b>i</b>ru), 食べる (tab<b>e</b>ru).</p>
@@ -15807,15 +15829,24 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
         <p class="m">Same meaning. Only the politeness changes.</p>
       </div>
       <div class="forms vtypes">
+        <p class="vt-top">Japanese has three types of verbs. This page is about the first one, the う-verbs.</p>
         <table>
           <thead><tr><th>Verb type</th><th>Dictionary</th><th>Polite</th></tr></thead>
           <tbody>
-            <tr class="here"><th>う-verb<span class="hint">most verbs</span></th><td>書く</td><td>書<mark class="g">き</mark>ます<span class="hint">u sound → i sound, add ます</span></td></tr>
-            <tr><th><a class="xref" href="#ru-verb">る-verb</a></th><td>食べる</td><td>食べます<span class="hint">drop る, add ます</span></td></tr>
-            <tr><th>Irregular<span class="hint">only two</span></th><td><a class="xref" href="#suru">する</a><br><a class="xref" href="#kuru">来る</a></td><td>します<br>来ます<span class="hint">just learn these</span></td></tr>
+            <tr class="here"><th><span class="vt-n">1</span>う-verb<span class="hint">most verbs · this page</span></th><td>書く<span class="hint">also 飲む, 話す, 買う...</span></td><td>書<mark class="g">き</mark>ます<span class="hint">u sound → i sound, add ます</span></td></tr>
+            <tr><th><span class="vt-n">2</span><a class="xref" href="#ru-verb">る-verb</a></th><td>食べる<span class="hint">also 見る, 起きる, 寝る...</span></td><td>食べます<span class="hint">drop る, add ます</span></td></tr>
+            <tr><th><span class="vt-n">3</span>Irregular<span class="hint">just these two verbs</span></th><td><a class="xref" href="#suru">する</a><br><a class="xref" href="#kuru">来る</a></td><td>します<br>来ます<span class="hint">just learn these</span></td></tr>
           </tbody>
         </table>
-        <p class="m">Doesn't end in る? It's a う-verb. Ends in る? Usually a る-verb if the sound before it is i or e, and a う-verb if not.</p>
+        <details class="vt-fold">
+          <summary>How to tell which type a verb is</summary>
+          <ol class="vt-steps">
+            <li><span class="vt-s">Step 1</span><div><p class="vt-q">Is it する or 来る?</p><p>Yes: <b>Irregular</b>. No: go to step 2.</p></div></li>
+            <li><span class="vt-s">Step 2</span><div><p class="vt-q">Does it end in る?</p><p>No: <b>う-verb</b> (書く, 飲む). Yes: go to step 3.</p></div></li>
+            <li><span class="vt-s">Step 3</span><div><p class="vt-q">Is the sound just before る an i or an e?</p><p>No: <b>う-verb</b> (分かる wa-ka-ru, 作る tsu-ku-ru).</p><p>Yes: usually a <b>る-verb</b> (見る mi-ru, 食べる ta-be-ru).</p></div></li>
+          </ol>
+          <p class="m">A few break step 3. These look like る-verbs but are う-verbs: 帰る, 入る, 走る, 知る.</p>
+        </details>
       </div>
       <div class="lead">
         <span class="use casual">Casual</span>
@@ -17079,15 +17110,24 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
         <p class="m">Same meaning: "to come". Only the politeness changes.</p>
       </div>
       <div class="forms vtypes">
+        <p class="vt-top">Japanese has three types of verbs. This page is about the third one, the irregular verbs: 来る.</p>
         <table>
           <thead><tr><th>Verb type</th><th>Dictionary</th><th>Polite</th></tr></thead>
           <tbody>
-            <tr><th><a class="xref" href="#u-verb">う-verb</a><span class="hint">most verbs</span></th><td>書く</td><td>書<mark class="g">き</mark>ます<span class="hint">u sound → i sound, add ます</span></td></tr>
-            <tr><th><a class="xref" href="#ru-verb">る-verb</a></th><td>食べる</td><td>食べます<span class="hint">drop る, add ます</span></td></tr>
-            <tr class="here"><th>Irregular<span class="hint">only two</span></th><td><a class="xref" href="#suru">する</a><br>来る</td><td>します<br>来ます<span class="hint">just learn these</span></td></tr>
+            <tr><th><span class="vt-n">1</span><a class="xref" href="#u-verb">う-verb</a><span class="hint">most verbs</span></th><td>書く<span class="hint">also 飲む, 話す, 買う...</span></td><td>書<mark class="g">き</mark>ます<span class="hint">u sound → i sound, add ます</span></td></tr>
+            <tr><th><span class="vt-n">2</span><a class="xref" href="#ru-verb">る-verb</a></th><td>食べる<span class="hint">also 見る, 起きる, 寝る...</span></td><td>食べます<span class="hint">drop る, add ます</span></td></tr>
+            <tr class="here"><th><span class="vt-n">3</span>Irregular<span class="hint">just these two verbs · this page</span></th><td><a class="xref" href="#suru">する</a><br>来る</td><td>します<br>来ます<span class="hint">just learn these</span></td></tr>
           </tbody>
         </table>
-        <p class="m">Doesn't end in る? It's a う-verb. Ends in る? Usually a る-verb if the sound before it is i or e, and a う-verb if not.</p>
+        <details class="vt-fold">
+          <summary>How to tell which type a verb is</summary>
+          <ol class="vt-steps">
+            <li><span class="vt-s">Step 1</span><div><p class="vt-q">Is it する or 来る?</p><p>Yes: <b>Irregular</b>. No: go to step 2.</p></div></li>
+            <li><span class="vt-s">Step 2</span><div><p class="vt-q">Does it end in る?</p><p>No: <b>う-verb</b> (書く, 飲む). Yes: go to step 3.</p></div></li>
+            <li><span class="vt-s">Step 3</span><div><p class="vt-q">Is the sound just before る an i or an e?</p><p>No: <b>う-verb</b> (分かる wa-ka-ru, 作る tsu-ku-ru).</p><p>Yes: usually a <b>る-verb</b> (見る mi-ru, 食べる ta-be-ru).</p></div></li>
+          </ol>
+          <p class="m">A few break step 3. These look like る-verbs but are う-verbs: 帰る, 入る, 走る, 知る.</p>
+        </details>
       </div>
       <div class="lead">
         <span class="use casual">Casual</span>
@@ -17305,15 +17345,24 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
         <p class="m">Same meaning: "to do". Only the politeness changes.</p>
       </div>
       <div class="forms vtypes">
+        <p class="vt-top">Japanese has three types of verbs. This page is about the third one, the irregular verbs: する.</p>
         <table>
           <thead><tr><th>Verb type</th><th>Dictionary</th><th>Polite</th></tr></thead>
           <tbody>
-            <tr><th><a class="xref" href="#u-verb">う-verb</a><span class="hint">most verbs</span></th><td>書く</td><td>書<mark class="g">き</mark>ます<span class="hint">u sound → i sound, add ます</span></td></tr>
-            <tr><th><a class="xref" href="#ru-verb">る-verb</a></th><td>食べる</td><td>食べます<span class="hint">drop る, add ます</span></td></tr>
-            <tr class="here"><th>Irregular<span class="hint">only two</span></th><td>する<br><a class="xref" href="#kuru">来る</a></td><td>します<br>来ます<span class="hint">just learn these</span></td></tr>
+            <tr><th><span class="vt-n">1</span><a class="xref" href="#u-verb">う-verb</a><span class="hint">most verbs</span></th><td>書く<span class="hint">also 飲む, 話す, 買う...</span></td><td>書<mark class="g">き</mark>ます<span class="hint">u sound → i sound, add ます</span></td></tr>
+            <tr><th><span class="vt-n">2</span><a class="xref" href="#ru-verb">る-verb</a></th><td>食べる<span class="hint">also 見る, 起きる, 寝る...</span></td><td>食べます<span class="hint">drop る, add ます</span></td></tr>
+            <tr class="here"><th><span class="vt-n">3</span>Irregular<span class="hint">just these two verbs · this page</span></th><td>する<br><a class="xref" href="#kuru">来る</a></td><td>します<br>来ます<span class="hint">just learn these</span></td></tr>
           </tbody>
         </table>
-        <p class="m">Doesn't end in る? It's a う-verb. Ends in る? Usually a る-verb if the sound before it is i or e, and a う-verb if not.</p>
+        <details class="vt-fold">
+          <summary>How to tell which type a verb is</summary>
+          <ol class="vt-steps">
+            <li><span class="vt-s">Step 1</span><div><p class="vt-q">Is it する or 来る?</p><p>Yes: <b>Irregular</b>. No: go to step 2.</p></div></li>
+            <li><span class="vt-s">Step 2</span><div><p class="vt-q">Does it end in る?</p><p>No: <b>う-verb</b> (書く, 飲む). Yes: go to step 3.</p></div></li>
+            <li><span class="vt-s">Step 3</span><div><p class="vt-q">Is the sound just before る an i or an e?</p><p>No: <b>う-verb</b> (分かる wa-ka-ru, 作る tsu-ku-ru).</p><p>Yes: usually a <b>る-verb</b> (見る mi-ru, 食べる ta-be-ru).</p></div></li>
+          </ol>
+          <p class="m">A few break step 3. These look like る-verbs but are う-verbs: 帰る, 入る, 走る, 知る.</p>
+        </details>
       </div>
       <div class="lead">
         <span class="use polite">Polite</span>
