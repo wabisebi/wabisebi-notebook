@@ -593,6 +593,18 @@ var MINNA = [
     var box = document.querySelector('.conj');
     if (!box) return;
     var input = box.querySelector('.conj-q'), out = box.querySelector('.conj-out');
+    var furi = box.parentNode.querySelector('.conj-furi');
+    function setFuri(off){
+      box.classList.toggle('no-furi', off);
+      furi.textContent = 'Furigana: ' + (off ? 'off' : 'on');
+      furi.setAttribute('aria-pressed', String(!off));
+    }
+    try { setFuri(localStorage.getItem('wabisebi-furigana') === 'off'); } catch (e) {}
+    furi.addEventListener('click', function(){
+      var off = !box.classList.contains('no-furi');
+      setFuri(off);
+      try { localStorage.setItem('wabisebi-furigana', off ? 'off' : 'on'); } catch (e) {}
+    });
     var TYPE = { r:'る-verb', u:'う-verb', s:'する-verb', k:'Irregular', a:'う-verb, with an odd negative', i:'う-verb, with an odd て-form', h:'う-verb, with an odd ます-form' };
     var ROW = { 'う':'わい', 'く':'かき', 'ぐ':'がぎ', 'す':'さし', 'つ':'たち', 'ぬ':'なに', 'ぶ':'ばび', 'む':'まみ', 'る':'らり' };
     var TE = { 'う':'って', 'つ':'って', 'る':'って', 'く':'いて', 'ぐ':'いで', 'す':'して', 'ぬ':'んで', 'ぶ':'んで', 'む':'んで' };
