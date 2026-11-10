@@ -54,6 +54,7 @@ var INDEX = [
       ['no-noun', 'の (Noun left out)', 'Mine, yours: これは私のです'],
       ['kara', 'から (From)', 'From: starting point (place, time, person)'],
       ['made', 'まで', 'Until, up to, even'],
+      ['niwa', 'には・では・にも', 'Particle + は or も: に and で stay, が and を go'],
       ['dake', 'だけ', 'Only, just'],
       ['shika', 'しか～ない', 'Only, nothing but (+ negative)'],
       ['kurai', 'ぐらい・くらい', 'About, roughly (どのくらい: how much?)'],
@@ -268,10 +269,9 @@ var MINNA = [
       '<div class="kana-drop">' + INDEX.map(function(g){ return '<a class="nav" href="' + href(gridId(g.level)) + '">' + g.level + ' Grammar</a>'; }).join('') + '</div></div>' +
     INDEX.map(function(g){ return '<a class="nav m-only" href="' + href(gridId(g.level)) + '"><svg class="pad" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></svg> ' + g.level + ' Grammar</a>'; }).join('') +
     '<div class="kana-group"><button class="nav kana-btn" type="button" aria-expanded="false">語 Vocabulary <svg class="chev" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>' +
-      '<div class="kana-drop"><a class="nav" href="' + href('vocab-n5') + '">N5 Vocabulary List</a><a class="nav" href="' + href('vocab-n4') + '">N4 Vocabulary List</a><a class="nav" href="' + href('proverbs') + '">Proverbs</a></div></div>' +
+      '<div class="kana-drop"><a class="nav" href="' + href('vocab-n5') + '">N5 Vocabulary List</a><a class="nav" href="' + href('vocab-n4') + '">N4 Vocabulary List</a></div></div>' +
     '<a class="nav m-only" href="' + href('vocab-n5') + '">語 N5 Vocabulary List</a>' +
     '<a class="nav m-only" href="' + href('vocab-n4') + '">語 N4 Vocabulary List</a>' +
-    '<a class="nav m-only" href="' + href('proverbs') + '">語 Proverbs</a>' +
     '<div class="kana-group"><button class="nav kana-btn" type="button" aria-expanded="false">あ Kana <svg class="chev" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>' +
       '<div class="kana-drop">' +
       '<a class="nav" href="' + href('kana') + '">あ Hiragana</a>' +

@@ -60,6 +60,7 @@ Categories marked *(new)* aren't on the site yet. They get added to `INDEX` when
 - [x] の (Noun left out): これは私のです *(Bunpro)*
 - [x] から (From): from
 - [x] まで: until, up to
+- [x] には・では・にも: particle + は or も
 - [x] だけ: only
 - [x] しか～ない: nothing but
 - [x] ぐらい・くらい: about (amount)
