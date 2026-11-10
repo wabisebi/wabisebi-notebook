@@ -60,7 +60,7 @@ var INDEX = [
       ['goro', 'ごろ (頃)', 'Around (a time)']
     ]},
     {cat: 'Sentence endings', pages: [
-      ['yo', 'よ', 'Telling someone something new'],
+      ['yo', 'よ', "I'm telling you (emphasis)"],
       ['ne', 'ね', 'Sharing a feeling: "right?", "huh"'],
       ['yone', 'よね', '"Right?" when you\'re fairly sure'],
       ['deshou', 'でしょう', 'Probably, right?'],
@@ -168,7 +168,7 @@ var INDEX = [
   //   ]}
   // ]}
 ];
-var UPDATED = '8 Nov 2026';
+var UPDATED = '10 Nov 2026';
 // N5 points in the order they first come up in Jlab's beginner course (worked out from the Anki deck, so roughly right). Any N5 page not listed here shows under "Not in Jlab".
 var JLAB = ('desu janai deshita janakatta wa mo u-verb ru-verb ga gairu yo na-adj ne suki-kirai i-adj i-adj-neg i-adj-past na-adj-past i-adj-past-neg na-adj-neg ' +
   'u-verb-neg ru-verb-neg gaaru ru-verb-past u-verb-past tachi wo doushite nani ii kuru ni dare doko to-quote he kara made de de-means koko-soko-asoko deshou ' +
