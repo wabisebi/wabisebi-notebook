@@ -619,6 +619,10 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
 #proverbs dl { display: grid; grid-template-columns: max-content 1fr; gap: 6px 14px; margin: 12px 0 0; }
 #proverbs dt { font-family: "IBM Plex Mono", monospace; font-size: .78rem; opacity: .7; padding-top: 2px; }
 #proverbs dd { margin: 0; }
+/* Negative note inside a two forms box (がいる) */
+.twoforms .m.neg{margin-top:14px;padding:12px 14px;border:1px solid var(--gram);border-radius:10px;background:var(--tint);color:var(--ink);font-size:15px;line-height:1.9}
+.twoforms .m.neg b{color:var(--gram)}
+.twoforms .m.neg .jp{display:inline-block;min-width:8.5em;font-size:17px}
 </style>
 
 <header class="top" id="top"></header>
@@ -2602,12 +2606,17 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
       </div>
       <div class="forms twoforms">
         <table>
+          <thead><tr><th></th><th>There is</th><th>There isn't</th></tr></thead>
           <tbody>
-            <tr><th><span class="use polite">Polite</span></th><td>あります</td></tr>
-            <tr><th><span class="use casual">Casual</span></th><td>ある</td></tr>
+            <tr><th><span class="use polite">Polite</span></th><td>あります</td><td><mark class="g">ありません</mark></td></tr>
+            <tr><th><span class="use casual">Casual</span></th><td>ある</td><td><mark class="g">ない</mark></td></tr>
           </tbody>
         </table>
         <p class="m">Same meaning: "there is". Only the politeness changes.</p>
+        <p class="m neg"><b>Making it negative:</b> ある becomes <mark class="g">ない</mark> (never あらない), and が often turns into は or も.<br>
+          <span class="jp"><ruby>車<rt>くるま</rt></ruby><mark class="g">がある</mark></span> "I have a car"<br>
+          <span class="jp"><ruby>車<rt>くるま</rt></ruby><mark class="g">はない</mark></span> "A car? Don't have one."<br>
+          <span class="jp"><ruby>車<rt>くるま</rt></ruby><mark class="g">もない</mark></span> "No car either" <span class="hint">(no bike, and no car too)</span></p>
       </div>
       <div class="lead">
         <span class="use casual">Casual</span>
@@ -2810,12 +2819,17 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
       </div>
       <div class="forms twoforms">
         <table>
+          <thead><tr><th></th><th>There is</th><th>There isn't</th></tr></thead>
           <tbody>
-            <tr><th><span class="use polite">Polite</span></th><td>います</td></tr>
-            <tr><th><span class="use casual">Casual</span></th><td>いる</td></tr>
+            <tr><th><span class="use polite">Polite</span></th><td>います</td><td><mark class="g">いません</mark></td></tr>
+            <tr><th><span class="use casual">Casual</span></th><td>いる</td><td><mark class="g">いない</mark></td></tr>
           </tbody>
         </table>
         <p class="m">Same meaning: "there is" (people, animals). Only the politeness changes.</p>
+        <p class="m neg"><b>Making it negative:</b> いる becomes <mark class="g">いない</mark>, and が often turns into は or も.<br>
+          <span class="jp"><ruby>犬<rt>いぬ</rt></ruby><mark class="g">がいる</mark></span> "I have a dog"<br>
+          <span class="jp"><ruby>犬<rt>いぬ</rt></ruby><mark class="g">はいない</mark></span> "A dog? Don't have one."<br>
+          <span class="jp"><ruby>犬<rt>いぬ</rt></ruby><mark class="g">もいない</mark></span> "No dog either" <span class="hint">(no cat, and no dog too)</span></p>
       </div>
       <div class="lead">
         <span class="use polite">Polite</span>
@@ -2871,6 +2885,13 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
             <p class="jp"><ruby>誰<rt>だれ</rt></ruby><mark class="g">もいない</mark>。</p>
             <p class="en">"Nobody's here."</p>
             <p class="note">The "not" of いる is いない. 誰もいない: "nobody is there".</p>
+            <span class="use casual">Casual</span>
+          </div>
+          <div class="scene">
+            <p class="sit">You just moved to a new city and someone asks how it's going.</p>
+            <p class="jp"><ruby>仕事<rt>しごと</rt></ruby>もないし、<ruby>友達<rt>ともだち</rt></ruby><mark class="g">もいない</mark>。</p>
+            <p class="en">"I don't have a job, and no friends either."</p>
+            <p class="note">が becomes も and いる becomes いない: "no friends either". A job is a thing, so it's ない, not いない.</p>
             <span class="use casual">Casual</span>
           </div>
         </div>
