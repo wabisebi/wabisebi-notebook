@@ -373,14 +373,14 @@ var MINNA = [
     var section = function(cls, title, html, id){ return '<section class="cat ' + cls + '"' + (id ? ' id="' + id + '"' : '') + '><h3 class="label">' + title + '</h3><ol class="cards">' + html + '</ol></section>'; };
     var pagesOf = function(ids){ return ids.map(function(id){ return any.find(function(p){ return p[0] === id; }); }).filter(Boolean); };
     // the levels in an order, with a count each: "N5 104 · N4 5"
-    var levels = function(pages){
+    var levels = function(pages, link){
       return '<p class="glevels"><span class="label">Levels</span>' + INDEX.map(function(g){
         var n = pages.filter(function(p){ return p[3] === g.level; }).length;
         return n ? '<span class="gl"><span class="lv ' + g.level.toLowerCase() + '">' + g.level + '</span> ' + n + '</span>' : '';
-      }).join('') + '</p>';
+      }).join('') + (link || '') + '</p>';
     };
-    var box = function(cls, title, pages, body){
-      return '<details class="level ' + cls + '" open><summary><span class="t">' + title + '</span><span class="label">' + pages.length + ' grammar points</span></summary>' + levels(pages) + body + '</details>';
+    var box = function(cls, title, pages, body, link){
+      return '<details class="level ' + cls + '" open><summary><span class="t">' + title + '</span><span class="label">' + pages.length + ' grammar points</span></summary>' + levels(pages, link) + body + '</details>';
     };
     // by level
     var byLevel = INDEX.map(function(g){
@@ -390,7 +390,8 @@ var MINNA = [
     // Jlab: one list, then what it leaves out
     var notIn = function(ids, title){ var rest = any.filter(function(p){ return ids.indexOf(p[0]) < 0; }); return rest.length ? section('', title, cards(rest)) : ''; };
     var jl = pagesOf(JLAB);
-    var jlab = box('ordered jlab', 'Jlab Anki Deck', jl, section('', 'Jlab\'s beginner course', cards(jl, 1)) + notIn(JLAB, 'Not in Jlab'));
+    var jlab = box('ordered jlab', 'Jlab Anki Deck', jl, section('', 'Jlab\'s beginner course', cards(jl, 1)) + notIn(JLAB, 'Not in Jlab'),
+      '<a class="glink" href="https://ankiweb.net/shared/info/911122782" target="_blank" rel="noopener">Get the deck on AnkiWeb ↗</a>');
     // Minna: one section per lesson, the numbers run on across lessons
     var mnIds = MINNA.join(' ').split(' ').filter(Boolean), num = 1;
     var minna = box('ordered minna', 'Minna no Nihongo', pagesOf(mnIds), MINNA.map(function(line, i){
