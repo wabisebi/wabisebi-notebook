@@ -284,7 +284,10 @@ var MINNA = [
       '</div></div>' +
     '<a class="nav m-only" href="' + href('kana') + '">あ Hiragana</a>' +
     '<a class="nav m-only" href="' + href('katakana') + '">ア Katakana</a>' +
-    '<a class="nav" href="' + href('kanji') + '">字 Kanji</a>' +
+    '<div class="kana-group"><button class="nav kana-btn" type="button" aria-expanded="false">字 Kanji <svg class="chev" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>' +
+      '<div class="kana-drop"><a class="nav" href="' + href('kanji-n5') + '">N5 Kanji</a><a class="nav" href="' + href('kanji-n4') + '">N4 Kanji</a></div></div>' +
+    '<a class="nav m-only" href="' + href('kanji-n5') + '">字 N5 Kanji</a>' +
+    '<a class="nav m-only" href="' + href('kanji-n4') + '">字 N4 Kanji</a>' +
     '<div class="kana-group"><button class="nav kana-btn" type="button" aria-expanded="false"><svg class="pad" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0-5.4 5l-5.6 5.6a1.8 1.8 0 0 0 2.5 2.5l5.6-5.6a4 4 0 0 0 5-5.4l-2.6 2.6-2.1-.4-.4-2.1z"/></svg> Tools <svg class="chev" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>' +
       '<div class="kana-drop"><a class="nav" href="' + href('conjugator') + '">Verb Conjugator</a></div></div>' +
     '<a class="nav m-only" href="' + href('conjugator') + '"><svg class="pad" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0-5.4 5l-5.6 5.6a1.8 1.8 0 0 0 2.5 2.5l5.6-5.6a4 4 0 0 0 5-5.4l-2.6 2.6-2.1-.4-.4-2.1z"/></svg> Verb Conjugator</a>' +
@@ -447,7 +450,7 @@ var MINNA = [
   function setFoot(id){
     if (!foot) return;
     if (grids.some(function(g){ return g.closest('[id]').id === id; }) || points.some(function(p){ return p.id === id; })) foot.textContent = 'Updated ' + UPDATED + ' · ' + count + ' grammar points';
-    else if (id === 'kanji' || id === 'kana' || id === 'katakana') foot.innerHTML = '<a class="credit" href="https://kanjivg.tagaini.net" target="_blank" rel="noopener">Stroke data: KanjiVG, CC BY-SA 3.0</a>';
+    else if (id === 'kanji-n5' || id === 'kanji-n4' || id === 'kana' || id === 'katakana') foot.innerHTML = '<a class="credit" href="https://kanjivg.tagaini.net" target="_blank" rel="noopener">Stroke data: KanjiVG, CC BY-SA 3.0</a>';
     else foot.textContent = '';
   }
   if (!BUNDLE) { var own = document.querySelector('main > [id]'); setFoot(own && own.id); }

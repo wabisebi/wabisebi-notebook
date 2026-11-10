@@ -26560,10 +26560,10 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
       </details>
     </section>
 
-    <!-- kanji -->
-    <section class="home kana-board" id="kanji" data-page hidden>
+    <!-- kanji-n5 -->
+    <section class="home kana-board" id="kanji-n5" data-page hidden>
       <div class="home-head">
-        <h1>N5 and N4 Kanji</h1>
+        <h1>N5 Kanji</h1>
         <button class="romaji-toggle" type="button" aria-pressed="true" data-label="Meaning">Meaning: on</button>
       </div>
       <div class="kanji-top">
@@ -26660,6 +26660,26 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
         <button class="kana" type="button" data-on="シャ" data-on-rare="" data-kun="くるま" data-kun-rare="" data-words="電車:でん[しゃ]:train、自転車:じてん[しゃ]:bicycle、車:[くるま]:car"><span class="k">車</span><span class="r">car</span></button>
         <button class="kana" type="button" data-on="カ" data-on-rare="" data-kun="なに・なん" data-kun-rare="" data-words="何:[なに]:what、何回:[なん]かい:how many times、何時:[なん]じ:what time"><span class="k">何</span><span class="r">what</span></button>
         <button class="kana" type="button" data-on="セイ・ショウ" data-on-rare="" data-kun="い(きる)・う(まれる)・なま" data-kun-rare="い(かす)・い(ける)・う(む)・お(う)・は(える)・は(やす)・き" data-words="先生:せん[せい]:teacher、学生:がく[せい]:student、一生:いっ[しょう]:whole life、生きる:[い]きる:to live、生まれる:[う]まれる:to be born"><span class="k">生</span><span class="r">life</span></button>
+      </div>
+    </section>
+
+    <!-- kanji-n4 -->
+    <section class="home kana-board" id="kanji-n4" data-page hidden>
+      <div class="home-head">
+        <h1>N4 Kanji</h1>
+        <button class="romaji-toggle" type="button" aria-pressed="true" data-label="Meaning">Meaning: on</button>
+      </div>
+      <div class="kanji-top">
+        <div class="stroke-panel" data-first="兄"></div>
+        <details class="onkun" open>
+          <summary><h2>Two kinds of reading</h2></summary>
+          <p class="intro">Most kanji can be read in more than one way. Japan took kanji from China, so each kanji kept a Chinese sound, and Japan also gave it its own Japanese word with the same meaning.</p>
+          <dl>
+            <dt>On'yomi</dt><dd>The Chinese sound. Written in katakana in dictionaries. You hear it mostly when two or more kanji make one word.<span class="ex">富士<b>山</b> ふじ<b>さん</b> · Mount Fuji</span></dd>
+            <dt>Kun'yomi</dt><dd>The Japanese word. Written in hiragana. You hear it mostly when the kanji stands alone or has hiragana after it.<span class="ex"><b>山</b> <b>やま</b> · mountain</span></dd>
+          </dl>
+          <p class="small">Same kanji, same meaning, different sound. It's a rule of thumb: 本 alone is ほん (on), and 手紙 てがみ (letter) uses kun in a two-kanji word.</p>
+        </details>
       </div>
       <h2 class="khead">N4 <span class="label">204 kanji</span></h2>
       <div class="kgrid five">
@@ -29880,7 +29900,7 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
               <p>A simple order:</p>
               <ol>
                 <li><b>See the format first.</b> Try the official sample questions: <a class="xref" href="https://www.jlpt.jp/e/samples/n5/index.html" target="_blank" rel="noopener">N5</a>, <a class="xref" href="https://www.jlpt.jp/e/samples/n4/index.html" target="_blank" rel="noopener">N4</a>, <a class="xref" href="https://www.jlpt.jp/e/samples/n3/index.html" target="_blank" rel="noopener">N3</a>, <a class="xref" href="https://www.jlpt.jp/e/samples/n2/index.html" target="_blank" rel="noopener">N2</a>, <a class="xref" href="https://www.jlpt.jp/e/samples/n1/index.html" target="_blank" rel="noopener">N1</a>.</li>
-                <li><b>Learn the material.</b> On this site: <a class="xref" href="#home">N5 grammar</a>, the <a class="xref" href="#vocab-n5">N5 vocabulary list</a> and the <a class="xref" href="#kanji">N5 and N4 kanji</a>.</li>
+                <li><b>Learn the material.</b> On this site: <a class="xref" href="#home">N5 grammar</a>, the <a class="xref" href="#vocab-n5">N5 vocabulary list</a> and the <a class="xref" href="#kanji-n5">N5 kanji</a>.</li>
                 <li><b>Listen every week.</b> It has its own minimum score, so strong reading can't make up for weak listening.</li>
                 <li><b>Do timed practice.</b> Near the test, use the <a class="xref" href="https://www.jlpt.jp/e/samples/sampleindex.html" target="_blank" rel="noopener">Official Practice Workbook</a> with a clock running.</li>
               </ol>
@@ -30209,7 +30229,10 @@ var MINNA = [
       '</div></div>' +
     '<a class="nav m-only" href="' + href('kana') + '">あ Hiragana</a>' +
     '<a class="nav m-only" href="' + href('katakana') + '">ア Katakana</a>' +
-    '<a class="nav" href="' + href('kanji') + '">字 Kanji</a>' +
+    '<div class="kana-group"><button class="nav kana-btn" type="button" aria-expanded="false">字 Kanji <svg class="chev" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>' +
+      '<div class="kana-drop"><a class="nav" href="' + href('kanji-n5') + '">N5 Kanji</a><a class="nav" href="' + href('kanji-n4') + '">N4 Kanji</a></div></div>' +
+    '<a class="nav m-only" href="' + href('kanji-n5') + '">字 N5 Kanji</a>' +
+    '<a class="nav m-only" href="' + href('kanji-n4') + '">字 N4 Kanji</a>' +
     '<div class="kana-group"><button class="nav kana-btn" type="button" aria-expanded="false"><svg class="pad" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0-5.4 5l-5.6 5.6a1.8 1.8 0 0 0 2.5 2.5l5.6-5.6a4 4 0 0 0 5-5.4l-2.6 2.6-2.1-.4-.4-2.1z"/></svg> Tools <svg class="chev" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>' +
       '<div class="kana-drop"><a class="nav" href="' + href('conjugator') + '">Verb Conjugator</a></div></div>' +
     '<a class="nav m-only" href="' + href('conjugator') + '"><svg class="pad" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0-5.4 5l-5.6 5.6a1.8 1.8 0 0 0 2.5 2.5l5.6-5.6a4 4 0 0 0 5-5.4l-2.6 2.6-2.1-.4-.4-2.1z"/></svg> Verb Conjugator</a>' +
@@ -30372,7 +30395,7 @@ var MINNA = [
   function setFoot(id){
     if (!foot) return;
     if (grids.some(function(g){ return g.closest('[id]').id === id; }) || points.some(function(p){ return p.id === id; })) foot.textContent = 'Updated ' + UPDATED + ' · ' + count + ' grammar points';
-    else if (id === 'kanji' || id === 'kana' || id === 'katakana') foot.innerHTML = '<a class="credit" href="https://kanjivg.tagaini.net" target="_blank" rel="noopener">Stroke data: KanjiVG, CC BY-SA 3.0</a>';
+    else if (id === 'kanji-n5' || id === 'kanji-n4' || id === 'kana' || id === 'katakana') foot.innerHTML = '<a class="credit" href="https://kanjivg.tagaini.net" target="_blank" rel="noopener">Stroke data: KanjiVG, CC BY-SA 3.0</a>';
     else foot.textContent = '';
   }
   if (!BUNDLE) { var own = document.querySelector('main > [id]'); setFoot(own && own.id); }
