@@ -275,20 +275,18 @@ var MINNA = [
     }); });
   });
   var count = points.length;
-  // one grid page per level: home is N5, the others home-n3 etc.
-  var gridId = function(level){ return level === 'N5' ? 'home' : 'home-' + level.toLowerCase(); };
 
 
+  // the Grammar dropdown: the same page in three views
   var top = document.getElementById('top');
   top.innerHTML =
     '<a class="brand" href="' + href('start') + '"><span class="t">Wabisebi Japanese</span></a>' +
     '<button class="burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="menu"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>' +
     '<div class="menu" id="menu">' +
     '<a class="nav" href="' + href('jlpt') + '"><svg class="pad" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4.5" width="14" height="16.5" rx="2"/><path d="M9 3h6v3H9z"/><path d="M8.5 13l2.5 2.5 4.5-5"/></svg> JLPT</a>' +
-    // wide screens: "Grammar", "Vocabulary" and "Kana" are dropdowns (one page per level; Hiragana and Katakana); phones keep the links in the ☰ menu
-    '<div class="kana-group"><button class="nav kana-btn" type="button" aria-expanded="false"><svg class="pad" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></svg> Grammar <svg class="chev" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>' +
-      '<div class="kana-drop">' + INDEX.map(function(g){ return '<a class="nav" href="' + href(gridId(g.level)) + '">' + g.level + ' Grammar</a>'; }).join('') + '</div></div>' +
-    INDEX.map(function(g){ return '<a class="nav m-only" href="' + href(gridId(g.level)) + '"><svg class="pad" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></svg> ' + g.level + ' Grammar</a>'; }).join('') +
+    // wide screens: "Vocabulary", "Kana", "Kanji" and "Tools" are dropdowns; phones keep their links in the ☰ menu
+    // Grammar: one link, always opening the Grammar page sorted by JLPT level (the Jlab and Minna views are picked on the page)
+    '<a class="nav" data-o="level" href="' + href('home') + '"><svg class="pad" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></svg> Grammar</a>' +
     '<div class="kana-group"><button class="nav kana-btn" type="button" aria-expanded="false">語 Vocabulary <svg class="chev" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>' +
       '<div class="kana-drop"><a class="nav" href="' + href('vocab-n5') + '">N5 Vocabulary List</a><a class="nav" href="' + href('vocab-n4') + '">N4 Vocabulary List</a></div></div>' +
     '<a class="nav m-only" href="' + href('vocab-n5') + '">語 N5 Vocabulary List</a>' +
@@ -357,67 +355,74 @@ var MINNA = [
     document.addEventListener('keydown', function(e){ if (e.key === 'Escape') setOpen(false); });
   });
 
-  // grid pages (one per level): every grammar point of that level as a card, with an "On this page" list of the categories (same as on Resources)
-  var grids = [].slice.call(document.querySelectorAll('.grid[data-level]'));
+  // the Grammar page: every point as a card, in one of three views (switch on the page and in the Grammar dropdown, remembered per browser):
+  // by JLPT level (one box per level, categories inside, "On this page" list on the right), Jlab's order, or Minna no Nihongo's order.
+  // Jlab and Minna mix levels, so every card keeps its own level pill and a line on top counts the levels in that order.
+  var ORDER = 'wabisebi-order';
+  var VIEWS = {level: 'Sorted by JLPT level, then by topic.', jlab: 'In the order each point first comes up in the Jlab Anki deck.', minna: 'In the order of Minna no Nihongo, Books 1 and 2.'};
+  var getOrder = function(){ try { var o = localStorage.getItem(ORDER); return VIEWS[o] ? o : 'level'; } catch (err) { return 'level'; } };
+  var grids = [].slice.call(document.querySelectorAll('.grid'));
   grids.forEach(function(grid){
-    var lvl = INDEX.filter(function(g){ return g.level === grid.getAttribute('data-level'); });
     var catId = function(g, i){ return 'g-' + g.level.toLowerCase() + '-' + i; };
-    var toc = lvl.map(function(g){
-      return g.cats.map(function(c, i){
+    var lvId = function(g){ return 'g-' + g.level.toLowerCase(); };
+    var any = points.map(function(p){ return [p.id, p.pat, p.d, p.level]; });
+    var cards = function(pages, numbered){ return pages.map(function(p, n){
+      return '<li><a class="gcard" href="' + href(p[0]) + '" data-k="' + (p[0] + ' ' + p[1] + ' ' + p[2]).toLowerCase() + '">' + (numbered ? '<span class="n">' + (n + numbered) + '</span>' : '') +
+        '<span class="p">' + p[1] + '</span><span class="d">' + p[2] + '</span><span class="lv ' + p[3].toLowerCase() + '">' + p[3] + '</span></a></li>';
+    }).join(''); };
+    var section = function(cls, title, html, id){ return '<section class="cat ' + cls + '"' + (id ? ' id="' + id + '"' : '') + '><h3 class="label">' + title + '</h3><ol class="cards">' + html + '</ol></section>'; };
+    var pagesOf = function(ids){ return ids.map(function(id){ return any.find(function(p){ return p[0] === id; }); }).filter(Boolean); };
+    // the levels in an order, with a count each: "N5 104 · N4 5"
+    var levels = function(pages){
+      return '<p class="glevels"><span class="label">Levels</span>' + INDEX.map(function(g){
+        var n = pages.filter(function(p){ return p[3] === g.level; }).length;
+        return n ? '<span class="gl"><span class="lv ' + g.level.toLowerCase() + '">' + g.level + '</span> ' + n + '</span>' : '';
+      }).join('') + '</p>';
+    };
+    var box = function(cls, title, pages, body){
+      return '<details class="level ' + cls + '" open><summary><span class="t">' + title + '</span><span class="label">' + pages.length + ' grammar points</span></summary>' + levels(pages) + body + '</details>';
+    };
+    // by level
+    var byLevel = INDEX.map(function(g){
+      return '<details class="level bylevel" id="' + lvId(g) + '" open><summary><span class="t">' + g.level + '</span><span class="label">' + g.pages.length + (g.pages.length === 1 ? ' grammar point' : ' grammar points') + '</span></summary>' +
+        g.cats.map(function(c, i){ return c.pages.length ? section('', c.cat, cards(c.pages.map(function(p){ return [p[0], p[1], p[2], g.level]; })), catId(g, i)) : ''; }).join('') + '</details>';
+    }).join('');
+    // Jlab: one list, then what it leaves out
+    var notIn = function(ids, title){ var rest = any.filter(function(p){ return ids.indexOf(p[0]) < 0; }); return rest.length ? section('', title, cards(rest)) : ''; };
+    var jl = pagesOf(JLAB);
+    var jlab = box('ordered jlab', 'Jlab Anki Deck', jl, section('', 'Jlab\'s beginner course', cards(jl, 1)) + notIn(JLAB, 'Not in Jlab'));
+    // Minna: one section per lesson, the numbers run on across lessons
+    var mnIds = MINNA.join(' ').split(' ').filter(Boolean), num = 1;
+    var minna = box('ordered minna', 'Minna no Nihongo', pagesOf(mnIds), MINNA.map(function(line, i){
+      var pages = pagesOf(line.split(' '));
+      if (!pages.length) return '';
+      var html = section('', 'Book ' + (i < 25 ? 1 : 2) + ' · Lesson ' + (i + 1), cards(pages, num));
+      num += pages.length;
+      return html;
+    }).join('') + notIn(mnIds, 'Not in Minna'));
+    var toc = INDEX.map(function(g){
+      return '<li class="tl"><a href="#' + lvId(g) + '">' + g.level + '</a></li>' + g.cats.map(function(c, i){
         return c.pages.length ? '<li><a href="#' + catId(g, i) + '">' + c.cat + '</a></li>' : '';
       }).join('');
     }).join('');
-    grid.innerHTML = '<div class="rwrap"><div class="rcol">' + lvl.map(function(g){
-      var cards = function(pages, numbered){ return pages.map(function(p, n){
-        return '<li><a class="gcard" href="' + href(p[0]) + '" data-k="' + (p[0] + ' ' + p[1] + ' ' + p[2]).toLowerCase() + '">' + (numbered ? '<span class="n">' + (n + numbered) + '</span>' : '') +
-          '<span class="p">' + p[1] + '</span><span class="d">' + p[2] + '</span><span class="lv ' + (p[3] || g.level).toLowerCase() + '">' + (p[3] || g.level) + '</span></a></li>';
-      }).join(''); };
-      var cats = g.cats.map(function(c, i){
-        if (!c.pages.length) return '';
-        return '<section class="cat" id="' + catId(g, i) + '"><h3 class="label">' + c.cat + '</h3><ol class="cards">' + cards(c.pages) + '</ol></section>';
-      }).join('');
-      if (g.level === 'N5') {   // the same cards again in Jlab's and Minna's order; CSS shows one set at a time
-        var all = [].concat.apply([], g.cats.map(function(c){ return c.pages; }));
-        var any = points.map(function(p){ return [p.id, p.pat, p.d, p.level]; });   // Jlab and Minna can also hold a higher-level point (とか): it keeps its own level pill
-        var pagesOf = function(ids){ return ids.map(function(id){ return all.find(function(p){ return p[0] === id; }) || any.find(function(p){ return p[0] === id; }); }).filter(Boolean); };
-        var section = function(cls, title, html){ return '<section class="cat ' + cls + '"><h3 class="label">' + title + '</h3><ol class="cards">' + html + '</ol></section>'; };
-        var notIn = function(ids, cls, title){
-          var rest = all.filter(function(p){ return ids.indexOf(p[0]) < 0; });
-          return rest.length ? section(cls, title, cards(rest)) : '';
-        };
-        cats += section('jlab', 'Jlab\'s beginner course', cards(pagesOf(JLAB), 1)) + notIn(JLAB, 'jlab', 'Not in Jlab');
-        var num = 1;   // Minna: one section per lesson, the numbers run on across lessons
-        cats += MINNA.map(function(line, i){
-          var pages = pagesOf(line.split(' '));
-          if (!pages.length) return '';
-          var html = section('minna', 'Book ' + (i < 25 ? 1 : 2) + ' · Lesson ' + (i + 1), cards(pages, num));
-          num += pages.length;
-          return html;
-        }).join('') + notIn(MINNA.join(' ').split(' '), 'minna', 'Not in Minna');
-      }
-      return '<details class="level" open><summary><span class="t">' + g.level + '</span><span class="label">' + g.pages.length + (g.pages.length === 1 ? ' grammar point' : ' grammar points') + '</span></summary>' +
-        cats + '</details>';
-    }).join('') + '<p class="empty gnone" hidden>No match.</p></div>' +
-      '<div class="side">' + (grid.getAttribute('data-level') === 'N5' ? '<div class="order" role="group" aria-label="Card order"><p class="label">Order</p><button type="button" data-o="cat">Categories</button><button type="button" data-o="jlab">Jlab Anki Deck</button><button type="button" data-o="minna">Minna No Nihongo</button></div>' : '') +
-      '<nav class="toc" aria-label="On this page"><p class="label">' + grid.getAttribute('data-level') + ' Grammar</p><ul>' + toc + '</ul></nav>' +
+    grid.innerHTML = '<div class="rwrap"><div class="rcol">' + byLevel + jlab + minna + '<p class="empty gnone" hidden>No match.</p></div>' +
+      '<div class="side"><div class="order" role="group" aria-label="Card order"><p class="label">View</p><button type="button" data-o="level">By JLPT level</button><button type="button" data-o="jlab">Jlab Anki Deck</button><button type="button" data-o="minna">Minna No Nihongo</button></div>' +
+      '<nav class="toc" aria-label="On this page"><p class="label">Grammar</p><ul>' + toc + '</ul></nav>' +
       '</div></div>';
-    // Categories, Jlab or Minna order, remembered per browser
-    var ORDER = 'wabisebi-order';
-    var setOrder = function(o){
+    grid.querySelectorAll('.order button').forEach(function(b){ b.addEventListener('click', function(){ setOrder(b.getAttribute('data-o')); }); });
+  });
+  var setOrder = function(o){
+    if (!VIEWS[o]) o = 'level';
+    try { localStorage.setItem(ORDER, o); } catch (err) {}
+    grids.forEach(function(grid){
       grid.setAttribute('data-order', o);
       grid.querySelectorAll('.order button').forEach(function(b){ b.setAttribute('aria-pressed', b.getAttribute('data-o') === o ? 'true' : 'false'); });
-    };
-    var saved = 'cat';
-    // only grids with the switch (N5) use the saved order; the others always show categories
-    if (grid.querySelector('.order')) try { var so = localStorage.getItem(ORDER); if (so === 'jlab' || so === 'minna') saved = so; } catch (err) {}
-    setOrder(saved);
-    grid.querySelectorAll('.order button').forEach(function(b){
-      b.addEventListener('click', function(){
-        setOrder(b.getAttribute('data-o'));
-        try { localStorage.setItem(ORDER, b.getAttribute('data-o')); } catch (err) {}
-      });
+      var sub = grid.parentNode.querySelector('.gsub'); if (sub) sub.textContent = VIEWS[o];
     });
-  });
+  };
+  setOrder(getOrder());
+  // the Grammar dropdown links pick the view before the page opens
+  document.addEventListener('click', function(e){ var a = e.target.closest('a[data-o]'); if (a) setOrder(a.getAttribute('data-o')); }, true);
   // the grid page on screen (index.html holds them all, the others are hidden)
   var openGrid = function(){ return grids.find(function(g){ return !g.closest('[hidden]'); }); };
   var filterGrid = function(q, grid){
@@ -477,7 +482,7 @@ var MINNA = [
     if (sub) sub.textContent = p.d;
     if (label) label.textContent = p.level + ' Grammar · ' + p.cat;
     // a button back to the grid: left of the card and following the page down on wide screens, just above the card on narrow ones (inside the article, so index.html shows it with the page)
-    if (page && !page.querySelector('.back')) { page.classList.add('has-back'); page.insertAdjacentHTML('afterbegin', '<a class="back" href="' + href(gridId(p.level)) + '"><span class="tri" aria-hidden="true"></span>' + p.level + ' grammar</a>'); }
+    if (page && !page.querySelector('.back')) { page.classList.add('has-back'); page.insertAdjacentHTML('afterbegin', '<a class="back" href="' + href('home') + '"><span class="tri" aria-hidden="true"></span>All grammar</a>'); }
   });
 
   // inside the Claude panel media/ can't load: swap the broken image for a short hint

@@ -526,7 +526,15 @@ main:has(.home:not([hidden])) .foot{max-width:1080px}
 .order button:hover{color:var(--gold)}
 .order button:focus-visible{outline:2px solid var(--indigo);outline-offset:2px}
 .order button[aria-pressed="true"]{color:var(--gold);background:color-mix(in srgb,var(--gold) 10%,transparent)}
-.grid[data-order="jlab"] .cat:not(.jlab),.grid[data-order="jlab"] .toc,.grid:not([data-order="jlab"]) .cat.jlab,.grid[data-order="minna"] .cat:not(.minna),.grid[data-order="minna"] .toc,.grid:not([data-order="minna"]) .cat.minna{display:none}
+/* the Grammar page: one view at a time (by level, Jlab or Minna) */
+.grid:not([data-order="level"]) .bylevel,.grid:not([data-order="level"]) .toc,.grid:not([data-order="jlab"]) .jlab,.grid:not([data-order="minna"]) .minna{display:none}
+.gsub{flex-basis:100%;margin:-10px 0 0;color:var(--muted);font-size:15px}
+.glevels{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;margin:0;padding:14px 16px 0;font-size:13.5px;color:var(--muted)}
+.glevels .label{margin:0}
+.glevels .gl{display:inline-flex;align-items:center;gap:6px}
+.glevels .lv{font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.08em;color:var(--lv);background:color-mix(in srgb,var(--lv) 18%,transparent);border:1px solid color-mix(in srgb,var(--lv) 45%,transparent);border-radius:999px;padding:0 8px}
+.glevels .lv.n5{--lv:var(--n5)}.glevels .lv.n4{--lv:var(--n4)}.glevels .lv.n3{--lv:var(--n3)}.glevels .lv.non-jlpt{--lv:var(--muted)}
+.toc li.tl{margin-top:8px}.toc li.tl:first-child{margin-top:0}.toc li.tl a{font-weight:600}
 .gcard .n{font-family:var(--mono);font-size:11px;color:var(--muted)}
 @media (max-width:900px){.grid .rwrap{display:flex;flex-direction:column;gap:12px}.grid .side{position:static;order:-1}.grid .rcol{width:100%}}
 
