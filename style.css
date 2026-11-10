@@ -631,3 +631,25 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
 .lvl-note.welcome p.donate-row{margin-top:18px}
 .donate{display:inline-block;padding:10px 20px;border-radius:999px;background:var(--gold);color:var(--on-accent);font-weight:600;text-decoration:none}
 .donate:hover{filter:brightness(1.08)}
+
+/* Sentence Mining page: the card mock-up and the step list */
+.mining .compare{margin:4px 0 12px}
+.mining .compare b,.mcard b{color:var(--gram)}
+.mining .msteps li{margin-bottom:8px}
+.mcard-pair{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start;margin:4px 0 18px}
+.mcard{background:var(--card);border:1px solid var(--card-line);border-radius:12px;padding:16px 18px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:8px;min-width:0}
+.mcard .label{margin:0;align-self:flex-start}
+.mcard p{margin:0}
+.mcard .msent{font-size:22px;font-weight:700;line-height:1.4}
+.mcard .mtarget{font-size:13px;color:var(--muted)}
+.mcard hr{width:100%;border:0;border-top:1px solid var(--line);margin:4px 0}
+.mcard .mword{font-size:30px;font-weight:700}
+.mcard .pitch{color:var(--ink)}
+.mcard .maudio{display:flex;gap:16px}
+.mcard .mlab{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--muted)}
+.mcard .mdef{font-size:15px}
+.mcard .mfuri{font-size:18px}
+.mcard .mtr{color:var(--muted)}
+.mcard img{width:100%;max-width:360px;height:auto;border-radius:6px}
+.mcard .msrc{font-family:var(--mono);font-size:11.5px;color:var(--muted)}
+@media (max-width:720px){.mcard-pair{grid-template-columns:1fr}}
