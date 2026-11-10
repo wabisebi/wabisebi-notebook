@@ -194,6 +194,7 @@ h2::before{background:var(--gold);width:3px}
 .gcard .lv.n3,.rcard .lv.n3,.jlpt .lv.n3{--lv:var(--n3)}
 .gcard .lv.n2,.rcard .lv.n2,.jlpt .lv.n2{--lv:var(--n2)}
 .gcard .lv.n1,.rcard .lv.n1,.jlpt .lv.n1{--lv:var(--n1)}
+.gcard .lv.non-jlpt{--lv:var(--muted)}
 @media (max-width:520px){.cards{grid-template-columns:1fr 1fr;padding:12px;gap:8px}.cat h3{padding:14px 12px 0}.cat .cards{padding-top:8px}.gcard{padding:12px}.gcard .p{font-size:18px}}
 main:has(.home:not([hidden])) .foot{max-width:1080px}
 
@@ -657,6 +658,16 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
         <p>The JLPT hasn't published grammar lists since 2010, so every N4 list you'll find is someone's best guess, based on the old official lists and past tests. The lists mostly agree but differ at the edges: a point can be N4 in one list and N3 or N5 in another.</p>
       </div>
       <div class="grid" data-level="N4"></div>
+    </section>
+
+    <!-- home-non-jlpt -->
+    <section class="home" id="home-non-jlpt" data-page hidden>
+      <div class="home-head"><h1>Non-JLPT Grammar</h1></div>
+      <div class="lvl-note">
+        <p class="label">Not on the JLPT lists</p>
+        <p>Grammar you'll hear all the time in shows and real speech, but that the usual JLPT lists leave out, mostly because it's rough, slangy or very casual. Good to recognize, and the tests won't ask about it.</p>
+      </div>
+      <div class="grid" data-level="Non-JLPT"></div>
     </section>
 
     <!-- desu -->
@@ -26271,6 +26282,876 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
       </section>
     </article>
 
+    <!-- kana-wonder -->
+    <article id="kana-wonder" data-page hidden>
+      <div class="head">
+        <div>
+          <span class="label">N4 Grammar</span>
+          <p class="pattern">かな</p>
+          <p class="sub"></p>
+        </div>
+      </div>
+      <div class="lead">
+        <span class="use casual">Casual</span>
+        <img decoding="async" loading="lazy" src="media/shirokuma39_18m29s.jpg" alt="Scene from Shirokuma Cafe">
+        <p class="src">Shirokuma Cafe · Episode 39</p>
+        <div class="line">
+          <button class="play" type="button" data-src="media/shirokuma39_18m29s.mp3" aria-label="Play audio"></button>
+          <p class="jp">ゆずこしょう どこだった<mark class="g">かな</mark></p>
+        </div>
+        <p class="en">"Where was the yuzu pepper again?"</p>
+        <div class="explain">
+          <p><mark class="g">かな</mark> means "I wonder". You're thinking out loud, half to yourself, and nobody has to answer.</p>
+          <p>It goes at the end of a casual sentence: a verb, an adjective or a noun (どこだった + かな, セイウチかな). On this card, he's looking around the kitchen and asking himself where the yuzu pepper is.</p>
+          <p>It's casual. In polite speech you'd say でしょうか instead. With ～てくれるかな or ～てもいいかな it becomes a soft request: "could you...?"</p>
+        </div>
+      </div>
+      <section>
+        <h2>Examples</h2>
+        <div class="scenes">
+          <div class="scene">
+            <p class="sit">Looking out the window in the morning.</p>
+            <p class="jp"><ruby>今日<rt>きょう</rt></ruby>は<ruby>雨<rt>あめ</rt></ruby><mark class="g">かな</mark>。</p>
+            <p class="en">"Will it rain today, I wonder."</p>
+            <p class="note">After a noun, no だ.</p>
+            <span class="use casual">Casual</span>
+          </div>
+          <div class="scene">
+            <p class="sit">At the menu, deciding.</p>
+            <p class="jp">カレーにしよう<mark class="g">かな</mark>。</p>
+            <p class="en">"Maybe I'll go with curry."</p>
+            <p class="note">～ようかな: deciding out loud, "maybe I'll...".</p>
+            <span class="use casual">Casual</span>
+          </div>
+          <div class="scene">
+            <p class="sit">Asking a friend for a small favor.</p>
+            <p class="jp">ちょっと<ruby>手伝<rt>てつだ</rt></ruby>ってくれる<mark class="g">かな</mark>？</p>
+            <p class="en">"Could you help me a bit?"</p>
+            <p class="note">A soft way to ask.</p>
+            <span class="use casual">Casual</span>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h2>With and without</h2>
+        <div class="compare">
+          <div class="cbox">
+            <span class="label">With か</span>
+            <p class="jp"><ruby>彼<rt>かれ</rt></ruby>は<ruby>来<rt>く</rt></ruby>るか？</p>
+            <p>Is he coming? A real question, you want an answer.</p>
+          </div>
+          <div class="cbox yes">
+            <span class="label">With かな</span>
+            <p class="jp"><ruby>彼<rt>かれ</rt></ruby>は<ruby>来<rt>く</rt></ruby>る<mark class="g">かな</mark>。</p>
+            <p>I wonder if he's coming. Just thinking out loud.</p>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h2>Sentence mining</h2>
+        <div class="mines">
+          <div class="mine">
+            <span class="use casual">Casual</span>
+            <img decoding="async" src="media/midnightdiners2e01_09m37s.jpg" alt="Scene from Midnight Diner: Tokyo Stories" loading="lazy">
+            <p class="src">Midnight Diner: Tokyo Stories · Season 2, Episode 1</p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/midnightdiners2e01_09m37s.mp3" aria-label="Play audio"></button>
+              <p class="jp"><ruby>水割<rt>みずわ</rt></ruby>りにしよう<mark class="g">かな</mark></p>
+            </div>
+            <p class="en">"Maybe I'll have it with water."</p>
+            <p class="note">～ようかな: deciding out loud.</p>
+          </div>
+          <div class="mine">
+            <span class="use casual">Casual</span>
+            <img decoding="async" src="media/5822297c457.webp" alt="Scene from a YouTube video" loading="lazy">
+            <p class="src">YouTube · <a href="https://www.youtube.com/watch?v=n5EZh_WiwoY">video</a></p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/297c457ead4.mp3" aria-label="Play audio"></button>
+              <p class="jp">あそこに、<ruby>鳥<rt>とり</rt></ruby>がいますね。アヒル<mark class="g">かな</mark>？</p>
+            </div>
+            <p class="en">"There's a bird over there. A duck, maybe?"</p>
+            <p class="note">Noun + かな: a guess he isn't sure about.</p>
+          </div>
+          <div class="mine">
+            <span class="use casual">Casual</span>
+            <img decoding="async" src="media/e8f39da446b.webp" alt="Scene from a YouTube video" loading="lazy">
+            <p class="src">YouTube · <a href="https://www.youtube.com/watch?v=xktC96zQMAA">video</a></p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/6b738a2804c.mp3" aria-label="Play audio"></button>
+              <p class="jp">このキャビネットには、<ruby>銃<rt>じゅう</rt></ruby>をしまって、<ruby>弾薬<rt>だんやく</rt></ruby>どうしよう<mark class="g">かな</mark>。</p>
+            </div>
+            <p class="en">"I'll put the gun in this cabinet... and the ammo, what should I do with it?"</p>
+            <p class="note">どうしようかな: "what should I do, I wonder".</p>
+          </div>
+          <div class="mine">
+            <span class="use casual">Casual</span>
+            <img decoding="async" src="media/shirokuma08_13m37s.jpg" alt="Scene from Shirokuma Cafe" loading="lazy">
+            <p class="src">Shirokuma Cafe · Episode 8</p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/shirokuma08_13m37s.mp3" aria-label="Play audio"></button>
+              <p class="jp">セイウチ<mark class="g">かな</mark></p>
+            </div>
+            <p class="en">"A walrus, I guess?"</p>
+            <p class="note">A short guess, nothing else needed.</p>
+          </div>
+          <div class="mine">
+            <span class="use casual">Casual</span>
+            <img decoding="async" src="media/0983236d2ba.webp" alt="Scene from a YouTube video" loading="lazy">
+            <p class="src">YouTube · <a href="https://www.youtube.com/watch?v=K_Ae1TzpA1o">video</a></p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/236d2bab3ad.mp3" aria-label="Play audio"></button>
+              <p class="jp">ちょっと<ruby>大気<rt>たいき</rt></ruby><ruby>汚染<rt>おせん</rt></ruby>で、<ruby>曇<rt>くも</rt></ruby>ってるのが<ruby>見<rt>み</rt></ruby>える<mark class="g">かな</mark>？</p>
+            </div>
+            <p class="en">"Can you see it's a bit hazy from the air pollution?"</p>
+            <p class="note">Talking to viewers: softer than a direct question.</p>
+          </div>
+          <div class="mine">
+            <span class="use casual">Casual</span>
+            <img decoding="async" src="media/a9a6cbe5f9b.webp" alt="Scene from PiroPito" loading="lazy">
+            <p class="src">PiroPito · First Playthrough of Minecraft #04</p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/cbe5f9bc70f.mp3" aria-label="Play audio"></button>
+              <p class="jp"><ruby>無人島<rt>むじんとう</rt></ruby>みたいなかんじ<mark class="g">かな</mark>？</p>
+            </div>
+            <p class="en">"Kind of like a deserted island, maybe?"</p>
+            <p class="note">Trying to find the right words.</p>
+          </div>
+          <div class="mine">
+            <span class="use casual">Casual</span>
+            <img decoding="async" src="media/litre01_21m30s.jpg" alt="Scene from 1 Litre of Tears" loading="lazy">
+            <p class="src">1 Litre of Tears · Episode 1</p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/litre01_21m30s.mp3" aria-label="Play audio"></button>
+              <p class="jp"><ruby>疲<rt>つか</rt></ruby>れてんの<mark class="g">かな</mark>？</p>
+            </div>
+            <p class="en">"Maybe she's tired?"</p>
+            <p class="note">のかな: wondering about the reason behind something.</p>
+          </div>
+          <div class="mine">
+            <span class="use casual">Casual</span>
+            <img decoding="async" src="media/demonslayer03_18m46s.jpg" alt="Scene from Demon Slayer" loading="lazy">
+            <p class="src">Demon Slayer · Episode 3</p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/demonslayer03_18m46s.mp3" aria-label="Play audio"></button>
+              <p class="jp">どうやったら できる<mark class="g">かな</mark>？</p>
+            </div>
+            <p class="en">"How can I do it, I wonder?"</p>
+            <p class="note">Asking himself, nobody to answer.</p>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h2>Reference</h2>
+        <div class="book">
+          <p class="title">Tae Kim's Guide to Japanese Grammar</p>
+          <p class="where"><a href="https://guidetojapanese.org/learn/grammar/sentence_ending#part2" target="_blank" rel="noopener">Review and more sentence-ending particles</a> · 「な」 and 「さ」 sentence-ending particles</p>
+        </div>
+      </section>
+    </article>
+
+    <!-- hazu -->
+    <article id="hazu" data-page hidden>
+      <div class="head">
+        <div>
+          <span class="label">N4 Grammar</span>
+          <p class="pattern">はず</p>
+          <p class="sub"></p>
+        </div>
+      </div>
+      <div class="forms twoforms">
+        <table>
+          <tbody>
+            <tr><th><span class="use polite">Polite</span></th><td>～はずです</td></tr>
+            <tr><th><span class="use casual">Casual</span></th><td>～はずだ・～はず</td></tr>
+          </tbody>
+        </table>
+        <p class="m">Same meaning: "should be, I expect". Only the politeness changes.</p>
+      </div>
+      <div class="lead">
+        <span class="use polite">Polite</span>
+        <img decoding="async" loading="lazy" src="media/litre07_11m38s.jpg" alt="Scene from 1 Litre of Tears">
+        <p class="src">1 Litre of Tears · Episode 7</p>
+        <div class="line">
+          <button class="play" type="button" data-src="media/litre07_11m38s.mp3" aria-label="Play audio"></button>
+          <p class="jp"><ruby>適切<rt>てきせつ</rt></ruby>な<ruby>対応<rt>たいおう</rt></ruby>をしてくれる<mark class="g">はず</mark>です。</p>
+        </div>
+        <p class="en">"They should handle it properly."</p>
+        <div class="explain">
+          <p><mark class="g">はず</mark> means "should be": you expect it, because of what you know. It's your reasoning, not a promise.</p>
+          <p>It goes after a verb or adjective as is (くれる + はず), after a noun with の (休みのはず), after a な-adjective with な. On this card, the speaker trusts them to deal with it properly: that's what you'd expect from them.</p>
+          <p>In English it's often "should", but it never means "you should do it" (advice). That's a different word.</p>
+        </div>
+      </div>
+      <div class="lead second">
+        <span class="use casual">Casual</span>
+        <img decoding="async" loading="lazy" src="media/kekkon05_02m01s.jpg" alt="Scene from Kekkon Dekinai Otoko">
+        <p class="src">Kekkon Dekinai Otoko · Episode 5</p>
+        <div class="line">
+          <button class="play" type="button" data-src="media/kekkon05_02m01s.mp3" aria-label="Play audio"></button>
+          <p class="jp">たぶん この<ruby>中<rt>なか</rt></ruby>にある<mark class="g">はず</mark>だ</p>
+        </div>
+        <p class="en">"It should be in here, probably."</p>
+        <div class="explain">
+          <p>On this card, he's looking for something and reasons it out: it has to be in here. Casual drops です; it can end on はず alone too.</p>
+        </div>
+      </div>
+      <section>
+        <h2>Examples</h2>
+        <div class="scenes">
+          <div class="scene">
+            <p class="sit">Your friend's train left an hour ago.</p>
+            <p class="jp"><ruby>彼<rt>かれ</rt></ruby>はもう<ruby>着<rt>つ</rt></ruby>いた<mark class="g">はず</mark>だよ。</p>
+            <p class="en">"He should have arrived by now."</p>
+            <p class="note">You worked it out from the time.</p>
+            <span class="use casual">Casual</span>
+          </div>
+          <div class="scene">
+            <p class="sit">A coworker asks if the meeting is on Monday.</p>
+            <p class="jp"><ruby>月曜日<rt>げつようび</rt></ruby>の<mark class="g">はず</mark>です。</p>
+            <p class="en">"It should be on Monday."</p>
+            <p class="note">After a noun, add の.</p>
+            <span class="use polite">Polite</span>
+          </div>
+          <div class="scene">
+            <p class="sit">Someone says your shy friend went to a party.</p>
+            <p class="jp">そんな<mark class="g">はず</mark>ない！</p>
+            <p class="en">"No way, that can't be!"</p>
+            <p class="note">はずない (or はずがない): "it can't be".</p>
+            <span class="use casual">Casual</span>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h2>With and without</h2>
+        <div class="compare">
+          <div class="cbox">
+            <span class="label">Without</span>
+            <p class="jp"><ruby>彼<rt>かれ</rt></ruby>は<ruby>来<rt>く</rt></ruby>る。</p>
+            <p>He's coming. You know it for sure.</p>
+          </div>
+          <div class="cbox yes">
+            <span class="label">With はず</span>
+            <p class="jp"><ruby>彼<rt>かれ</rt></ruby>は<ruby>来<rt>く</rt></ruby>る<mark class="g">はず</mark>だ。</p>
+            <p>He should be coming. That's what you expect, from what you know.</p>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h2>Sentence mining</h2>
+        <div class="mines">
+          <div class="mine">
+            <span class="use polite">Polite</span>
+            <img decoding="async" src="media/demonslayer06_09m44s.jpg" alt="Scene from Demon Slayer" loading="lazy">
+            <p class="src">Demon Slayer · Episode 6</p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/demonslayer06_09m44s.mp3" aria-label="Play audio"></button>
+              <p class="jp"><ruby>必<rt>かなら</rt></ruby>ず<ruby>近<rt>ちか</rt></ruby>くにいる<mark class="g">はず</mark>です</p>
+            </div>
+            <p class="en">"It's sure to be close by."</p>
+            <p class="note">必ず makes the guess stronger: "it has to be nearby".</p>
+          </div>
+          <div class="mine">
+            <span class="use polite">Polite</span>
+            <img decoding="async" src="media/litre07_41m15s.jpg" alt="Scene from 1 Litre of Tears" loading="lazy">
+            <p class="src">1 Litre of Tears · Episode 7</p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/litre07_41m15s.mp3" aria-label="Play audio"></button>
+              <p class="jp"><ruby>娘<rt>むすめ</rt></ruby>は、<ruby>分<rt>わ</rt></ruby>かっている<mark class="g">はず</mark>です。</p>
+            </div>
+            <p class="en">"Our daughter should understand."</p>
+            <p class="note">A parent reasoning about their child: they expect it, they don't know it.</p>
+          </div>
+          <div class="mine">
+            <span class="use casual">Casual</span>
+            <img decoding="async" src="media/demonslayer01_13m55s.jpg" alt="Scene from Demon Slayer" loading="lazy">
+            <p class="src">Demon Slayer · Episode 1</p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/demonslayer01_13m55s.mp3" aria-label="Play audio"></button>
+              <p class="jp"><ruby>俺<rt>おれ</rt></ruby>のことは ちゃんと<ruby>分<rt>わ</rt></ruby>かってる<mark class="g">はず</mark>だ</p>
+            </div>
+            <p class="en">"She should know who I am."</p>
+            <p class="note">He's counting on it, because they're family.</p>
+          </div>
+          <div class="mine">
+            <span class="use casual">Casual</span>
+            <img decoding="async" src="media/slamdunk11_06m45s.jpg" alt="Scene from Slam Dunk" loading="lazy">
+            <p class="src">Slam Dunk · Episode 11</p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/slamdunk11_06m45s.mp3" aria-label="Play audio"></button>
+              <p class="jp"><ruby>何<rt>なに</rt></ruby>か こつがある<mark class="g">はず</mark>だ</p>
+            </div>
+            <p class="en">"There must be some trick to it."</p>
+            <p class="note">Others can do it, so there has to be a trick.</p>
+          </div>
+          <div class="mine">
+            <span class="use casual">Casual</span>
+            <img decoding="async" src="media/slamdunk43_09m43s.jpg" alt="Scene from Slam Dunk" loading="lazy">
+            <p class="src">Slam Dunk · Episode 43</p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/slamdunk43_09m43s.mp3" aria-label="Play audio"></button>
+              <p class="jp"><ruby>負<rt>ま</rt></ruby>ける<mark class="g">はず</mark>がねえ</p>
+            </div>
+            <p class="en">"There's no way I'd lose."</p>
+            <p class="note">はずがない (here rough ねえ): "no way".</p>
+          </div>
+          <div class="mine">
+            <span class="use casual">Casual</span>
+            <img decoding="async" src="media/kotaro07_12m18s.jpg" alt="Scene from Kotaro Lives Alone" loading="lazy">
+            <p class="src">Kotaro Lives Alone · Episode 7</p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/kotaro07_12m18s.mp3" aria-label="Play audio"></button>
+              <p class="jp"><ruby>辛<rt>つら</rt></ruby>い<ruby>思<rt>おも</rt></ruby>い<ruby>出<rt>で</rt></ruby>の<ruby>方<rt>ほう</rt></ruby>が<ruby>多<rt>おお</rt></ruby>い<mark class="g">はず</mark></p>
+            </div>
+            <p class="en">"There must be more painful memories."</p>
+            <p class="note">Ends on はず alone, no だ. Very common in speech.</p>
+          </div>
+          <div class="mine">
+            <span class="use casual">Casual</span>
+            <img decoding="async" src="media/jojo04_20m33s.jpg" alt="Scene from JoJo's Bizarre Adventure" loading="lazy">
+            <p class="src">JoJo's Bizarre Adventure · Episode 4</p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/jojo04_20m33s.mp3" aria-label="Play audio"></button>
+              <p class="jp">やつは<ruby>近<rt>ちか</rt></ruby>い<mark class="g">はず</mark></p>
+            </div>
+            <p class="en">"He should be close."</p>
+            <p class="note">After an い-adjective, はず comes straight after.</p>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h2>Reference</h2>
+        <div class="book">
+          <p class="title">Tae Kim's Guide to Japanese Grammar</p>
+          <p class="where"><a href="https://guidetojapanese.org/learn/grammar/should#part2" target="_blank" rel="noopener">Things that should be a certain way</a> · Using 「はず」 to describe an expectation</p>
+        </div>
+      </section>
+    </article>
+
+    <!-- mitai -->
+    <article id="mitai" data-page hidden>
+      <div class="head">
+        <div>
+          <span class="label">N4 Grammar</span>
+          <p class="pattern">みたい</p>
+          <p class="sub"></p>
+        </div>
+      </div>
+      <div class="forms twoforms">
+        <table>
+          <tbody>
+            <tr><th><span class="use polite">Polite</span></th><td>～みたいです</td></tr>
+            <tr><th><span class="use casual">Casual</span></th><td>～みたいだ・～みたい</td></tr>
+          </tbody>
+        </table>
+        <p class="m">Same meaning: "seems like". Only the politeness changes.</p>
+      </div>
+      <div class="lead">
+        <span class="use polite">Polite</span>
+        <img decoding="async" loading="lazy" src="media/4534b2a65b5.webp" alt="Scene from a YouTube video">
+        <p class="src">YouTube · <a href="https://www.youtube.com/watch?v=JA7khyyITCo">video</a></p>
+        <div class="line">
+          <button class="play" type="button" data-src="media/b2a65b537b5.mp3" aria-label="Play audio"></button>
+          <p class="jp"><ruby>行<rt>い</rt></ruby>き<ruby>方<rt>かた</rt></ruby>が<ruby>分<rt>わ</rt></ruby>かった<mark class="g">みたい</mark>です。</p>
+        </div>
+        <p class="en">"Looks like she's figured out the way."</p>
+        <div class="explain">
+          <p><mark class="g">みたい</mark> means "seems like, looks like": you're saying what it looks like from what you see or hear, without being sure.</p>
+          <p>It goes straight after a verb, an adjective or a noun (分かった + みたい, 雨みたい). On this card, he watches someone and guesses from how they act that they now know the way.</p>
+          <p>After a noun it can also mean "like" (a comparison): 夢みたい, "like a dream".</p>
+        </div>
+      </div>
+      <div class="lead second">
+        <span class="use casual">Casual</span>
+        <img decoding="async" loading="lazy" src="media/shirokuma19_21m42s.jpg" alt="Scene from Shirokuma Cafe">
+        <p class="src">Shirokuma Cafe · Episode 19</p>
+        <div class="line">
+          <button class="play" type="button" data-src="media/shirokuma19_21m42s.mp3" aria-label="Play audio"></button>
+          <p class="jp">ああ まぁ エゾリスたちとは <ruby>打<rt>う</rt></ruby>ち<ruby>解<rt>と</rt></ruby>けた<mark class="g">みたい</mark>だな</p>
+        </div>
+        <p class="en">"Yeah, well, looks like he's warmed up to the squirrels."</p>
+        <div class="explain">
+          <p>On this card, he guesses from what he sees: they seem to get along now. Casual drops です; みたいだな adds a thinking-out-loud feel.</p>
+        </div>
+      </div>
+      <section>
+        <h2>Examples</h2>
+        <div class="scenes">
+          <div class="scene">
+            <p class="sit">You look out the window, the street is wet.</p>
+            <p class="jp"><ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>った<mark class="g">みたい</mark>。</p>
+            <p class="en">"Looks like it rained."</p>
+            <p class="note">You didn't see it rain, the street tells you.</p>
+            <span class="use casual">Casual</span>
+          </div>
+          <div class="scene">
+            <p class="sit">A colleague's desk has been empty all day.</p>
+            <p class="jp"><ruby>田中<rt>たなか</rt></ruby>さんは<ruby>休<rt>やす</rt></ruby>み<mark class="g">みたい</mark>です。</p>
+            <p class="en">"Looks like Tanaka is off today."</p>
+            <p class="note">After a noun, no の or な: 休みみたい.</p>
+            <span class="use polite">Polite</span>
+          </div>
+          <div class="scene">
+            <p class="sit">You taste a homemade dish.</p>
+            <p class="jp">お<ruby>店<rt>みせ</rt></ruby><mark class="g">みたい</mark>な<ruby>味<rt>あじ</rt></ruby>だね！</p>
+            <p class="en">"It tastes like a restaurant!"</p>
+            <p class="note">みたいな + noun: "a ... like ...".</p>
+            <span class="use casual">Casual</span>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h2>With and without</h2>
+        <div class="compare">
+          <div class="cbox">
+            <span class="label">Without</span>
+            <p class="jp"><ruby>田中<rt>たなか</rt></ruby>さんは<ruby>休<rt>やす</rt></ruby>みです。</p>
+            <p>Tanaka is off. You know it.</p>
+          </div>
+          <div class="cbox yes">
+            <span class="label">With みたい</span>
+            <p class="jp"><ruby>田中<rt>たなか</rt></ruby>さんは<ruby>休<rt>やす</rt></ruby>み<mark class="g">みたい</mark>です。</p>
+            <p>Tanaka seems to be off. That's how it looks, you're not sure.</p>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h2>Sentence mining</h2>
+        <div class="mines">
+          <div class="mine">
+            <span class="use polite">Polite</span>
+            <img decoding="async" src="media/kekkon10_19m26s.jpg" alt="Scene from Kekkon Dekinai Otoko" loading="lazy">
+            <p class="src">Kekkon Dekinai Otoko · Episode 10</p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/kekkon10_19m26s.mp3" aria-label="Play audio"></button>
+              <p class="jp"><ruby>雨<rt>あめ</rt></ruby> やんだ<mark class="g">みたい</mark>ですよ</p>
+            </div>
+            <p class="en">"Looks like the rain has stopped."</p>
+            <p class="note">She can tell from the sound or the window, so みたい.</p>
+          </div>
+          <div class="mine">
+            <span class="use polite">Polite</span>
+            <img decoding="async" src="media/kekkon07_29m39s.jpg" alt="Scene from Kekkon Dekinai Otoko" loading="lazy">
+            <p class="src">Kekkon Dekinai Otoko · Episode 7</p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/kekkon07_29m39s.mp3" aria-label="Play audio"></button>
+              <p class="jp">あっ なんか <ruby>夜店<rt>よみせ</rt></ruby>も<ruby>出<rt>で</rt></ruby>る<mark class="g">みたい</mark>ですね</p>
+            </div>
+            <p class="en">"Oh, looks like there'll be night stalls too."</p>
+            <p class="note">She read or heard it somewhere: it seems so.</p>
+          </div>
+          <div class="mine">
+            <span class="use polite">Polite</span>
+            <img decoding="async" src="media/litre08_33m58s.jpg" alt="Scene from 1 Litre of Tears" loading="lazy">
+            <p class="src">1 Litre of Tears · Episode 8</p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/litre08_33m58s.mp3" aria-label="Play audio"></button>
+              <p class="jp"><ruby>治療法<rt>ちりょうほう</rt></ruby>がない<mark class="g">みたい</mark>です。</p>
+            </div>
+            <p class="en">"It seems there's no cure."</p>
+            <p class="note">After a negative: ない + みたい.</p>
+          </div>
+          <div class="mine">
+            <span class="use polite">Polite</span>
+            <img decoding="async" src="media/litre07_12m50s.jpg" alt="Scene from 1 Litre of Tears" loading="lazy">
+            <p class="src">1 Litre of Tears · Episode 7</p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/litre07_12m50s.mp3" aria-label="Play audio"></button>
+              <p class="jp"><ruby>何<rt>なに</rt></ruby>か<ruby>筋<rt>きん</rt></ruby>トレの <ruby>秘密<rt>ひみつ</rt></ruby><ruby>兵器<rt>へいき</rt></ruby><mark class="g">みたい</mark>ですね。</p>
+            </div>
+            <p class="en">"It's like some secret weapon for strength training."</p>
+            <p class="note">Noun + みたい as a comparison: "like a ...".</p>
+          </div>
+          <div class="mine">
+            <span class="use casual">Casual</span>
+            <img decoding="async" src="media/f4a54408545.webp" alt="Scene from Shirokuma Cafe" loading="lazy">
+            <p class="src">Shirokuma Cafe · Episode 2</p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/44085459cb0.mp3" aria-label="Play audio"></button>
+              <p class="jp">お<ruby>寿司屋<rt>すしや</rt></ruby>さん<mark class="g">みたい</mark>な、メニューだね。</p>
+            </div>
+            <p class="en">"It's a menu like a sushi restaurant's."</p>
+            <p class="note">みたいな + noun: "a menu like ...".</p>
+          </div>
+          <div class="mine">
+            <span class="use casual">Casual</span>
+            <img decoding="async" src="media/89ad8b77486.webp" alt="Scene from a YouTube video" loading="lazy">
+            <p class="src">YouTube · <a href="https://www.youtube.com/watch?v=u1rgKfucu50">video</a></p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/8b774864a8a.mp3" aria-label="Play audio"></button>
+              <p class="jp"><ruby>色々<rt>いろいろ</rt></ruby>さ、その<ruby>工事<rt>こうじ</rt></ruby><ruby>現場<rt>げんば</rt></ruby><mark class="g">みたい</mark>なところ<ruby>行<rt>い</rt></ruby>って</p>
+            </div>
+            <p class="en">"Going to places like that construction site and stuff."</p>
+            <p class="note">みたいな + ところ: "a place like ...".</p>
+          </div>
+          <div class="mine">
+            <span class="use casual">Casual</span>
+            <img decoding="async" src="media/kotaro06_18m54s.jpg" alt="Scene from Kotaro Lives Alone" loading="lazy">
+            <p class="src">Kotaro Lives Alone · Episode 6</p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/kotaro06_18m54s.mp3" aria-label="Play audio"></button>
+              <p class="jp">まだ<ruby>帰<rt>かえ</rt></ruby>ってない<mark class="g">みたい</mark>だね</p>
+            </div>
+            <p class="en">"Looks like he's not back yet."</p>
+            <p class="note">A guess from what he hears on the phone.</p>
+          </div>
+          <div class="mine">
+            <span class="use casual">Casual</span>
+            <img decoding="async" src="media/slamdunk82_05m15s.jpg" alt="Scene from Slam Dunk" loading="lazy">
+            <p class="src">Slam Dunk · Episode 82</p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/slamdunk82_05m15s.mp3" aria-label="Play audio"></button>
+              <p class="jp"><ruby>水分<rt>すいぶん</rt></ruby><ruby>補給<rt>ほきゅう</rt></ruby>が<ruby>足<rt>た</rt></ruby>りなかった<mark class="g">みたい</mark></p>
+            </div>
+            <p class="en">"Looks like he didn't drink enough water."</p>
+            <p class="note">Ends on みたい alone, no だ.</p>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h2>Reference</h2>
+        <div class="book">
+          <p class="title">Tae Kim's Guide to Japanese Grammar</p>
+          <p class="where"><a href="https://guidetojapanese.org/learn/grammar/similarity#part3" target="_blank" rel="noopener">Similarity or hearsay</a> · Using 「みたい」 to say something looks like something else</p>
+        </div>
+      </section>
+    </article>
+
+    <!-- noni -->
+    <article id="noni" data-page hidden>
+      <div class="head">
+        <div>
+          <span class="label">N4 Grammar</span>
+          <p class="pattern">のに</p>
+          <p class="sub"></p>
+        </div>
+      </div>
+      <div class="lead">
+        <span class="use polite">Polite</span>
+        <img decoding="async" loading="lazy" src="media/kekkon06_34m42s.jpg" alt="Scene from Kekkon Dekinai Otoko">
+        <p class="src">Kekkon Dekinai Otoko · Episode 6</p>
+        <div class="line">
+          <button class="play" type="button" data-src="media/kekkon06_34m42s.mp3" aria-label="Play audio"></button>
+          <p class="jp"><ruby>断<rt>ことわ</rt></ruby>ってる<mark class="g">のに</mark> しつこく メールしてくるんですよ</p>
+        </div>
+        <p class="en">"I keep turning them down, and yet they keep emailing me."</p>
+        <div class="explain">
+          <p><mark class="g">のに</mark> means "even though": A, and yet B. B isn't what you'd expect after A, and usually you're annoyed, disappointed or surprised about it.</p>
+          <p>It goes after a verb or い-adjective as is (断ってる + のに), after a noun or な-adjective with な (雨なのに). On this card, saying no should stop the emails, and yet they keep coming. The speaker is fed up.</p>
+          <p>The politeness comes from the end of the sentence, のに itself never changes.</p>
+        </div>
+      </div>
+      <div class="lead second">
+        <span class="use casual">Casual</span>
+        <img decoding="async" loading="lazy" src="media/1litre07_03m08s.jpg" alt="Scene from 1 Litre of Tears">
+        <p class="src">1 Litre of Tears · Episode 7</p>
+        <div class="line">
+          <button class="play" type="button" data-src="media/1litre07_03m08s.mp3" aria-label="Play audio"></button>
+          <p class="jp"><ruby>寒<rt>さむ</rt></ruby>い<mark class="g">のに</mark> <ruby>待<rt>ま</rt></ruby>たせちゃってごめんね。</p>
+        </div>
+        <p class="en">"Sorry for making you wait when it's so cold."</p>
+        <div class="explain">
+          <p>On this card, it's cold, and yet he had to wait outside. She feels bad about it.</p>
+        </div>
+      </div>
+      <section>
+        <h2>Examples</h2>
+        <div class="scenes">
+          <div class="scene">
+            <p class="sit">You studied all week, and still failed.</p>
+            <p class="jp"><ruby>勉強<rt>べんきょう</rt></ruby>した<mark class="g">のに</mark>、<ruby>落<rt>お</rt></ruby>ちた。</p>
+            <p class="en">"I studied, and I still failed."</p>
+            <p class="note">You expected to pass. The のに shows the frustration.</p>
+            <span class="use casual">Casual</span>
+          </div>
+          <div class="scene">
+            <p class="sit">It's Sunday, but your boss calls.</p>
+            <p class="jp"><ruby>日曜日<rt>にちようび</rt></ruby>な<mark class="g">のに</mark>、<ruby>仕事<rt>しごと</rt></ruby>の<ruby>電話<rt>でんわ</rt></ruby>が<ruby>来<rt>き</rt></ruby>ました。</p>
+            <p class="en">"It's Sunday, and yet I got a work call."</p>
+            <p class="note">After a noun, add な.</p>
+            <span class="use polite">Polite</span>
+          </div>
+          <div class="scene">
+            <p class="sit">Your friend didn't tell you about the party.</p>
+            <p class="jp"><ruby>言<rt>い</rt></ruby>ってくれれば<ruby>行<rt>い</rt></ruby>った<mark class="g">のに</mark>。</p>
+            <p class="en">"If you'd told me, I would have gone."</p>
+            <p class="note">At the end of a sentence, のに is pure regret: "and now it's too late".</p>
+            <span class="use casual">Casual</span>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h2>With and without</h2>
+        <div class="compare">
+          <div class="cbox">
+            <span class="label">With けど</span>
+            <p class="jp"><ruby>勉強<rt>べんきょう</rt></ruby>したけど、<ruby>落<rt>お</rt></ruby>ちた。</p>
+            <p>I studied, but I failed. Just a plain fact.</p>
+          </div>
+          <div class="cbox yes">
+            <span class="label">With のに</span>
+            <p class="jp"><ruby>勉強<rt>べんきょう</rt></ruby>した<mark class="g">のに</mark>、<ruby>落<rt>お</rt></ruby>ちた。</p>
+            <p>I studied, and still failed! It feels unfair.</p>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h2>Sentence mining</h2>
+        <div class="mines">
+          <div class="mine">
+            <span class="use polite">Polite</span>
+            <img decoding="async" src="media/shirokuma05_16m36s.jpg" alt="Scene from Shirokuma Cafe" loading="lazy">
+            <p class="src">Shirokuma Cafe · Episode 5</p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/shirokuma05_16m36s.mp3" aria-label="Play audio"></button>
+              <p class="jp">パフェな<mark class="g">のに</mark>　とってもヘルシーなんです</p>
+            </div>
+            <p class="en">"It's a parfait, and yet it's really healthy."</p>
+            <p class="note">Here the surprise is a happy one. Noun + な + のに.</p>
+          </div>
+          <div class="mine">
+            <span class="use polite">Polite</span>
+            <img decoding="async" src="media/shirokuma45_13m37s.jpg" alt="Scene from Shirokuma Cafe" loading="lazy">
+            <p class="src">Shirokuma Cafe · Episode 45</p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/shirokuma45_13m37s.mp3" aria-label="Play audio"></button>
+              <p class="jp"><ruby>冬眠<rt>とうみん</rt></ruby><ruby>中<rt>ちゅう</rt></ruby>な<mark class="g">のに</mark><ruby>車<rt>くるま</rt></ruby><ruby>出<rt>だ</rt></ruby>してくださって ありがとうございます</p>
+            </div>
+            <p class="en">"Thank you for driving us even though you're hibernating."</p>
+            <p class="note">He should be asleep, and yet he drove them. Thanks with a bit of guilt.</p>
+          </div>
+          <div class="mine">
+            <span class="use casual">Casual</span>
+            <img decoding="async" src="media/windrises_045m29s.jpg" alt="Scene from The Wind Rises" loading="lazy">
+            <p class="src">The Wind Rises</p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/windrises_045m29s.mp3" aria-label="Play audio"></button>
+              <p class="jp">はるばる<ruby>訪<rt>たず</rt></ruby>ねてきた<mark class="g">のに</mark> <ruby>工場<rt>こうじょう</rt></ruby>は<ruby>立<rt>た</rt></ruby>ち<ruby>入<rt>い</rt></ruby>り<ruby>禁止<rt>きんし</rt></ruby>だとよ</p>
+            </div>
+            <p class="en">"We came all this way, and they say the factory is off limits."</p>
+            <p class="note">All that travel, and they can't even get in.</p>
+          </div>
+          <div class="mine">
+            <span class="use casual">Casual</span>
+            <img decoding="async" src="media/2c6e45cd186.webp" alt="Scene from PiroPito" loading="lazy">
+            <p class="src">PiroPito · First Playthrough of Minecraft #03</p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/45cd1867ad6.mp3" aria-label="Play audio"></button>
+              <p class="jp">あれ<ruby>待<rt>ま</rt></ruby>って、<ruby>朝<rt>あさ</rt></ruby>な<mark class="g">のに</mark><ruby>蜘蛛<rt>くも</rt></ruby>がいる。</p>
+            </div>
+            <p class="en">"Wait, it's morning, and there's a spider?"</p>
+            <p class="note">Spiders should be gone by morning. Noun + な + のに.</p>
+          </div>
+          <div class="mine">
+            <span class="use casual">Casual</span>
+            <img decoding="async" src="media/slamdunk99_12m57s.jpg" alt="Scene from Slam Dunk" loading="lazy">
+            <p class="src">Slam Dunk · Episode 99</p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/slamdunk99_12m57s.mp3" aria-label="Play audio"></button>
+              <p class="jp">2<ruby>万<rt>まん</rt></ruby><ruby>本<rt>ぼん</rt></ruby>も<ruby>練習<rt>れんしゅう</rt></ruby>した<mark class="g">のに</mark>よ おかしいじゃねえか</p>
+            </div>
+            <p class="en">"I practiced 20,000 shots, and yet... that's not right!"</p>
+            <p class="note">All that practice should have paid off.</p>
+          </div>
+          <div class="mine">
+            <span class="use casual">Casual</span>
+            <img decoding="async" src="media/litre03_35m49s.jpg" alt="Scene from 1 Litre of Tears" loading="lazy">
+            <p class="src">1 Litre of Tears · Episode 3</p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/litre03_35m49s.mp3" aria-label="Play audio"></button>
+              <p class="jp"><ruby>夜<rt>よる</rt></ruby><ruby>遅<rt>おそ</rt></ruby>くなるまで<ruby>練習<rt>れんしゅう</rt></ruby>した<mark class="g">のに</mark>。</p>
+            </div>
+            <p class="en">"Even though I practiced until late at night."</p>
+            <p class="note">The second half is left unsaid: it didn't work out.</p>
+          </div>
+          <div class="mine">
+            <span class="use casual">Casual</span>
+            <img decoding="async" src="media/kotaro02_13m02s.jpg" alt="Scene from Kotaro Lives Alone" loading="lazy">
+            <p class="src">Kotaro Lives Alone · Episode 2</p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/kotaro02_13m02s.mp3" aria-label="Play audio"></button>
+              <p class="jp">それならウチのシャワー <ruby>貸<rt>か</rt></ruby>した<mark class="g">のに</mark>な…</p>
+            </div>
+            <p class="en">"If that's the case, I'd have lent you my shower."</p>
+            <p class="note">のに at the end: regret, "if only I'd known".</p>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h2>Reference</h2>
+        <div class="book">
+          <p class="title">Tae Kim's Guide to Japanese Grammar</p>
+          <p class="where"><a href="https://guidetojapanese.org/learn/grammar/compound#part5" target="_blank" rel="noopener">Compound Sentences</a> · Using 「のに」 to mean "despite"</p>
+        </div>
+      </section>
+    </article>
+
+    <!-- zo -->
+    <article id="zo" data-page hidden>
+      <div class="head">
+        <div>
+          <span class="label">Non-JLPT Grammar</span>
+          <p class="pattern">ぞ</p>
+          <p class="sub"></p>
+        </div>
+      </div>
+      <div class="lead">
+        <span class="use casual">Casual</span>
+        <img decoding="async" loading="lazy" src="media/devilman02_12m01s.jpg" alt="Scene from Devilman Crybaby">
+        <p class="src">Devilman Crybaby · Episode 2</p>
+        <div class="line">
+          <button class="play" type="button" data-src="media/devilman02_12m01s.mp3" aria-label="Play audio"></button>
+          <p class="jp"><ruby>本物<rt>ほんもの</rt></ruby>の<ruby>銃<rt>じゅう</rt></ruby>だ<mark class="g">ぞ</mark>！</p>
+        </div>
+        <p class="en">"This is a real gun!"</p>
+        <div class="explain">
+          <p><mark class="g">ぞ</mark> is like よ, but much stronger: "I'm telling you!" It pushes the point at the listener, or psyches yourself up.</p>
+          <p>It goes at the very end of a casual sentence (だ + ぞ, 行く + ぞ). On this card, he wants them to take it seriously: it's a real gun.</p>
+          <p>It sounds rough and masculine, so men use it with friends, family or people below them. Never in polite speech, and the JLPT lists leave it out.</p>
+        </div>
+      </div>
+      <section>
+        <h2>Examples</h2>
+        <div class="scenes">
+          <div class="scene">
+            <p class="sit">Leaving the house with your kids.</p>
+            <p class="jp"><ruby>行<rt>い</rt></ruby>く<mark class="g">ぞ</mark>！</p>
+            <p class="en">"Let's go!" / "I'm going!"</p>
+            <p class="note">The classic one. Telling everyone it's time.</p>
+            <span class="use casual">Casual</span>
+          </div>
+          <div class="scene">
+            <p class="sit">Warning a friend who's on his phone at the crossing.</p>
+            <p class="jp"><ruby>危<rt>あぶ</rt></ruby>ない<mark class="g">ぞ</mark>！</p>
+            <p class="en">"Watch out!"</p>
+            <p class="note">A warning with force.</p>
+            <span class="use casual">Casual</span>
+          </div>
+          <div class="scene">
+            <p class="sit">Before a big exam, to yourself.</p>
+            <p class="jp"><ruby>頑張<rt>がんば</rt></ruby>る<mark class="g">ぞ</mark>！</p>
+            <p class="en">"I'm going to do this!"</p>
+            <p class="note">Psyching yourself up.</p>
+            <span class="use casual">Casual</span>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h2>With and without</h2>
+        <div class="compare">
+          <div class="cbox">
+            <span class="label">With よ</span>
+            <p class="jp"><ruby>遅刻<rt>ちこく</rt></ruby>するよ。</p>
+            <p>You'll be late, you know. A friendly heads-up.</p>
+          </div>
+          <div class="cbox yes">
+            <span class="label">With ぞ</span>
+            <p class="jp"><ruby>遅刻<rt>ちこく</rt></ruby>する<mark class="g">ぞ</mark>。</p>
+            <p>You'll be late! Stronger, almost an order to hurry.</p>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h2>Sentence mining</h2>
+        <div class="mines">
+          <div class="mine">
+            <span class="use casual">Casual</span>
+            <img decoding="async" src="media/shirokuma17_06m15s.jpg" alt="Scene from Shirokuma Cafe" loading="lazy">
+            <p class="src">Shirokuma Cafe · Episode 17</p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/shirokuma17_06m15s.mp3" aria-label="Play audio"></button>
+              <p class="jp">さぁ <ruby>夕食<rt>ゆうしょく</rt></ruby>の<ruby>支度<rt>したく</rt></ruby>する<mark class="g">ぞ</mark></p>
+            </div>
+            <p class="en">"All right, time to get dinner ready."</p>
+            <p class="note">Getting himself going.</p>
+          </div>
+          <div class="mine">
+            <span class="use casual">Casual</span>
+            <img decoding="async" src="media/shirokuma42_09m55s.jpg" alt="Scene from Shirokuma Cafe" loading="lazy">
+            <p class="src">Shirokuma Cafe · Episode 42</p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/shirokuma42_09m55s.mp3" aria-label="Play audio"></button>
+              <p class="jp">おい <ruby>倉庫<rt>そうこ</rt></ruby>にスコップなんてねえ<mark class="g">ぞ</mark></p>
+            </div>
+            <p class="en">"Hey, there's no shovel in the shed."</p>
+            <p class="note">ねえ is rough ない. With ぞ: "I'm telling you".</p>
+          </div>
+          <div class="mine">
+            <span class="use casual">Casual</span>
+            <img decoding="async" src="media/windrises_022m37s.jpg" alt="Scene from The Wind Rises" loading="lazy">
+            <p class="src">The Wind Rises</p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/windrises_022m37s.mp3" aria-label="Play audio"></button>
+              <p class="jp"><ruby>火<rt>ひ</rt></ruby>がうつる<mark class="g">ぞ</mark> <ruby>東京<rt>とうきょう</rt></ruby><ruby>壊滅<rt>かいめつ</rt></ruby>だ</p>
+            </div>
+            <p class="en">"The fire will spread. Tokyo is done for."</p>
+            <p class="note">A warning.</p>
+          </div>
+          <div class="mine">
+            <span class="use casual">Casual</span>
+            <img decoding="async" src="media/windrises_046m04s.jpg" alt="Scene from The Wind Rises" loading="lazy">
+            <p class="src">The Wind Rises</p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/windrises_046m04s.mp3" aria-label="Play audio"></button>
+              <p class="jp"><ruby>爆撃機<rt>ばくげきき</rt></ruby><ruby>型<rt>がた</rt></ruby>を<ruby>日本<rt>にほん</rt></ruby>でつくるんだ <ruby>極秘<rt>ごくひ</rt></ruby>だ<mark class="g">ぞ</mark></p>
+            </div>
+            <p class="en">"We'll build a bomber version in Japan. It's top secret."</p>
+            <p class="note">Pressing the point: keep it secret.</p>
+          </div>
+          <div class="mine">
+            <span class="use casual">Casual</span>
+            <img decoding="async" src="media/kekkon01_02m17s_v2.jpg" alt="Scene from Kekkon Dekinai Otoko" loading="lazy">
+            <p class="src">Kekkon Dekinai Otoko · Episode 1</p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/kekkon01_02m17s.mp3" aria-label="Play audio"></button>
+              <p class="jp">しかも<ruby>手<rt>て</rt></ruby>がベトベトになったら <ruby>自分<rt>じぶん</rt></ruby>の<ruby>服<rt>ふく</rt></ruby>で<ruby>拭<rt>ふ</rt></ruby>いてたらしい<mark class="g">ぞ</mark></p>
+            </div>
+            <p class="en">"And apparently when his hands got sticky, he wiped them on his clothes."</p>
+            <p class="note">Telling gossip with force: "can you believe it".</p>
+          </div>
+          <div class="mine">
+            <span class="use casual">Casual</span>
+            <img decoding="async" src="media/slamdunk02_13m29s.jpg" alt="Scene from Slam Dunk" loading="lazy">
+            <p class="src">Slam Dunk · Episode 2</p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/slamdunk02_13m29s.mp3" aria-label="Play audio"></button>
+              <p class="jp">もう<ruby>練習<rt>れんしゅう</rt></ruby>は<ruby>始<rt>はじ</rt></ruby>まってんだ<mark class="g">ぞ</mark></p>
+            </div>
+            <p class="en">"Practice has already started!"</p>
+            <p class="note">Hurry up, in other words.</p>
+          </div>
+          <div class="mine">
+            <span class="use casual">Casual</span>
+            <img decoding="async" src="media/litre05_13m00s.jpg" alt="Scene from 1 Litre of Tears" loading="lazy">
+            <p class="src">1 Litre of Tears · Episode 5</p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/litre05_13m00s.mp3" aria-label="Play audio"></button>
+              <p class="jp"><ruby>遅刻<rt>ちこく</rt></ruby>する<mark class="g">ぞ</mark>。</p>
+            </div>
+            <p class="en">"You'll be late!"</p>
+            <p class="note">A dad to his kids in the morning.</p>
+          </div>
+          <div class="mine">
+            <span class="use casual">Casual</span>
+            <img decoding="async" src="media/litre09_01m47s.jpg" alt="Scene from 1 Litre of Tears" loading="lazy">
+            <p class="src">1 Litre of Tears · Episode 9</p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/litre09_01m47s.mp3" aria-label="Play audio"></button>
+              <p class="jp"><ruby>今<rt>いま</rt></ruby><ruby>帰<rt>かえ</rt></ruby>った<mark class="g">ぞ</mark>！</p>
+            </div>
+            <p class="en">"I'm home!"</p>
+            <p class="note">Announcing it to the whole house.</p>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h2>Reference</h2>
+        <div class="book">
+          <p class="title">Tae Kim's Guide to Japanese Grammar</p>
+          <p class="where"><a href="https://guidetojapanese.org/learn/grammar/sentence_ending#part3" target="_blank" rel="noopener">Review and more sentence-ending particles</a> · Gender-specific sentence-ending particles</p>
+        </div>
+      </section>
+    </article>
+
     <!-- kana -->
     <section class="home kana-board" id="kana" data-page hidden>
       <div class="home-head">
@@ -30110,6 +30991,22 @@ var INDEX = [
   ,{level: 'N4', cats: [
     {cat: 'Particles', pages: [
       ['toka', 'とか', 'Things like, or something']
+    ]},
+    {cat: 'Sentence endings', pages: [
+      ['kana-wonder', 'かな', 'I wonder (thinking out loud)']
+    ]},
+    {cat: 'Guessing and seeming', pages: [
+      ['hazu', 'はず', 'Should be, expected to be'],
+      ['mitai', 'みたい', 'Seems like, looks like']
+    ]},
+    {cat: 'Joining sentences', pages: [
+      ['noni', 'のに', 'Even though (and it\'s annoying)']
+    ]}
+  ]}
+  // Not on the JLPT lists, but common in real speech
+  ,{level: 'Non-JLPT', cats: [
+    {cat: 'Sentence endings', pages: [
+      ['zo', 'ぞ', 'Strong, rough "I\'m telling you"']
     ]}
   ]}
   // N3 is hidden for now (the site is N5-N4 only). To bring it back: uncomment this group and empty HIDDEN in build.py.
@@ -30121,10 +31018,10 @@ var INDEX = [
 ];
 var UPDATED = '10 Nov 2026';
 // N5 points in the order they first come up in Jlab's beginner course (worked out from the Anki deck, so roughly right). Any N5 page not listed here shows under "Not in Jlab".
-var JLAB = ('desu janai deshita janakatta wa mo u-verb ru-verb ga gairu yo na-adj ne suki-kirai i-adj i-adj-neg i-adj-past na-adj-past i-adj-past-neg na-adj-neg ' +
+var JLAB = ('desu janai deshita janakatta wa mo u-verb ru-verb ga gairu yo zo na-adj ne suki-kirai i-adj i-adj-neg i-adj-past na-adj-past i-adj-past-neg na-adj-neg ' +
   'u-verb-neg ru-verb-neg gaaru ru-verb-past u-verb-past tachi wo doushite nani ii kuru ni dare doko to-quote he kara made de de-means koko-soko-asoko deshou ' +
   'kochira-sochira-achira soshite kara-because verb-noun to-with to toka no-pos ga-no noha-noga ndesu no yone verb-past-neg adverb-ku-ni naru suru masu ka zenzen totemo ' +
-  'demo teiru ni-suru masenka ni-iku kore-sore-are kono-sono-ano mou itsumo tsumori itsu dore kurai ikura dou nanika nanimo darou nandemo chotto kute-de te-form te-and ' +
+  'demo teiru ni-suru masenka ni-iku kana-wonder kore-sore-are kono-sono-ano mou itsumo tsumori itsu dore kurai ikura dou nanika nanimo hazu noni mitai darou nandemo chotto kute-de te-form te-and ' +
   'ta-koto dake node kedo no-noun ga-but tari noga-suki teiru-habit mada-teinai teiru-state ichiban toki aru-noun mashou morau tewa-ikenai nakute-wa temo-ii tai hoshii ' +
   'te-kara mashouka ageru kureru te-kudasai naide-kudasai na-dont takusan shika sugiru dono ya mada ato-de yori hou-ga-ii jouzu-heta kekkou amari ka-or').split(' ');
 // N5 points in the order they come up in Minna no Nihongo Books 1 and 2, one line per lesson, line 1 = lesson 1 (study list at the back of each book, small words searched in the text). An empty line is a lesson with no page on the site, it doesn't show. Any N5 page not listed here shows under "Not in Minna".

@@ -185,6 +185,7 @@ h2::before{background:var(--gold);width:3px}
 .gcard .lv.n3,.rcard .lv.n3,.jlpt .lv.n3{--lv:var(--n3)}
 .gcard .lv.n2,.rcard .lv.n2,.jlpt .lv.n2{--lv:var(--n2)}
 .gcard .lv.n1,.rcard .lv.n1,.jlpt .lv.n1{--lv:var(--n1)}
+.gcard .lv.non-jlpt{--lv:var(--muted)}
 @media (max-width:520px){.cards{grid-template-columns:1fr 1fr;padding:12px;gap:8px}.cat h3{padding:14px 12px 0}.cat .cards{padding-top:8px}.gcard{padding:12px}.gcard .p{font-size:18px}}
 main:has(.home:not([hidden])) .foot{max-width:1080px}
 

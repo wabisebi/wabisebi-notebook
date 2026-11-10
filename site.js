@@ -165,6 +165,22 @@ var INDEX = [
   ,{level: 'N4', cats: [
     {cat: 'Particles', pages: [
       ['toka', 'とか', 'Things like, or something']
+    ]},
+    {cat: 'Sentence endings', pages: [
+      ['kana-wonder', 'かな', 'I wonder (thinking out loud)']
+    ]},
+    {cat: 'Guessing and seeming', pages: [
+      ['hazu', 'はず', 'Should be, expected to be'],
+      ['mitai', 'みたい', 'Seems like, looks like']
+    ]},
+    {cat: 'Joining sentences', pages: [
+      ['noni', 'のに', 'Even though (and it\'s annoying)']
+    ]}
+  ]}
+  // Not on the JLPT lists, but common in real speech
+  ,{level: 'Non-JLPT', cats: [
+    {cat: 'Sentence endings', pages: [
+      ['zo', 'ぞ', 'Strong, rough "I\'m telling you"']
     ]}
   ]}
   // N3 is hidden for now (the site is N5-N4 only). To bring it back: uncomment this group and empty HIDDEN in build.py.
@@ -176,10 +192,10 @@ var INDEX = [
 ];
 var UPDATED = '10 Nov 2026';
 // N5 points in the order they first come up in Jlab's beginner course (worked out from the Anki deck, so roughly right). Any N5 page not listed here shows under "Not in Jlab".
-var JLAB = ('desu janai deshita janakatta wa mo u-verb ru-verb ga gairu yo na-adj ne suki-kirai i-adj i-adj-neg i-adj-past na-adj-past i-adj-past-neg na-adj-neg ' +
+var JLAB = ('desu janai deshita janakatta wa mo u-verb ru-verb ga gairu yo zo na-adj ne suki-kirai i-adj i-adj-neg i-adj-past na-adj-past i-adj-past-neg na-adj-neg ' +
   'u-verb-neg ru-verb-neg gaaru ru-verb-past u-verb-past tachi wo doushite nani ii kuru ni dare doko to-quote he kara made de de-means koko-soko-asoko deshou ' +
   'kochira-sochira-achira soshite kara-because verb-noun to-with to toka no-pos ga-no noha-noga ndesu no yone verb-past-neg adverb-ku-ni naru suru masu ka zenzen totemo ' +
-  'demo teiru ni-suru masenka ni-iku kore-sore-are kono-sono-ano mou itsumo tsumori itsu dore kurai ikura dou nanika nanimo darou nandemo chotto kute-de te-form te-and ' +
+  'demo teiru ni-suru masenka ni-iku kana-wonder kore-sore-are kono-sono-ano mou itsumo tsumori itsu dore kurai ikura dou nanika nanimo hazu noni mitai darou nandemo chotto kute-de te-form te-and ' +
   'ta-koto dake node kedo no-noun ga-but tari noga-suki teiru-habit mada-teinai teiru-state ichiban toki aru-noun mashou morau tewa-ikenai nakute-wa temo-ii tai hoshii ' +
   'te-kara mashouka ageru kureru te-kudasai naide-kudasai na-dont takusan shika sugiru dono ya mada ato-de yori hou-ga-ii jouzu-heta kekkou amari ka-or').split(' ');
 // N5 points in the order they come up in Minna no Nihongo Books 1 and 2, one line per lesson, line 1 = lesson 1 (study list at the back of each book, small words searched in the text). An empty line is a lesson with no page on the site, it doesn't show. Any N5 page not listed here shows under "Not in Minna".

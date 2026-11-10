@@ -11,7 +11,7 @@ def read(*p):
 site_js = read('strokes.js') + read('site.js')
 css = read('style.css')
 HIDDEN = ['home-n3', 'sa', 'numbers', 'notes', 'proverbs']  # kept in pages/ but left out of the site for now (the N3 group is commented out in site.js)
-ids = ['start', 'home', 'home-n4'] + re.findall(r"\['([a-z0-9-]+)',", site_js) + ['kana', 'katakana', 'kanji-n5', 'kanji-n4', 'numbers', 'vocab-n5', 'vocab-n4', 'proverbs', 'conjugator', 'resources', 'notes', 'jlpt'] + sorted(f[:-5] for f in os.listdir(os.path.join(root, 'pages')) if f.startswith('note-'))  # start first: it's the page index.html opens on; start, kana, katakana, kanji-n5, kanji-n4, numbers, vocab-n5, resources, notes and the note-* pages are not in INDEX
+ids = ['start', 'home', 'home-n4', 'home-non-jlpt'] + re.findall(r"\['([a-z0-9-]+)',", site_js) + ['kana', 'katakana', 'kanji-n5', 'kanji-n4', 'numbers', 'vocab-n5', 'vocab-n4', 'proverbs', 'conjugator', 'resources', 'notes', 'jlpt'] + sorted(f[:-5] for f in os.listdir(os.path.join(root, 'pages')) if f.startswith('note-'))  # start first: it's the page index.html opens on; start, kana, katakana, kanji-n5, kanji-n4, numbers, vocab-n5, resources, notes and the note-* pages are not in INDEX
 ids = [i for i in ids if i not in HIDDEN and not i.startswith('note-')]  # note-*: the single notes are hidden along with the Notes list
 
 fonts = ''
