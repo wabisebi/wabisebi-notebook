@@ -417,6 +417,7 @@ var MINNA = [
     try { localStorage.setItem(ORDER, o); } catch (err) {}
     grids.forEach(function(grid){
       grid.setAttribute('data-order', o);
+      grid.parentNode.setAttribute('data-order', o);   // the "No official list" box above the grid only shows in the level view
       grid.querySelectorAll('.order button').forEach(function(b){ b.setAttribute('aria-pressed', b.getAttribute('data-o') === o ? 'true' : 'false'); });
       var sub = grid.parentNode.querySelector('.gsub'); if (sub) sub.textContent = VIEWS[o];
     });

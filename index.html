@@ -537,6 +537,7 @@ main:has(.home:not([hidden])) .foot{max-width:1080px}
 .order button[aria-pressed="true"]{color:var(--gold);background:color-mix(in srgb,var(--gold) 10%,transparent)}
 /* the Grammar page: one view at a time (by level, Jlab or Minna) */
 .grid:not([data-order="level"]) .bylevel,.grid:not([data-order="level"]) .toc,.grid:not([data-order="jlab"]) .jlab,.grid:not([data-order="minna"]) .minna{display:none}
+.home[data-order]:not([data-order="level"]) .lvl-note.lists{display:none}
 .gsub{flex-basis:100%;margin:-10px 0 0;color:var(--muted);font-size:15px}
 .glevels{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;margin:0;padding:14px 16px 0;font-size:13.5px;color:var(--muted)}
 .glevels .label{margin:0}
@@ -653,7 +654,7 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
     <!-- home -->
     <section class="home" id="home" data-page hidden>
       <div class="home-head"><h1>Grammar</h1><p class="gsub"></p></div>
-      <div class="lvl-note">
+      <div class="lvl-note lists">
         <p class="label">No official list</p>
         <p>The JLPT hasn't published grammar lists since 2010, so every list you'll find is someone's best guess, based on the old official lists and past tests. The lists mostly agree but differ at the edges: a point can be N5 in one list and N4 in another. Non-JLPT is grammar you'll hear all the time in shows that the lists leave out.</p>
       </div>
@@ -9743,15 +9744,15 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
       </div>
       <div class="lead second">
         <span class="use polite">Polite</span>
-        <img decoding="async" loading="lazy" src="media/border_000000208.jpg" alt="Scene from Border">
-        <p class="src">Border · Episode 1</p>
+        <img decoding="async" loading="lazy" src="media/million_yen_woman_000002805.jpg" alt="Scene from Million Yen Woman: a young woman in a scarf surrounded by reporters">
+        <p class="src">Million Yen Woman · Episode 7</p>
         <div class="line">
-          <button class="play" type="button" data-src="media/border_000000208.mp3" aria-label="Play audio"></button>
-          <p class="jp"><ruby>昨日<rt>きのう</rt></ruby>の<ruby>午後<rt>ごご</rt></ruby>11<ruby>時<rt>じ</rt></ruby><mark class="g">ごろ</mark>です。</p>
+          <button class="play" type="button" data-src="media/million_yen_woman_000002805.mp3" aria-label="Play audio"></button>
+          <p class="jp"><ruby>何時<rt>なんじ</rt></ruby><mark class="g"><ruby>頃<rt>ごろ</rt></ruby></mark>に<ruby>帰<rt>かえ</rt></ruby>ってきますか？</p>
         </div>
-        <p class="en">"Around 11 p.m. yesterday."</p>
+        <p class="en">"Around what time will he be home?" <span class="ctx">[a reporter asking]</span></p>
         <div class="explain">
-          <p><mark class="g">ごろ</mark> goes right after a time and means "around". On this card, 午後11時 ("11 p.m.") + ごろ + です says when it was, and 昨日の = "yesterday's".</p>
+          <p><mark class="g">ごろ</mark> goes right after a time and means "around". On this card, 何時 ("what time") + ごろ asks for a rough time, so "around 9" is a fine answer. ます makes the question polite.</p>
         </div>
       </div>
       <section>
@@ -31233,6 +31234,7 @@ var MINNA = [
     try { localStorage.setItem(ORDER, o); } catch (err) {}
     grids.forEach(function(grid){
       grid.setAttribute('data-order', o);
+      grid.parentNode.setAttribute('data-order', o);   // the "No official list" box above the grid only shows in the level view
       grid.querySelectorAll('.order button').forEach(function(b){ b.setAttribute('aria-pressed', b.getAttribute('data-o') === o ? 'true' : 'false'); });
       var sub = grid.parentNode.querySelector('.gsub'); if (sub) sub.textContent = VIEWS[o];
     });

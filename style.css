@@ -528,6 +528,7 @@ main:has(.home:not([hidden])) .foot{max-width:1080px}
 .order button[aria-pressed="true"]{color:var(--gold);background:color-mix(in srgb,var(--gold) 10%,transparent)}
 /* the Grammar page: one view at a time (by level, Jlab or Minna) */
 .grid:not([data-order="level"]) .bylevel,.grid:not([data-order="level"]) .toc,.grid:not([data-order="jlab"]) .jlab,.grid:not([data-order="minna"]) .minna{display:none}
+.home[data-order]:not([data-order="level"]) .lvl-note.lists{display:none}
 .gsub{flex-basis:100%;margin:-10px 0 0;color:var(--muted);font-size:15px}
 .glevels{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;margin:0;padding:14px 16px 0;font-size:13.5px;color:var(--muted)}
 .glevels .label{margin:0}
