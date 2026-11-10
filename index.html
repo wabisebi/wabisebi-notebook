@@ -223,7 +223,7 @@ main:has(.home:not([hidden])) .foot{max-width:1080px}
 .theme{flex:none;display:flex;align-items:center;justify-content:center;width:36px;height:36px;margin:-4px 0;border:1px solid var(--plain-line);border-radius:50%;background:var(--plain);color:var(--ink);cursor:pointer;padding:0}
 .theme:hover{color:var(--gold);border-color:var(--gold)}
 .theme:focus-visible{outline:2px solid var(--indigo);outline-offset:2px}
-@media (max-width:1170px){
+@media (max-width:1260px){
   .brand .label{display:none}
   .burger{display:flex;align-items:center;justify-content:center;width:44px;height:44px;margin:-6px -8px -6px 0;border:0;border-radius:8px;background:none;color:var(--ink);cursor:pointer}
   .burger{order:1}
@@ -537,7 +537,6 @@ main:has(.home:not([hidden])) .foot{max-width:1080px}
 .order button[aria-pressed="true"]{color:var(--gold);background:color-mix(in srgb,var(--gold) 10%,transparent)}
 /* the Grammar page: one view at a time (by level, Jlab or Minna) */
 .grid:not([data-order="level"]) .bylevel,.grid:not([data-order="level"]) .toc,.grid:not([data-order="jlab"]) .jlab,.grid:not([data-order="minna"]) .minna{display:none}
-.home[data-order]:not([data-order="level"]) .lvl-note.lists{display:none}
 .gsub{flex-basis:100%;margin:-10px 0 0;color:var(--muted);font-size:15px}
 .glevels{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;margin:0;padding:14px 16px 0;font-size:13.5px;color:var(--muted)}
 .glevels .label{margin:0}
@@ -559,8 +558,8 @@ main:has(.home:not([hidden])) .foot{max-width:1080px}
 .kana-group.open .kana-drop,.kana-group:hover .kana-drop{display:flex}
 .kana-drop .nav{padding:8px 10px;border-radius:6px}
 .kana-drop .nav:hover{background:color-mix(in srgb,var(--gold) 10%,transparent)}
-@media (min-width:1171px){.top .m-only{display:none}}
-@media (max-width:1170px){.kana-group{display:none}}
+@media (min-width:1261px){.top .m-only{display:none}}
+@media (max-width:1260px){.kana-group{display:none}}
 
 /* grammar pages: "N5 grammar" button back to the grid. Narrow screens: above the card on the left, stays there when scrolling.
    Wide screens: in the empty space left of the card, sticky so it follows the page down just under the top bar. The margins cancel its height and the article's gap, so it takes no room in the card. */
@@ -636,6 +635,11 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
 .twoforms .m.neg{margin-top:14px;padding:12px 14px;border:1px solid var(--gram);border-radius:10px;background:var(--tint);color:var(--ink);font-size:15px;line-height:1.9}
 .twoforms .m.neg b{color:var(--gram)}
 .twoforms .m.neg .jp{display:inline-block;min-width:8.5em;font-size:17px}
+
+/* Support page: one gold donate button */
+.lvl-note.welcome p.donate-row{margin-top:18px}
+.donate{display:inline-block;padding:10px 20px;border-radius:999px;background:var(--gold);color:var(--on-accent);font-weight:600;text-decoration:none}
+.donate:hover{filter:brightness(1.08)}
 </style>
 
 <header class="top" id="top"></header>
@@ -30808,6 +30812,17 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
       </div>
     </section>
 
+    <!-- support -->
+    <section class="home support" id="support" data-page hidden>
+      <div class="home-head"><h1>Support</h1></div>
+      <div class="lvl-note welcome">
+        <p>Everything on this site is free, and it will stay that way. No ads, no sign-up, no paywall.</p>
+        <p>I build it in my free time, one grammar point at a time, while learning Japanese myself. If it has helped you and you'd like to give something back, any support is much appreciated. It helps keep the site running and growing.</p>
+        <p>And if you can't or don't want to, that's completely fine. I'm just happy it's useful to you.</p>
+        <p class="donate-row"><a class="donate" href="https://ko-fi.com/wabisebi" target="_blank" rel="noopener">♥ Support the site</a></p>
+      </div>
+    </section>
+
     <p class="foot" id="foot"></p>
   </main>
 </div>
@@ -31123,6 +31138,7 @@ var MINNA = [
       '<div class="kana-drop"><a class="nav" href="' + href('conjugator') + '">Verb Conjugator</a></div></div>' +
     '<a class="nav m-only" href="' + href('conjugator') + '"><svg class="pad" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0-5.4 5l-5.6 5.6a1.8 1.8 0 0 0 2.5 2.5l5.6-5.6a4 4 0 0 0 5-5.4l-2.6 2.6-2.1-.4-.4-2.1z"/></svg> Verb Conjugator</a>' +
     '<a class="nav" href="' + href('resources') + '"><svg class="pad" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6.5C10.5 5 8 4.5 3.5 4.5v14c4.5 0 7 .5 8.5 2 1.5-1.5 4-2 8.5-2v-14C16 4.5 13.5 5 12 6.5z"/><path d="M12 6.5v14"/></svg> Resources</a>' +
+    '<a class="nav" href="' + href('support') + '"><svg class="pad" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg> Support</a>' +
     '<div class="find"><input id="find" type="search" placeholder="Search: は, topic, wa…" aria-label="Search grammar" autocomplete="off">' +
       '<ol class="results" id="results" hidden></ol></div>' +
     '</div>' +

@@ -214,7 +214,7 @@ main:has(.home:not([hidden])) .foot{max-width:1080px}
 .theme{flex:none;display:flex;align-items:center;justify-content:center;width:36px;height:36px;margin:-4px 0;border:1px solid var(--plain-line);border-radius:50%;background:var(--plain);color:var(--ink);cursor:pointer;padding:0}
 .theme:hover{color:var(--gold);border-color:var(--gold)}
 .theme:focus-visible{outline:2px solid var(--indigo);outline-offset:2px}
-@media (max-width:1170px){
+@media (max-width:1260px){
   .brand .label{display:none}
   .burger{display:flex;align-items:center;justify-content:center;width:44px;height:44px;margin:-6px -8px -6px 0;border:0;border-radius:8px;background:none;color:var(--ink);cursor:pointer}
   .burger{order:1}
@@ -528,7 +528,6 @@ main:has(.home:not([hidden])) .foot{max-width:1080px}
 .order button[aria-pressed="true"]{color:var(--gold);background:color-mix(in srgb,var(--gold) 10%,transparent)}
 /* the Grammar page: one view at a time (by level, Jlab or Minna) */
 .grid:not([data-order="level"]) .bylevel,.grid:not([data-order="level"]) .toc,.grid:not([data-order="jlab"]) .jlab,.grid:not([data-order="minna"]) .minna{display:none}
-.home[data-order]:not([data-order="level"]) .lvl-note.lists{display:none}
 .gsub{flex-basis:100%;margin:-10px 0 0;color:var(--muted);font-size:15px}
 .glevels{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;margin:0;padding:14px 16px 0;font-size:13.5px;color:var(--muted)}
 .glevels .label{margin:0}
@@ -550,8 +549,8 @@ main:has(.home:not([hidden])) .foot{max-width:1080px}
 .kana-group.open .kana-drop,.kana-group:hover .kana-drop{display:flex}
 .kana-drop .nav{padding:8px 10px;border-radius:6px}
 .kana-drop .nav:hover{background:color-mix(in srgb,var(--gold) 10%,transparent)}
-@media (min-width:1171px){.top .m-only{display:none}}
-@media (max-width:1170px){.kana-group{display:none}}
+@media (min-width:1261px){.top .m-only{display:none}}
+@media (max-width:1260px){.kana-group{display:none}}
 
 /* grammar pages: "N5 grammar" button back to the grid. Narrow screens: above the card on the left, stays there when scrolling.
    Wide screens: in the empty space left of the card, sticky so it follows the page down just under the top bar. The margins cancel its height and the article's gap, so it takes no room in the card. */
@@ -627,3 +626,8 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
 .twoforms .m.neg{margin-top:14px;padding:12px 14px;border:1px solid var(--gram);border-radius:10px;background:var(--tint);color:var(--ink);font-size:15px;line-height:1.9}
 .twoforms .m.neg b{color:var(--gram)}
 .twoforms .m.neg .jp{display:inline-block;min-width:8.5em;font-size:17px}
+
+/* Support page: one gold donate button */
+.lvl-note.welcome p.donate-row{margin-top:18px}
+.donate{display:inline-block;padding:10px 20px;border-radius:999px;background:var(--gold);color:var(--on-accent);font-weight:600;text-decoration:none}
+.donate:hover{filter:brightness(1.08)}
