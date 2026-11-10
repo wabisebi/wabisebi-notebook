@@ -640,6 +640,9 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
 .lvl-note.welcome p.donate-row{margin-top:18px}
 .donate{display:inline-block;padding:10px 20px;border-radius:999px;background:var(--gold);color:var(--on-accent);font-weight:600;text-decoration:none}
 .donate:hover{filter:brightness(1.08)}
+.support-art{display:block;width:100%;max-width:758px;height:auto;margin-top:28px}
+.support-art.res-art{max-width:none;margin:32px 0 14px}
+.home .lvl-note.welcome h1{font-size:22px;margin:0 0 10px}
 
 /* Sentence Mining page: the card mock-up and the step list */
 .mining .compare{margin:4px 0 12px}
@@ -669,12 +672,13 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
   <main>
     <!-- start -->
     <section class="home" id="start" data-page hidden>
-      <div class="home-head"><h1>Welcome to Wabisebi Notebook</h1></div>
       <div class="lvl-note welcome">
+        <h1>Welcome to Wabisebi Notebook</h1>
         <p>This is my personal Japanese notebook: one page per grammar point, with real clips from shows, plus kana and kanji charts, vocabulary lists, JLPT info and useful resources.</p>
         <p>The grammar is sorted by JLPT level, and can also be shown in the order of the Jlab Anki deck or Minna no Nihongo: open Grammar in the menu at the top and pick a view on the right.</p>
         <p>Everything else is in that menu too.</p>
       </div>
+      <img decoding="async" loading="lazy" class="support-art" src="illustrations/WS_Landing_Page.png" alt="An open drawer full of Japanese study things: a grammar dictionary, an Anki card, a Campus notebook, a kana practice sheet and a phone playing a podcast">
     </section>
 
     <!-- home -->
@@ -30880,6 +30884,15 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
             </ul>
             </section>
           </details>
+          <img decoding="async" loading="lazy" class="support-art res-art" src="illustrations/ws_Immersion.png" alt="A phone playing a Japanese podcast, headphones with a 没入感 speech bubble, and a tablet showing a cooking show with Japanese subtitles">
+          <details class="level" id="res-immersion-audio" open><summary><span class="t">Immersion Audio</span><span class="label">Listen on the go</span><p class="legend"><svg class="star" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg>Recommended for beginners</p></summary>
+            <section class="cat"><h3 class="label">Podcast</h3>
+            <ul class="rlist">
+              <li><a class="rcard" href="https://podcasts.apple.com/us/podcast/japanese-with-shun/id1550709885" target="_blank" rel="noopener"><img decoding="async" class="av" src="media/resources/shun.jpg" alt="" loading="lazy"><span class="t">Japanese with Shun (podcast)</span><span class="tags"><span class="lv n5">N5</span><span class="lv n4">N4</span></span><span class="d">Weekly beginner podcast in easy Japanese from the same Shun as the YouTube channel.</span></a></li>
+              <li><a class="rcard" href="https://nihongoconteppei.com/" target="_blank" rel="noopener"><span class="av glyph">話</span><span class="t">Nihongo con Teppei</span><span class="tags"><span class="lv n5">N5</span><span class="lv n4">N4</span><span class="lv n3">N3</span><svg class="star" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg></span><span class="d">Short episodes in natural, slow Japanese about everyday topics (start with the beginner series).</span></a></li>
+            </ul>
+            </section>
+          </details>
           <details class="level" id="res-immersion-videos" open><summary><span class="t">Immersion Videos</span><span class="label">Watch and listen</span><p class="legend"><svg class="star" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg>Recommended for beginners</p></summary>
             <section class="cat"><h3 class="label">YouTube</h3>
             <ul class="rlist">
@@ -30893,14 +30906,6 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
               <li><a class="rcard" href="https://www.youtube.com/@OkkeiJapanese" target="_blank" rel="noopener"><img decoding="async" class="av" src="media/resources/okkei.jpg" alt="" loading="lazy"><span class="t">Okkei Japanese</span><span class="tags"><span class="lv n5">N5</span><span class="lv n4">N4</span><span class="lv n3">N3</span><span class="lv n2">N2</span></span><span class="d">Japanese immersion videos.</span></a></li>
               <li><a class="rcard" href="https://www.youtube.com/@JiroJapanese" target="_blank" rel="noopener"><img decoding="async" class="av" src="media/resources/jiro.jpg" alt="" loading="lazy"><span class="t">Jiro, just Japanese</span><span class="tags"><span class="lv n4">N4</span><span class="lv n3">N3</span><span class="lv n2">N2</span></span><span class="d">Podcasts, news and Tokyo walks about everyday life and society, all in Japanese.</span></a></li>
               <li><a class="rcard" href="https://www.youtube.com/@harunonihongo" target="_blank" rel="noopener"><img decoding="async" class="av" src="media/resources/haru.jpg" alt="" loading="lazy"><span class="t">Haru no Nihongo</span><span class="tags"><span class="lv n2">N2</span><span class="lv n1">N1</span></span><span class="d">Japanese culture, news and daily life in Japanese, with free transcripts on the channel's website.</span></a></li>
-            </ul>
-            </section>
-          </details>
-          <details class="level" id="res-immersion-audio" open><summary><span class="t">Immersion Audio</span><span class="label">Listen on the go</span><p class="legend"><svg class="star" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg>Recommended for beginners</p></summary>
-            <section class="cat"><h3 class="label">Podcast</h3>
-            <ul class="rlist">
-              <li><a class="rcard" href="https://podcasts.apple.com/us/podcast/japanese-with-shun/id1550709885" target="_blank" rel="noopener"><img decoding="async" class="av" src="media/resources/shun.jpg" alt="" loading="lazy"><span class="t">Japanese with Shun (podcast)</span><span class="tags"><span class="lv n5">N5</span><span class="lv n4">N4</span></span><span class="d">Weekly beginner podcast in easy Japanese from the same Shun as the YouTube channel.</span></a></li>
-              <li><a class="rcard" href="https://nihongoconteppei.com/" target="_blank" rel="noopener"><span class="av glyph">話</span><span class="t">Nihongo con Teppei</span><span class="tags"><span class="lv n5">N5</span><span class="lv n4">N4</span><span class="lv n3">N3</span><svg class="star" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg></span><span class="d">Short episodes in natural, slow Japanese about everyday topics (start with the beginner series).</span></a></li>
             </ul>
             </section>
           </details>
@@ -30920,8 +30925,8 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
         <nav class="toc" aria-label="Resources"><p class="label">Resources</p><ul>
           <li><a href="#res-vocabulary">Vocabulary</a></li>
           <li><a href="#res-grammar">Grammar</a></li>
-          <li><a href="#res-immersion-videos">Immersion Videos</a></li>
           <li><a href="#res-immersion-audio">Immersion Audio</a></li>
+          <li><a href="#res-immersion-videos">Immersion Videos</a></li>
           <li><a href="#res-videos-about-learning-japanese">Videos About Learning Japanese</a></li>
         </ul></nav>
       </div>
@@ -31056,6 +31061,7 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
         <p>And if you can't or don't want to, that's completely fine. I'm just happy it's useful to you.</p>
         <p class="donate-row"><a class="donate" href="https://ko-fi.com/wabisebi" target="_blank" rel="noopener">♥ Support the site</a></p>
       </div>
+      <img decoding="async" loading="lazy" class="support-art" src="illustrations/ws_lucky_cat.png" alt="A lucky cat holding わび and せび coins next to a tip tray with an ありがと sign">
     </section>
 
     <p class="foot" id="foot"></p>

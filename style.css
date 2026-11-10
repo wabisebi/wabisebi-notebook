@@ -631,6 +631,9 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
 .lvl-note.welcome p.donate-row{margin-top:18px}
 .donate{display:inline-block;padding:10px 20px;border-radius:999px;background:var(--gold);color:var(--on-accent);font-weight:600;text-decoration:none}
 .donate:hover{filter:brightness(1.08)}
+.support-art{display:block;width:100%;max-width:758px;height:auto;margin-top:28px}
+.support-art.res-art{max-width:none;margin:32px 0 14px}
+.home .lvl-note.welcome h1{font-size:22px;margin:0 0 10px}
 
 /* Sentence Mining page: the card mock-up and the step list */
 .mining .compare{margin:4px 0 12px}

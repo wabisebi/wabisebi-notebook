@@ -24,6 +24,7 @@ for pid in ids:
     body = re.sub(r'<(article|section)([^>]*id="%s"[^>]*)>' % pid, r'<\1\2 data-page hidden>', body, count=1)
     body = re.sub(r'href="([a-z0-9-]+)\.html"', r'href="#\1"', body)
     body = body.replace('="../media/', '="media/')
+    body = body.replace('="../illustrations/', '="illustrations/')
     # every image lazy: otherwise a phone downloads all ~600 of them the moment index.html opens (site.js loads the open page's own)
     body = re.sub(r'<img(?![^>]*\bloading=)', '<img loading="lazy"', body)
     body = re.sub(r'<img(?![^>]*\bdecoding=)', '<img decoding="async"', body)
