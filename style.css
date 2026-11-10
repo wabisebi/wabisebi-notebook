@@ -602,3 +602,11 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
 .conj-me{margin-left:auto;padding-left:12px;font-size:13px;color:var(--muted);text-align:right;min-width:0}
 .conj.no-furi .conj-menu small{display:none}
 .brand .t{white-space:nowrap}
+
+/* Proverbs page (ことわざ): the proverb above each lead card, then Literally / Means / English */
+#proverbs .lead { margin-bottom: 28px; }
+#proverbs .prov { font-size: 1.5rem; font-weight: 600; margin: 0 0 4px; }
+#proverbs .prov rt { font-size: .5em; font-weight: 400; }
+#proverbs dl { display: grid; grid-template-columns: max-content 1fr; gap: 6px 14px; margin: 12px 0 0; }
+#proverbs dt { font-family: "IBM Plex Mono", monospace; font-size: .78rem; opacity: .7; padding-top: 2px; }
+#proverbs dd { margin: 0; }
