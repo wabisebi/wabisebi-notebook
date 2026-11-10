@@ -108,7 +108,7 @@ var INDEX = [
       ['kuru', '来る', 'To come (irregular verb)'],
       ['suru', 'する', 'To do (irregular verb)'],
       ['verb-noun', 'Verb + Noun', 'Describing a noun with a verb'],
-      ['ga-no', 'が → の', 'の instead of が before a noun: 私の作ったケーキ'],
+      ['ga-no', 'が → の', 'が can become の when describing a noun'],
       ['ni-suru', '～にする', 'To decide on, go with (コーヒーにする)'],
       ['ta-koto', '～たことがある', 'Have done before (experience)'],
       ['hou-ga-ii', '～た方がいい・～ない方がいい', 'Should, had better / shouldn\'t'],
