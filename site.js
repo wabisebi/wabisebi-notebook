@@ -107,7 +107,7 @@ var INDEX = [
       ['verb-past-neg', 'Verb (Past negative)', 'Didn\'t: なかった and ませんでした'],
       ['kuru', '来る', 'To come (irregular verb)'],
       ['suru', 'する', 'To do (irregular verb)'],
-      ['verb-noun', 'Verb + Noun', 'Describing a noun with a verb: 食べる人'],
+      ['verb-noun', 'Verb + Noun', 'Describing a noun with a verb'],
       ['ga-no', 'が → の', 'の instead of が before a noun: 私の作ったケーキ'],
       ['ni-suru', '～にする', 'To decide on, go with (コーヒーにする)'],
       ['ta-koto', '～たことがある', 'Have done before (experience)'],
@@ -162,6 +162,11 @@ var INDEX = [
       ['noha-noga', 'のは・のが', 'Turning an action into a noun']
     ]}
   ]}
+  ,{level: 'N4', cats: [
+    {cat: 'Particles', pages: [
+      ['toka', 'とか', 'Things like, or something']
+    ]}
+  ]}
   // N3 is hidden for now (the site is N5-N4 only). To bring it back: uncomment this group and empty HIDDEN in build.py.
   // ,{level: 'N3', cats: [
   //   {cat: 'Casual speech', pages: [
@@ -173,7 +178,7 @@ var UPDATED = '10 Nov 2026';
 // N5 points in the order they first come up in Jlab's beginner course (worked out from the Anki deck, so roughly right). Any N5 page not listed here shows under "Not in Jlab".
 var JLAB = ('desu janai deshita janakatta wa mo u-verb ru-verb ga gairu yo na-adj ne suki-kirai i-adj i-adj-neg i-adj-past na-adj-past i-adj-past-neg na-adj-neg ' +
   'u-verb-neg ru-verb-neg gaaru ru-verb-past u-verb-past tachi wo doushite nani ii kuru ni dare doko to-quote he kara made de de-means koko-soko-asoko deshou ' +
-  'kochira-sochira-achira soshite kara-because verb-noun to-with to no-pos ga-no noha-noga ndesu no yone verb-past-neg adverb-ku-ni naru suru masu ka zenzen totemo ' +
+  'kochira-sochira-achira soshite kara-because verb-noun to-with to toka no-pos ga-no noha-noga ndesu no yone verb-past-neg adverb-ku-ni naru suru masu ka zenzen totemo ' +
   'demo teiru ni-suru masenka ni-iku kore-sore-are kono-sono-ano mou itsumo tsumori itsu dore kurai ikura dou nanika nanimo darou nandemo chotto kute-de te-form te-and ' +
   'ta-koto dake node kedo no-noun ga-but tari noga-suki teiru-habit mada-teinai teiru-state ichiban toki aru-noun mashou morau tewa-ikenai nakute-wa temo-ii tai hoshii ' +
   'te-kara mashouka ageru kureru te-kudasai naide-kudasai na-dont takusan shika sugiru dono ya mada ato-de yori hou-ga-ii jouzu-heta kekkou amari ka-or').split(' ');
@@ -346,7 +351,7 @@ var MINNA = [
     grid.innerHTML = '<div class="rwrap"><div class="rcol">' + lvl.map(function(g){
       var cards = function(pages, numbered){ return pages.map(function(p, n){
         return '<li><a class="gcard" href="' + href(p[0]) + '" data-k="' + (p[0] + ' ' + p[1] + ' ' + p[2]).toLowerCase() + '">' + (numbered ? '<span class="n">' + (n + numbered) + '</span>' : '') +
-          '<span class="p">' + p[1] + '</span><span class="d">' + p[2] + '</span><span class="lv ' + g.level.toLowerCase() + '">' + g.level + '</span></a></li>';
+          '<span class="p">' + p[1] + '</span><span class="d">' + p[2] + '</span><span class="lv ' + (p[3] || g.level).toLowerCase() + '">' + (p[3] || g.level) + '</span></a></li>';
       }).join(''); };
       var cats = g.cats.map(function(c, i){
         if (!c.pages.length) return '';
@@ -354,7 +359,8 @@ var MINNA = [
       }).join('');
       if (g.level === 'N5') {   // the same cards again in Jlab's and Minna's order; CSS shows one set at a time
         var all = [].concat.apply([], g.cats.map(function(c){ return c.pages; }));
-        var pagesOf = function(ids){ return ids.map(function(id){ return all.find(function(p){ return p[0] === id; }); }).filter(Boolean); };
+        var any = points.map(function(p){ return [p.id, p.pat, p.d, p.level]; });   // Jlab and Minna can also hold a higher-level point (とか): it keeps its own level pill
+        var pagesOf = function(ids){ return ids.map(function(id){ return all.find(function(p){ return p[0] === id; }) || any.find(function(p){ return p[0] === id; }); }).filter(Boolean); };
         var section = function(cls, title, html){ return '<section class="cat ' + cls + '"><h3 class="label">' + title + '</h3><ol class="cards">' + html + '</ol></section>'; };
         var notIn = function(ids, cls, title){
           var rest = all.filter(function(p){ return ids.indexOf(p[0]) < 0; });
@@ -383,7 +389,8 @@ var MINNA = [
       grid.querySelectorAll('.order button').forEach(function(b){ b.setAttribute('aria-pressed', b.getAttribute('data-o') === o ? 'true' : 'false'); });
     };
     var saved = 'cat';
-    try { var so = localStorage.getItem(ORDER); if (so === 'jlab' || so === 'minna') saved = so; } catch (err) {}
+    // only grids with the switch (N5) use the saved order; the others always show categories
+    if (grid.querySelector('.order')) try { var so = localStorage.getItem(ORDER); if (so === 'jlab' || so === 'minna') saved = so; } catch (err) {}
     setOrder(saved);
     grid.querySelectorAll('.order button').forEach(function(b){
       b.addEventListener('click', function(){
