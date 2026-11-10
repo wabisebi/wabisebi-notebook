@@ -613,7 +613,9 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
 .brand .t{white-space:nowrap}
 
 /* Proverbs page (ことわざ): the proverb above each lead card, then Literally / Means / English */
-#proverbs .lead { margin-bottom: 28px; }
+#proverbs { max-width: 1080px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
+#proverbs > :not(.lead) { grid-column: 1 / -1; }
+@media (max-width: 900px) { #proverbs { grid-template-columns: 1fr; } }
 #proverbs .prov { font-size: 1.5rem; font-weight: 600; margin: 0 0 4px; }
 #proverbs .prov rt { font-size: .5em; font-weight: 400; }
 #proverbs dl { display: grid; grid-template-columns: max-content 1fr; gap: 6px 14px; margin: 12px 0 0; }
