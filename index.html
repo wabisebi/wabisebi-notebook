@@ -610,6 +610,13 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
 .conj .forms ruby rt{font-size:.55em;font-weight:400;color:var(--muted)}
 .conj .forms tr:last-child th,.conj .forms tr:last-child td{border-bottom:0}
 .conj.no-furi rt{display:none}
+.conj-sec{font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:22px 0 8px}
+.conj-head + .conj-sec{margin-top:6px}
+.conj-note{margin-top:10px}
+.conj-one{margin-top:10px}
+.use.one{color:var(--muted)}
+@media (min-width:721px){.conj .forms table{table-layout:fixed;width:100%}.conj .forms thead th:first-child{width:32%}}
+.conj .forms tbody th{white-space:normal}
 .conj-none{color:var(--muted);margin-top:16px}
 #conjugator .home-head{max-width:640px}
 .conj-field{position:relative}
@@ -31951,7 +31958,7 @@ var MINNA = [
       try { localStorage.setItem('wabisebi-furigana', off ? 'off' : 'on'); } catch (e) {}
     });
     var TYPE = { r:'る-verb', u:'う-verb', s:'する-verb', k:'Irregular', a:'う-verb, with an odd negative', i:'う-verb, with an odd て-form', h:'う-verb, with an odd ます-form' };
-    var ROW = { 'う':'わい', 'く':'かき', 'ぐ':'がぎ', 'す':'さし', 'つ':'たち', 'ぬ':'なに', 'ぶ':'ばび', 'む':'まみ', 'る':'らり' };
+    var ROW = { 'う':'わいおえ', 'く':'かきこけ', 'ぐ':'がぎごげ', 'す':'さしそせ', 'つ':'たちとて', 'ぬ':'なにのね', 'ぶ':'ばびぼべ', 'む':'まみもめ', 'る':'らりろれ' };
     var TE = { 'う':'って', 'つ':'って', 'る':'って', 'く':'いて', 'ぐ':'いで', 'す':'して', 'ぬ':'んで', 'ぶ':'んで', 'む':'んで' };
     var IE = 'いきしちにひみりぎじびぴえけせてねへめれげぜでべぺ';
     var esc = function(t){ return t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); };
@@ -31959,17 +31966,24 @@ var MINNA = [
       var p = l.trim().split('|');
       return { k:p[0], r:p[1], m:p[2], en:p[3], t:p[4], w:p[0] || p[1] };
     });
-    // polite present, casual present, polite negative, casual negative, polite past, casual past, polite past negative, casual past negative, て-form
+    // every form, by name; polite forms are built from the ます-stem (m) or from the casual form
     function forms(word, t){
-      var last = word.slice(-1), base = word.slice(0, -1), a;
-      var make = function(m, plain, nai, ta, te){ return [m + 'ます', plain, m + 'ません', nai, m + 'ました', ta, m + 'ませんでした', nai.slice(0, -1) + 'かった', te]; };
-      if (t === 'r') return make(base, word, base + 'ない', base + 'た', base + 'て');
-      if (t === 's') { base = word.slice(0, -2); return make(base + 'し', word, base + 'しない', base + 'した', base + 'して'); }
-      if (t === 'k') { var kanji = word.slice(-2, -1) === '来'; base = word.slice(0, -2); return make(base + (kanji ? '来' : 'き'), word, base + (kanji ? '来' : 'こ') + 'ない', base + (kanji ? '来' : 'き') + 'た', base + (kanji ? '来' : 'き') + 'て'); }
-      if (t === 'h') return make(base + 'い', word, base + 'らない', base + 'った', base + 'って');
-      a = ROW[last];
-      var te = t === 'i' ? 'って' : TE[last];
-      return make(base + a[1], word, t === 'a' ? 'ない' : base + a[0] + 'ない', base + te.slice(0, -1) + (te.slice(-1) === 'て' ? 'た' : 'だ'), base + te);
+      var last = word.slice(-1), base = word.slice(0, -1), a = ROW[last], x;
+      if (t === 'r') x = { m:base, nai:base + 'ない', ta:base + 'た', te:base + 'て', vol:base + 'よう', caus:base + 'させる', pot:base + 'られる', pass:base + 'られる', ba:base + 'れば', imp:base + 'ろ', cp:base + 'させられる' };
+      else if (t === 's') { base = word.slice(0, -2); x = { m:base + 'し', nai:base + 'しない', ta:base + 'した', te:base + 'して', vol:base + 'しよう', caus:base + 'させる', pot:base + 'できる', pass:base + 'される', ba:base + 'すれば', imp:base + 'しろ', cp:base + 'させられる' }; }
+      else if (t === 'k') { var kj = word.slice(-2, -1) === '来', ki = kj ? '来' : 'き', ko = kj ? '来' : 'こ', ku = kj ? '来' : 'く'; base = word.slice(0, -2);
+        x = { m:base + ki, nai:base + ko + 'ない', ta:base + ki + 'た', te:base + ki + 'て', vol:base + ko + 'よう', caus:base + ko + 'させる', pot:base + ko + 'られる', pass:base + ko + 'られる', ba:base + ku + 'れば', imp:base + ko + 'い', cp:base + ko + 'させられる' }; }
+      else if (t === 'h') x = { m:base + 'い', nai:base + 'らない', ta:base + 'った', te:base + 'って', vol:base + 'ろう', caus:base + 'らせる', pot:base + 'れる', pass:base + 'られる', ba:base + 'れば', imp:base + 'い', cp:base + 'らされる' };
+      else { var te = t === 'i' ? 'って' : TE[last];
+        x = { m:base + a[1], nai:t === 'a' ? 'ない' : base + a[0] + 'ない', ta:base + te.slice(0, -1) + (te.slice(-1) === 'て' ? 'た' : 'だ'), te:base + te, vol:base + a[2] + 'う', caus:base + a[0] + 'せる',
+          pot:base + a[3] + 'る', pass:base + a[0] + 'れる', ba:base + a[3] + 'ば', imp:base + a[3], cp:base + a[0] + (last === 'す' ? 'せられる' : 'される') }; }
+      if (t === 'a') x.pot = x.pass = x.cp = '';
+      var n = x.nai.slice(0, -1), pol = function(c){ return c ? c.slice(0, -1) + 'ます' : ''; };
+      var out = { pres:[x.m + 'ます', word], neg:[x.m + 'ません', x.nai], past:[x.m + 'ました', x.ta], pneg:[x.m + 'ませんでした', n + 'かった'], te:x.te,
+        teiru:[x.te + 'います', x.te + 'いる'], tai:[x.m + 'たいです', x.m + 'たい'], pot:[pol(x.pot), x.pot], tara:[x.m + 'ましたら', x.ta + 'ら'],
+        vol:[x.m + 'ましょう', x.vol], nte:[n + 'いで', n + 'くて'], ba:x.ba, nba:n + 'ければ', pass:[pol(x.pass), x.pass], caus:[pol(x.caus), x.caus], cp:[pol(x.cp), x.cp], imp:x.imp };
+      if (t === 'a') out.teiru = out.tai = out.caus = ['', ''];
+      return out;
     }
     // the form written with kanji, furigana only over the kanji; 来 is the one kanji whose reading changes
     function written(v, form){
@@ -32007,12 +32021,19 @@ var MINNA = [
     function table(v, label, note){
       var f = forms(v.w === v.k ? v.r : v.w, v.t), w = function(x){ return v.en ? written(v, x) : esc(x); };
       if (!v.en) f = forms(v.w, v.t);
-      var rows = [['Present', 0], ['Negative', 2], ['Past', 4], ['Past negative', 6]].map(function(r){
-        return '<tr><th>' + r[0] + '</th><td>' + w(f[r[1]]) + '</td><td>' + w(f[r[1] + 1]) + '</td></tr>';
-      }).join('');
+      var cell = function(x){ return x ? w(x) : '<span class="hint">none</span>'; };
+      var row = function(name, p){ return '<tr><th>' + name + '</th><td>' + cell(p[0]) + '</td><td>' + cell(p[1]) + '</td></tr>'; };
+      var wide = function(name, html){ return '<tr class="conj-te"><th>' + name + '</th><td colspan="2">' + html + '</td></tr>'; };
+      var tbl = function(body){ return '<div class="forms twoforms"><table><thead><tr><th></th><th><span class="use polite">Polite</span></th><th><span class="use casual">Casual</span></th></tr></thead><tbody>' + body + '</tbody></table></div>'; };
+      var one = function(body){ return '<div class="forms twoforms conj-one"><table><thead><tr><th></th><th colspan="2"><span class="use one">One form only</span></th></tr></thead><tbody>' + body + '</tbody></table></div>'; };
+      var common = row('Present', f.pres) + row('Negative', f.neg) + row('Past', f.past) + row('Past negative', f.pneg) +
+        row('～ている (doing)', f.teiru) + row('～たい (want to)', f.tai) + row('Potential (can)', f.pot) + row('～たら (if, when)', f.tara);
+      var commonOne = wide('て-form', w(f.te));
+      var more = row('Volitional (let\'s)', f.vol) + row('Passive', f.pass) + row('Causative (make, let)', f.caus) + row('Causative-passive (be made to)', f.cp);
+      var moreOne = wide('～ないで (without, don\'t)', w(f.nte[0])) + wide('～なくて (not, so)', w(f.nte[1])) + wide('～ば (if)', w(f.ba)) + wide('～なければ (if not)', w(f.nba)) + wide('Imperative (command)', w(f.imp));
       return '<div class="conj-head"><span class="conj-w">' + (v.en ? written(v, v.r) : esc(v.w)) + '</span>' + (v.en ? '<span class="conj-en">' + esc(v.en) + '</span>' : '') + '<span class="conj-type">' + esc(label) + '</span></div>' +
-        '<div class="forms twoforms"><table><thead><tr><th></th><th>Polite</th><th>Casual</th></tr></thead><tbody>' + rows +
-        '<tr class="conj-te"><th>て-form</th><td colspan="2">' + w(f[8]) + '</td></tr></tbody></table>' + (note ? '<p class="m">' + note + '</p>' : '') + '</div>';
+        '<p class="conj-sec">Most common</p>' + tbl(common) + one(commonOne) +
+        '<p class="conj-sec">Less common</p>' + tbl(more) + one(moreOne) + (note ? '<p class="m conj-note">' + note + '</p>' : '');
     }
     function labelOf(v){
       if (v.t === 'u' && v.r.slice(-1) === 'る' && IE.indexOf(v.r.slice(-2, -1)) > -1) return 'う-verb (looks like a る-verb)';

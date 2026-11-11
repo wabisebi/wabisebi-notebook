@@ -601,6 +601,13 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
 .conj .forms ruby rt{font-size:.55em;font-weight:400;color:var(--muted)}
 .conj .forms tr:last-child th,.conj .forms tr:last-child td{border-bottom:0}
 .conj.no-furi rt{display:none}
+.conj-sec{font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:22px 0 8px}
+.conj-head + .conj-sec{margin-top:6px}
+.conj-note{margin-top:10px}
+.conj-one{margin-top:10px}
+.use.one{color:var(--muted)}
+@media (min-width:721px){.conj .forms table{table-layout:fixed;width:100%}.conj .forms thead th:first-child{width:32%}}
+.conj .forms tbody th{white-space:normal}
 .conj-none{color:var(--muted);margin-top:16px}
 #conjugator .home-head{max-width:640px}
 .conj-field{position:relative}
