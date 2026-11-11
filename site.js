@@ -81,7 +81,7 @@ var INDEX = [
       ['jouzu-heta', '上手・下手', 'Good at, bad at (～が上手)'],
       ['naru', '～くなる・～になる', 'To become, to get (bigger, colder...)'],
       ['sugiru', '～すぎる', 'Too much (食べすぎる, 高すぎる)'],
-      ['adverb-ku-ni', '～く・～に (Adverbs)', 'How you do it: 早く, 静かに'],
+      ['adverb-ku-ni', '～く・～に (Adverbs)', 'Describing verbs, how you do it: 早く, 静かに'],
       ['yori', 'より・～の方が', 'Comparing: than, ___ is more'],
       ['ichiban', '一番 (いちばん)', 'The most, number one']
     ]},
