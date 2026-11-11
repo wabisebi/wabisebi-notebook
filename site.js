@@ -192,6 +192,8 @@ var INDEX = [
   // ]}
 ];
 var UPDATED = '11 Nov 2026';
+// Extra search words for a page, for forms that live on it but aren't in its pattern (id: 'words').
+var ALSO = {ndesu: 'んだ のだ の nda noda'};
 // N5 points in the order they first come up in Jlab's beginner course (worked out from the Anki deck, so roughly right). Any N5 page not listed here shows under "Not in Jlab".
 var JLAB = ('desu janai deshita janakatta wa mo u-verb ru-verb ga gairu yo zo na-adj ne suki-kirai i-adj i-adj-neg i-adj-past na-adj-past i-adj-past-neg na-adj-neg ' +
   'u-verb-neg ru-verb-neg gaaru ru-verb-past u-verb-past tachi wo doushite nani ii kuru ni dare doko to-quote he kara made de de-means koko-soko-asoko deshou ' +
@@ -272,7 +274,7 @@ var MINNA = [
   INDEX.forEach(function(g){
     g.pages = [].concat.apply([], g.cats.map(function(c){ return c.pages; }));
     g.cats.forEach(function(c){ c.pages.forEach(function(p){
-      points.push({id: p[0], pat: p[1], d: p[2], level: g.level, cat: c.cat, k: (p[0] + ' ' + p[1] + ' ' + p[2]).toLowerCase()});
+      points.push({id: p[0], pat: p[1], d: p[2], level: g.level, cat: c.cat, k: (p[0] + ' ' + p[1] + ' ' + p[2] + ' ' + (ALSO[p[0]] || '')).toLowerCase()});
     }); });
   });
   var count = points.length;
@@ -369,7 +371,7 @@ var MINNA = [
     var lvId = function(g){ return 'g-' + g.level.toLowerCase(); };
     var any = points.map(function(p){ return [p.id, p.pat, p.d, p.level]; });
     var cards = function(pages, numbered){ return pages.map(function(p, n){
-      return '<li><a class="gcard" href="' + href(p[0]) + '" data-k="' + (p[0] + ' ' + p[1] + ' ' + p[2]).toLowerCase() + '">' + (numbered ? '<span class="n">' + (n + numbered) + '</span>' : '') +
+      return '<li><a class="gcard" href="' + href(p[0]) + '" data-k="' + (p[0] + ' ' + p[1] + ' ' + p[2] + ' ' + (ALSO[p[0]] || '')).toLowerCase() + '">' + (numbered ? '<span class="n">' + (n + numbered) + '</span>' : '') +
         '<span class="p">' + p[1] + '</span><span class="d">' + p[2] + '</span><span class="lv ' + p[3].toLowerCase() + '">' + p[3] + '</span></a></li>';
     }).join(''); };
     var section = function(cls, title, html, id){ return '<section class="cat ' + cls + '"' + (id ? ' id="' + id + '"' : '') + '><h3 class="label">' + title + '</h3><ol class="cards">' + html + '</ol></section>'; };
