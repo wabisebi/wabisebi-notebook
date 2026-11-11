@@ -668,6 +668,12 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
 
 /* Shaded chunk: a whole phrase that becomes one thing (のは・のが) */
 .chunk{background:color-mix(in srgb,var(--n5) 16%,transparent);border-radius:6px;padding:0 .15em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+
+/* Particle + の: keep each Japanese phrase on one line in the table */
+#particle-no .formula .nw{white-space:nowrap}
+#particle-no .formula td{font-size:16px}
+#particle-no .formula td .hint{font-size:13px;font-weight:400;color:var(--muted)}
+@media (max-width:520px){#particle-no .formula tr>th:first-child{display:none}}
 </style>
 
 <header class="top" id="top"></header>
@@ -26352,8 +26358,19 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
       </div>
       <div class="forms formula">
         <p>Noun + particle + <mark class="g">の</mark> + Noun</p>
-        <p class="m">A particle normally hangs on a verb. Add の and it can hang on a noun instead, keeping its meaning.</p>
-        <p class="m">友達<mark class="g">との</mark>約束 = "a promise with a friend"<br>日本<mark class="g">での</mark>生活 = "life in Japan"<br>母<mark class="g">からの</mark>手紙 = "a letter from my mom"<br>東京<mark class="g">への</mark>旅 = "a trip to Tokyo"<br>駅<mark class="g">までの</mark>道 = "the way to the station"</p>
+        <p class="m">Before a verb, the particle is enough:<br>友達<mark class="g">と</mark>約束した = "I made a promise with a friend"</p>
+        <p class="m">Before a noun, add の:<br>友達<mark class="g">との</mark>約束 = "a promise with a friend"</p>
+        <table>
+          <thead><tr><th>Particle</th><th>Before a verb</th><th>Before a noun</th></tr></thead>
+          <tbody>
+            <tr><th class="ends">と</th><td><span class="nw">友達<mark class="g">と</mark>約束した</span><br><span class="hint">I made a promise with a friend</span></td><td><span class="nw">友達<mark class="g">との</mark>約束</span><br><span class="hint">a promise with a friend</span></td></tr>
+            <tr><th class="ends">で</th><td><span class="nw">日本<mark class="g">で</mark>暮らす</span><br><span class="hint">I live in Japan</span></td><td><span class="nw">日本<mark class="g">での</mark>生活</span><br><span class="hint">life in Japan</span></td></tr>
+            <tr><th class="ends">から</th><td><span class="nw">母<mark class="g">から</mark>手紙が来た</span><br><span class="hint">A letter came from my mom</span></td><td><span class="nw">母<mark class="g">からの</mark>手紙</span><br><span class="hint">a letter from my mom</span></td></tr>
+            <tr><th class="ends">へ</th><td><span class="nw">東京<mark class="g">へ</mark>行く</span><br><span class="hint">I go to Tokyo</span></td><td><span class="nw">東京<mark class="g">への</mark>旅</span><br><span class="hint">a trip to Tokyo</span></td></tr>
+            <tr><th class="ends">まで</th><td><span class="nw">駅<mark class="g">まで</mark>歩く</span><br><span class="hint">I walk to the station</span></td><td><span class="nw">駅<mark class="g">までの</mark>道</span><br><span class="hint">the way to the station</span></td></tr>
+          </tbody>
+        </table>
+        <p class="m">That's all. と, で, から, へ and まで can't go straight before a noun, so の goes in between. The meaning doesn't change.</p>
       </div>
       <div class="lead">
         <span class="use polite">Polite</span>
