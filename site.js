@@ -164,7 +164,8 @@ var INDEX = [
   ]}
   ,{level: 'N4', cats: [
     {cat: 'Particles', pages: [
-      ['toka', 'とか', 'Things like, or something']
+      ['toka', 'とか', 'Things like, or something'],
+      ['particle-no', 'Particle + の', 'との, での, からの: a particle before a noun']
     ]},
     {cat: 'Sentence endings', pages: [
       ['kana-wonder', 'かな', 'I wonder (thinking out loud)']
@@ -190,7 +191,7 @@ var INDEX = [
   //   ]}
   // ]}
 ];
-var UPDATED = '10 Nov 2026';
+var UPDATED = '11 Nov 2026';
 // N5 points in the order they first come up in Jlab's beginner course (worked out from the Anki deck, so roughly right). Any N5 page not listed here shows under "Not in Jlab".
 var JLAB = ('desu janai deshita janakatta wa mo u-verb ru-verb ga gairu yo zo na-adj ne suki-kirai i-adj i-adj-neg i-adj-past na-adj-past i-adj-past-neg na-adj-neg ' +
   'u-verb-neg ru-verb-neg gaaru ru-verb-past u-verb-past tachi wo doushite nani ii kuru ni dare doko to-quote he kara made de de-means koko-soko-asoko deshou ' +
