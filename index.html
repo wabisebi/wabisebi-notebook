@@ -674,6 +674,24 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
 #particle-no .formula td{font-size:16px}
 #particle-no .formula td .hint{font-size:13px;font-weight:400;color:var(--muted)}
 @media (max-width:520px){#particle-no .formula tr>th:first-child{display:none}}
+
+/* ～の / ～んです: "add な" rule in the top box */
+.narule{margin-top:12px;padding-top:12px;border-top:1px solid var(--line)}
+.narule .nr-h{margin:0 0 8px;font-size:15px;font-weight:600}
+.forms .narule table{width:max-content!important;max-width:100%;border-collapse:collapse}
+.narule th,.narule td{padding:4px 14px 4px 0;border:0;text-align:left;vertical-align:baseline;background:none}
+.narule th{font-size:13px;font-weight:600;color:var(--muted);white-space:nowrap}
+.narule td.ex{font-size:20px;white-space:nowrap}
+.narule td.hint{font-size:13px;color:var(--muted)}
+.narule .nb,.narule .na{font-weight:600}
+.narule tr.none th,.narule tr.none td.ex{color:var(--muted)}
+@media (max-width:520px){.narule td.hint{display:none}}
+.narule thead th{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.05em;text-transform:uppercase;padding-bottom:6px}
+.narule thead th:nth-child(3){text-align:center}
+.narule td.add{font-size:20px;text-align:center;padding:4px 10px;color:var(--muted)}
+.narule td.add mark{background:var(--tint);border:1px solid var(--gram);border-radius:6px;padding:0 6px}
+.narule-box{margin-bottom:18px}
+.narule-box .narule{margin:0;padding:6px 0 0;border:0}
 </style>
 
 <header class="top" id="top"></header>
@@ -8111,6 +8129,16 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
           </tbody>
         </table>
         <p class="m">Same meaning: quoting a thought. って is the spoken casual と.</p>
+        <div class="narule">
+          <p class="nr-h">Noun or な-adjective before it? Add <mark class="g">だ</mark> first.</p>
+          <table>
+            <thead><tr><th></th><th>Word</th><th>Add</th><th>Ending</th><th></th></tr></thead>
+            <tr><th><span class="nb">Noun</span></th><td class="ex"><span class="nb"><ruby>学生<rt>がくせい</rt></ruby></span></td><td class="add"><mark class="g">だ</mark></td><td class="ex">と<ruby>思<rt>おも</rt></ruby>う</td><td class="hint">I think he's a student</td></tr>
+            <tr><th><span class="na">な-adjective</span></th><td class="ex"><span class="na"><ruby>静<rt>しず</rt></ruby>か</span></td><td class="add"><mark class="g">だ</mark></td><td class="ex">と<ruby>思<rt>おも</rt></ruby>う</td><td class="hint">I think it's quiet</td></tr>
+            <tr class="none"><th>Verb</th><td class="ex"><ruby>行<rt>い</rt></ruby>く</td><td class="add">–</td><td class="ex">と<ruby>思<rt>おも</rt></ruby>う</td><td class="hint">I think he'll go</td></tr>
+            <tr class="none"><th>い-adjective</th><td class="ex"><ruby>高<rt>たか</rt></ruby>い</td><td class="add">–</td><td class="ex">と<ruby>思<rt>おも</rt></ruby>う</td><td class="hint">I think it's expensive</td></tr>
+          </table>
+        </div>
       </div>
       <div class="lead">
         <span class="use polite">Polite</span>
@@ -9955,6 +9983,18 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
           <p class="sub"></p>
         </div>
       </div>
+      <div class="forms narule-box">
+        <div class="narule">
+          <p class="nr-h">Casual, after a noun or な-adjective? Add <mark class="g">だ</mark> first.</p>
+          <table>
+            <thead><tr><th></th><th>Word</th><th>Add</th><th>Ending</th><th></th></tr></thead>
+            <tr><th><span class="nb">Noun</span></th><td class="ex"><span class="nb"><ruby>学生<rt>がくせい</rt></ruby></span></td><td class="add"><mark class="g">だ</mark></td><td class="ex">よ</td><td class="hint">I'm a student, you know.</td></tr>
+            <tr><th><span class="na">な-adjective</span></th><td class="ex"><span class="na"><ruby>静<rt>しず</rt></ruby>か</span></td><td class="add"><mark class="g">だ</mark></td><td class="ex">よ</td><td class="hint">It's quiet, you know.</td></tr>
+            <tr class="none"><th>Verb</th><td class="ex"><ruby>行<rt>い</rt></ruby>く</td><td class="add">–</td><td class="ex">よ</td><td class="hint">I'm going, you know.</td></tr>
+            <tr class="none"><th>い-adjective</th><td class="ex"><ruby>高<rt>たか</rt></ruby>い</td><td class="add">–</td><td class="ex">よ</td><td class="hint">It's expensive, you know.</td></tr>
+          </table>
+        </div>
+      </div>
       <div class="lead">
         <span class="use polite">Polite</span>
         <img decoding="async" loading="lazy" src="media/504235f7f74.webp" alt="Scene from Shirokuma Cafe">
@@ -10128,6 +10168,18 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
           <span class="label">N5 Grammar</span>
           <p class="pattern">ね</p>
           <p class="sub"></p>
+        </div>
+      </div>
+      <div class="forms narule-box">
+        <div class="narule">
+          <p class="nr-h">Casual, after a noun or な-adjective? Add <mark class="g">だ</mark> first.</p>
+          <table>
+            <thead><tr><th></th><th>Word</th><th>Add</th><th>Ending</th><th></th></tr></thead>
+            <tr><th><span class="nb">Noun</span></th><td class="ex"><span class="nb"><ruby>学生<rt>がくせい</rt></ruby></span></td><td class="add"><mark class="g">だ</mark></td><td class="ex">ね</td><td class="hint">You're a student, huh.</td></tr>
+            <tr><th><span class="na">な-adjective</span></th><td class="ex"><span class="na"><ruby>静<rt>しず</rt></ruby>か</span></td><td class="add"><mark class="g">だ</mark></td><td class="ex">ね</td><td class="hint">It's quiet, huh.</td></tr>
+            <tr class="none"><th>Verb</th><td class="ex"><ruby>行<rt>い</rt></ruby>く</td><td class="add">–</td><td class="ex">ね</td><td class="hint">You're going, huh.</td></tr>
+            <tr class="none"><th>い-adjective</th><td class="ex"><ruby>高<rt>たか</rt></ruby>い</td><td class="add">–</td><td class="ex">ね</td><td class="hint">It's expensive, huh.</td></tr>
+          </table>
         </div>
       </div>
       <div class="lead">
@@ -10314,6 +10366,18 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
           <span class="label">N5 Grammar</span>
           <p class="pattern">よね</p>
           <p class="sub"></p>
+        </div>
+      </div>
+      <div class="forms narule-box">
+        <div class="narule">
+          <p class="nr-h">Casual, after a noun or な-adjective? Add <mark class="g">だ</mark> first.</p>
+          <table>
+            <thead><tr><th></th><th>Word</th><th>Add</th><th>Ending</th><th></th></tr></thead>
+            <tr><th><span class="nb">Noun</span></th><td class="ex"><span class="nb"><ruby>学生<rt>がくせい</rt></ruby></span></td><td class="add"><mark class="g">だ</mark></td><td class="ex">よね</td><td class="hint">You're a student, right?</td></tr>
+            <tr><th><span class="na">な-adjective</span></th><td class="ex"><span class="na"><ruby>静<rt>しず</rt></ruby>か</span></td><td class="add"><mark class="g">だ</mark></td><td class="ex">よね</td><td class="hint">It's quiet, right?</td></tr>
+            <tr class="none"><th>Verb</th><td class="ex"><ruby>行<rt>い</rt></ruby>く</td><td class="add">–</td><td class="ex">よね</td><td class="hint">You're going, right?</td></tr>
+            <tr class="none"><th>い-adjective</th><td class="ex"><ruby>高<rt>たか</rt></ruby>い</td><td class="add">–</td><td class="ex">よね</td><td class="hint">It's expensive, right?</td></tr>
+          </table>
         </div>
       </div>
       <div class="lead">
@@ -10503,6 +10567,18 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
           <p class="sub"></p>
         </div>
       </div>
+      <div class="forms narule-box">
+        <div class="narule">
+          <p class="nr-h">Nothing to add, not even after a noun: no だ before でしょう.</p>
+          <table>
+            <thead><tr><th></th><th>Word</th><th>Add</th><th>Ending</th><th></th></tr></thead>
+            <tr><th><span class="nb">Noun</span></th><td class="ex"><span class="nb"><ruby>学生<rt>がくせい</rt></ruby></span></td><td class="add">–</td><td class="ex">でしょう</td><td class="hint">Probably a student</td></tr>
+            <tr><th><span class="na">な-adjective</span></th><td class="ex"><span class="na"><ruby>静<rt>しず</rt></ruby>か</span></td><td class="add">–</td><td class="ex">でしょう</td><td class="hint">Probably quiet</td></tr>
+            <tr><th>Verb</th><td class="ex"><ruby>行<rt>い</rt></ruby>く</td><td class="add">–</td><td class="ex">でしょう</td><td class="hint">Probably going</td></tr>
+            <tr><th>い-adjective</th><td class="ex"><ruby>高<rt>たか</rt></ruby>い</td><td class="add">–</td><td class="ex">でしょう</td><td class="hint">Probably expensive</td></tr>
+          </table>
+        </div>
+      </div>
       <div class="lead">
         <span class="use polite">Polite</span>
         <img decoding="async" loading="lazy" src="media/922263dd660.webp" alt="Scene from He Who Can't Marry">
@@ -10689,6 +10765,18 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
           <span class="label">N5 Grammar</span>
           <p class="pattern">だろう</p>
           <p class="sub"></p>
+        </div>
+      </div>
+      <div class="forms narule-box">
+        <div class="narule">
+          <p class="nr-h">Nothing to add, not even after a noun: no だ before だろう.</p>
+          <table>
+            <thead><tr><th></th><th>Word</th><th>Add</th><th>Ending</th><th></th></tr></thead>
+            <tr><th><span class="nb">Noun</span></th><td class="ex"><span class="nb"><ruby>学生<rt>がくせい</rt></ruby></span></td><td class="add">–</td><td class="ex">だろう</td><td class="hint">Probably a student</td></tr>
+            <tr><th><span class="na">な-adjective</span></th><td class="ex"><span class="na"><ruby>静<rt>しず</rt></ruby>か</span></td><td class="add">–</td><td class="ex">だろう</td><td class="hint">Probably quiet</td></tr>
+            <tr><th>Verb</th><td class="ex"><ruby>行<rt>い</rt></ruby>く</td><td class="add">–</td><td class="ex">だろう</td><td class="hint">Probably going</td></tr>
+            <tr><th>い-adjective</th><td class="ex"><ruby>高<rt>たか</rt></ruby>い</td><td class="add">–</td><td class="ex">だろう</td><td class="hint">Probably expensive</td></tr>
+          </table>
         </div>
       </div>
       <div class="lead">
@@ -13109,6 +13197,17 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
           <span class="label">N5 Grammar</span>
           <p class="pattern">～くなる・～になる</p>
           <p class="sub"></p>
+        </div>
+      </div>
+      <div class="forms narule-box">
+        <div class="narule">
+          <p class="nr-h">Noun or な-adjective? Add <mark class="g">に</mark>. い-adjective? い becomes <mark class="g">く</mark>.</p>
+          <table>
+            <thead><tr><th></th><th>Word</th><th>Add</th><th>Ending</th><th></th></tr></thead>
+            <tr><th><span class="nb">Noun</span></th><td class="ex"><span class="nb"><ruby>学生<rt>がくせい</rt></ruby></span></td><td class="add"><mark class="g">に</mark></td><td class="ex">なる</td><td class="hint">become a student</td></tr>
+            <tr><th><span class="na">な-adjective</span></th><td class="ex"><span class="na"><ruby>静<rt>しず</rt></ruby>か</span></td><td class="add"><mark class="g">に</mark></td><td class="ex">なる</td><td class="hint">become quiet</td></tr>
+            <tr><th>い-adjective</th><td class="ex"><ruby>高<rt>たか</rt></ruby></td><td class="add"><mark class="g">く</mark></td><td class="ex">なる</td><td class="hint">become expensive</td></tr>
+          </table>
         </div>
       </div>
       <div class="lead">
@@ -24168,6 +24267,16 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
           </tbody>
         </table>
         <p class="m">Same meaning: "but". けど is fine in polite speech too.</p>
+        <div class="narule">
+          <p class="nr-h">Noun or な-adjective before it? Add <mark class="g">だ</mark> first.</p>
+          <table>
+            <thead><tr><th></th><th>Word</th><th>Add</th><th>Ending</th><th></th></tr></thead>
+            <tr><th><span class="nb">Noun</span></th><td class="ex"><span class="nb"><ruby>学生<rt>がくせい</rt></ruby></span></td><td class="add"><mark class="g">だ</mark></td><td class="ex">けど</td><td class="hint">I'm a student, but…</td></tr>
+            <tr><th><span class="na">な-adjective</span></th><td class="ex"><span class="na"><ruby>静<rt>しず</rt></ruby>か</span></td><td class="add"><mark class="g">だ</mark></td><td class="ex">けど</td><td class="hint">It's quiet, but…</td></tr>
+            <tr class="none"><th>Verb</th><td class="ex"><ruby>行<rt>い</rt></ruby>く</td><td class="add">–</td><td class="ex">けど</td><td class="hint">I'm going, but…</td></tr>
+            <tr class="none"><th>い-adjective</th><td class="ex"><ruby>高<rt>たか</rt></ruby>い</td><td class="add">–</td><td class="ex">けど</td><td class="hint">It's expensive, but…</td></tr>
+          </table>
+        </div>
       </div>
       <div class="lead">
         <span class="use casual">Casual</span>
@@ -24359,6 +24468,18 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
           <p class="sub"></p>
         </div>
       </div>
+      <div class="forms narule-box">
+        <div class="narule">
+          <p class="nr-h">Noun or な-adjective before it? Add <mark class="g">だ</mark> first (polite: です).</p>
+          <table>
+            <thead><tr><th></th><th>Word</th><th>Add</th><th>Ending</th><th></th></tr></thead>
+            <tr><th><span class="nb">Noun</span></th><td class="ex"><span class="nb"><ruby>学生<rt>がくせい</rt></ruby></span></td><td class="add"><mark class="g">だ</mark></td><td class="ex">から</td><td class="hint">Because I'm a student</td></tr>
+            <tr><th><span class="na">な-adjective</span></th><td class="ex"><span class="na"><ruby>静<rt>しず</rt></ruby>か</span></td><td class="add"><mark class="g">だ</mark></td><td class="ex">から</td><td class="hint">Because it's quiet</td></tr>
+            <tr class="none"><th>Verb</th><td class="ex"><ruby>行<rt>い</rt></ruby>く</td><td class="add">–</td><td class="ex">から</td><td class="hint">Because I'm going</td></tr>
+            <tr class="none"><th>い-adjective</th><td class="ex"><ruby>高<rt>たか</rt></ruby>い</td><td class="add">–</td><td class="ex">から</td><td class="hint">Because it's expensive</td></tr>
+          </table>
+        </div>
+      </div>
       <div class="lead">
         <span class="use casual">Casual</span>
         <img decoding="async" loading="lazy" src="media/shirokumacafe12_19m20s868ms.webp" alt="Scene from Shirokuma Cafe">
@@ -24527,6 +24648,18 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
           <span class="label">N5 Grammar</span>
           <p class="pattern">ので</p>
           <p class="sub"></p>
+        </div>
+      </div>
+      <div class="forms narule-box">
+        <div class="narule">
+          <p class="nr-h">Noun or な-adjective before it? Add <mark class="g">な</mark> first.</p>
+          <table>
+            <thead><tr><th></th><th>Word</th><th>Add</th><th>Ending</th><th></th></tr></thead>
+            <tr><th><span class="nb">Noun</span></th><td class="ex"><span class="nb"><ruby>学生<rt>がくせい</rt></ruby></span></td><td class="add"><mark class="g">な</mark></td><td class="ex">ので</td><td class="hint">Since I'm a student</td></tr>
+            <tr><th><span class="na">な-adjective</span></th><td class="ex"><span class="na"><ruby>静<rt>しず</rt></ruby>か</span></td><td class="add"><mark class="g">な</mark></td><td class="ex">ので</td><td class="hint">Since it's quiet</td></tr>
+            <tr class="none"><th>Verb</th><td class="ex"><ruby>行<rt>い</rt></ruby>く</td><td class="add">–</td><td class="ex">ので</td><td class="hint">Since I'm going</td></tr>
+            <tr class="none"><th>い-adjective</th><td class="ex"><ruby>高<rt>たか</rt></ruby>い</td><td class="add">–</td><td class="ex">ので</td><td class="hint">Since it's expensive</td></tr>
+          </table>
         </div>
       </div>
       <div class="lead">
@@ -25412,6 +25545,16 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
           </tbody>
         </table>
         <p class="m">Same meaning: asking for the story. Only the politeness changes.</p>
+        <div class="narule">
+          <p class="nr-h">Noun or な-adjective before it? Add <mark class="g">な</mark> first.</p>
+          <table>
+            <thead><tr><th></th><th>Word</th><th>Add</th><th>Ending</th><th></th></tr></thead>
+            <tr><th><span class="nb">Noun</span></th><td class="ex"><span class="nb"><ruby>学生<rt>がくせい</rt></ruby></span></td><td class="add"><mark class="g">な</mark></td><td class="ex">の？</td><td class="hint">Are you a student?</td></tr>
+            <tr><th><span class="na">な-adjective</span></th><td class="ex"><span class="na"><ruby>静<rt>しず</rt></ruby>か</span></td><td class="add"><mark class="g">な</mark></td><td class="ex">の？</td><td class="hint">Is it quiet?</td></tr>
+            <tr class="none"><th>Verb</th><td class="ex"><ruby>行<rt>い</rt></ruby>く</td><td class="add">–</td><td class="ex">の？</td><td class="hint">Are you going?</td></tr>
+            <tr class="none"><th>い-adjective</th><td class="ex"><ruby>高<rt>たか</rt></ruby>い</td><td class="add">–</td><td class="ex">の？</td><td class="hint">Is it expensive?</td></tr>
+          </table>
+        </div>
       </div>
       <div class="lead">
         <span class="use casual">Casual</span>
@@ -25674,6 +25817,16 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
           </tbody>
         </table>
         <p class="m">Same meaning: giving the reason or story. Only the politeness changes.</p>
+        <div class="narule">
+          <p class="nr-h">Noun or な-adjective before it? Add <mark class="g">な</mark> first.</p>
+          <table>
+            <thead><tr><th></th><th>Word</th><th>Add</th><th>Ending</th><th></th></tr></thead>
+            <tr><th><span class="nb">Noun</span></th><td class="ex"><span class="nb"><ruby>学生<rt>がくせい</rt></ruby></span></td><td class="add"><mark class="g">な</mark></td><td class="ex">んです</td><td class="hint">I'm a student, you see.</td></tr>
+            <tr><th><span class="na">な-adjective</span></th><td class="ex"><span class="na"><ruby>静<rt>しず</rt></ruby>か</span></td><td class="add"><mark class="g">な</mark></td><td class="ex">んです</td><td class="hint">It's quiet, you see.</td></tr>
+            <tr class="none"><th>Verb</th><td class="ex"><ruby>行<rt>い</rt></ruby>く</td><td class="add">–</td><td class="ex">んです</td><td class="hint">I'm going, you see.</td></tr>
+            <tr class="none"><th>い-adjective</th><td class="ex"><ruby>高<rt>たか</rt></ruby>い</td><td class="add">–</td><td class="ex">んです</td><td class="hint">It's expensive, you see.</td></tr>
+          </table>
+        </div>
       </div>
       <div class="lead">
         <span class="use polite">Polite</span>
@@ -25969,6 +26122,18 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
           <span class="label">N5 Grammar</span>
           <p class="pattern">のは・のが</p>
           <p class="sub"></p>
+        </div>
+      </div>
+      <div class="forms narule-box">
+        <div class="narule">
+          <p class="nr-h">Noun or な-adjective before it? Add <mark class="g">な</mark> first.</p>
+          <table>
+            <thead><tr><th></th><th>Word</th><th>Add</th><th>Ending</th><th></th></tr></thead>
+            <tr><th><span class="nb">Noun</span></th><td class="ex"><span class="nb"><ruby>学生<rt>がくせい</rt></ruby></span></td><td class="add"><mark class="g">な</mark></td><td class="ex">のがいい</td><td class="hint">Being a student is nice</td></tr>
+            <tr><th><span class="na">な-adjective</span></th><td class="ex"><span class="na"><ruby>静<rt>しず</rt></ruby>か</span></td><td class="add"><mark class="g">な</mark></td><td class="ex">のがいい</td><td class="hint">Quiet is nice</td></tr>
+            <tr class="none"><th>Verb</th><td class="ex"><ruby>行<rt>い</rt></ruby>く</td><td class="add">–</td><td class="ex">のがいい</td><td class="hint">Going is best</td></tr>
+            <tr class="none"><th>い-adjective</th><td class="ex"><ruby>高<rt>たか</rt></ruby>い</td><td class="add">–</td><td class="ex">のがいい</td><td class="hint">Expensive is better</td></tr>
+          </table>
         </div>
       </div>
       <div class="lead">
@@ -26547,6 +26712,16 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
           </tbody>
         </table>
         <p class="m">かな on its own is always casual. To sound polite, swap it for でしょうか, or keep it and end with と思います.</p>
+        <div class="narule">
+          <p class="nr-h">Nothing to add, not even after a noun: no だ before かな.</p>
+          <table>
+            <thead><tr><th></th><th>Word</th><th>Add</th><th>Ending</th><th></th></tr></thead>
+            <tr><th><span class="nb">Noun</span></th><td class="ex"><span class="nb"><ruby>学生<rt>がくせい</rt></ruby></span></td><td class="add">–</td><td class="ex">かな</td><td class="hint">I wonder if he's a student</td></tr>
+            <tr><th><span class="na">な-adjective</span></th><td class="ex"><span class="na"><ruby>静<rt>しず</rt></ruby>か</span></td><td class="add">–</td><td class="ex">かな</td><td class="hint">I wonder if it's quiet</td></tr>
+            <tr><th>Verb</th><td class="ex"><ruby>行<rt>い</rt></ruby>く</td><td class="add">–</td><td class="ex">かな</td><td class="hint">I wonder if he'll go</td></tr>
+            <tr><th>い-adjective</th><td class="ex"><ruby>高<rt>たか</rt></ruby>い</td><td class="add">–</td><td class="ex">かな</td><td class="hint">I wonder if it's expensive</td></tr>
+          </table>
+        </div>
       </div>
       <div class="lead">
         <span class="use casual">Casual</span>
@@ -26723,6 +26898,16 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
           </tbody>
         </table>
         <p class="m">Same meaning: "should be, I expect". Only the politeness changes.</p>
+        <div class="narule">
+          <p class="nr-h">Noun before it? Add <mark class="g">の</mark>. な-adjective? Add <mark class="g">な</mark>.</p>
+          <table>
+            <thead><tr><th></th><th>Word</th><th>Add</th><th>Ending</th><th></th></tr></thead>
+            <tr><th><span class="nb">Noun</span></th><td class="ex"><span class="nb"><ruby>学生<rt>がくせい</rt></ruby></span></td><td class="add"><mark class="g">の</mark></td><td class="ex">はず</td><td class="hint">He should be a student</td></tr>
+            <tr><th><span class="na">な-adjective</span></th><td class="ex"><span class="na"><ruby>静<rt>しず</rt></ruby>か</span></td><td class="add"><mark class="g">な</mark></td><td class="ex">はず</td><td class="hint">It should be quiet</td></tr>
+            <tr class="none"><th>Verb</th><td class="ex"><ruby>行<rt>い</rt></ruby>く</td><td class="add">–</td><td class="ex">はず</td><td class="hint">He should be going</td></tr>
+            <tr class="none"><th>い-adjective</th><td class="ex"><ruby>高<rt>たか</rt></ruby>い</td><td class="add">–</td><td class="ex">はず</td><td class="hint">It should be expensive</td></tr>
+          </table>
+        </div>
       </div>
       <div class="lead">
         <span class="use polite">Polite</span>
@@ -26901,6 +27086,16 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
           </tbody>
         </table>
         <p class="m">Same meaning: "seems like". Only the politeness changes.</p>
+        <div class="narule">
+          <p class="nr-h">Nothing to add, not even の or な after a noun.</p>
+          <table>
+            <thead><tr><th></th><th>Word</th><th>Add</th><th>Ending</th><th></th></tr></thead>
+            <tr><th><span class="nb">Noun</span></th><td class="ex"><span class="nb"><ruby>学生<rt>がくせい</rt></ruby></span></td><td class="add">–</td><td class="ex">みたい</td><td class="hint">Seems like a student</td></tr>
+            <tr><th><span class="na">な-adjective</span></th><td class="ex"><span class="na"><ruby>静<rt>しず</rt></ruby>か</span></td><td class="add">–</td><td class="ex">みたい</td><td class="hint">Seems quiet</td></tr>
+            <tr><th>Verb</th><td class="ex"><ruby>行<rt>い</rt></ruby>く</td><td class="add">–</td><td class="ex">みたい</td><td class="hint">Seems he's going</td></tr>
+            <tr><th>い-adjective</th><td class="ex"><ruby>高<rt>たか</rt></ruby>い</td><td class="add">–</td><td class="ex">みたい</td><td class="hint">Seems expensive</td></tr>
+          </table>
+        </div>
       </div>
       <div class="lead">
         <span class="use polite">Polite</span>
@@ -27080,6 +27275,18 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
           <span class="label">N4 Grammar</span>
           <p class="pattern">のに</p>
           <p class="sub"></p>
+        </div>
+      </div>
+      <div class="forms narule-box">
+        <div class="narule">
+          <p class="nr-h">Noun or な-adjective before it? Add <mark class="g">な</mark> first.</p>
+          <table>
+            <thead><tr><th></th><th>Word</th><th>Add</th><th>Ending</th><th></th></tr></thead>
+            <tr><th><span class="nb">Noun</span></th><td class="ex"><span class="nb"><ruby>学生<rt>がくせい</rt></ruby></span></td><td class="add"><mark class="g">な</mark></td><td class="ex">のに</td><td class="hint">Even though I'm a student</td></tr>
+            <tr><th><span class="na">な-adjective</span></th><td class="ex"><span class="na"><ruby>静<rt>しず</rt></ruby>か</span></td><td class="add"><mark class="g">な</mark></td><td class="ex">のに</td><td class="hint">Even though it's quiet</td></tr>
+            <tr class="none"><th>Verb</th><td class="ex"><ruby>行<rt>い</rt></ruby>く</td><td class="add">–</td><td class="ex">のに</td><td class="hint">Even though I'm going</td></tr>
+            <tr class="none"><th>い-adjective</th><td class="ex"><ruby>高<rt>たか</rt></ruby>い</td><td class="add">–</td><td class="ex">のに</td><td class="hint">Even though it's expensive</td></tr>
+          </table>
         </div>
       </div>
       <div class="lead">
