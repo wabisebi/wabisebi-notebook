@@ -656,3 +656,6 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
 .mcard img{width:100%;max-width:360px;height:auto;border-radius:6px}
 .mcard .msrc{font-family:var(--mono);font-size:11.5px;color:var(--muted)}
 @media (max-width:720px){.mcard-pair{grid-template-columns:1fr}}
+
+/* Shaded chunk: a whole phrase that becomes one thing (のは・のが) */
+.chunk{background:color-mix(in srgb,var(--n5) 16%,transparent);border-radius:6px;padding:0 .15em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
