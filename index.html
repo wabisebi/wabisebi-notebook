@@ -491,7 +491,7 @@ main:has(.home:not([hidden])) .foot{max-width:1080px}
 .forms.deep tr:last-child td{border-bottom:0}
 
 /* がある + Noun and Verb + Noun: the parts color coded, nouns softly tinted so the grammar stays the loudest */
-.nb{color:color-mix(in srgb,var(--n5) 55%,var(--muted))}
+.nb{color:color-mix(in srgb,var(--n5) 38%,var(--muted))}
 .na{color:color-mix(in srgb,var(--n2) 55%,var(--muted))}
 .nv{color:var(--gram)}
 .formula{padding:12px 26px}
@@ -570,7 +570,16 @@ article .back{position:absolute;left:0;top:-44px;display:inline-flex;align-items
   article.has-back{margin-top:0}
   article .back{position:sticky;z-index:5;left:auto;top:calc(var(--topbar,72px) + 12px);align-self:flex-start;box-sizing:border-box;height:32px;padding:0 14px;margin:-29px 0 -31px -37px;transform:translateX(calc(-100% - 16px))}
 }
-article .back:hover{border-color:var(--gold);color:var(--gold)}
+article .back:hover,article .next:hover{border-color:var(--gold);color:var(--gold)}
+/* the "Next" pill: same look, mirrored to the right of the card */
+article .next{position:absolute;right:0;top:-44px;display:inline-flex;align-items:center;gap:6px;white-space:nowrap;font-family:var(--mono);font-size:12px;letter-spacing:.06em;padding:6px 14px;border-radius:999px;box-sizing:border-box;
+  background:var(--plain);border:1px solid var(--plain-line);color:var(--ink);text-decoration:none}
+article .next[hidden]{display:none}
+article .next .t{overflow:hidden;text-overflow:ellipsis}
+article .next .tri{flex:none;border-style:solid;border-width:5px 0 5px 8px;border-color:transparent transparent transparent currentColor}
+@media (min-width:1140px){
+  article .next{position:sticky;z-index:5;right:auto;top:calc(var(--topbar,72px) + 12px);align-self:flex-end;height:32px;padding:0 14px;margin:-29px -37px -31px 0;transform:translateX(calc(100% + 16px))}
+}
 article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:transparent currentColor transparent transparent}   /* the play button's triangle, pointing left */
 
 /* JLPT page: plain reading text and tables */
@@ -699,6 +708,8 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
 .narule td.add mark{background:var(--tint);border:1px solid var(--gram);border-radius:6px;padding:0 6px}
 .narule-box{margin-bottom:18px}
 .narule-box .narule{margin:0;padding:6px 0 0;border:0}
+/* Boxed な in sentences, same as the What-to-add table */
+.jp mark.g.box{background:var(--tint);border:1px solid var(--gram);border-radius:5px;box-shadow:none;padding:0 3px;margin:0 1px}
 </style>
 
 <header class="top" id="top"></header>
@@ -25613,6 +25624,12 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
             <span class="use">Heard something</span>
           </div>
           <div class="scene">
+            <p class="sit">Your friend shows up soaked, no umbrella.</p>
+            <p class="jp"><span class="nb"><ruby>雨<rt>あめ</rt></ruby></span><mark class="g box">な</mark><mark class="g">の</mark>？</p>
+            <p class="en">"Oh, is it raining?"</p>
+            <span class="use">Saw something</span>
+          </div>
+          <div class="scene">
             <p class="sit">A client's sweater is covered in cat hair.</p>
             <p class="jp"><ruby>家<rt>いえ</rt></ruby>に<ruby>猫<rt>ねこ</rt></ruby>がいる<mark class="g">んですか</mark>？</p>
             <p class="en">"Oh, do you have a cat?"</p>
@@ -25678,30 +25695,6 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
         </div>
       </section>
       <section>
-        <h2>When to add な</h2>
-        <p style="margin:0 0 14px">Noun or な-adjective right before の? Put な in between. Verbs and い-adjectives get nothing.</p>
-        <div class="scenes" style="margin-bottom:14px">
-          <div class="scene">
-            <p class="sit">Your friend shows up soaked, no umbrella.</p>
-            <p class="jp"><ruby>雨<rt>あめ</rt></ruby><mark class="g">なの</mark>？</p>
-            <p class="en">"Oh, is it raining?"</p>
-            <span class="use casual">Casual</span>
-          </div>
-        </div>
-        <div class="compare">
-          <div class="cbox">
-            <span class="label">Verb / い-adjective</span>
-            <p class="jp"><ruby>行<rt>い</rt></ruby>く<mark class="g">の</mark>？　<ruby>高<rt>たか</rt></ruby>い<mark class="g">の</mark>？</p>
-            <p>Nothing added.</p>
-          </div>
-          <div class="cbox yes">
-            <span class="label">Noun / な-adjective</span>
-            <p class="jp"><ruby>雨<rt>あめ</rt></ruby><mark class="g">なの</mark>？　<ruby>好<rt>す</rt></ruby>き<mark class="g">なの</mark>？</p>
-            <p>Add な.</p>
-          </div>
-        </div>
-      </section>
-      <section>
         <h2>Sentence mining</h2>
         <div class="mines">
           <div class="mine">
@@ -25721,7 +25714,7 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
             <p class="src">Source unknown</p>
             <div class="line">
               <button class="play" type="button" data-src="media/6c9ce931cd4.mp3" aria-label="Play audio"></button>
-              <p class="jp"><ruby>何<rt>なに</rt></ruby>これ？これ<ruby>海底<rt>かいてい</rt></ruby><ruby>洞窟<rt>どうくつ</rt></ruby><mark class="g">なの</mark>？</p>
+              <p class="jp"><ruby>何<rt>なに</rt></ruby>これ？これ<span class="nb"><ruby>海底<rt>かいてい</rt></ruby><ruby>洞窟<rt>どうくつ</rt></ruby></span><mark class="g">なの</mark>？</p>
             </div>
             <p class="en">"What's this? Is this an underwater cave?"</p>
             <p class="note">You're looking at something strange and asking what's going on. 洞窟 is a noun, so な goes before の.</p>
@@ -25765,7 +25758,7 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
             <p class="src">The Journalist · Episode 5</p>
             <div class="line">
               <button class="play" type="button" data-src="media/the_journalist_000002090.mp3" aria-label="Play audio"></button>
-              <p class="jp">どんな<ruby>人<rt>ひと</rt></ruby>な<mark class="g">の</mark>？</p>
+              <p class="jp">どんな<span class="nb"><ruby>人<rt>ひと</rt></ruby></span><mark class="g">なの</mark>？</p>
             </div>
             <p class="en">"What's she like?"</p>
             <p class="note">どんな人 ("what kind of person") + な + の = "what's she like?". Nouns take な before の.</p>
@@ -31674,6 +31667,23 @@ var MINNA = [
   // the Grammar page: every point as a card, in one of three views (switch on the page and in the Grammar dropdown, remembered per browser):
   // by JLPT level (one box per level, categories inside, "On this page" list on the right), Jlab's order, or Minna no Nihongo's order.
   // Jlab and Minna mix levels, so every card keeps its own level pill and a line on top counts the levels in that order.
+  // the "Next" pill on grammar pages follows the view picked on the Grammar page: level order, Jlab or Minna.
+  // Points that order leaves out come after it, in level order, the same as "Not in Jlab" / "Not in Minna" on the grid. The last point gets no pill.
+  function setNext(){
+    var o = getOrder(), ids = points.map(function(p){ return p.id; });
+    var first = o === 'jlab' ? JLAB : o === 'minna' ? MINNA.join(' ').split(' ').filter(Boolean) : [];
+    first = first.filter(function(id){ return ids.indexOf(id) > -1; });
+    var list = first.concat(ids.filter(function(id){ return first.indexOf(id) < 0; }));
+    var name = {level: 'level', jlab: 'Jlab', minna: 'Minna'}[o];
+    list.forEach(function(id, i){
+      var page = document.getElementById(id), a = page && page.querySelector('.next'), nx = points.find(function(p){ return p.id === list[i + 1]; });
+      if (!a) return;
+      a.hidden = !nx;
+      if (!nx) return;
+      a.href = href(nx.id);
+      a.title = 'Next in ' + name + ' order: ' + nx.pat + ' (' + nx.d + ')';
+    });
+  }
   var ORDER = 'wabisebi-order';
   var VIEWS = {level: 'Sorted by JLPT level, then by topic.', jlab: 'In the order each point first comes up in the Jlab Anki deck.', minna: 'In the order of Minna no Nihongo, Books 1 and 2.'};
   var getOrder = function(){ try { var o = localStorage.getItem(ORDER); return VIEWS[o] ? o : 'level'; } catch (err) { return 'level'; } };
@@ -31737,6 +31747,7 @@ var MINNA = [
       grid.querySelectorAll('.order button').forEach(function(b){ b.setAttribute('aria-pressed', b.getAttribute('data-o') === o ? 'true' : 'false'); });
       var sub = grid.parentNode.querySelector('.gsub'); if (sub) sub.textContent = VIEWS[o];
     });
+    setNext();
   };
   setOrder(getOrder());
   // the Grammar dropdown links pick the view before the page opens
@@ -31801,7 +31812,10 @@ var MINNA = [
     if (label) label.textContent = p.level + ' Grammar · ' + p.cat;
     // a button back to the grid: left of the card and following the page down on wide screens, just above the card on narrow ones (inside the article, so index.html shows it with the page)
     if (page && !page.querySelector('.back')) { page.classList.add('has-back'); page.insertAdjacentHTML('afterbegin', '<a class="back" href="' + href('home') + '"><span class="tri" aria-hidden="true"></span>All grammar</a>'); }
+    // and one to the next point on the right, in the order of the view picked on the Grammar page (filled by setNext)
+    if (page && !page.querySelector('.next')) page.querySelector('.back').insertAdjacentHTML('afterend', '<a class="next" hidden><span class="t">Next grammar</span><span class="tri" aria-hidden="true"></span></a>');
   });
+  setNext();
 
   // inside the Claude panel media/ can't load: swap the broken image for a short hint
   if (location.protocol === 'data:') {

@@ -362,6 +362,23 @@ var MINNA = [
   // the Grammar page: every point as a card, in one of three views (switch on the page and in the Grammar dropdown, remembered per browser):
   // by JLPT level (one box per level, categories inside, "On this page" list on the right), Jlab's order, or Minna no Nihongo's order.
   // Jlab and Minna mix levels, so every card keeps its own level pill and a line on top counts the levels in that order.
+  // the "Next" pill on grammar pages follows the view picked on the Grammar page: level order, Jlab or Minna.
+  // Points that order leaves out come after it, in level order, the same as "Not in Jlab" / "Not in Minna" on the grid. The last point gets no pill.
+  function setNext(){
+    var o = getOrder(), ids = points.map(function(p){ return p.id; });
+    var first = o === 'jlab' ? JLAB : o === 'minna' ? MINNA.join(' ').split(' ').filter(Boolean) : [];
+    first = first.filter(function(id){ return ids.indexOf(id) > -1; });
+    var list = first.concat(ids.filter(function(id){ return first.indexOf(id) < 0; }));
+    var name = {level: 'level', jlab: 'Jlab', minna: 'Minna'}[o];
+    list.forEach(function(id, i){
+      var page = document.getElementById(id), a = page && page.querySelector('.next'), nx = points.find(function(p){ return p.id === list[i + 1]; });
+      if (!a) return;
+      a.hidden = !nx;
+      if (!nx) return;
+      a.href = href(nx.id);
+      a.title = 'Next in ' + name + ' order: ' + nx.pat + ' (' + nx.d + ')';
+    });
+  }
   var ORDER = 'wabisebi-order';
   var VIEWS = {level: 'Sorted by JLPT level, then by topic.', jlab: 'In the order each point first comes up in the Jlab Anki deck.', minna: 'In the order of Minna no Nihongo, Books 1 and 2.'};
   var getOrder = function(){ try { var o = localStorage.getItem(ORDER); return VIEWS[o] ? o : 'level'; } catch (err) { return 'level'; } };
@@ -425,6 +442,7 @@ var MINNA = [
       grid.querySelectorAll('.order button').forEach(function(b){ b.setAttribute('aria-pressed', b.getAttribute('data-o') === o ? 'true' : 'false'); });
       var sub = grid.parentNode.querySelector('.gsub'); if (sub) sub.textContent = VIEWS[o];
     });
+    setNext();
   };
   setOrder(getOrder());
   // the Grammar dropdown links pick the view before the page opens
@@ -489,7 +507,10 @@ var MINNA = [
     if (label) label.textContent = p.level + ' Grammar · ' + p.cat;
     // a button back to the grid: left of the card and following the page down on wide screens, just above the card on narrow ones (inside the article, so index.html shows it with the page)
     if (page && !page.querySelector('.back')) { page.classList.add('has-back'); page.insertAdjacentHTML('afterbegin', '<a class="back" href="' + href('home') + '"><span class="tri" aria-hidden="true"></span>All grammar</a>'); }
+    // and one to the next point on the right, in the order of the view picked on the Grammar page (filled by setNext)
+    if (page && !page.querySelector('.next')) page.querySelector('.back').insertAdjacentHTML('afterend', '<a class="next" hidden><span class="t">Next grammar</span><span class="tri" aria-hidden="true"></span></a>');
   });
+  setNext();
 
   // inside the Claude panel media/ can't load: swap the broken image for a short hint
   if (location.protocol === 'data:') {
