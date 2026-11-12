@@ -18,7 +18,7 @@ var INDEX = [
       ['gaaru', 'がある', 'To be, there is'],
       ['gairu', 'がいる', 'There is (people, animals)'],
       ['aru-noun', 'がある + Noun', 'With, that has, who has'],
-      ['tachi', '～たち', 'Plural for people: 私たち, 子どもたち']
+      ['tachi', '～たち', 'Plural for people']
     ]},
     {cat: 'Question words', pages: [
       ['nani', '何 (なに・なん)', 'What'],
@@ -51,13 +51,13 @@ var INDEX = [
       ['to-with', 'と (With)', 'With: doing something together'],
       ['to-quote', 'と (Quotation)', 'Quoting: と思う, と言う (casual: って)'],
       ['no-pos', 'の (Possession)', 'Possession: my, \'s'],
-      ['no-noun', 'の (Noun left out)', 'Mine, yours: これは私のです'],
+      ['no-noun', 'の (Noun left out)', 'Mine, yours'],
       ['kara', 'から (From)', 'From: starting point (place, time, person)'],
       ['made', 'まで', 'Until, up to, even'],
       ['niwa', 'には・では・にも', 'Particle + は or も: に and で stay, が and を go'],
       ['dake', 'だけ', 'Only, just'],
       ['shika', 'しか～ない', 'Only, nothing but (+ negative)'],
-      ['kurai', 'ぐらい・くらい', 'About, roughly (どのくらい: how much?)'],
+      ['kurai', 'ぐらい・くらい', 'About, roughly'],
       ['goro', 'ごろ (頃)', 'Around (a time)']
     ]},
     {cat: 'Sentence endings', pages: [
@@ -77,10 +77,10 @@ var INDEX = [
       ['na-adj-neg', 'な-Adjective (Negative)', 'Isn\'t: じゃない'],
       ['na-adj-past', 'な-Adjective (Past)', 'Was: だった and でした'],
       ['suki-kirai', '好き・嫌い', 'Like, dislike (～が好き)'],
-      ['noga-suki', '～のが好き', 'Like doing (泳ぐのが好き)'],
+      ['noga-suki', '～のが好き', 'Like doing something'],
       ['jouzu-heta', '上手・下手', 'Good at, bad at (～が上手)'],
       ['naru', '～くなる・～になる', 'To become, to get (bigger, colder...)'],
-      ['sugiru', '～すぎる', 'Too much (食べすぎる, 高すぎる)'],
+      ['sugiru', '～すぎる', 'Too much, overdoing it'],
       ['adverb-ku-ni', '～く・～に (Adverbs)', 'Describing verbs, how you do it'],
       ['yori', 'より・～の方が', 'Comparing: than, ___ is more'],
       ['ichiban', '一番 (いちばん)', 'The most, number one']
@@ -89,7 +89,7 @@ var INDEX = [
       ['totemo', 'とても', 'Very'],
       ['chotto', 'ちょっと', 'A little, a bit (and softening)'],
       ['takusan', 'たくさん', 'A lot, many'],
-      ['kekkou', 'けっこう (結構)', 'Quite, pretty; no thanks (結構です)'],
+      ['kekkou', 'けっこう (結構)', 'Quite, pretty; no thanks'],
       ['amari', 'あまり～ない', 'Not very, not much'],
       ['zenzen', '全然～ない', 'Not at all'],
       ['itsumo', 'いつも・よく・時々', 'Always, often, sometimes'],
@@ -109,7 +109,7 @@ var INDEX = [
       ['suru', 'する', 'To do (irregular verb)'],
       ['verb-noun', 'Verb + Noun', 'Describing a noun with a verb'],
       ['ga-no', 'が → の', 'が can become の when describing a noun'],
-      ['ni-suru', '～にする', 'To decide on, go with (コーヒーにする)'],
+      ['ni-suru', '～にする', 'To decide on, go with'],
       ['ta-koto', '～たことがある', 'Have done before (experience)'],
       ['hou-ga-ii', '～た方がいい・～ない方がいい', 'Should, had better / shouldn\'t'],
       ['ni-iku', '～に行く・～に来る', 'Go to do, come to do'],
@@ -193,7 +193,7 @@ var INDEX = [
 ];
 var UPDATED = '12 Nov 2026';
 // Extra search words for a page, for forms that live on it but aren't in its pattern (id: 'words').
-var ALSO = {ndesu: 'んだ のだ の nda noda'};
+var ALSO = {ndesu: 'んだ のだ の nda noda', tachi: '私たち 子どもたち', kurai: 'どのくらい', kekkou: '結構です'};
 // N5 points in the order they first come up in Jlab's beginner course (worked out from the Anki deck, so roughly right). Any N5 page not listed here shows under "Not in Jlab".
 var JLAB = ('desu janai deshita janakatta wa mo u-verb ru-verb ga gairu yo zo na-adj ne suki-kirai i-adj i-adj-neg i-adj-past na-adj-past i-adj-past-neg na-adj-neg ' +
   'u-verb-neg ru-verb-neg gaaru ru-verb-past u-verb-past tachi wo doushite nani ii kuru ni dare doko to-quote he kara made de de-means koko-soko-asoko deshou ' +
@@ -658,14 +658,17 @@ var MINNA = [
     var grey = [].slice.call(nr.querySelectorAll('tr.none')).filter(function(tr){ return tr.querySelector('td.add[data-p]'); });
     var h = nr.querySelector('.nr-h'), top = document.createElement('div'), sw = document.createElement('div');
     top.className = 'nr-top'; sw.className = 'pswitch'; sw.setAttribute('role', 'group'); sw.setAttribute('aria-label', 'Politeness');
-    sw.innerHTML = '<button type="button" class="casual" aria-pressed="true">Casual</button><button type="button" class="polite" aria-pressed="false">Polite</button>';
+    // Polite first and on by default, so it matches the first lead card (always the polite one)
+    sw.innerHTML = '<button type="button" class="polite">Polite</button><button type="button" class="casual">Casual</button>';
     h.parentNode.insertBefore(top, h); top.appendChild(h); top.appendChild(sw);
-    sw.addEventListener('click', function(e){
-      var b = e.target.closest('button'); if (!b) return;
-      var pol = b.classList.contains('polite');
-      [].forEach.call(sw.children, function(x){ x.setAttribute('aria-pressed', String(x === b)); });
+    var set = function(pol){
+      [].forEach.call(sw.children, function(x){ x.setAttribute('aria-pressed', String(x.classList.contains('polite') === pol)); });
       cells.forEach(function(el){ el.innerHTML = el.getAttribute(pol ? 'data-p' : 'data-c'); });
       grey.forEach(function(tr){ tr.classList.toggle('none', !pol); });
+    };
+    set(true);
+    sw.addEventListener('click', function(e){
+      var b = e.target.closest('button'); if (b) set(b.classList.contains('polite'));
     });
   });
 
