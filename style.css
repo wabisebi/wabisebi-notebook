@@ -573,6 +573,17 @@ article .next .tri{flex:none;border-style:solid;border-width:5px 0 5px 8px;borde
   article .next{position:sticky;z-index:5;right:auto;top:calc(var(--topbar,72px) + 12px);align-self:flex-end;height:32px;padding:0 14px;margin:-29px -37px -31px 0;transform:translateX(calc(100% + 16px))}
 }
 article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:transparent currentColor transparent transparent}   /* the play button's triangle, pointing left */
+/* the "Previous" pill: same look, 40px under "All grammar". Previous and Next only show from 1140px wide */
+article .prev{position:absolute;left:0;top:-44px;display:inline-flex;align-items:center;gap:6px;white-space:nowrap;font-family:var(--mono);font-size:12px;letter-spacing:.06em;padding:6px 14px;border-radius:999px;box-sizing:border-box;
+  background:var(--plain);border:1px solid var(--plain-line);color:var(--ink);text-decoration:none}
+@media (max-width:1139px){article .prev,article .next{display:none}}   /* phones and tablets: only "All grammar" */
+article .prev[hidden]{display:none}
+article .prev:hover{border-color:var(--gold);color:var(--gold)}
+article .prev .tri{flex:none;border-style:solid;border-width:5px 8px 5px 0;border-color:transparent currentColor transparent transparent}
+@media (min-width:1140px){
+  article .prev{position:sticky;z-index:5;left:auto;top:calc(var(--topbar,72px) + 12px);align-self:flex-start;height:32px;padding:0 14px;margin:-29px 0 -31px -37px;transform:translate(calc(-100% - 16px),40px)}
+  article .back,article .prev{width:172px}   /* same width, so the two left triangles line up */
+}
 
 /* JLPT page: plain reading text and tables */
 .jlpt .npad>p,.jlpt .npad li{font-size:15px;line-height:1.6}

@@ -363,7 +363,7 @@ var MINNA = [
   // by JLPT level (one box per level, categories inside, "On this page" list on the right), Jlab's order, or Minna no Nihongo's order.
   // Jlab and Minna mix levels, so every card keeps its own level pill and a line on top counts the levels in that order.
   // the "Next" pill on grammar pages follows the view picked on the Grammar page: level order, Jlab or Minna.
-  // Points that order leaves out come after it, in level order, the same as "Not in Jlab" / "Not in Minna" on the grid. The last point gets no pill.
+  // Points that order leaves out come after it, in level order, the same as "Not in Jlab" / "Not in Minna" on the grid. The last point gets no Next pill, the first no Previous pill (that one sits under "All grammar").
   function setNext(){
     var o = getOrder(), ids = points.map(function(p){ return p.id; });
     var first = o === 'jlab' ? JLAB : o === 'minna' ? MINNA.join(' ').split(' ').filter(Boolean) : [];
@@ -371,12 +371,16 @@ var MINNA = [
     var list = first.concat(ids.filter(function(id){ return first.indexOf(id) < 0; }));
     var name = {level: 'level', jlab: 'Jlab', minna: 'Minna'}[o];
     list.forEach(function(id, i){
-      var page = document.getElementById(id), a = page && page.querySelector('.next'), nx = points.find(function(p){ return p.id === list[i + 1]; });
-      if (!a) return;
-      a.hidden = !nx;
-      if (!nx) return;
-      a.href = href(nx.id);
-      a.title = 'Next in ' + name + ' order: ' + nx.pat + ' (' + nx.d + ')';
+      var page = document.getElementById(id);
+      if (!page) return;
+      [['.next', list[i + 1], 'Next'], ['.prev', list[i - 1], 'Previous']].forEach(function(x){
+        var a = page.querySelector(x[0]), p = points.find(function(q){ return q.id === x[1]; });
+        if (!a) return;
+        a.hidden = !p;
+        if (!p) return;
+        a.href = href(p.id);
+        a.title = x[2] + ' in ' + name + ' order: ' + p.pat + ' (' + p.d + ')';
+      });
     });
   }
   var ORDER = 'wabisebi-order';
@@ -509,6 +513,8 @@ var MINNA = [
     if (page && !page.querySelector('.back')) { page.classList.add('has-back'); page.insertAdjacentHTML('afterbegin', '<a class="back" href="' + href('home') + '"><span class="tri" aria-hidden="true"></span>All grammar</a>'); }
     // and one to the next point on the right, in the order of the view picked on the Grammar page (filled by setNext)
     if (page && !page.querySelector('.next')) page.querySelector('.back').insertAdjacentHTML('afterend', '<a class="next" hidden><span class="t">Next grammar</span><span class="tri" aria-hidden="true"></span></a>');
+    // and one to the previous point, just under "All grammar" (same order)
+    if (page && !page.querySelector('.prev')) page.querySelector('.back').insertAdjacentHTML('afterend', '<a class="prev" hidden><span class="tri" aria-hidden="true"></span><span class="t">Previous grammar</span></a>');
   });
   setNext();
 

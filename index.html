@@ -582,6 +582,17 @@ article .next .tri{flex:none;border-style:solid;border-width:5px 0 5px 8px;borde
   article .next{position:sticky;z-index:5;right:auto;top:calc(var(--topbar,72px) + 12px);align-self:flex-end;height:32px;padding:0 14px;margin:-29px -37px -31px 0;transform:translateX(calc(100% + 16px))}
 }
 article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:transparent currentColor transparent transparent}   /* the play button's triangle, pointing left */
+/* the "Previous" pill: same look, 40px under "All grammar". Previous and Next only show from 1140px wide */
+article .prev{position:absolute;left:0;top:-44px;display:inline-flex;align-items:center;gap:6px;white-space:nowrap;font-family:var(--mono);font-size:12px;letter-spacing:.06em;padding:6px 14px;border-radius:999px;box-sizing:border-box;
+  background:var(--plain);border:1px solid var(--plain-line);color:var(--ink);text-decoration:none}
+@media (max-width:1139px){article .prev,article .next{display:none}}   /* phones and tablets: only "All grammar" */
+article .prev[hidden]{display:none}
+article .prev:hover{border-color:var(--gold);color:var(--gold)}
+article .prev .tri{flex:none;border-style:solid;border-width:5px 8px 5px 0;border-color:transparent currentColor transparent transparent}
+@media (min-width:1140px){
+  article .prev{position:sticky;z-index:5;left:auto;top:calc(var(--topbar,72px) + 12px);align-self:flex-start;height:32px;padding:0 14px;margin:-29px 0 -31px -37px;transform:translate(calc(-100% - 16px),40px)}
+  article .back,article .prev{width:172px}   /* same width, so the two left triangles line up */
+}
 
 /* JLPT page: plain reading text and tables */
 .jlpt .npad>p,.jlpt .npad li{font-size:15px;line-height:1.6}
@@ -1793,16 +1804,16 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
       </div>
       <div class="lead">
         <span class="use polite">Polite</span>
-        <img decoding="async" loading="lazy" src="media/a4690a0d7f4.webp" alt="Scene at a convenience store">
-        <p class="src">YouTube · <a href="https://www.youtube.com/watch?v=dx8o756L7NA">video</a></p>
+        <img decoding="async" loading="lazy" src="media/58825186ab1.webp" alt="Scene from a room tour video">
+        <p class="src">YouTube · <a href="https://www.youtube.com/watch?v=qDYNcFzYV68">video</a></p>
         <div class="line">
-          <button class="play" type="button" data-src="media/0a0d7f42d72.mp3" aria-label="Play audio"></button>
-          <p class="jp">レジ<ruby>袋<rt>ふくろ</rt></ruby>いります<mark class="g">か</mark>？</p>
+          <button class="play" type="button" data-src="media/b1c63e223c2.mp3" aria-label="Play audio"></button>
+          <p class="jp">この<ruby>作業<rt>さぎょう</rt></ruby><ruby>部屋<rt>へや</rt></ruby>は<ruby>自宅<rt>じたく</rt></ruby>です<mark class="g">か</mark>？</p>
         </div>
-        <p class="en">"Do you need a bag?" <span class="ctx">[the cashier, at the till]</span></p>
+        <p class="en">"Is this workroom in your home?" <span class="ctx">[an interviewer, to a stranger]</span></p>
         <div class="explain">
           <p><mark class="g">か</mark> at the end of a sentence turns it into a question. It's a spoken question mark, polite or casual: you just add it to the end.</p>
-          <p>On this card, the cashier adds か to いります ("need"): "you need a bag" becomes "do you need a bag?", a yes/no question.</p>
+          <p>On this card, the interviewer adds か to 自宅です ("it's your home"): "this workroom is your home" becomes "is this workroom your home?", a yes/no question.</p>
         </div>
       </div>
       <div class="lead second">
@@ -1888,12 +1899,15 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
           </div>
           <div class="mine">
             <span class="use polite">Polite</span>
-            <img decoding="async" src="media/58825186ab1.webp" alt="Scene from a room tour video" loading="lazy">
-            <p class="src">YouTube · <a href="https://www.youtube.com/watch?v=qDYNcFzYV68">video</a></p>
+            <img decoding="async" src="media/a4690a0d7f4.webp" alt="Scene at a convenience store" loading="lazy">
+            <p class="src">YouTube · <a href="https://www.youtube.com/watch?v=dx8o756L7NA">video</a></p>
             <div class="line">
-              <button class="play" type="button" data-src="media/b1c63e223c2.mp3" aria-label="Play audio"></button>
-              <p class="jp">この<ruby>作業<rt>さぎょう</rt></ruby><ruby>部屋<rt>へや</rt></ruby>は<ruby>自宅<rt>じたく</rt></ruby>です<mark class="g">か</mark>？</p>
+              <button class="play" type="button" data-src="media/0a0d7f42d72.mp3" aria-label="Play audio"></button>
+              <p class="jp">レジ<ruby>袋<rt>ふくろ</rt></ruby>いります<mark class="g">か</mark>？</p>
             </div>
+            <p class="en">"Do you need a bag?"</p>
+            <p class="note">The cashier at the till. いります ("need") + か: "you need a bag" becomes "do you need a bag?"</p>
+          </div>
             <p class="en">"Is this workroom in your home?"</p>
             <p class="note">Interviewer asking a stranger, so ですか. Yes or no: home, or an office?</p>
           </div>
@@ -32504,7 +32518,7 @@ var MINNA = [
   // by JLPT level (one box per level, categories inside, "On this page" list on the right), Jlab's order, or Minna no Nihongo's order.
   // Jlab and Minna mix levels, so every card keeps its own level pill and a line on top counts the levels in that order.
   // the "Next" pill on grammar pages follows the view picked on the Grammar page: level order, Jlab or Minna.
-  // Points that order leaves out come after it, in level order, the same as "Not in Jlab" / "Not in Minna" on the grid. The last point gets no pill.
+  // Points that order leaves out come after it, in level order, the same as "Not in Jlab" / "Not in Minna" on the grid. The last point gets no Next pill, the first no Previous pill (that one sits under "All grammar").
   function setNext(){
     var o = getOrder(), ids = points.map(function(p){ return p.id; });
     var first = o === 'jlab' ? JLAB : o === 'minna' ? MINNA.join(' ').split(' ').filter(Boolean) : [];
@@ -32512,12 +32526,16 @@ var MINNA = [
     var list = first.concat(ids.filter(function(id){ return first.indexOf(id) < 0; }));
     var name = {level: 'level', jlab: 'Jlab', minna: 'Minna'}[o];
     list.forEach(function(id, i){
-      var page = document.getElementById(id), a = page && page.querySelector('.next'), nx = points.find(function(p){ return p.id === list[i + 1]; });
-      if (!a) return;
-      a.hidden = !nx;
-      if (!nx) return;
-      a.href = href(nx.id);
-      a.title = 'Next in ' + name + ' order: ' + nx.pat + ' (' + nx.d + ')';
+      var page = document.getElementById(id);
+      if (!page) return;
+      [['.next', list[i + 1], 'Next'], ['.prev', list[i - 1], 'Previous']].forEach(function(x){
+        var a = page.querySelector(x[0]), p = points.find(function(q){ return q.id === x[1]; });
+        if (!a) return;
+        a.hidden = !p;
+        if (!p) return;
+        a.href = href(p.id);
+        a.title = x[2] + ' in ' + name + ' order: ' + p.pat + ' (' + p.d + ')';
+      });
     });
   }
   var ORDER = 'wabisebi-order';
@@ -32650,6 +32668,8 @@ var MINNA = [
     if (page && !page.querySelector('.back')) { page.classList.add('has-back'); page.insertAdjacentHTML('afterbegin', '<a class="back" href="' + href('home') + '"><span class="tri" aria-hidden="true"></span>All grammar</a>'); }
     // and one to the next point on the right, in the order of the view picked on the Grammar page (filled by setNext)
     if (page && !page.querySelector('.next')) page.querySelector('.back').insertAdjacentHTML('afterend', '<a class="next" hidden><span class="t">Next grammar</span><span class="tri" aria-hidden="true"></span></a>');
+    // and one to the previous point, just under "All grammar" (same order)
+    if (page && !page.querySelector('.prev')) page.querySelector('.back').insertAdjacentHTML('afterend', '<a class="prev" hidden><span class="tri" aria-hidden="true"></span><span class="t">Previous grammar</span></a>');
   });
   setNext();
 
