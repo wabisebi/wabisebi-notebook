@@ -310,6 +310,8 @@ main:has(.home:not([hidden])) .foot{max-width:1080px}
 .stroke-panel svg{display:block;height:160px;width:auto}
 .stroke-panel .plain{font-size:96px;line-height:1;text-align:center;opacity:.18}
 .stroke-panel path{fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:6}
+.stroke-panel .pgrid rect,.stroke-panel .pgrid path{fill:none;stroke:var(--muted);stroke-width:1px;vector-effect:non-scaling-stroke;stroke-linecap:butt;opacity:.55}
+.stroke-panel .pgrid path.mid{stroke-dasharray:4 4;opacity:.4}
 .stroke-panel .ghost path{stroke:var(--ink);opacity:.18}
 .stroke-panel .live path{stroke:var(--ink);stroke-dasharray:1;stroke-dashoffset:1;opacity:0;animation:draw .8s linear forwards}
 @keyframes draw{0%{opacity:0;stroke-dashoffset:1}10%{opacity:1;stroke-dashoffset:.9}100%{opacity:1;stroke-dashoffset:0}}
@@ -507,6 +509,23 @@ main:has(.home:not([hidden])) .foot{max-width:1080px}
 @media (max-width:720px){
   :is(#kana,#katakana) .kanji-top .stroke-panel{flex:none;padding:18px 16px calc(18px + env(safe-area-inset-bottom))}
   :is(#kana,#katakana) .stroke-panel svg{height:150px}
+}
+
+/* kanji charts (wide screens): like the kana panel, the character sits in its practice square with the stroke count and Replay centered under it; the readings sit in their own column on the right, behind a thin line */
+@media (min-width:721px){
+  .stroke-panel.has-yomi{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:28px;row-gap:16px;align-items:center;align-content:center;padding:24px}
+  .stroke-panel.has-yomi .sv{grid-column:1;grid-row:1}
+  .stroke-panel.has-yomi svg{height:190px}
+  .stroke-panel.has-yomi .side{grid-column:1;grid-row:2;flex-direction:row;align-items:center;justify-content:center;gap:14px}
+  .stroke-panel.has-yomi .yomi{grid-column:2;grid-row:1 / 3;align-self:center;border-top:0;border-left:1px solid var(--card-line);padding:4px 0 4px 28px;row-gap:12px}
+}
+
+/* kanji charts on phones (bottom sheet): the same order, stacked: square, then stroke count and Replay, then the readings */
+@media (max-width:720px){
+  .kana-board .stroke-panel.has-yomi{gap:12px}
+  .kana-board .stroke-panel.has-yomi .sv{flex:0 0 100%;display:flex;justify-content:center}
+  .kana-board .stroke-panel.has-yomi svg{height:140px}
+  .kana-board .stroke-panel.has-yomi .side{flex:0 0 100%;flex-direction:row;align-items:center;justify-content:center;gap:14px;padding-right:0}
 }
 
 /* resources: gold star for a beginner recommendation */
@@ -32894,9 +32913,11 @@ var MINNA = [
 
   // stroke order (hiragana chart): KanjiVG strokes are drawn one by one over the same strokes shown faintly
   function showStrokes(strokeBox, ch){
-    var chars = ch.split(''), n = 0, ghost = '', live = '', i, j, d;
+    var chars = ch.split(''), n = 0, ghost = '', live = '', grid = '', i, j, d;
     for (i = 0; i < chars.length; i++) {
       d = (typeof STROKES !== 'undefined' && STROKES[chars[i]]) || [];
+      // practice-sheet square behind each character: a frame plus a dashed cross through the middle
+      grid += '<g transform="translate(' + i * 109 + ' 0)"><rect x="0" y="0" width="109" height="109"/><path class="mid" d="M54.5 0V109M0 54.5H109"/></g>';
       ghost += '<g transform="translate(' + i * 109 + ' 0)">'; live += '<g transform="translate(' + i * 109 + ' 0)">';
       for (j = 0; j < d.length; j++, n++) {
         ghost += '<path d="' + d[j] + '"/>';
@@ -32905,7 +32926,7 @@ var MINNA = [
       ghost += '</g>'; live += '</g>';
     }
     strokeBox.querySelector('.sv').innerHTML = n
-      ? '<svg viewBox="0 0 ' + chars.length * 109 + ' 109" role="img" aria-label="Stroke order of ' + ch + '"><g class="ghost">' + ghost + '</g><g class="live">' + live + '</g></svg>'
+      ? '<svg viewBox="-1 -1 ' + (chars.length * 109 + 2) + ' 111" role="img" aria-label="Stroke order of ' + ch + '"><g class="pgrid">' + grid + '</g><g class="ghost">' + ghost + '</g><g class="live">' + live + '</g></svg>'
       : '<div class="plain">' + ch + '</div>';
     strokeBox.querySelector('.note').textContent = n ? n + (n === 1 ? ' stroke' : ' strokes') : 'Stroke order coming soon';
     strokeBox.querySelector('.replay').style.visibility = n ? 'visible' : 'hidden';

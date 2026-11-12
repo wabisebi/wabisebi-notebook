@@ -558,9 +558,11 @@ var MINNA = [
 
   // stroke order (hiragana chart): KanjiVG strokes are drawn one by one over the same strokes shown faintly
   function showStrokes(strokeBox, ch){
-    var chars = ch.split(''), n = 0, ghost = '', live = '', i, j, d;
+    var chars = ch.split(''), n = 0, ghost = '', live = '', grid = '', i, j, d;
     for (i = 0; i < chars.length; i++) {
       d = (typeof STROKES !== 'undefined' && STROKES[chars[i]]) || [];
+      // practice-sheet square behind each character: a frame plus a dashed cross through the middle
+      grid += '<g transform="translate(' + i * 109 + ' 0)"><rect x="0" y="0" width="109" height="109"/><path class="mid" d="M54.5 0V109M0 54.5H109"/></g>';
       ghost += '<g transform="translate(' + i * 109 + ' 0)">'; live += '<g transform="translate(' + i * 109 + ' 0)">';
       for (j = 0; j < d.length; j++, n++) {
         ghost += '<path d="' + d[j] + '"/>';
@@ -569,7 +571,7 @@ var MINNA = [
       ghost += '</g>'; live += '</g>';
     }
     strokeBox.querySelector('.sv').innerHTML = n
-      ? '<svg viewBox="0 0 ' + chars.length * 109 + ' 109" role="img" aria-label="Stroke order of ' + ch + '"><g class="ghost">' + ghost + '</g><g class="live">' + live + '</g></svg>'
+      ? '<svg viewBox="-1 -1 ' + (chars.length * 109 + 2) + ' 111" role="img" aria-label="Stroke order of ' + ch + '"><g class="pgrid">' + grid + '</g><g class="ghost">' + ghost + '</g><g class="live">' + live + '</g></svg>'
       : '<div class="plain">' + ch + '</div>';
     strokeBox.querySelector('.note').textContent = n ? n + (n === 1 ? ' stroke' : ' strokes') : 'Stroke order coming soon';
     strokeBox.querySelector('.replay').style.visibility = n ? 'visible' : 'hidden';
