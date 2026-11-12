@@ -191,7 +191,7 @@ var INDEX = [
   //   ]}
   // ]}
 ];
-var UPDATED = '11 Nov 2026';
+var UPDATED = '12 Nov 2026';
 // Extra search words for a page, for forms that live on it but aren't in its pattern (id: 'words').
 var ALSO = {ndesu: 'んだ のだ の nda noda'};
 // N5 points in the order they first come up in Jlab's beginner course (worked out from the Anki deck, so roughly right). Any N5 page not listed here shows under "Not in Jlab".
