@@ -700,5 +700,13 @@ article .back .tri{border-style:solid;border-width:5px 8px 5px 0;border-color:tr
 .narule td.add mark{background:var(--tint);border:1px solid var(--gram);border-radius:6px;padding:0 6px}
 .narule-box{margin-bottom:18px}
 .narule-box .narule{margin:0;padding:6px 0 0;border:0}
+.nr-top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 16px;margin:0 0 8px}
+.nr-top .nr-h{margin:0}
+.pswitch{display:inline-flex;gap:2px;padding:3px;border-radius:999px;background:var(--card);border:1px solid var(--card-line)}
+.pswitch button{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;padding:4px 12px;border:1px solid transparent;border-radius:999px;background:transparent;color:var(--muted);cursor:pointer}
+.pswitch button:hover{color:var(--gold)}
+.pswitch button:focus-visible{outline:2px solid var(--indigo);outline-offset:2px}
+.pswitch button.polite[aria-pressed="true"]{color:var(--polite);border-color:color-mix(in srgb,var(--polite) 50%,transparent);background:color-mix(in srgb,var(--polite) 10%,transparent)}
+.pswitch button.casual[aria-pressed="true"]{color:var(--gram);border-color:color-mix(in srgb,var(--gram) 55%,transparent);background:color-mix(in srgb,var(--gram) 10%,transparent)}
 /* Boxed な in sentences, same as the What-to-add table */
 .jp mark.g.box{background:var(--tint);border:1px solid var(--gram);border-radius:5px;box-shadow:none;padding:0 3px;margin:0 1px}

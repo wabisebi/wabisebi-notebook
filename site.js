@@ -649,6 +649,26 @@ var MINNA = [
     });
   });
 
+  // "What to add" tables: a Casual/Polite switch when the table has polite versions (data-p: the polite HTML of
+  // that cell or rule line). A grey "nothing added" row turns normal in polite when its Add cell gets something.
+  [].forEach.call(document.querySelectorAll('.narule'), function(nr){
+    var cells = [].slice.call(nr.querySelectorAll('[data-p]'));
+    if (!cells.length) return;
+    cells.forEach(function(el){ el.setAttribute('data-c', el.innerHTML); });
+    var grey = [].slice.call(nr.querySelectorAll('tr.none')).filter(function(tr){ return tr.querySelector('td.add[data-p]'); });
+    var h = nr.querySelector('.nr-h'), top = document.createElement('div'), sw = document.createElement('div');
+    top.className = 'nr-top'; sw.className = 'pswitch'; sw.setAttribute('role', 'group'); sw.setAttribute('aria-label', 'Politeness');
+    sw.innerHTML = '<button type="button" class="casual" aria-pressed="true">Casual</button><button type="button" class="polite" aria-pressed="false">Polite</button>';
+    h.parentNode.insertBefore(top, h); top.appendChild(h); top.appendChild(sw);
+    sw.addEventListener('click', function(e){
+      var b = e.target.closest('button'); if (!b) return;
+      var pol = b.classList.contains('polite');
+      [].forEach.call(sw.children, function(x){ x.setAttribute('aria-pressed', String(x === b)); });
+      cells.forEach(function(el){ el.innerHTML = el.getAttribute(pol ? 'data-p' : 'data-c'); });
+      grey.forEach(function(tr){ tr.classList.toggle('none', !pol); });
+    });
+  });
+
   // Verb Conjugator: the verbs (N5 + N4 lists, tagged by type) live as text in pages/conjugator.html
   (function(){
     var box = document.querySelector('.conj');
