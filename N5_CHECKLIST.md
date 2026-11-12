@@ -172,7 +172,7 @@ Categories marked *(new)* aren't on the site yet. They get added to `INDEX` when
 
 ## Maybe N4 (do last)
 - [ ] ～なくてもいい: don't have to
-- [ ] ～ことができる: can
+- [x] ～ことができる: can
 - [x] ～つもりだ: plan to
 - [ ] ～ながら: while
 - [ ] という: called, named

@@ -111,6 +111,7 @@ var INDEX = [
       ['ga-no', 'が → の', 'が can become の when describing a noun'],
       ['ni-suru', '～にする', 'To decide on, go with'],
       ['ta-koto', '～たことがある', 'Have done before (experience)'],
+      ['koto-ga-dekiru', '～ことができる', 'Can, be able to'],
       ['hou-ga-ii', '～た方がいい・～ない方がいい', 'Should, had better / shouldn\'t'],
       ['ni-iku', '～に行く・～に来る', 'Go to do, come to do'],
       ['na-dont', '～な (Don\'t)', 'Don\'t! (blunt order)']
@@ -193,7 +194,7 @@ var INDEX = [
 ];
 var UPDATED = '12 Nov 2026';
 // Extra search words for a page, for forms that live on it but aren't in its pattern (id: 'words').
-var ALSO = {ndesu: 'んだ のだ の nda noda', tachi: '私たち 子どもたち', kurai: 'どのくらい', kekkou: '結構です'};
+var ALSO = {'koto-ga-dekiru': 'できる できます dekiru can able', ndesu: 'んだ のだ の nda noda', tachi: '私たち 子どもたち', kurai: 'どのくらい', kekkou: '結構です'};
 // N5 points in the order they first come up in Jlab's beginner course (worked out from the Anki deck, so roughly right). Any N5 page not listed here shows under "Not in Jlab".
 var JLAB = ('desu janai deshita janakatta wa mo u-verb ru-verb ga gairu yo zo na-adj ne suki-kirai i-adj i-adj-neg i-adj-past na-adj-past i-adj-past-neg na-adj-neg ' +
   'u-verb-neg ru-verb-neg gaaru ru-verb-past u-verb-past tachi wo doushite nani ii kuru ni dare doko to-quote he kara made de de-means koko-soko-asoko deshou ' +
@@ -220,7 +221,7 @@ var MINNA = [
   'temo-ii tewa-ikenai teiru-state',
   'te-and te-kara kute-de dore dono',
   'ru-verb-neg u-verb-neg naide-kudasai nakute-wa',
-  'ru-verb u-verb mae-ni',
+  'ru-verb u-verb koto-ga-dekiru mae-ni',
   'ru-verb-past u-verb-past ta-koto tari naru demo',
   'verb-past-neg kedo',
   'to-quote deshou demo-or',
