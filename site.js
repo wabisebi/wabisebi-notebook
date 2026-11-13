@@ -92,7 +92,7 @@ var INDEX = [
       ['kekkou', 'けっこう (結構)', 'Quite, pretty; no thanks'],
       ['amari', 'あまり～ない', 'Not very, not much'],
       ['zenzen', '全然～ない', 'Not at all'],
-      ['itsumo', 'いつも・よく・時々', 'Always, often, sometimes'],
+      ['itsumo', 'いつも・よく・時々・たまに', 'Always, often, sometimes, once in a while'],
       ['mou', 'もう', 'Already, soon, now (not anymore, with negative)'],
       ['mada', 'まだ', 'Still, not yet']
     ]},
