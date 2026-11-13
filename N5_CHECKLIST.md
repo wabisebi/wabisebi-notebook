@@ -70,6 +70,7 @@ Categories marked *(new)* aren't on the site yet. They get added to `INDEX` when
 - [x] よ: telling someone something new
 - [x] ね: sharing a feeling, "right?"
 - [x] よね: "right?" when you're fairly sure
+- [x] な・なあ: casual "huh", a feeling said out loud (added 13 Nov 2026, from a Jlab card)
 - [x] でしょう: probably, right?
 - [x] だろう: probably, I wonder
 

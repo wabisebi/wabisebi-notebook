@@ -64,6 +64,7 @@ var INDEX = [
       ['yo', 'よ', "I'm telling you (emphasis)"],
       ['ne', 'ね', 'Sharing a feeling: "right?", "huh"'],
       ['yone', 'よね', '"Right?" when you\'re fairly sure'],
+      ['na-end', 'な・なあ', 'Casual "huh", a feeling said out loud'],
       ['deshou', 'でしょう', 'Probably, right?'],
       ['darou', 'だろう', 'Probably, I wonder (masculine "right?")']
     ]},
@@ -196,9 +197,9 @@ var INDEX = [
 ];
 var UPDATED = '13 Nov 2026';
 // Extra search words for a page, for forms that live on it but aren't in its pattern (id: 'words').
-var ALSO = {'koto-ga-dekiru': 'できる できます dekiru can able', ndesu: 'んだ のだ の nda noda', tachi: '私たち 子どもたち', kurai: 'どのくらい', kekkou: '結構です', tatsumori: 'つもり tsumori think believe', zenbu: 'ぜんぶ 全部で whole in total'};
+var ALSO = {'koto-ga-dekiru': 'できる できます dekiru can able', ndesu: 'んだ のだ の nda noda', tachi: '私たち 子どもたち', kurai: 'どのくらい', kekkou: '結構です', tatsumori: 'つもり tsumori think believe', zenbu: 'ぜんぶ 全部で whole in total', 'na-end': 'なあ なぁ naa huh'};
 // N5 points in the order they first come up in Jlab's beginner course (worked out from the Anki deck, so roughly right). Any N5 page not listed here shows under "Not in Jlab".
-var JLAB = ('desu janai deshita janakatta wa mo u-verb ru-verb ga gairu yo zo na-adj ne suki-kirai i-adj i-adj-neg i-adj-past na-adj-past i-adj-past-neg na-adj-neg ' +
+var JLAB = ('desu janai deshita janakatta wa mo u-verb ru-verb ga gairu yo zo na-adj ne suki-kirai i-adj i-adj-neg na-end i-adj-past na-adj-past i-adj-past-neg na-adj-neg ' +
   'u-verb-neg ru-verb-neg gaaru ru-verb-past u-verb-past tachi wo doushite nani ii kuru ni dare doko to-quote he kara made de de-means koko-soko-asoko deshou ' +
   'kochira-sochira-achira soshite kara-because verb-noun to-with to toka no-pos ga-no noha-noga particle-no ndesu no yone koto-ga-dekiru verb-past-neg adverb-ku-ni naru suru masu ka zenzen totemo ' +
   'demo teiru ni-suru masenka ni-iku kana-wonder kore-sore-are kono-sono-ano mou itsumo tsumori tatsumori itsu dore kurai ikura dou nanika nanimo zenbu hazu noni mitai darou nandemo chotto kute-de te-form te-and ' +
