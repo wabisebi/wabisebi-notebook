@@ -917,3 +917,8 @@ a.ft.neg:hover{border-color:var(--gold)}
 /* Kana Game title: centered over the console, in the same soft pixel font as the screen (loaded with the game's fonts, no extra download) */
 #kana-game .home-head{justify-content:center;text-align:center}
 #kana-game .home-head h1{font-family:"DotGothic16",var(--mono);font-weight:400;letter-spacing:.06em}
+
+/* question word + か / も / でも table (何か, 何も, 何でも pages) */
+.forms.qka td .hint{display:block;margin:0}
+.forms.qka tbody th{white-space:nowrap}
+@media (max-width:520px){.forms.qka{padding:4px 6px 10px}.forms.qka th,.forms.qka td{padding:7px 2px;font-size:13px;white-space:nowrap}.forms.qka td .hint{font-size:10.5px;white-space:normal;line-height:1.3}.forms.qka tbody th{white-space:normal;width:1%}}

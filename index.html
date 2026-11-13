@@ -926,6 +926,11 @@ a.ft.neg:hover{border-color:var(--gold)}
 /* Kana Game title: centered over the console, in the same soft pixel font as the screen (loaded with the game's fonts, no extra download) */
 #kana-game .home-head{justify-content:center;text-align:center}
 #kana-game .home-head h1{font-family:"DotGothic16",var(--mono);font-weight:400;letter-spacing:.06em}
+
+/* question word + か / も / でも table (何か, 何も, 何でも pages) */
+.forms.qka td .hint{display:block;margin:0}
+.forms.qka tbody th{white-space:nowrap}
+@media (max-width:520px){.forms.qka{padding:4px 6px 10px}.forms.qka th,.forms.qka td{padding:7px 2px;font-size:13px;white-space:nowrap}.forms.qka td .hint{font-size:10.5px;white-space:normal;line-height:1.3}.forms.qka tbody th{white-space:normal;width:1%}}
 </style>
 
 <header class="top" id="top"></header>
@@ -6001,6 +6006,17 @@ a.ft.neg:hover{border-color:var(--gold)}
           <p class="sub"></p>
         </div>
       </div>
+      <div class="forms qka">
+        <table>
+          <thead><tr><th></th><th>何</th><th>誰</th><th>どこ</th><th>いつ</th><th>どれ</th></tr></thead>
+          <tbody>
+            <tr class="here"><th>+ か</th><td>何<mark class="g">か</mark><span class="hint">something</span></td><td>誰<mark class="g">か</mark><span class="hint">someone</span></td><td>どこ<mark class="g">か</mark><span class="hint">somewhere</span></td><td>いつ<mark class="g">か</mark><span class="hint">someday</span></td><td>どれ<mark class="g">か</mark><span class="hint">one of them</span></td></tr>
+            <tr><th><a class="xref" href="#nanimo">+ も</a></th><td>何<mark class="g">も</mark><span class="hint">nothing</span></td><td>誰<mark class="g">も</mark><span class="hint">nobody</span></td><td>どこ<mark class="g">も</mark><span class="hint">nowhere</span></td><td>いつ<mark class="g">も</mark><span class="hint">always (!)</span></td><td>どれ<mark class="g">も</mark><span class="hint">none of them</span></td></tr>
+            <tr><th><a class="xref" href="#nandemo">+ でも</a></th><td>何<mark class="g">でも</mark><span class="hint">anything</span></td><td>誰<mark class="g">でも</mark><span class="hint">anyone</span></td><td>どこ<mark class="g">でも</mark><span class="hint">anywhere</span></td><td>いつ<mark class="g">でも</mark><span class="hint">any time</span></td><td>どれ<mark class="g">でも</mark><span class="hint">any of them</span></td></tr>
+          </tbody>
+        </table>
+        <p class="m">も needs a negative verb (but いつも means "always", with any verb). か and でも work with a positive one. 何でも is read なんでも.</p>
+      </div>
       <div class="lead">
         <span class="use polite">Polite</span>
         <img decoding="async" loading="lazy" src="media/legal_high_season_1_000000807.jpg" alt="Scene from Legal High Season 1">
@@ -6012,7 +6028,7 @@ a.ft.neg:hover{border-color:var(--gold)}
         <p class="en">"Did something happen?"</p>
         <div class="explain">
           <p>Add か to a question word and it stops being a question: 何 "what" → <mark class="g">何か</mark> <b>"something"</b>.</p>
-          <p>Same trick for the others: 誰か "someone", どこか "somewhere". On this card, 何か + ありました ("happened") = "did something happen?".</p>
+          <p>On this card, 何か + ありました ("happened") = "did something happen?".</p>
           <p>が and を often drop after them: 何かありましたか, not 何かがありましたか.</p>
         </div>
       </div>
@@ -6101,14 +6117,14 @@ a.ft.neg:hover{border-color:var(--gold)}
           </div>
           <div class="mine">
             <span class="use casual">Casual</span>
-            <img decoding="async" src="media/e3d064a12f1.webp" alt="Scene from a YouTube video" loading="lazy">
-            <p class="src">YouTube · 1 Hour Easy Japanese Immersion (BBQ)</p>
+            <img decoding="async" src="media/spiritedaway_118m34s.jpg" alt="Scene from Spirited Away" loading="lazy">
+            <p class="src">Spirited Away</p>
             <div class="line">
-              <button class="play" type="button" data-src="media/64a12f15a32.mp3" aria-label="Play audio"></button>
-              <p class="jp">で<mark class="g">どこか</mark>に<ruby>乗<rt>の</rt></ruby>っける?</p>
+              <button class="play" type="button" data-src="media/spiritedaway_118m34s.mp3" aria-label="Play audio"></button>
+              <p class="jp">また<mark class="g">どこか</mark>で<ruby>会<rt>あ</rt></ruby>える？</p>
             </div>
-            <p class="en">"So, should we put it on top somewhere?"</p>
-            <p class="note">どこかに, not どこに: "somewhere", not "where".</p>
+            <p class="en">"Will we meet again somewhere?"</p>
+            <p class="note">どこかで, not どこで: "somewhere", not "where".</p>
           </div>
           <div class="mine">
             <span class="use casual">Casual</span>
@@ -6163,6 +6179,17 @@ a.ft.neg:hover{border-color:var(--gold)}
             </div>
             <p class="en">"Something's coming."</p>
           </div>
+          <div class="mine">
+            <span class="use casual">Casual</span>
+            <img decoding="async" src="media/marnie_41m09s.jpg" alt="Scene from When Marnie Was There" loading="lazy">
+            <p class="src">When Marnie Was There</p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/marnie_41m09s.mp3" aria-label="Play audio"></button>
+              <p class="jp"><mark class="g">いつか</mark><ruby>詳<rt>くわ</rt></ruby>しく<ruby>話<rt>はな</rt></ruby>すわ。</p>
+            </div>
+            <p class="en">"I'll tell you all about it someday."</p>
+            <p class="note">いつ "when" + か = いつか "someday".</p>
+          </div>
         </div>
       </section>
       <section>
@@ -6192,6 +6219,17 @@ a.ft.neg:hover{border-color:var(--gold)}
         </table>
         <p class="m">Same meaning: "nothing, not anything". Only the politeness changes.</p>
       </div>
+      <div class="forms qka">
+        <table>
+          <thead><tr><th></th><th>何</th><th>誰</th><th>どこ</th><th>いつ</th><th>どれ</th></tr></thead>
+          <tbody>
+            <tr><th><a class="xref" href="#nanika">+ か</a></th><td>何<mark class="g">か</mark><span class="hint">something</span></td><td>誰<mark class="g">か</mark><span class="hint">someone</span></td><td>どこ<mark class="g">か</mark><span class="hint">somewhere</span></td><td>いつ<mark class="g">か</mark><span class="hint">someday</span></td><td>どれ<mark class="g">か</mark><span class="hint">one of them</span></td></tr>
+            <tr class="here"><th>+ も</th><td>何<mark class="g">も</mark><span class="hint">nothing</span></td><td>誰<mark class="g">も</mark><span class="hint">nobody</span></td><td>どこ<mark class="g">も</mark><span class="hint">nowhere</span></td><td>いつ<mark class="g">も</mark><span class="hint">always (!)</span></td><td>どれ<mark class="g">も</mark><span class="hint">none of them</span></td></tr>
+            <tr><th><a class="xref" href="#nandemo">+ でも</a></th><td>何<mark class="g">でも</mark><span class="hint">anything</span></td><td>誰<mark class="g">でも</mark><span class="hint">anyone</span></td><td>どこ<mark class="g">でも</mark><span class="hint">anywhere</span></td><td>いつ<mark class="g">でも</mark><span class="hint">any time</span></td><td>どれ<mark class="g">でも</mark><span class="hint">any of them</span></td></tr>
+          </tbody>
+        </table>
+        <p class="m">も needs a negative verb (but いつも means "always", with any verb). か and でも work with a positive one. 何でも is read なんでも.</p>
+      </div>
       <div class="lead">
         <span class="use polite">Polite</span>
         <img decoding="async" loading="lazy" src="media/843b38a616d.webp" alt="Scene from a YouTube video">
@@ -6203,7 +6241,7 @@ a.ft.neg:hover{border-color:var(--gold)}
         <p class="en">"I can't carry anything." <span class="ctx">[My bag is full.]</span></p>
         <div class="explain">
           <p>Add も to a question word and put a <b>negative</b> verb after it: <mark class="g">何も</mark> + ません = <b>"nothing, not anything"</b>.</p>
-          <p>Same trick for the others: 誰も "nobody", どこも "nowhere". The verb has to be negative.</p>
+          <p>The verb has to be negative.</p>
           <p>Casual: 何も持てない.</p>
         </div>
       </div>
@@ -6311,6 +6349,17 @@ a.ft.neg:hover{border-color:var(--gold)}
             <p class="en">"Is there really nothing we can do?"</p>
           </div>
           <div class="mine">
+            <span class="use polite">Polite</span>
+            <img decoding="async" src="media/oishinbo128_13m13s.jpg" alt="Scene from Oishinbo" loading="lazy">
+            <p class="src">Oishinbo · Episode 128</p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/oishinbo128_13m13s.mp3" aria-label="Play audio"></button>
+              <p class="jp"><ruby>冬<rt>ふゆ</rt></ruby>は<mark class="g">いつも</mark>こんなもんですよ。</p>
+            </div>
+            <p class="en">"Winter's always like this."</p>
+            <p class="note">The odd one out: いつも means "always", and the verb stays positive.</p>
+          </div>
+          <div class="mine">
             <span class="use casual">Casual</span>
             <img decoding="async" src="media/quartet02_38m47s.jpg" alt="Scene from Quartet" loading="lazy">
             <p class="src">Quartet · Episode 2</p>
@@ -6377,6 +6426,17 @@ a.ft.neg:hover{border-color:var(--gold)}
           <p class="sub"></p>
         </div>
       </div>
+      <div class="forms qka">
+        <table>
+          <thead><tr><th></th><th>何</th><th>誰</th><th>どこ</th><th>いつ</th><th>どれ</th></tr></thead>
+          <tbody>
+            <tr><th><a class="xref" href="#nanika">+ か</a></th><td>何<mark class="g">か</mark><span class="hint">something</span></td><td>誰<mark class="g">か</mark><span class="hint">someone</span></td><td>どこ<mark class="g">か</mark><span class="hint">somewhere</span></td><td>いつ<mark class="g">か</mark><span class="hint">someday</span></td><td>どれ<mark class="g">か</mark><span class="hint">one of them</span></td></tr>
+            <tr><th><a class="xref" href="#nanimo">+ も</a></th><td>何<mark class="g">も</mark><span class="hint">nothing</span></td><td>誰<mark class="g">も</mark><span class="hint">nobody</span></td><td>どこ<mark class="g">も</mark><span class="hint">nowhere</span></td><td>いつ<mark class="g">も</mark><span class="hint">always (!)</span></td><td>どれ<mark class="g">も</mark><span class="hint">none of them</span></td></tr>
+            <tr class="here"><th>+ でも</th><td>何<mark class="g">でも</mark><span class="hint">anything</span></td><td>誰<mark class="g">でも</mark><span class="hint">anyone</span></td><td>どこ<mark class="g">でも</mark><span class="hint">anywhere</span></td><td>いつ<mark class="g">でも</mark><span class="hint">any time</span></td><td>どれ<mark class="g">でも</mark><span class="hint">any of them</span></td></tr>
+          </tbody>
+        </table>
+        <p class="m">も needs a negative verb (but いつも means "always", with any verb). か and でも work with a positive one. 何でも is read なんでも.</p>
+      </div>
       <div class="lead">
         <span class="use polite">Polite</span>
         <img decoding="async" loading="lazy" src="media/vinland13_06m40s.jpg" alt="Scene from Vinland Saga">
@@ -6387,7 +6447,7 @@ a.ft.neg:hover{border-color:var(--gold)}
         </div>
         <p class="en">"Anything is fine."</p>
         <div class="explain">
-          <p>Add でも to a question word and it means <b>"any-"</b>: <mark class="g">何でも</mark> "anything", 誰でも "anyone", どこでも "anywhere", いつでも "any time".</p>
+          <p>Add でも to a question word and it means <b>"any-"</b>: <mark class="g">何でも</mark> "anything".</p>
           <p>The verb stays <b>positive</b>. On this card, なんでも + いい ("fine") = "anything will do", polite with んです. 何でも is often written なんでも.</p>
         </div>
       </div>
@@ -9223,10 +9283,10 @@ a.ft.neg:hover{border-color:var(--gold)}
       </div>
       <div class="lead">
         <span class="use polite">Polite</span>
-        <img decoding="async" loading="lazy" src="media/demonslayer13_15m15s.jpg" alt="Scene from Demon Slayer">
+        <img decoding="async" loading="lazy" src="media/demonslayer13_15m14s.jpg" alt="Scene from Demon Slayer">
         <p class="src">Demon Slayer · Episode 13</p>
         <div class="line">
-          <button class="play" type="button" data-src="media/demonslayer13_15m15s.mp3" aria-label="Play audio"></button>
+          <button class="play" type="button" data-src="media/demonslayer13_15m14s.mp3" aria-label="Play audio"></button>
           <p class="jp">２<ruby>階<rt>かい</rt></ruby>の<ruby>窓<rt>まど</rt></ruby><mark class="g">から</mark><ruby>落<rt>お</rt></ruby>ちました。</p>
         </div>
         <p class="en">"I fell from the second-floor window."</p>
@@ -11087,10 +11147,10 @@ a.ft.neg:hover{border-color:var(--gold)}
           </div>
           <div class="mine">
             <span class="use polite">Polite</span>
-            <img decoding="async" src="media/demonslayer08_20m41s.jpg" alt="Scene from Demon Slayer" loading="lazy">
+            <img decoding="async" src="media/demonslayer08_20m40s.jpg" alt="Scene from Demon Slayer" loading="lazy">
             <p class="src">Demon Slayer · Episode 8</p>
             <div class="line">
-              <button class="play" type="button" data-src="media/demonslayer08_20m41s.mp3" aria-label="Play audio"></button>
+              <button class="play" type="button" data-src="media/demonslayer08_20m40s.mp3" aria-label="Play audio"></button>
               <p class="jp">もっとたくさんの<ruby>人<rt>ひと</rt></ruby>が<ruby>助<rt>たす</rt></ruby>かります<mark class="g">よね</mark>？</p>
             </div>
             <p class="en">"<span class="ctx">[If she makes the medicine,]</span> a lot more people will be saved, right?"</p>
@@ -12561,10 +12621,10 @@ a.ft.neg:hover{border-color:var(--gold)}
           </div>
           <div class="mine">
             <span class="use polite">Polite</span>
-            <img decoding="async" src="media/demonslayer08_10m39s.jpg" alt="Scene from Demon Slayer" loading="lazy">
+            <img decoding="async" src="media/demonslayer08_10m38s.jpg" alt="Scene from Demon Slayer" loading="lazy">
             <p class="src">Demon Slayer · Season 1, Episode 8</p>
             <div class="line">
-              <button class="play" type="button" data-src="media/demonslayer08_10m39s.mp3" aria-label="Play audio"></button>
+              <button class="play" type="button" data-src="media/demonslayer08_10m38s.mp3" aria-label="Play audio"></button>
               <p class="jp">おいし<mark class="g">かったです</mark></p>
             </div>
             <p class="en">"That was delicious."</p>
@@ -15435,6 +15495,193 @@ a.ft.neg:hover{border-color:var(--gold)}
       </section>
     </article>
 
+    <!-- zenbu -->
+    <article id="zenbu" data-page hidden>
+      <div class="head">
+        <div>
+          <span class="label">N5 Grammar</span>
+          <p class="pattern">全部 (ぜんぶ)</p>
+          <p class="sub"></p>
+        </div>
+      </div>
+      <div class="forms narule-box">
+        <div class="narule">
+          <p class="nr-h"><mark class="g">全部</mark> goes in one of two spots.</p>
+          <table>
+            <thead><tr><th></th><th>Before</th><th>全部</th><th>After</th><th></th></tr></thead>
+            <tr><th>Before the verb</th><td class="ex">ケーキを</td><td class="add"><mark class="g"><ruby>全部<rt>ぜんぶ</rt></ruby></mark></td><td class="ex"><ruby>食<rt>た</rt></ruby>べた</td><td class="hint">ate all the cake</td></tr>
+            <tr><th>After a word</th><td class="ex">これ</td><td class="add"><mark class="g"><ruby>全部<rt>ぜんぶ</rt></ruby></mark></td><td class="ex">ください</td><td class="hint">all of this, please</td></tr>
+          </table>
+        </div>
+      </div>
+      <div class="lead">
+        <span class="use polite">Polite</span>
+        <img decoding="async" loading="lazy" src="media/legalhighs2e09_25m56s.jpg" alt="Scene from Legal High">
+        <p class="src">Legal High · Season 2, Episode 9</p>
+        <div class="line">
+          <button class="play" type="button" data-src="media/legalhighs2e09_25m56s.mp3" aria-label="Play audio"></button>
+          <p class="jp"><mark class="g"><ruby>全部<rt>ぜんぶ</rt></ruby></mark><ruby>話<rt>はな</rt></ruby>しましたから</p>
+        </div>
+        <p class="en">"<span class="ctx">[I've already]</span> told you everything."</p>
+        <div class="explain">
+          <p><mark class="g">全部</mark> means <b>all, everything</b>. Here it sits right before the verb: 全部話す, "tell everything".</p>
+          <p>On this card, a lawyer comes back to question a witness, and she says there's nothing left to tell: she told them all of it.</p>
+          <p>全部 itself never changes. Polite or casual only shows at the end: 話しました / 話した.</p>
+        </div>
+      </div>
+      <div class="lead second">
+        <span class="use casual">Casual</span>
+        <img decoding="async" loading="lazy" src="media/shirokuma16_16m16s.jpg" alt="Scene from Shirokuma Cafe">
+        <p class="src">Shirokuma Cafe · Episode 16</p>
+        <div class="line">
+          <button class="play" type="button" data-src="media/shirokuma16_16m16s.mp3" aria-label="Play audio"></button>
+          <p class="jp">さっき<mark class="g"><ruby>全部<rt>ぜんぶ</rt></ruby></mark><ruby>飲<rt>の</rt></ruby>み<ruby>干<rt>ほ</rt></ruby>してしまった</p>
+        </div>
+        <p class="en">"I already drank it all a moment ago."</p>
+        <div class="explain">
+          <p><mark class="g">全部</mark> goes right before the verb: 全部飲み干す, "drink it all up". On this card, he badly needs water, but there's not a drop left.</p>
+        </div>
+      </div>
+      <section>
+        <h2>Quick Examples</h2>
+        <div class="scenes">
+          <div class="scene">
+            <p class="sit">Your teacher asks about the homework.</p>
+            <p class="jp"><ruby>宿題<rt>しゅくだい</rt></ruby>は<mark class="g"><ruby>全部<rt>ぜんぶ</rt></ruby></mark><ruby>終<rt>お</rt></ruby>わりました。</p>
+            <p class="en">"I finished all my homework."</p>
+            <p class="note">No particle: 全部 sits right before the verb.</p>
+            <span class="use polite">Polite</span>
+          </div>
+          <div class="scene">
+            <p class="sit">At a bakery, three cakes are left in the window.</p>
+            <p class="jp">これ、<mark class="g"><ruby>全部<rt>ぜんぶ</rt></ruby></mark>ください。</p>
+            <p class="en">"I'll take all of these."</p>
+            <p class="note">これ全部: "all of this". Very common at shops.</p>
+            <span class="use polite">Polite</span>
+          </div>
+          <div class="scene">
+            <p class="sit">A friend asks if you liked the book they lent you.</p>
+            <p class="jp">うん、<mark class="g"><ruby>全部<rt>ぜんぶ</rt></ruby></mark><ruby>読<rt>よ</rt></ruby>んだよ。</p>
+            <p class="en">"Yeah, I read the whole thing."</p>
+            <span class="use casual">Casual</span>
+          </div>
+          <div class="scene">
+            <p class="sit">Your roommate is holding an empty pizza box.</p>
+            <p class="jp">えっ、<mark class="g"><ruby>全部<rt>ぜんぶ</rt></ruby></mark><ruby>食<rt>た</rt></ruby>べたの？</p>
+            <p class="en">"Wait, you ate all of it?"</p>
+            <span class="use casual">Casual</span>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h2>With and without</h2>
+        <div class="compare">
+          <div class="cbox">
+            <span class="label">Without</span>
+            <p class="jp">ケーキを<ruby>食<rt>た</rt></ruby>べました。</p>
+            <p>"I ate cake." Maybe one slice.</p>
+          </div>
+          <div class="cbox yes">
+            <span class="label">With 全部</span>
+            <p class="jp">ケーキを<mark class="g"><ruby>全部<rt>ぜんぶ</rt></ruby></mark><ruby>食<rt>た</rt></ruby>べました。</p>
+            <p>"I ate all the cake." Nothing is left.</p>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h2>Examples from Media</h2>
+        <div class="mines">
+          <div class="mine">
+            <span class="use polite">Polite</span>
+            <img decoding="async" src="media/oishinbo084_05m48s.jpg" alt="Scene from Oishinbo" loading="lazy">
+            <p class="src">Oishinbo · Episode 84</p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/oishinbo084_05m48s.mp3" aria-label="Play audio"></button>
+              <p class="jp"><ruby>山岡<rt>やまおか</rt></ruby>さんの<ruby>分<rt>ぶん</rt></ruby> <mark class="g"><ruby>全部<rt>ぜんぶ</rt></ruby></mark> <ruby>私<rt>わたし</rt></ruby>がいただきます</p>
+            </div>
+            <p class="en">"I'll have all of Yamaoka's share."</p>
+            <p class="note">分 (ぶん): someone's share. いただきます: a humble "I'll have".</p>
+          </div>
+          <div class="mine">
+            <span class="use polite">Polite</span>
+            <img decoding="async" src="media/goblinslayer05_08m37s.jpg" alt="Scene from Goblin Slayer" loading="lazy">
+            <p class="src">Goblin Slayer · Episode 5</p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/goblinslayer05_08m37s.mp3" aria-label="Play audio"></button>
+              <p class="jp"><mark class="g"><ruby>全部<rt>ぜんぶ</rt></ruby></mark> ゴブリンスレイヤーさんの おかげです</p>
+            </div>
+            <p class="en">"It's all thanks to you, Goblin Slayer."</p>
+            <p class="note">～のおかげ: thanks to ___.</p>
+          </div>
+          <div class="mine">
+            <span class="use polite">Polite</span>
+            <img decoding="async" src="media/kekkon05_34m01s.jpg" alt="Scene from Kekkon Dekinai Otoko" loading="lazy">
+            <p class="src">Kekkon Dekinai Otoko · Episode 5</p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/kekkon05_34m01s.mp3" aria-label="Play audio"></button>
+              <p class="jp">これまでのデータが <mark class="g"><ruby>全部<rt>ぜんぶ</rt></ruby></mark><ruby>入<rt>はい</rt></ruby>ってるんです</p>
+            </div>
+            <p class="en">"All my data up to now is on it."</p>
+            <p class="note">He left his design files at the hospital. 入ってる = 入っている, "is inside".</p>
+          </div>
+          <div class="mine">
+            <span class="use polite">Polite</span>
+            <img decoding="async" src="media/slamdunk25_17m16s.jpg" alt="Scene from Slam Dunk" loading="lazy">
+            <p class="src">Slam Dunk · Episode 25</p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/slamdunk25_17m16s.mp3" aria-label="Play audio"></button>
+              <p class="jp"><ruby>新入部員<rt>しんにゅうぶいん</rt></ruby> <mark class="g"><ruby>全部<rt>ぜんぶ</rt></ruby>で</mark>12<ruby>名<rt>めい</rt></ruby>です</p>
+            </div>
+            <p class="en">"Twelve new members in total."</p>
+            <p class="note">全部で: "in total", when you count. 名 (めい): a polite counter for people.</p>
+          </div>
+          <div class="mine">
+            <span class="use casual">Casual</span>
+            <img decoding="async" src="media/whisper_53m28s.jpg" alt="Scene from Whisper of the Heart" loading="lazy">
+            <p class="src">Whisper of the Heart</p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/whisper_53m28s.mp3" aria-label="Play audio"></button>
+              <p class="jp">あれも<mark class="g"><ruby>全部<rt>ぜんぶ</rt></ruby></mark><ruby>作<rt>つく</rt></ruby>ったの？</p>
+            </div>
+            <p class="en">"Did you make all of those too?"</p>
+            <p class="note">She's looking at the violins in his grandfather's workshop.</p>
+          </div>
+          <div class="mine">
+            <span class="use casual">Casual</span>
+            <img decoding="async" src="media/spiritedaway_07m55s.jpg" alt="Scene from Spirited Away" loading="lazy">
+            <p class="src">Spirited Away</p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/spiritedaway_07m55s.mp3" aria-label="Play audio"></button>
+              <p class="jp">あきれた　これ<mark class="g"><ruby>全部<rt>ぜんぶ</rt></ruby></mark>　<ruby>食<rt>た</rt></ruby>べ<ruby>物<rt>もの</rt></ruby><ruby>屋<rt>や</rt></ruby>よ。</p>
+            </div>
+            <p class="en">"Unbelievable. These are all restaurants."</p>
+            <p class="note">これ全部: "all of these".</p>
+          </div>
+          <div class="mine">
+            <span class="use casual">Casual</span>
+            <img decoding="async" src="media/oddtaxi05_09m46s.jpg" alt="Scene from Odd Taxi" loading="lazy">
+            <p class="src">Odd Taxi · Episode 5</p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/oddtaxi05_09m46s.mp3" aria-label="Play audio"></button>
+              <p class="jp">いや <mark class="g"><ruby>全部<rt>ぜんぶ</rt></ruby></mark><ruby>欲<rt>ほ</rt></ruby>しいんだ</p>
+            </div>
+            <p class="en">"No, I want all of it."</p>
+          </div>
+          <div class="mine">
+            <span class="use casual">Casual</span>
+            <img decoding="async" src="media/tekkonkinkreet_96m33s.jpg" alt="Scene from Tekkonkinkreet" loading="lazy">
+            <p class="src">Tekkonkinkreet</p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/tekkonkinkreet_96m33s.mp3" aria-label="Play audio"></button>
+              <p class="jp">シロが<mark class="g"><ruby>全部<rt>ぜんぶ</rt></ruby></mark><ruby>持<rt>も</rt></ruby>ってる！</p>
+            </div>
+            <p class="en">"Shiro's got them all!"</p>
+            <p class="note">持ってる = 持っている, "has".</p>
+          </div>
+        </div>
+      </section>
+    </article>
+
     <!-- kekkou -->
     <article id="kekkou" data-page hidden>
       <div class="head">
@@ -16927,10 +17174,10 @@ a.ft.neg:hover{border-color:var(--gold)}
             <span class="use casual">Casual</span>
           </div>
           <div class="vcard">
-            <img decoding="async" loading="lazy" src="media/demonslayer06_07m26s.jpg" alt="Scene from Demon Slayer">
+            <img decoding="async" loading="lazy" src="media/demonslayer06_07m25s.jpg" alt="Scene from Demon Slayer">
             <p class="src">Demon Slayer - Kimetsu no Yaiba · Episode 6</p>
             <div class="line">
-              <button class="play" type="button" data-src="media/demonslayer06_07m26s.mp3" aria-label="Play audio"></button>
+              <button class="play" type="button" data-src="media/demonslayer06_07m25s.mp3" aria-label="Play audio"></button>
               <p class="jp"><mark class="g"><ruby>信<rt>しん</rt></ruby>じる</mark>！</p>
             </div>
             <p class="en">"<span class="ctx">[I]</span> believe <span class="ctx">[you]</span>!"</p>
@@ -28216,10 +28463,10 @@ a.ft.neg:hover{border-color:var(--gold)}
           </div>
           <div class="mine">
             <span class="use casual">Casual</span>
-            <img decoding="async" src="media/demonslayer03_18m46s.jpg" alt="Scene from Demon Slayer" loading="lazy">
+            <img decoding="async" src="media/demonslayer03_18m45s.jpg" alt="Scene from Demon Slayer" loading="lazy">
             <p class="src">Demon Slayer · Episode 3</p>
             <div class="line">
-              <button class="play" type="button" data-src="media/demonslayer03_18m46s.mp3" aria-label="Play audio"></button>
+              <button class="play" type="button" data-src="media/demonslayer03_18m45s.mp3" aria-label="Play audio"></button>
               <p class="jp">どうやったら できる<mark class="g">かな</mark>？</p>
             </div>
             <p class="en">"How can I do it, I wonder?"</p>
@@ -28283,15 +28530,15 @@ a.ft.neg:hover{border-color:var(--gold)}
       </div>
       <div class="lead second">
         <span class="use casual">Casual</span>
-        <img decoding="async" loading="lazy" src="media/kekkon05_02m01s.jpg" alt="Scene from Kekkon Dekinai Otoko">
-        <p class="src">Kekkon Dekinai Otoko · Episode 5</p>
+        <img decoding="async" loading="lazy" src="media/litre06_04m31s.jpg" alt="Scene from 1 Litre of Tears">
+        <p class="src">1 Litre of Tears · Episode 6</p>
         <div class="line">
-          <button class="play" type="button" data-src="media/kekkon05_02m01s.mp3" aria-label="Play audio"></button>
-          <p class="jp">たぶん この<ruby>中<rt>なか</rt></ruby>にある<mark class="g">はず</mark>だ</p>
+          <button class="play" type="button" data-src="media/litre06_04m31s.mp3" aria-label="Play audio"></button>
+          <p class="jp"><ruby>私<rt>わたし</rt></ruby>にもやれることが きっとある<mark class="g">はず</mark>。</p>
         </div>
-        <p class="en">"It should be in here, probably."</p>
+        <p class="en">"There must be something I can do too."</p>
         <div class="explain">
-          <p>On this card, he's looking for something and reasons it out: it has to be in here. Casual drops です; it can end on はず alone too.</p>
+          <p>Casual drops です, and here it even ends on はず alone. On this card, she's thinking to herself: even with her illness, she's sure there's something she can still do.</p>
         </div>
       </div>
       <section>
@@ -28340,10 +28587,10 @@ a.ft.neg:hover{border-color:var(--gold)}
         <div class="mines">
           <div class="mine">
             <span class="use polite">Polite</span>
-            <img decoding="async" src="media/demonslayer06_09m44s.jpg" alt="Scene from Demon Slayer" loading="lazy">
+            <img decoding="async" src="media/demonslayer06_09m43s.jpg" alt="Scene from Demon Slayer" loading="lazy">
             <p class="src">Demon Slayer · Episode 6</p>
             <div class="line">
-              <button class="play" type="button" data-src="media/demonslayer06_09m44s.mp3" aria-label="Play audio"></button>
+              <button class="play" type="button" data-src="media/demonslayer06_09m43s.mp3" aria-label="Play audio"></button>
               <p class="jp"><ruby>必<rt>かなら</rt></ruby>ず<ruby>近<rt>ちか</rt></ruby>くにいる<mark class="g">はず</mark>です</p>
             </div>
             <p class="en">"It's sure to be close by."</p>
@@ -28351,47 +28598,47 @@ a.ft.neg:hover{border-color:var(--gold)}
           </div>
           <div class="mine">
             <span class="use polite">Polite</span>
-            <img decoding="async" src="media/litre07_41m15s.jpg" alt="Scene from 1 Litre of Tears" loading="lazy">
-            <p class="src">1 Litre of Tears · Episode 7</p>
+            <img decoding="async" src="media/legalhighs2e03_23m57s.jpg" alt="Scene from Legal High" loading="lazy">
+            <p class="src">Legal High · Season 2, Episode 3</p>
             <div class="line">
-              <button class="play" type="button" data-src="media/litre07_41m15s.mp3" aria-label="Play audio"></button>
-              <p class="jp"><ruby>娘<rt>むすめ</rt></ruby>は、<ruby>分<rt>わ</rt></ruby>かっている<mark class="g">はず</mark>です。</p>
+              <button class="play" type="button" data-src="media/legalhighs2e03_23m57s.mp3" aria-label="Play audio"></button>
+              <p class="jp">そして<ruby>幸<rt>しあわ</rt></ruby>せだった<mark class="g">はず</mark>です</p>
             </div>
-            <p class="en">"Our daughter should understand."</p>
-            <p class="note">A parent reasoning about their child: they expect it, they don't know it.</p>
+            <p class="en">"And you must have been happy."</p>
+            <p class="note">A lawyer reasoning about a husband's marriage: he married her for her looks, so he should have been happy.</p>
+          </div>
+          <div class="mine">
+            <span class="use polite">Polite</span>
+            <img decoding="async" src="media/marnie_44m44s.jpg" alt="Scene from When Marnie Was There" loading="lazy">
+            <p class="src">When Marnie Was There</p>
+            <div class="line">
+              <button class="play" type="button" data-src="media/marnie_44m44s.mp3" aria-label="Play audio"></button>
+              <p class="jp">もう おやすみの<ruby>時間<rt>じかん</rt></ruby>の<mark class="g">はず</mark>ですが</p>
+            </div>
+            <p class="en">"It should be bedtime by now, though."</p>
+            <p class="note">A noun before はず takes の: 時間の<mark class="g">はず</mark>.</p>
           </div>
           <div class="mine">
             <span class="use casual">Casual</span>
-            <img decoding="async" src="media/demonslayer01_13m55s.jpg" alt="Scene from Demon Slayer" loading="lazy">
-            <p class="src">Demon Slayer · Episode 1</p>
+            <img decoding="async" src="media/dungeonmeshi19_08m32s.jpg" alt="Scene from Dungeon Meshi" loading="lazy">
+            <p class="src">Dungeon Meshi · Episode 19</p>
             <div class="line">
-              <button class="play" type="button" data-src="media/demonslayer01_13m55s.mp3" aria-label="Play audio"></button>
-              <p class="jp"><ruby>俺<rt>おれ</rt></ruby>のことは ちゃんと<ruby>分<rt>わ</rt></ruby>かってる<mark class="g">はず</mark>だ</p>
+              <button class="play" type="button" data-src="media/dungeonmeshi19_08m32s.mp3" aria-label="Play audio"></button>
+              <p class="jp">お<ruby>前<rt>まえ</rt></ruby>なら できる<mark class="g">はず</mark>だ！</p>
             </div>
-            <p class="en">"She should know who I am."</p>
-            <p class="note">He's counting on it, because they're family.</p>
+            <p class="en">"You should be able to do it!"</p>
+            <p class="note">She's seen what Marcille can do, so she expects it.</p>
           </div>
           <div class="mine">
             <span class="use casual">Casual</span>
-            <img decoding="async" src="media/slamdunk11_06m45s.jpg" alt="Scene from Slam Dunk" loading="lazy">
-            <p class="src">Slam Dunk · Episode 11</p>
+            <img decoding="async" src="media/shirokuma20_06m38s.jpg" alt="Scene from Shirokuma Cafe" loading="lazy">
+            <p class="src">Shirokuma Cafe · Episode 20</p>
             <div class="line">
-              <button class="play" type="button" data-src="media/slamdunk11_06m45s.mp3" aria-label="Play audio"></button>
-              <p class="jp"><ruby>何<rt>なに</rt></ruby>か こつがある<mark class="g">はず</mark>だ</p>
+              <button class="play" type="button" data-src="media/shirokuma20_06m38s.mp3" aria-label="Play audio"></button>
+              <p class="jp"><ruby>絶対<rt>ぜったい</rt></ruby>どこかにある<mark class="g">はず</mark>だよ</p>
             </div>
-            <p class="en">"There must be some trick to it."</p>
-            <p class="note">Others can do it, so there has to be a trick.</p>
-          </div>
-          <div class="mine">
-            <span class="use casual">Casual</span>
-            <img decoding="async" src="media/slamdunk43_09m43s.jpg" alt="Scene from Slam Dunk" loading="lazy">
-            <p class="src">Slam Dunk · Episode 43</p>
-            <div class="line">
-              <button class="play" type="button" data-src="media/slamdunk43_09m43s.mp3" aria-label="Play audio"></button>
-              <p class="jp"><ruby>負<rt>ま</rt></ruby>ける<mark class="g">はず</mark>がねえ</p>
-            </div>
-            <p class="en">"There's no way I'd lose."</p>
-            <p class="note">はずがない (here rough ねえ): "no way".</p>
+            <p class="en">"It has to be out there somewhere."</p>
+            <p class="note">He's sure his dream apartment exists, he just hasn't found it yet.</p>
           </div>
           <div class="mine">
             <span class="use casual">Casual</span>
@@ -28685,10 +28932,10 @@ a.ft.neg:hover{border-color:var(--gold)}
       </div>
       <div class="lead second">
         <span class="use casual">Casual</span>
-        <img decoding="async" loading="lazy" src="media/demonslayer3_06_15m13s.jpg" alt="Scene from Demon Slayer">
+        <img decoding="async" loading="lazy" src="media/demonslayer3_06_15m12s.jpg" alt="Scene from Demon Slayer">
         <p class="src">Demon Slayer · Entertainment District Arc · Episode 6</p>
         <div class="line">
-          <button class="play" type="button" data-src="media/demonslayer3_06_15m13s.mp3" aria-label="Play audio"></button>
+          <button class="play" type="button" data-src="media/demonslayer3_06_15m12s.mp3" aria-label="Play audio"></button>
           <p class="jp">それで<ruby>止<rt>と</rt></ruby>めた<mark class="g">つもり</mark>？</p>
         </div>
         <p class="en">"You think that stopped me?"</p>
@@ -33051,6 +33298,7 @@ var INDEX = [
       ['totemo', 'とても', 'Very'],
       ['chotto', 'ちょっと', 'A little, a bit (and softening)'],
       ['takusan', 'たくさん', 'A lot, many'],
+      ['zenbu', '全部 (ぜんぶ)', 'All, everything'],
       ['kekkou', 'けっこう (結構)', 'Quite, pretty; no thanks'],
       ['amari', 'あまり～ない', 'Not very, not much'],
       ['zenzen', '全然～ない', 'Not at all'],
@@ -33157,12 +33405,12 @@ var INDEX = [
 ];
 var UPDATED = '13 Nov 2026';
 // Extra search words for a page, for forms that live on it but aren't in its pattern (id: 'words').
-var ALSO = {'koto-ga-dekiru': 'できる できます dekiru can able', ndesu: 'んだ のだ の nda noda', tachi: '私たち 子どもたち', kurai: 'どのくらい', kekkou: '結構です', tatsumori: 'つもり tsumori think believe'};
+var ALSO = {'koto-ga-dekiru': 'できる できます dekiru can able', ndesu: 'んだ のだ の nda noda', tachi: '私たち 子どもたち', kurai: 'どのくらい', kekkou: '結構です', tatsumori: 'つもり tsumori think believe', zenbu: 'ぜんぶ 全部で whole in total'};
 // N5 points in the order they first come up in Jlab's beginner course (worked out from the Anki deck, so roughly right). Any N5 page not listed here shows under "Not in Jlab".
 var JLAB = ('desu janai deshita janakatta wa mo u-verb ru-verb ga gairu yo zo na-adj ne suki-kirai i-adj i-adj-neg i-adj-past na-adj-past i-adj-past-neg na-adj-neg ' +
   'u-verb-neg ru-verb-neg gaaru ru-verb-past u-verb-past tachi wo doushite nani ii kuru ni dare doko to-quote he kara made de de-means koko-soko-asoko deshou ' +
   'kochira-sochira-achira soshite kara-because verb-noun to-with to toka no-pos ga-no noha-noga particle-no ndesu no yone koto-ga-dekiru verb-past-neg adverb-ku-ni naru suru masu ka zenzen totemo ' +
-  'demo teiru ni-suru masenka ni-iku kana-wonder kore-sore-are kono-sono-ano mou itsumo tsumori tatsumori itsu dore kurai ikura dou nanika nanimo hazu noni mitai darou nandemo chotto kute-de te-form te-and ' +
+  'demo teiru ni-suru masenka ni-iku kana-wonder kore-sore-are kono-sono-ano mou itsumo tsumori tatsumori itsu dore kurai ikura dou nanika nanimo zenbu hazu noni mitai darou nandemo chotto kute-de te-form te-and ' +
   'ta-koto dake node kedo no-noun ga-but tari noga-suki teiru-habit mada-teinai teiru-state ichiban toki aru-noun mashou morau tewa-ikenai nakute-wa temo-ii tai hoshii ' +
   'te-kara mashouka ageru kureru te-kudasai naide-kudasai na-dont takusan shika sugiru dono ya mada ato-de yori hou-ga-ii jouzu-heta kekkou amari ka-or').split(' ');
 // N5 points in the order they come up in Minna no Nihongo Books 1 and 2, one line per lesson, line 1 = lesson 1 (study list at the back of each book, small words searched in the text). An empty line is a lesson with no page on the site, it doesn't show. Any N5 page not listed here shows under "Not in Minna".
@@ -33253,7 +33501,7 @@ var MINNA = [
     '<a class="nav" href="' + href('jlpt') + '"><svg class="pad" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4.5" width="14" height="16.5" rx="2"/><path d="M9 3h6v3H9z"/><path d="M8.5 13l2.5 2.5 4.5-5"/></svg> JLPT</a>' +
     // wide screens: "Vocabulary", "Kana", "Kanji" and "Tools" are dropdowns; phones keep their links in the ☰ menu
     // Grammar: one link, always opening the Grammar page sorted by JLPT level (the Jlab and Minna views are picked on the page)
-    '<a class="nav" data-o="level" href="' + href('home') + '"><svg class="pad" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></svg> Grammar</a>' +
+    '<a class="nav" data-o="jlab" href="' + href('home') + '"><svg class="pad" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></svg> Grammar</a>' +
     '<div class="kana-group"><button class="nav kana-btn" type="button" aria-expanded="false">語 Vocabulary <svg class="chev" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>' +
       '<div class="kana-drop"><a class="nav" href="' + href('vocab-n5') + '">N5 Vocabulary List</a><a class="nav" href="' + href('vocab-n4') + '">N4 Vocabulary List</a></div></div>' +
     '<a class="nav m-only" href="' + href('vocab-n5') + '">語 N5 Vocabulary List</a>' +
@@ -33350,7 +33598,7 @@ var MINNA = [
   }
   var ORDER = 'wabisebi-order';
   var VIEWS = {level: 'Sorted by JLPT level, then by topic.', jlab: 'In the order each point first comes up in the Jlab Anki deck.', minna: 'In the order of Minna no Nihongo, Books 1 and 2.'};
-  var getOrder = function(){ try { var o = localStorage.getItem(ORDER); return VIEWS[o] ? o : 'level'; } catch (err) { return 'level'; } };
+  var getOrder = function(){ try { var o = localStorage.getItem(ORDER); return VIEWS[o] ? o : 'jlab'; } catch (err) { return 'jlab'; } };
   var grids = [].slice.call(document.querySelectorAll('.grid'));
   grids.forEach(function(grid){
     var catId = function(g, i){ return 'g-' + g.level.toLowerCase() + '-' + i; };
@@ -33396,7 +33644,7 @@ var MINNA = [
     grid.querySelectorAll('.order button').forEach(function(b){ b.addEventListener('click', function(){ setOrder(b.getAttribute('data-o')); }); });
   });
   var setOrder = function(o){
-    if (!VIEWS[o]) o = 'level';
+    if (!VIEWS[o]) o = 'jlab';
     try { localStorage.setItem(ORDER, o); } catch (err) {}
     grids.forEach(function(grid){
       grid.setAttribute('data-order', o);

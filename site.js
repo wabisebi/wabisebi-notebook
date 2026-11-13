@@ -89,6 +89,7 @@ var INDEX = [
       ['totemo', 'とても', 'Very'],
       ['chotto', 'ちょっと', 'A little, a bit (and softening)'],
       ['takusan', 'たくさん', 'A lot, many'],
+      ['zenbu', '全部 (ぜんぶ)', 'All, everything'],
       ['kekkou', 'けっこう (結構)', 'Quite, pretty; no thanks'],
       ['amari', 'あまり～ない', 'Not very, not much'],
       ['zenzen', '全然～ない', 'Not at all'],
@@ -195,12 +196,12 @@ var INDEX = [
 ];
 var UPDATED = '13 Nov 2026';
 // Extra search words for a page, for forms that live on it but aren't in its pattern (id: 'words').
-var ALSO = {'koto-ga-dekiru': 'できる できます dekiru can able', ndesu: 'んだ のだ の nda noda', tachi: '私たち 子どもたち', kurai: 'どのくらい', kekkou: '結構です', tatsumori: 'つもり tsumori think believe'};
+var ALSO = {'koto-ga-dekiru': 'できる できます dekiru can able', ndesu: 'んだ のだ の nda noda', tachi: '私たち 子どもたち', kurai: 'どのくらい', kekkou: '結構です', tatsumori: 'つもり tsumori think believe', zenbu: 'ぜんぶ 全部で whole in total'};
 // N5 points in the order they first come up in Jlab's beginner course (worked out from the Anki deck, so roughly right). Any N5 page not listed here shows under "Not in Jlab".
 var JLAB = ('desu janai deshita janakatta wa mo u-verb ru-verb ga gairu yo zo na-adj ne suki-kirai i-adj i-adj-neg i-adj-past na-adj-past i-adj-past-neg na-adj-neg ' +
   'u-verb-neg ru-verb-neg gaaru ru-verb-past u-verb-past tachi wo doushite nani ii kuru ni dare doko to-quote he kara made de de-means koko-soko-asoko deshou ' +
   'kochira-sochira-achira soshite kara-because verb-noun to-with to toka no-pos ga-no noha-noga particle-no ndesu no yone koto-ga-dekiru verb-past-neg adverb-ku-ni naru suru masu ka zenzen totemo ' +
-  'demo teiru ni-suru masenka ni-iku kana-wonder kore-sore-are kono-sono-ano mou itsumo tsumori tatsumori itsu dore kurai ikura dou nanika nanimo hazu noni mitai darou nandemo chotto kute-de te-form te-and ' +
+  'demo teiru ni-suru masenka ni-iku kana-wonder kore-sore-are kono-sono-ano mou itsumo tsumori tatsumori itsu dore kurai ikura dou nanika nanimo zenbu hazu noni mitai darou nandemo chotto kute-de te-form te-and ' +
   'ta-koto dake node kedo no-noun ga-but tari noga-suki teiru-habit mada-teinai teiru-state ichiban toki aru-noun mashou morau tewa-ikenai nakute-wa temo-ii tai hoshii ' +
   'te-kara mashouka ageru kureru te-kudasai naide-kudasai na-dont takusan shika sugiru dono ya mada ato-de yori hou-ga-ii jouzu-heta kekkou amari ka-or').split(' ');
 // N5 points in the order they come up in Minna no Nihongo Books 1 and 2, one line per lesson, line 1 = lesson 1 (study list at the back of each book, small words searched in the text). An empty line is a lesson with no page on the site, it doesn't show. Any N5 page not listed here shows under "Not in Minna".
@@ -291,7 +292,7 @@ var MINNA = [
     '<a class="nav" href="' + href('jlpt') + '"><svg class="pad" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4.5" width="14" height="16.5" rx="2"/><path d="M9 3h6v3H9z"/><path d="M8.5 13l2.5 2.5 4.5-5"/></svg> JLPT</a>' +
     // wide screens: "Vocabulary", "Kana", "Kanji" and "Tools" are dropdowns; phones keep their links in the ☰ menu
     // Grammar: one link, always opening the Grammar page sorted by JLPT level (the Jlab and Minna views are picked on the page)
-    '<a class="nav" data-o="level" href="' + href('home') + '"><svg class="pad" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></svg> Grammar</a>' +
+    '<a class="nav" data-o="jlab" href="' + href('home') + '"><svg class="pad" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></svg> Grammar</a>' +
     '<div class="kana-group"><button class="nav kana-btn" type="button" aria-expanded="false">語 Vocabulary <svg class="chev" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>' +
       '<div class="kana-drop"><a class="nav" href="' + href('vocab-n5') + '">N5 Vocabulary List</a><a class="nav" href="' + href('vocab-n4') + '">N4 Vocabulary List</a></div></div>' +
     '<a class="nav m-only" href="' + href('vocab-n5') + '">語 N5 Vocabulary List</a>' +
@@ -388,7 +389,7 @@ var MINNA = [
   }
   var ORDER = 'wabisebi-order';
   var VIEWS = {level: 'Sorted by JLPT level, then by topic.', jlab: 'In the order each point first comes up in the Jlab Anki deck.', minna: 'In the order of Minna no Nihongo, Books 1 and 2.'};
-  var getOrder = function(){ try { var o = localStorage.getItem(ORDER); return VIEWS[o] ? o : 'level'; } catch (err) { return 'level'; } };
+  var getOrder = function(){ try { var o = localStorage.getItem(ORDER); return VIEWS[o] ? o : 'jlab'; } catch (err) { return 'jlab'; } };
   var grids = [].slice.call(document.querySelectorAll('.grid'));
   grids.forEach(function(grid){
     var catId = function(g, i){ return 'g-' + g.level.toLowerCase() + '-' + i; };
@@ -434,7 +435,7 @@ var MINNA = [
     grid.querySelectorAll('.order button').forEach(function(b){ b.addEventListener('click', function(){ setOrder(b.getAttribute('data-o')); }); });
   });
   var setOrder = function(o){
-    if (!VIEWS[o]) o = 'level';
+    if (!VIEWS[o]) o = 'jlab';
     try { localStorage.setItem(ORDER, o); } catch (err) {}
     grids.forEach(function(grid){
       grid.setAttribute('data-order', o);
