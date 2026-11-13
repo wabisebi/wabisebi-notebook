@@ -178,8 +178,12 @@ var INDEX = [
       ['mitai', 'みたい', 'Seems like, looks like'],
       ['tatsumori', '～たつもり', 'Believing you did (maybe wrongly)']
     ]},
+    {cat: 'Adverbs', pages: [
+      ['konnani', 'こんなに・そんなに・あんなに', 'This much, that much']
+    ]},
     {cat: 'Joining sentences', pages: [
-      ['noni', 'のに', 'Even though (and it\'s annoying)']
+      ['noni', 'のに', 'Even though (and it\'s annoying)'],
+      ['shi', '～し', 'And also, and besides (listing reasons)']
     ]}
   ]}
   // Not on the JLPT lists, but common in real speech
@@ -197,12 +201,12 @@ var INDEX = [
 ];
 var UPDATED = '13 Nov 2026';
 // Extra search words for a page, for forms that live on it but aren't in its pattern (id: 'words').
-var ALSO = {'koto-ga-dekiru': 'できる できます dekiru can able', ndesu: 'んだ のだ の nda noda', tachi: '私たち 子どもたち', kurai: 'どのくらい', kekkou: '結構です', tatsumori: 'つもり tsumori think believe', zenbu: 'ぜんぶ 全部で whole in total', 'na-end': 'なあ なぁ naa huh'};
+var ALSO = {'koto-ga-dekiru': 'できる できます dekiru can able', ndesu: 'んだ のだ の nda noda', tachi: '私たち 子どもたち', kurai: 'どのくらい', kekkou: '結構です', tatsumori: 'つもり tsumori think believe', zenbu: 'ぜんぶ 全部で whole in total', 'na-end': 'なあ なぁ naa huh', konnani: 'konnani sonnani annani so not that much'};
 // N5 points in the order they first come up in Jlab's beginner course (worked out from the Anki deck, so roughly right). Any N5 page not listed here shows under "Not in Jlab".
 var JLAB = ('desu janai deshita janakatta wa mo u-verb ru-verb ga gairu yo zo na-adj ne suki-kirai i-adj i-adj-neg na-end i-adj-past na-adj-past i-adj-past-neg na-adj-neg ' +
   'u-verb-neg ru-verb-neg gaaru ru-verb-past u-verb-past tachi wo doushite nani ii kuru ni dare doko to-quote he kara made de de-means koko-soko-asoko deshou ' +
-  'kochira-sochira-achira soshite kara-because verb-noun to-with to toka no-pos ga-no noha-noga particle-no ndesu no yone koto-ga-dekiru verb-past-neg adverb-ku-ni naru suru masu ka zenzen totemo ' +
-  'demo teiru ni-suru masenka ni-iku kana-wonder kore-sore-are kono-sono-ano mou itsumo tsumori tatsumori itsu dore kurai ikura dou nanika nanimo zenbu hazu noni mitai darou nandemo chotto kute-de te-form te-and ' +
+  'kochira-sochira-achira soshite kara-because verb-noun to-with to toka no-pos ga-no noha-noga particle-no ndesu no yone koto-ga-dekiru shi verb-past-neg adverb-ku-ni naru suru masu ka zenzen totemo ' +
+  'demo teiru ni-suru masenka ni-iku kana-wonder kore-sore-are kono-sono-ano mou itsumo tsumori tatsumori itsu dore kurai ikura dou nanika nanimo zenbu hazu konnani noni mitai darou nandemo chotto kute-de te-form te-and ' +
   'ta-koto dake node kedo no-noun ga-but tari noga-suki teiru-habit mada-teinai teiru-state ichiban toki aru-noun mashou morau tewa-ikenai nakute-wa temo-ii tai hoshii ' +
   'te-kara mashouka ageru kureru te-kudasai naide-kudasai na-dont takusan shika sugiru dono ya mada ato-de yori hou-ga-ii jouzu-heta kekkou amari ka-or').split(' ');
 // N5 points in the order they come up in Minna no Nihongo Books 1 and 2, one line per lesson, line 1 = lesson 1 (study list at the back of each book, small words searched in the text). An empty line is a lesson with no page on the site, it doesn't show. Any N5 page not listed here shows under "Not in Minna".
