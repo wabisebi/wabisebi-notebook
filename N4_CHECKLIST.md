@@ -22,21 +22,21 @@ Categories marked *(new)* aren't on the site yet. They get added to `INDEX` when
 
 ## Sentence endings
 - [x] かな: I wonder
-- [ ] かしら: I wonder (softer)
-- [ ] っけ・だっけ: what was it again?
-- [ ] じゃない (confirming): isn't it? see?
+- [x] かしら: I wonder (softer)
+- [x] っけ・だっけ: what was it again?
+- [x] じゃない (confirming): isn't it? see?
 
 ## Guessing and seeming
 - [x] はず: should be, expected to be
 - [x] みたい: seems like, looks like
 - [x] ～たつもり: believing you did
-- [ ] かもしれない: maybe, might
-- [ ] ～そう (looks): looks like it's about to, looks tasty
-- [ ] ～そうだ (heard): I heard that
-- [ ] らしい: apparently, I hear / typical of
-- [ ] ようだ: it seems (more formal みたい)
-- [ ] はずがない: can't possibly be
-- [ ] ～がする: there's a smell, sound, feeling
+- [x] かもしれない: maybe, might
+- [x] ～そう (looks): looks like it's about to, looks tasty
+- [x] ～そうだ (heard): I heard that
+- [x] らしい: apparently, I hear / typical of
+- [x] ようだ: it seems (more formal みたい)
+- [x] はずがない: can't possibly be
+- [x] ～がする: there's a smell, sound, feeling
 
 ## Adverbs
 - [x] こんなに・そんなに・あんなに: this much, that much
