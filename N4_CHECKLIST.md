@@ -101,19 +101,19 @@ Categories marked *(new)* aren't on the site yet. They get added to `INDEX` when
 - [x] ～なくてもいい: don't have to
 - [ ] ～なければならない・～なくちゃ: must (check the N5 page なくてはいけない first, it may belong there)
 
-## Asking and giving *(new)*
-- [ ] ～てくれませんか・～てもらえませんか: could you?
-- [ ] くださる・～てくださる: give (respectful)
-- [ ] いただく・～ていただく: receive (humble)
-- [ ] ～ていただけませんか: could you please?
-- [ ] やる: give (to animals, plants, younger)
+## Asking and giving
+- [x] ～てくれませんか・～てもらえませんか: could you?
+- [x] くださる・～てくださる: give (respectful)
+- [x] いただく・～ていただく: receive (humble)
+- [x] ～ていただけませんか: could you please?
+- [x] やる: give (to animals, plants, younger)
 
-## Changes and decisions *(new)*
-- [ ] ～ようになる: come to, become able to
-- [ ] ～ようにする: make sure to, try to
-- [ ] ～ことにする: decide to
-- [ ] ～ことになる: it's been decided that
-- [ ] ～ことがある: there are times when
+## Changes and decisions
+- [x] ～ようになる: come to, become able to
+- [x] ～ようにする: make sure to, try to
+- [x] ～ことにする: decide to
+- [x] ～ことになる: it's been decided that
+- [x] ～ことがある: there are times when
 
 ## Easy, hard, how to *(new)*
 - [ ] ～やすい: easy to
