@@ -785,7 +785,7 @@ var MINNA = [
       menu.hidden = false;
       menu.scrollTop = 0;
     }
-    function choose(v){ input.value = v.w; pick(v); closeMenu(); }
+    function choose(v){ input.value = v.w; pick(v); flash(); closeMenu(); }
     function move(step){
       if (menu.hidden || !shown.length) return;
       active = (active + step + shown.length) % shown.length;
@@ -793,7 +793,11 @@ var MINNA = [
       menu.children[active].scrollIntoView({ block:'nearest' });
       pick(shown[active]);
     }
+    // TRIG light on the oscilloscope case flashes on every keystroke or pick
+    var trig = box.closest('section').querySelector('.led.trig'), trigT;
+    function flash(){ if (!trig) return; trig.classList.add('hit'); clearTimeout(trigT); trigT = setTimeout(function(){ trig.classList.remove('hit'); }, 160); }
     function run(){
+      flash();
       var q = input.value.trim();
       if (!q) { closeMenu(); pick(VERBS.filter(function(v){ return v.w === '歩く'; })[0]); return; }
       var hits = find(q);
