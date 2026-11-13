@@ -167,6 +167,7 @@ h2::before{background:var(--gold);width:3px}
 .lvl-note.welcome p{font-size:16px;color:var(--ink)}
 .lvl-note.welcome p+p{margin-top:8px}
 .lvl-note p.label{margin-bottom:6px;color:var(--n3)}
+.lvl-note.lists{max-width:none;margin:0}   /* Grammar page: same width as the grid under it */
 .home h1{font-family:var(--body);font-weight:600;font-size:clamp(30px,5.5vw,40px);letter-spacing:-.01em;line-height:1.15;margin:4px 0 0}
 .level + .level{margin-top:28px}
 .level{background:var(--sheet);border:1px solid var(--line);border-radius:10px;overflow:hidden}
@@ -566,7 +567,16 @@ main:has(.home:not([hidden])) .foot{max-width:1080px}
 .glevels .lv.n5{--lv:var(--n5)}.glevels .lv.n4{--lv:var(--n4)}.glevels .lv.n3{--lv:var(--n3)}.glevels .lv.non-jlpt{--lv:var(--muted)}
 .toc li.tl{margin-top:8px}.toc li.tl:first-child{margin-top:0}.toc li.tl a{font-weight:600}
 .gcard .n{font-family:var(--mono);font-size:11px;color:var(--muted)}
-@media (max-width:900px){.grid .rwrap{display:flex;flex-direction:column;gap:12px}.grid .side{position:static;order:-1}.grid .rcol{width:100%}}
+/* Grammar page: the view switch is one row of three buttons above the cards; 4 cards across on wide screens */
+.grid{display:flex;flex-direction:column;gap:16px}
+.order.seg{flex-direction:row;flex-wrap:wrap;align-items:center;gap:6px;padding:0;background:none;border:0}
+.order.seg .label{margin:0 8px 0 0}
+.order.seg button{width:auto;margin:0;padding:8px 16px;border:1px solid var(--card-line);border-radius:999px;background:var(--card);font-size:14px}
+.order.seg button[aria-pressed="true"]{border-color:color-mix(in srgb,var(--gold) 55%,transparent);background:color-mix(in srgb,var(--gold) 12%,var(--card))}
+.grid .cards{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media (max-width:1000px){.grid .cards{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:720px){.grid .cards{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.order.seg .label{flex-basis:100%;margin:0 0 2px}.order.seg button{padding:7px 12px;font-size:13px}}
 
 /* top bar: the Kana dropdown on wide screens (Hiragana, Katakana); phones show the two links in the ☰ menu instead */
 .kana-group{position:relative}
@@ -32786,15 +32796,8 @@ var MINNA = [
       num += pages.length;
       return html;
     }).join('') + notIn(mnIds, 'Not in Minna'));
-    var toc = INDEX.map(function(g){
-      return '<li class="tl"><a href="#' + lvId(g) + '">' + g.level + '</a></li>' + g.cats.map(function(c, i){
-        return c.pages.length ? '<li><a href="#' + catId(g, i) + '">' + c.cat + '</a></li>' : '';
-      }).join('');
-    }).join('');
-    grid.innerHTML = '<div class="rwrap"><div class="rcol">' + byLevel + jlab + minna + '<p class="empty gnone" hidden>No match.</p></div>' +
-      '<div class="side"><div class="order" role="group" aria-label="Card order"><p class="label">View</p><button type="button" data-o="level">By JLPT level</button><button type="button" data-o="jlab">Jlab Anki Deck</button><button type="button" data-o="minna">Minna No Nihongo</button></div>' +
-      '<nav class="toc" aria-label="On this page"><p class="label">Grammar</p><ul>' + toc + '</ul></nav>' +
-      '</div></div>';
+    grid.innerHTML = '<div class="order seg" role="group" aria-label="Card order"><span class="label">View</span><button type="button" data-o="level">By JLPT level</button><button type="button" data-o="jlab">Jlab Anki Deck</button><button type="button" data-o="minna">Minna No Nihongo</button></div>' +
+      '<div class="rcol">' + byLevel + jlab + minna + '<p class="empty gnone" hidden>No match.</p></div>';
     grid.querySelectorAll('.order button').forEach(function(b){ b.addEventListener('click', function(){ setOrder(b.getAttribute('data-o')); }); });
   });
   var setOrder = function(o){
@@ -32822,8 +32825,6 @@ var MINNA = [
     });
     grid.querySelectorAll('.cat').forEach(function(c){
       c.hidden = !c.querySelector('li:not([hidden])');
-      var link = grid.querySelector('.toc a[href="#' + c.id + '"]');
-      if (link) link.parentNode.hidden = c.hidden;
     });
     grid.querySelectorAll('.level').forEach(function(l){
       l.hidden = !l.querySelector('li:not([hidden])');

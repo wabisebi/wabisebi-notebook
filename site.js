@@ -427,15 +427,8 @@ var MINNA = [
       num += pages.length;
       return html;
     }).join('') + notIn(mnIds, 'Not in Minna'));
-    var toc = INDEX.map(function(g){
-      return '<li class="tl"><a href="#' + lvId(g) + '">' + g.level + '</a></li>' + g.cats.map(function(c, i){
-        return c.pages.length ? '<li><a href="#' + catId(g, i) + '">' + c.cat + '</a></li>' : '';
-      }).join('');
-    }).join('');
-    grid.innerHTML = '<div class="rwrap"><div class="rcol">' + byLevel + jlab + minna + '<p class="empty gnone" hidden>No match.</p></div>' +
-      '<div class="side"><div class="order" role="group" aria-label="Card order"><p class="label">View</p><button type="button" data-o="level">By JLPT level</button><button type="button" data-o="jlab">Jlab Anki Deck</button><button type="button" data-o="minna">Minna No Nihongo</button></div>' +
-      '<nav class="toc" aria-label="On this page"><p class="label">Grammar</p><ul>' + toc + '</ul></nav>' +
-      '</div></div>';
+    grid.innerHTML = '<div class="order seg" role="group" aria-label="Card order"><span class="label">View</span><button type="button" data-o="level">By JLPT level</button><button type="button" data-o="jlab">Jlab Anki Deck</button><button type="button" data-o="minna">Minna No Nihongo</button></div>' +
+      '<div class="rcol">' + byLevel + jlab + minna + '<p class="empty gnone" hidden>No match.</p></div>';
     grid.querySelectorAll('.order button').forEach(function(b){ b.addEventListener('click', function(){ setOrder(b.getAttribute('data-o')); }); });
   });
   var setOrder = function(o){
@@ -463,8 +456,6 @@ var MINNA = [
     });
     grid.querySelectorAll('.cat').forEach(function(c){
       c.hidden = !c.querySelector('li:not([hidden])');
-      var link = grid.querySelector('.toc a[href="#' + c.id + '"]');
-      if (link) link.parentNode.hidden = c.hidden;
     });
     grid.querySelectorAll('.level').forEach(function(l){
       l.hidden = !l.querySelector('li:not([hidden])');
