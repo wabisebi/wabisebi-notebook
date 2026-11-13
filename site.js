@@ -93,7 +93,7 @@ var INDEX = [
       ['amari', 'あまり～ない', 'Not very, not much'],
       ['zenzen', '全然～ない', 'Not at all'],
       ['itsumo', 'いつも・よく・時々', 'Always, often, sometimes'],
-      ['mou', 'もう', 'Already, not anymore'],
+      ['mou', 'もう', 'Already, soon, now (not anymore, with negative)'],
       ['mada', 'まだ', 'Still, not yet']
     ]},
     {cat: 'Verbs: basic forms', pages: [
@@ -192,7 +192,7 @@ var INDEX = [
   //   ]}
   // ]}
 ];
-var UPDATED = '12 Nov 2026';
+var UPDATED = '13 Nov 2026';
 // Extra search words for a page, for forms that live on it but aren't in its pattern (id: 'words').
 var ALSO = {'koto-ga-dekiru': 'できる できます dekiru can able', ndesu: 'んだ のだ の nda noda', tachi: '私たち 子どもたち', kurai: 'どのくらい', kekkou: '結構です'};
 // N5 points in the order they first come up in Jlab's beginner course (worked out from the Anki deck, so roughly right). Any N5 page not listed here shows under "Not in Jlab".
