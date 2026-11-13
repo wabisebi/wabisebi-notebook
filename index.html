@@ -133,16 +133,16 @@ h2::before{background:var(--gold);width:3px}
 .foot{font-family:var(--mono);font-size:12px}
 .xref{color:var(--gold);text-decoration:underline;text-underline-offset:3px}
 .xref:hover,.xref:focus-visible{color:var(--ink);outline:none}
-.use{align-self:flex-start;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gram);border:1px solid var(--card-line);border-radius:999px;padding:1px 9px;margin-top:6px}
+.use{align-self:flex-start;font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--gram);border:1px solid var(--card-line);border-radius:999px;padding:1px 9px;margin-top:6px}
 .scene .note{margin:4px 0 0;font-size:14px;color:var(--muted)}
 
 /* sentence mining: lighter boxes with a screenshot, source, sentence and audio */
 .mines{display:grid;gap:12px}
 .mine{background:var(--mine);border:1px solid var(--mine-line);border-radius:10px;padding:16px 18px;display:flex;flex-direction:column;gap:4px}
-.mine img{display:block;width:100%;max-width:420px;height:auto;border-radius:6px}
+.mine img{display:block;width:100%;max-width:100%;height:auto;border-radius:6px}
 /* empty spot for a card that has no picture (some Core cards) */
 .mine .noimg{width:100%;max-width:420px;aspect-ratio:16/9;border:1px dashed var(--mine-line);border-radius:6px}
-.mine .src{margin:6px 0 8px;font-family:var(--mono);font-size:11.5px;letter-spacing:.04em;color:var(--muted)}
+.mine .src{margin:6px 0 8px;font-family:var(--mono);font-size:12.5px;letter-spacing:.04em;color:var(--muted)}
 .mine .line{display:flex;align-items:center;gap:10px}
 .mine .jp{font-size:22px;font-weight:700;margin:0;line-height:1.4}
 .mine .en{margin:0;font-weight:500}
@@ -240,8 +240,8 @@ main:has(.home:not([hidden])) .foot{max-width:1080px}
 
 /* lead card: one tiny real clip right under the title, so the point lands before any explanation */
 .lead{background:var(--mine);border:1px solid var(--mine-line);border-radius:10px;padding:18px 20px;display:flex;flex-direction:column;gap:6px}
-.lead img{display:block;width:100%;max-width:480px;height:auto;border-radius:6px}
-.lead .src{margin:4px 0 6px;font-family:var(--mono);font-size:11.5px;letter-spacing:.04em;color:var(--muted)}
+.lead img{display:block;width:100%;max-width:100%;height:auto;border-radius:6px}
+.lead .src{margin:4px 0 6px;font-family:var(--mono);font-size:12.5px;letter-spacing:.04em;color:var(--muted)}
 .lead .line{display:flex;align-items:center;gap:12px}
 .lead .jp{font-size:34px;font-weight:700;margin:0;line-height:1.3}
 .lead .en{margin:0;font-size:19px;font-weight:500}
@@ -256,6 +256,18 @@ main:has(.home:not([hidden])) .foot{max-width:1080px}
 .lead .use{margin:0 0 8px}
 /* second intro card: the other form (polite/casual), kept short */
 .lead.second .jp{font-size:26px}
+/* phones: smaller lead sentence, play button stays on the first line */
+@media (max-width:520px){
+  /* less padding from the screen edge to the text: page, sheet and card each took their own share */
+  article.has-back{padding-left:10px;padding-right:10px}
+  article.has-back .head{margin-left:-10px;margin-right:-10px;padding-left:14px;padding-right:14px}
+  .lead{padding:14px 12px}
+  .lead .line{align-items:flex-start;gap:10px}
+  .lead .line .play{margin-top:12px}
+  .lead .jp,.lead.second .jp{font-size:24px;line-height:1.45}
+  .lead .en{font-size:17px}
+  .lead .jp mark.g{white-space:nowrap}   /* never split the grammar itself across two lines */
+}
 
 /* Conjugation chart (u-verb page): dictionary form → ます form, one row per ending */
 .chart{background:var(--card);border:1px solid var(--card-line);border-radius:10px;padding:4px 16px}
