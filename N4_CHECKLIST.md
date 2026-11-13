@@ -64,21 +64,21 @@ Categories marked *(new)* aren't on the site yet. They get added to `INDEX` when
 - [x] ～ように: so that
 - [x] ～のに (purpose): for, in order to
 
-## If and when *(new)*
-- [ ] ～たら: if, when
-- [ ] ～ば: if (conditional form)
-- [ ] ～と: whenever, if (always happens)
-- [ ] ～なら: if that's the case
+## If and when
+- [x] ～たら: if, when
+- [x] ～ば: if (conditional form)
+- [x] ～と: whenever, if (always happens)
+- [x] ～なら: if that's the case
 
-## Time *(new)*
-- [ ] ～ところ: about to, in the middle of, just did
-- [ ] ～たばかり: just did
-- [ ] ～間・～間に: while, during
-- [ ] ～うちに: while (before it changes)
-- [ ] ～たまま: leaving as it is
-- [ ] ～始める・～出す: start doing
-- [ ] ～終わる: finish doing
-- [ ] ～続ける: keep doing
+## Time
+- [x] ～ところ: about to, in the middle of, just did
+- [x] ～たばかり: just did
+- [x] ～間・～間に: while, during
+- [x] ～うちに: while (before it changes)
+- [x] ～たまま: leaving as it is
+- [x] ～始める・～出す: start doing
+- [x] ～終わる: finish doing
+- [x] ～続ける: keep doing
 
 ## Verb forms *(new)*
 - [ ] Potential form: can (食べられる, 書ける)
