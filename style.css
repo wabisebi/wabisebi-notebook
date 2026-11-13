@@ -850,6 +850,7 @@ a.ft.neg:hover{border-color:var(--gold)}
 .kg{--pixel:"DotGothic16",var(--mono);position:relative;width:100%;box-sizing:border-box;max-width:900px;margin:18px auto 26px;background:var(--card);border:1px solid var(--card-line);border-radius:18px 18px 34px 34px;padding:10px 18px 20px;box-shadow:0 1px 2px var(--shadow-soft),0 14px 34px -18px var(--shadow)}
 .kg-top{display:flex;align-items:center;gap:14px;margin:0 12px;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding:2px 4px 10px}
 .kg-brand{font-weight:500;color:var(--gram)}
+.kg-ver{text-transform:none}
 /* one power light at the top right, nothing else on the case */
 .kg-pwr{margin-left:auto;width:8px;height:8px;border-radius:50%;background:var(--polite)}
 .kg-body{display:grid;grid-template-columns:150px minmax(0,1fr) 140px;grid-template-areas:"modes screen pad";gap:18px}
