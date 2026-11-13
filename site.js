@@ -935,7 +935,7 @@ var MINNA = [
       kanaEl.classList.remove('pop'); void kanaEl.offsetWidth; kanaEl.classList.add('pop');
       screen.classList.remove('bad');
       msg.classList.remove('blink');
-      msg.textContent = note || 'Type the romaji · Enter skips';
+      msg.textContent = note || 'Type the romaji';
       input.value = ''; focus();
     }
     function judge(ok){
@@ -948,7 +948,7 @@ var MINNA = [
       } else {
         streak = 0; waiting = true;
         screen.classList.remove('bad'); void screen.offsetWidth; screen.classList.add('bad');
-        msg.innerHTML = 'It is <b>' + cur[1] + '</b>' + (DU[cur[0]] ? ' (or <b>' + DU[cur[0]] + '</b>)' : '') + ' · press Enter';
+        msg.innerHTML = 'It is <b>' + cur[1] + '</b>' + (DU[cur[0]] ? ' (or <b>' + DU[cur[0]] + '</b>)' : '') + ' · press A';
         msg.classList.add('blink');
         if (!again.some(function(x){ return x[0] === cur[0]; })) again.push(cur);
       }
@@ -957,13 +957,17 @@ var MINNA = [
     function enter(){
       if (waiting) { next(); return; }
       var v = input.value.trim().toLowerCase();
-      judge(!!v && answers(cur).indexOf(v) >= 0);   // Enter on an empty line skips: shows the answer
+      if (v) judge(answers(cur).indexOf(v) >= 0);
     }
     input.addEventListener('input', function(){
       if (waiting) return;
       if (answers(cur).indexOf(input.value.trim().toLowerCase()) >= 0) judge(true);
     });
     input.addEventListener('keydown', function(e){ if (e.key === 'Enter') { e.preventDefault(); enter(); } });
+    // A and B: keep the keyboard up on phones by not taking focus from the input
+    kg.querySelectorAll('.kg-btn').forEach(function(b){ b.addEventListener('mousedown', function(e){ e.preventDefault(); }); });
+    q('.kg-btn.a').addEventListener('click', enter);
+    q('.kg-btn.b').addEventListener('click', function(){ if (waiting) next(); else judge(false); });
     kg.querySelectorAll('.kg-mode').forEach(function(b){
       b.addEventListener('click', function(){
         var s = b.dataset.set;

@@ -880,10 +880,14 @@ a.ft.neg:hover{border-color:var(--gold)}
 .kg-msg b{font-weight:400;color:var(--gold)}
 .kg-msg.blink{animation:scope-blink 1.1s steps(1) infinite}
 .kg-pad{grid-area:pad;display:flex;flex-direction:column;align-items:center;gap:26px;padding:22px 0 6px}
-/* two plain circles where a handheld has its A/B buttons: decoration only (Seb, 13 Nov 2026), no text, no hover */
-.kg-ab{display:flex;align-items:flex-start;gap:14px;transform:rotate(-18deg);pointer-events:none}
-.kg-ab i{width:46px;height:46px;border-radius:50%;background:var(--paper);border:1px solid var(--card-line);box-shadow:0 3px 0 var(--card-line)}
-.kg-ab i:first-child{margin-top:24px}
+.kg-ab{display:flex;align-items:flex-start;gap:12px;transform:rotate(-18deg)}
+.kg-btn{display:flex;flex-direction:column;align-items:center;gap:6px;background:none;border:0;padding:0;cursor:pointer;font:inherit;color:var(--muted)}
+.kg-btn.b{margin-top:24px}
+.kg-btn .r{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;font-family:var(--mono);font-weight:500;font-size:16px;color:var(--ink);background:var(--paper);border:1px solid var(--card-line);box-shadow:0 3px 0 var(--card-line)}
+.kg-btn.a .r{color:var(--gold);background:color-mix(in srgb,var(--gold) 16%,var(--paper));border-color:color-mix(in srgb,var(--gold) 55%,transparent)}
+.kg-btn:hover .r{border-color:var(--gold)}
+.kg-btn:active .r{transform:translateY(3px);box-shadow:none}
+.kg-btn small{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase}
 .kg-speaker{width:70px;height:56px;margin-top:auto;background:radial-gradient(circle,var(--card-line) 2.2px,transparent 2.8px) 0 0/12px 12px;transform:rotate(-18deg);pointer-events:none}
 .kg-carts{margin-top:16px;padding-top:12px;border-top:1px solid var(--card-line)}
 .kg-cart-row{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px;margin-top:8px}
