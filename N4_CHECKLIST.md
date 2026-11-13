@@ -115,23 +115,23 @@ Categories marked *(new)* aren't on the site yet. They get added to `INDEX` when
 - [x] ～ことになる: it's been decided that
 - [x] ～ことがある: there are times when
 
-## Easy, hard, how to *(new)*
-- [ ] ～やすい: easy to
-- [ ] ～にくい: hard to
-- [ ] ～方: how to (作り方)
-- [ ] ～さ: adjective to noun (高さ)
-- [ ] ～がる: someone else seems to feel (寒がる)
-- [ ] ～たがる: (someone else) wants to
+## Easy, hard, how to
+- [x] ～やすい: easy to
+- [x] ～にくい: hard to
+- [x] ～方: how to (作り方)
+- [x] ～さ: adjective to noun (高さ)
+- [x] ～がる: someone else seems to feel (寒がる)
+- [x] ～たがる: (someone else) wants to
 
-## Quoting and asking *(new)*
-- [ ] という: called, named
-- [ ] ～ということ: the fact that, that means
-- [ ] ～か (inside a sentence): (I don't know) when, what
-- [ ] ～かどうか: whether or not
-- [ ] ～ように言う: tell someone to
+## Quoting and asking
+- [x] という: called, named
+- [x] ～ということ: the fact that, that means
+- [x] ～か (inside a sentence): (I don't know) when, what
+- [x] ～かどうか: whether or not
+- [x] ～ように言う: tell someone to
 
-## Turning into a noun *(new)*
-- [ ] ～こと: doing X (as a thing)
+## Turning into a noun
+- [x] ～こと: doing X (as a thing)
 
 ## Polite speech (Keigo) *(new)*
 - [ ] Respectful verbs: いらっしゃる, おっしゃる, 召し上がる
