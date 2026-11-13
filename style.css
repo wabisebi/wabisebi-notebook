@@ -796,8 +796,8 @@ a.ft.neg:hover{border-color:var(--gold)}
 }
 
 /* Oscilloscope conjugator (13 Nov 2026): the conjugator sits inside a device: bezel, gridded screen, side panel */
-.scope{max-width:860px;margin-top:18px;background:var(--card);border:1px solid var(--card-line);border-radius:16px;padding:10px 14px 14px;box-shadow:0 1px 2px var(--shadow-soft),0 14px 34px -18px var(--shadow)}
-.scope-top{display:flex;align-items:center;gap:14px;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding:2px 4px 10px}
+.scope{position:relative;max-width:860px;margin:18px 0 26px;background:var(--card);border:1px solid var(--card-line);border-radius:16px;padding:10px 14px 14px;box-shadow:0 1px 2px var(--shadow-soft),0 14px 34px -18px var(--shadow)}
+.scope-top{display:flex;align-items:center;gap:14px;margin:0 12px;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding:2px 4px 10px}
 .scope-brand{font-weight:500;color:var(--gram)}
 .scope-run{margin-left:auto;display:flex;align-items:center;gap:6px}
 .scope-run i{width:7px;height:7px;border-radius:50%;background:var(--polite);animation:scope-blink 1.6s steps(1) infinite}
@@ -807,15 +807,7 @@ a.ft.neg:hover{border-color:var(--gold)}
   background-image:linear-gradient(color-mix(in srgb,var(--gram) 9%,transparent) 1px,transparent 1px),linear-gradient(90deg,color-mix(in srgb,var(--gram) 9%,transparent) 1px,transparent 1px);
   background-size:32px 32px;background-position:-1px -1px}
 .scope-status{display:flex;flex-wrap:wrap;gap:4px 18px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--muted)}
-.scope-status b{font-weight:500}
-.scope-status .p{color:var(--polite)}
-.scope-status .c{color:var(--gram)}
-.scope-n{margin-left:auto}
-.scope-wave{display:block;width:100%;height:40px;margin:4px 0 6px;overflow:hidden}
-.scope-wave path{fill:none;stroke:var(--gram);stroke-width:2;vector-effect:non-scaling-stroke;stroke-linejoin:round;animation:scope-scroll 7s linear infinite}
-.scope-wave path.sweep{stroke-dasharray:1;animation:scope-sweep 1.4s ease-out,scope-scroll 7s linear infinite}
-@keyframes scope-sweep{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
-@keyframes scope-scroll{to{transform:translateX(-800px)}}
+.scope-n{margin-left:auto;margin-bottom:6px}
 .scope-screen .conj-q{background:color-mix(in srgb,var(--paper) 80%,transparent);border-color:color-mix(in srgb,var(--gram) 35%,transparent)}
 .scope-screen .conj-q:focus{border-color:var(--gold)}
 .scope-screen .forms{background:color-mix(in srgb,var(--paper) 78%,transparent);border-color:color-mix(in srgb,var(--gram) 28%,transparent)}
@@ -836,4 +828,11 @@ a.ft.neg:hover{border-color:var(--gold)}
   .scope-screen{padding:8px 10px 14px}
   .scope-model{display:none}
 }
-@media (prefers-reduced-motion:reduce){.scope-run i,.scope-wave path,.scope-wave path.sweep{animation:none}}
+@media (prefers-reduced-motion:reduce){.scope-run i{animation:none}}
+/* Casing details: decoration only, low contrast, no hover, so they never look clickable */
+.screw{position:absolute;width:10px;height:10px;border-radius:50%;border:1px solid color-mix(in srgb,var(--muted) 55%,transparent);background:linear-gradient(45deg,transparent 40%,color-mix(in srgb,var(--muted) 70%,transparent) 40% 60%,transparent 60%),var(--paper);pointer-events:none}
+.screw.tl{top:7px;left:7px}.screw.tr{top:7px;right:7px}.screw.bl{bottom:4px;left:7px}.screw.br{bottom:4px;right:7px}
+.scope::before,.scope::after{content:"";position:absolute;bottom:-9px;width:54px;height:8px;border-radius:0 0 6px 6px;background:color-mix(in srgb,var(--muted) 40%,var(--card-line));pointer-events:none}
+.scope::before{left:44px}.scope::after{right:44px}
+.scope-vents{width:64px;height:84px;background:repeating-linear-gradient(var(--card-line) 0 2px,transparent 2px 9px);border-radius:2px;opacity:.8;pointer-events:none}
+@media (max-width:720px){.scope-vents{display:none}.scope{margin-bottom:22px}.screw.bl,.screw.br{bottom:3px}}
