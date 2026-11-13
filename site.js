@@ -122,7 +122,7 @@ var INDEX = [
       ['kute-de', '～くて・～で', 'And: joining adjectives and nouns'],
       ['te-kudasai', '～てください', 'Please do (request)'],
       ['naide-kudasai', '～ないでください', 'Please don\'t'],
-      ['teiru', '～ている (Doing now)', 'Is ___ing'],
+      ['teiru', '～ている (Doing now)', 'Ongoing action'],
       ['teiru-state', '～ている (State)', 'Lives in, is married: a state that lasts'],
       ['teiru-habit', '～ている (Habit)', 'Things you do regularly'],
       ['mada-teinai', 'まだ～ていない', 'Haven\'t done it yet'],
