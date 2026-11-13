@@ -99,7 +99,7 @@ Categories marked *(new)* aren't on the site yet. They get added to `INDEX` when
 - [x] ～てほしい: want someone to
 - [x] ～てもかまわない: it's fine if
 - [x] ～なくてもいい: don't have to
-- [ ] ～なければならない・～なくちゃ: must (check the N5 page なくてはいけない first, it may belong there)
+- [x] ～なければならない・～なくちゃ: must (on the N5 page なくてはいけない, 14 Nov 2026)
 
 ## Asking and giving
 - [x] ～てくれませんか・～てもらえませんか: could you?
