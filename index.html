@@ -139,7 +139,7 @@ h2::before{background:var(--gold);width:3px}
 /* sentence mining: lighter boxes with a screenshot, source, sentence and audio */
 .mines{display:grid;gap:12px}
 .mine{background:var(--mine);border:1px solid var(--mine-line);border-radius:10px;padding:16px 18px;display:flex;flex-direction:column;gap:4px}
-.mine img{display:block;width:100%;max-width:100%;height:auto;border-radius:6px}
+.mine img{display:block;width:100%;max-width:420px;height:auto;border-radius:6px}
 /* empty spot for a card that has no picture (some Core cards) */
 .mine .noimg{width:100%;max-width:420px;aspect-ratio:16/9;border:1px dashed var(--mine-line);border-radius:6px}
 .mine .src{margin:6px 0 8px;font-family:var(--mono);font-size:12.5px;letter-spacing:.04em;color:var(--muted)}
@@ -240,7 +240,7 @@ main:has(.home:not([hidden])) .foot{max-width:1080px}
 
 /* lead card: one tiny real clip right under the title, so the point lands before any explanation */
 .lead{background:var(--mine);border:1px solid var(--mine-line);border-radius:10px;padding:18px 20px;display:flex;flex-direction:column;gap:6px}
-.lead img{display:block;width:100%;max-width:100%;height:auto;border-radius:6px}
+.lead img{display:block;width:100%;max-width:480px;height:auto;border-radius:6px}
 .lead .src{margin:4px 0 6px;font-family:var(--mono);font-size:12.5px;letter-spacing:.04em;color:var(--muted)}
 .lead .line{display:flex;align-items:center;gap:12px}
 .lead .jp{font-size:34px;font-weight:700;margin:0;line-height:1.3}
@@ -855,14 +855,12 @@ a.ft.neg:hover{border-color:var(--gold)}
 @media (max-width:720px){.scope-leds{gap:10px}.led.pwr{display:none}}
 @media (prefers-reduced-motion:reduce){.led.run i,.scope-cur{animation:none}}
 /* Kana Game console (13 Nov 2026): a retro handheld. Mode buttons left, LCD screen middle, A/B right, six font cartridges under it.
-   Every button works; screws, speaker grille and lights are decoration only (low contrast, no hover). Shares .screw, .led and scope-blink with the conjugator */
+   Every button works; the speaker grille and the power light are decoration only (no hover). Shares scope-blink with the conjugator */
 .kg{--pixel:"DotGothic16",var(--mono);position:relative;width:100%;box-sizing:border-box;max-width:900px;margin:18px auto 26px;background:var(--card);border:1px solid var(--card-line);border-radius:18px 18px 34px 34px;padding:10px 18px 20px;box-shadow:0 1px 2px var(--shadow-soft),0 14px 34px -18px var(--shadow)}
 .kg-top{display:flex;align-items:center;gap:14px;margin:0 12px;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding:2px 4px 10px}
 .kg-brand{font-weight:500;color:var(--gram)}
-.kg-leds{margin-left:auto;display:flex;gap:14px}
-.led.kg-hit i,.led.kg-miss i{transition:background .3s}
-.led.kg-hit.hit i{background:var(--polite);transition:none}
-.led.kg-miss.hit i{background:var(--shu);transition:none}
+/* one power light at the top right, nothing else on the case */
+.kg-pwr{margin-left:auto;width:8px;height:8px;border-radius:50%;background:var(--polite)}
 .kg-body{display:grid;grid-template-columns:150px minmax(0,1fr) 140px;grid-template-areas:"modes screen pad";gap:18px}
 .kg-lbl{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 2px}
 .kg-modes{grid-area:modes;display:flex;flex-direction:column;gap:9px;padding:12px 0}
@@ -890,16 +888,11 @@ a.ft.neg:hover{border-color:var(--gold)}
 .kg-msg{font-family:var(--pixel);font-size:14px;letter-spacing:.04em;color:var(--polite);min-height:1.5em;margin:12px 0 8px;text-align:center}
 .kg-msg b{font-weight:400;color:var(--gold)}
 .kg-msg.blink{animation:scope-blink 1.1s steps(1) infinite}
-.kg-font{margin:auto 0 0;font-family:var(--pixel);font-size:11px;letter-spacing:.08em;color:var(--muted)}
 .kg-pad{grid-area:pad;display:flex;flex-direction:column;align-items:center;gap:26px;padding:22px 0 6px}
-.kg-ab{display:flex;align-items:flex-start;gap:12px;transform:rotate(-18deg)}
-.kg-btn{display:flex;flex-direction:column;align-items:center;gap:6px;background:none;border:0;padding:0;cursor:pointer;font:inherit;color:var(--muted)}
-.kg-btn.b{margin-top:24px}
-.kg-btn .r{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;font-family:var(--mono);font-weight:500;font-size:16px;color:var(--ink);background:var(--paper);border:1px solid var(--card-line);box-shadow:0 3px 0 var(--card-line)}
-.kg-btn.a .r{color:var(--gold);background:color-mix(in srgb,var(--gold) 16%,var(--paper));border-color:color-mix(in srgb,var(--gold) 55%,transparent)}
-.kg-btn:hover .r{border-color:var(--gold)}
-.kg-btn:active .r{transform:translateY(3px);box-shadow:none}
-.kg-btn small{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+/* two plain circles where a handheld has its A/B buttons: decoration only (Seb, 13 Nov 2026), no text, no hover */
+.kg-ab{display:flex;align-items:flex-start;gap:14px;transform:rotate(-18deg);pointer-events:none}
+.kg-ab i{width:46px;height:46px;border-radius:50%;background:var(--paper);border:1px solid var(--card-line);box-shadow:0 3px 0 var(--card-line)}
+.kg-ab i:first-child{margin-top:24px}
 .kg-speaker{width:70px;height:56px;margin-top:auto;background:radial-gradient(circle,var(--card-line) 2.2px,transparent 2.8px) 0 0/12px 12px;transform:rotate(-18deg);pointer-events:none}
 .kg-carts{margin-top:16px;padding-top:12px;border-top:1px solid var(--card-line)}
 .kg-cart-row{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px;margin-top:8px}
@@ -912,8 +905,6 @@ a.ft.neg:hover{border-color:var(--gold)}
 .kg-cart[aria-pressed="false"] .k{opacity:.35}
 @media (max-width:720px){
   .kg{padding:8px 10px 16px;border-radius:14px 14px 26px 26px}
-  .kg-model{display:none}
-  .kg-leds{gap:10px}
   .kg-body{grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"screen screen" "modes pad";gap:12px}
   .kg-bezel{padding:8px;border-radius:10px 10px 20px 10px}
   .kg-screen{min-height:230px;padding:8px 10px}
@@ -923,7 +914,6 @@ a.ft.neg:hover{border-color:var(--gold)}
   .kg-pad{padding:14px 6px 0}
   .kg-speaker{display:none}
   .kg-cart-row{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
-  .screw.bl,.screw.br{bottom:3px}
 }
 @media (prefers-reduced-motion:reduce){.kg-kana.pop,.kg-screen.bad .kg-kana,.kg-msg.blink{animation:none}}
 /* Kana Game title: centered over the console, in the same soft pixel font as the screen (loaded with the game's fonts, no extra download) */
@@ -29505,8 +29495,7 @@ a.ft.neg:hover{border-color:var(--gold)}
     <section class="home" id="kana-game" data-page hidden>
       <div class="home-head"><h1>Kana Game</h1></div>
       <div class="kg">
-        <i class="screw tl" aria-hidden="true"></i><i class="screw tr" aria-hidden="true"></i><i class="screw bl" aria-hidden="true"></i><i class="screw br" aria-hidden="true"></i>
-        <div class="kg-top"><span class="kg-brand">WABISEBI</span><span class="kg-model">KG-6 · Kana Game</span><span class="kg-leds" aria-hidden="true"><span class="led pwr"><i></i>PWR</span><span class="led kg-hit"><i></i>HIT</span><span class="led kg-miss"><i></i>MISS</span></span></div>
+        <div class="kg-top"><span class="kg-brand">WABISEBI</span><span class="kg-pwr" aria-hidden="true"></span></div>
         <div class="kg-body">
           <div class="kg-modes" role="group" aria-label="What to practise">
             <small class="kg-lbl">Mode</small>
@@ -29520,15 +29509,11 @@ a.ft.neg:hover{border-color:var(--gold)}
               <div class="kg-hud"><span>SCORE <b class="kg-score">0/0</b></span><span>STREAK <b class="kg-streak">0</b></span><span>BEST <b class="kg-best">0</b></span></div>
               <div class="kg-kana" lang="ja">あ</div>
               <label class="kg-line"><span aria-hidden="true">&gt;</span><input class="kg-input" type="text" inputmode="latin" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="romaji" aria-label="Type the romaji"></label>
-              <p class="kg-msg" aria-live="polite">Type the romaji</p>
-              <p class="kg-font"></p>
+              <p class="kg-msg" aria-live="polite">Type the romaji · Enter skips</p>
             </div>
           </div>
           <div class="kg-pad">
-            <div class="kg-ab">
-              <button class="kg-btn b" type="button" aria-label="Skip: show the answer"><span class="r">B</span><small>Skip</small></button>
-              <button class="kg-btn a" type="button" aria-label="Enter: check, or next kana"><span class="r">A</span><small>Enter</small></button>
-            </div>
+            <div class="kg-ab" aria-hidden="true"><i></i><i></i></div>
             <div class="kg-speaker" aria-hidden="true"></div>
           </div>
         </div>
@@ -33857,8 +33842,8 @@ var MINNA = [
     function save(){ try { localStorage.setItem(SAVE, JSON.stringify(st)); } catch (err) {} }
 
     var q = function(s){ return kg.querySelector(s); };
-    var screen = q('.kg-screen'), kanaEl = q('.kg-kana'), input = q('.kg-input'), msg = q('.kg-msg'), fontEl = q('.kg-font');
-    var scoreEl = q('.kg-score'), streakEl = q('.kg-streak'), bestEl = q('.kg-best'), hitLed = q('.kg-hit'), missLed = q('.kg-miss');
+    var screen = q('.kg-screen'), kanaEl = q('.kg-kana'), input = q('.kg-input'), msg = q('.kg-msg');
+    var scoreEl = q('.kg-score'), streakEl = q('.kg-streak'), bestEl = q('.kg-best');
     var cur = null, last = null, waiting = false, right = 0, total = 0, streak = 0, again = [], okT;
 
     // font cartridges: real toggles, at least one stays in
@@ -33891,7 +33876,6 @@ var MINNA = [
     }
     function focus(){ if (window.matchMedia('(hover:hover)').matches) input.focus({preventScroll: true}); }
     function hud(){ scoreEl.textContent = right + '/' + total; streakEl.textContent = streak; bestEl.textContent = st.best; }
-    function led(el){ el.classList.add('hit'); clearTimeout(el.t); el.t = setTimeout(function(){ el.classList.remove('hit'); }, 260); }
     function next(note){
       var p = pool(), pick;
       // a missed kana comes back after a few others
@@ -33901,10 +33885,9 @@ var MINNA = [
       var f = FONTS[st.fonts[Math.floor(Math.random() * st.fonts.length)]];
       kanaEl.textContent = pick[0]; kanaEl.style.fontFamily = f.f; kanaEl.style.fontWeight = f.w;
       kanaEl.classList.remove('pop'); void kanaEl.offsetWidth; kanaEl.classList.add('pop');
-      fontEl.textContent = 'FONT · ' + f.l.toUpperCase();
       screen.classList.remove('bad');
       msg.classList.remove('blink');
-      msg.textContent = note || 'Type the romaji';
+      msg.textContent = note || 'Type the romaji · Enter skips';
       input.value = ''; focus();
     }
     function judge(ok){
@@ -33912,13 +33895,12 @@ var MINNA = [
       if (ok) {
         right++; streak++;
         if (streak > st.best) { st.best = streak; save(); }
-        led(hitLed);
         next(streak % 10 === 0 ? 'COMBO x' + streak + '!' : '');
         screen.classList.add('ok'); clearTimeout(okT); okT = setTimeout(function(){ screen.classList.remove('ok'); }, 220);
       } else {
-        streak = 0; waiting = true; led(missLed);
+        streak = 0; waiting = true;
         screen.classList.remove('bad'); void screen.offsetWidth; screen.classList.add('bad');
-        msg.innerHTML = 'It is <b>' + cur[1] + '</b>' + (DU[cur[0]] ? ' (or <b>' + DU[cur[0]] + '</b>)' : '') + ' · press A';
+        msg.innerHTML = 'It is <b>' + cur[1] + '</b>' + (DU[cur[0]] ? ' (or <b>' + DU[cur[0]] + '</b>)' : '') + ' · press Enter';
         msg.classList.add('blink');
         if (!again.some(function(x){ return x[0] === cur[0]; })) again.push(cur);
       }
@@ -33927,17 +33909,13 @@ var MINNA = [
     function enter(){
       if (waiting) { next(); return; }
       var v = input.value.trim().toLowerCase();
-      if (v) judge(answers(cur).indexOf(v) >= 0);
+      judge(!!v && answers(cur).indexOf(v) >= 0);   // Enter on an empty line skips: shows the answer
     }
     input.addEventListener('input', function(){
       if (waiting) return;
       if (answers(cur).indexOf(input.value.trim().toLowerCase()) >= 0) judge(true);
     });
     input.addEventListener('keydown', function(e){ if (e.key === 'Enter') { e.preventDefault(); enter(); } });
-    // A and B: keep the keyboard up on phones by not taking focus from the input
-    kg.querySelectorAll('.kg-btn').forEach(function(b){ b.addEventListener('mousedown', function(e){ e.preventDefault(); }); });
-    q('.kg-btn.a').addEventListener('click', enter);
-    q('.kg-btn.b').addEventListener('click', function(){ if (waiting) next(); else judge(false); });
     kg.querySelectorAll('.kg-mode').forEach(function(b){
       b.addEventListener('click', function(){
         var s = b.dataset.set;

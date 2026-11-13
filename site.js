@@ -890,8 +890,8 @@ var MINNA = [
     function save(){ try { localStorage.setItem(SAVE, JSON.stringify(st)); } catch (err) {} }
 
     var q = function(s){ return kg.querySelector(s); };
-    var screen = q('.kg-screen'), kanaEl = q('.kg-kana'), input = q('.kg-input'), msg = q('.kg-msg'), fontEl = q('.kg-font');
-    var scoreEl = q('.kg-score'), streakEl = q('.kg-streak'), bestEl = q('.kg-best'), hitLed = q('.kg-hit'), missLed = q('.kg-miss');
+    var screen = q('.kg-screen'), kanaEl = q('.kg-kana'), input = q('.kg-input'), msg = q('.kg-msg');
+    var scoreEl = q('.kg-score'), streakEl = q('.kg-streak'), bestEl = q('.kg-best');
     var cur = null, last = null, waiting = false, right = 0, total = 0, streak = 0, again = [], okT;
 
     // font cartridges: real toggles, at least one stays in
@@ -924,7 +924,6 @@ var MINNA = [
     }
     function focus(){ if (window.matchMedia('(hover:hover)').matches) input.focus({preventScroll: true}); }
     function hud(){ scoreEl.textContent = right + '/' + total; streakEl.textContent = streak; bestEl.textContent = st.best; }
-    function led(el){ el.classList.add('hit'); clearTimeout(el.t); el.t = setTimeout(function(){ el.classList.remove('hit'); }, 260); }
     function next(note){
       var p = pool(), pick;
       // a missed kana comes back after a few others
@@ -934,10 +933,9 @@ var MINNA = [
       var f = FONTS[st.fonts[Math.floor(Math.random() * st.fonts.length)]];
       kanaEl.textContent = pick[0]; kanaEl.style.fontFamily = f.f; kanaEl.style.fontWeight = f.w;
       kanaEl.classList.remove('pop'); void kanaEl.offsetWidth; kanaEl.classList.add('pop');
-      fontEl.textContent = 'FONT · ' + f.l.toUpperCase();
       screen.classList.remove('bad');
       msg.classList.remove('blink');
-      msg.textContent = note || 'Type the romaji';
+      msg.textContent = note || 'Type the romaji · Enter skips';
       input.value = ''; focus();
     }
     function judge(ok){
@@ -945,13 +943,12 @@ var MINNA = [
       if (ok) {
         right++; streak++;
         if (streak > st.best) { st.best = streak; save(); }
-        led(hitLed);
         next(streak % 10 === 0 ? 'COMBO x' + streak + '!' : '');
         screen.classList.add('ok'); clearTimeout(okT); okT = setTimeout(function(){ screen.classList.remove('ok'); }, 220);
       } else {
-        streak = 0; waiting = true; led(missLed);
+        streak = 0; waiting = true;
         screen.classList.remove('bad'); void screen.offsetWidth; screen.classList.add('bad');
-        msg.innerHTML = 'It is <b>' + cur[1] + '</b>' + (DU[cur[0]] ? ' (or <b>' + DU[cur[0]] + '</b>)' : '') + ' · press A';
+        msg.innerHTML = 'It is <b>' + cur[1] + '</b>' + (DU[cur[0]] ? ' (or <b>' + DU[cur[0]] + '</b>)' : '') + ' · press Enter';
         msg.classList.add('blink');
         if (!again.some(function(x){ return x[0] === cur[0]; })) again.push(cur);
       }
@@ -960,17 +957,13 @@ var MINNA = [
     function enter(){
       if (waiting) { next(); return; }
       var v = input.value.trim().toLowerCase();
-      if (v) judge(answers(cur).indexOf(v) >= 0);
+      judge(!!v && answers(cur).indexOf(v) >= 0);   // Enter on an empty line skips: shows the answer
     }
     input.addEventListener('input', function(){
       if (waiting) return;
       if (answers(cur).indexOf(input.value.trim().toLowerCase()) >= 0) judge(true);
     });
     input.addEventListener('keydown', function(e){ if (e.key === 'Enter') { e.preventDefault(); enter(); } });
-    // A and B: keep the keyboard up on phones by not taking focus from the input
-    kg.querySelectorAll('.kg-btn').forEach(function(b){ b.addEventListener('mousedown', function(e){ e.preventDefault(); }); });
-    q('.kg-btn.a').addEventListener('click', enter);
-    q('.kg-btn.b').addEventListener('click', function(){ if (waiting) next(); else judge(false); });
     kg.querySelectorAll('.kg-mode').forEach(function(b){
       b.addEventListener('click', function(){
         var s = b.dataset.set;
