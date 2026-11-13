@@ -158,7 +158,6 @@ h2::before{background:var(--gold);width:3px}
 .lvl-note.welcome p{font-size:16px;color:var(--ink)}
 .lvl-note.welcome p+p{margin-top:8px}
 .lvl-note p.label{margin-bottom:6px;color:var(--n3)}
-.lvl-note.lists{max-width:none;margin:0}   /* Grammar page: same width as the grid under it */
 .home h1{font-family:var(--body);font-weight:600;font-size:clamp(30px,5.5vw,40px);letter-spacing:-.01em;line-height:1.15;margin:4px 0 0}
 .level + .level{margin-top:28px}
 .level{background:var(--sheet);border:1px solid var(--line);border-radius:10px;overflow:hidden}
