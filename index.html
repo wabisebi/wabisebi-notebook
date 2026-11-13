@@ -842,7 +842,7 @@ a.ft.neg:hover{border-color:var(--gold)}
 .scope::before{left:44px}.scope::after{right:44px}
 .scope-vents{width:64px;height:84px;background:repeating-linear-gradient(var(--card-line) 0 2px,transparent 2px 9px);border-radius:2px;opacity:.8;pointer-events:none}
 @media (max-width:720px){.scope-vents{display:none}.scope{margin-bottom:22px}.screw.bl,.screw.br{bottom:3px}}
-/* Status lights and meter: indicators only (small, no hover). PWR steady, RUN blinks, TRIG flashes on each keystroke (site.js), the meter flickers */
+/* Status lights and meter: indicators only (small, no hover). PWR steady, RUN blinks, TRIG flashes on each keystroke (site.js) */
 .scope-leds{margin-left:auto;display:flex;gap:14px}
 .led{display:flex;align-items:center;gap:6px}
 .led i{width:7px;height:7px;border-radius:50%;background:var(--card-line)}
@@ -851,20 +851,8 @@ a.ft.neg:hover{border-color:var(--gold)}
 .led.trig i{transition:background .25s}
 .led.trig.hit i{background:var(--gram);transition:none}
 .scope-cur{display:inline-block;width:6px;height:11px;margin-left:6px;vertical-align:-1px;background:var(--gram);opacity:.7;animation:scope-blink 1.1s steps(1) infinite}
-.scope-meter{display:flex;flex-wrap:wrap;justify-content:center;gap:4px 6px;width:64px;pointer-events:none}
-.scope-meter span{display:flex;flex-direction:column-reverse;gap:3px}
-.scope-meter i{width:14px;height:5px;border-radius:1px;background:var(--card-line)}
-.scope-meter i:nth-child(-n+3){background:var(--polite);animation:scope-lvl 1.3s steps(1) infinite}
-.scope-meter i:nth-child(4),.scope-meter i:nth-child(5){background:var(--gram);animation:scope-lvl 0.9s steps(1) infinite}
-.scope-meter i:nth-child(6){background:var(--shu);animation:scope-lvl 2.3s steps(1) infinite}
-.scope-meter i:nth-child(1){animation:none}
-.scope-meter i:nth-child(2){animation-duration:2.1s}.scope-meter i:nth-child(3){animation-duration:1.7s}
-.scope-meter span+span i:nth-child(n+2){animation-delay:-.6s}
-.scope-meter span+span i:nth-child(5){animation-duration:1.5s}
-.scope-meter small{width:100%;text-align:center;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
-@keyframes scope-lvl{0%{opacity:1}37%{opacity:.15}61%{opacity:1}83%{opacity:.15}}
-@media (max-width:720px){.scope-meter{display:none}.scope-leds{gap:10px}.led.pwr{display:none}}
-@media (prefers-reduced-motion:reduce){.led.run i,.scope-cur,.scope-meter i{animation:none}}
+@media (max-width:720px){.scope-leds{gap:10px}.led.pwr{display:none}}
+@media (prefers-reduced-motion:reduce){.led.run i,.scope-cur{animation:none}}
 </style>
 
 <header class="top" id="top"></header>
@@ -31397,7 +31385,6 @@ a.ft.neg:hover{border-color:var(--gold)}
         <div class="scope-panel" aria-label="Controls">
           <button class="conj-furi scope-btn" type="button" aria-pressed="true">Furigana: on</button>
           <div class="scope-vents" aria-hidden="true"></div>
-          <div class="scope-meter" aria-hidden="true"><span><i></i><i></i><i></i><i></i><i></i><i></i></span><span><i></i><i></i><i></i><i></i><i></i><i></i></span><small>Signal</small></div>
           <div class="scope-jacks" aria-hidden="true"><span class="jack p"><i></i><small>CH1</small></span><span class="jack c"><i></i><small>CH2</small></span></div>
         </div>
         </div>
