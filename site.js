@@ -168,7 +168,14 @@ var INDEX = [
   ,{level: 'N4', cats: [
     {cat: 'Particles', pages: [
       ['toka', 'とか', 'Things like, or something'],
-      ['particle-no', 'Particle + の', 'との, での, からの: a particle before a noun']
+      ['nado', 'など', 'And so on, things like that'],
+      ['particle-no', 'Particle + の', 'との, での, からの: a particle before a noun'],
+      ['demo-even', 'でも (Even)', 'Even (the least likely case)'],
+      ['bakari', 'ばかり', 'Nothing but, only'],
+      ['mo-number', 'も (With numbers)', 'As many as, a whole'],
+      ['zutsu', 'ずつ', 'Each, at a time'],
+      ['madeni', 'までに', 'By (a deadline)'],
+      ['tte', 'って', 'Casual は, casual と (quoting)']
     ]},
     {cat: 'Sentence endings', pages: [
       ['kana-wonder', 'かな', 'I wonder (thinking out loud)']
@@ -201,7 +208,7 @@ var INDEX = [
 ];
 var UPDATED = '13 Nov 2026';
 // Extra search words for a page, for forms that live on it but aren't in its pattern (id: 'words').
-var ALSO = {'koto-ga-dekiru': 'できる できます dekiru can able', ndesu: 'んだ のだ の nda noda', tachi: '私たち 子どもたち', kurai: 'どのくらい', kekkou: '結構です', tatsumori: 'つもり tsumori think believe', zenbu: 'ぜんぶ 全部で whole in total', 'na-end': 'なあ なぁ naa huh', konnani: 'konnani sonnani annani so not that much'};
+var ALSO = {'koto-ga-dekiru': 'できる できます dekiru can able', ndesu: 'んだ のだ の nda noda', tachi: '私たち 子どもたち', kurai: 'どのくらい', kekkou: '結構です', tatsumori: 'つもり tsumori think believe', zenbu: 'ぜんぶ 全部で whole in total', 'na-end': 'なあ なぁ naa huh', konnani: 'konnani sonnani annani so not that much', nado: 'nado etc', 'demo-even': 'even', bakari: 'ばっかり bakkari only', 'mo-number': 'mo as many as', zutsu: 'zutsu each', madeni: 'by deadline', tte: 'tte quote という'};
 // N5 points in the order they first come up in Jlab's beginner course (worked out from the Anki deck, so roughly right). Any N5 page not listed here shows under "Not in Jlab".
 var JLAB = ('desu janai deshita janakatta wa mo u-verb ru-verb ga gairu yo zo na-adj ne suki-kirai i-adj i-adj-neg na-end i-adj-past na-adj-past i-adj-past-neg na-adj-neg ' +
   'u-verb-neg ru-verb-neg gaaru ru-verb-past u-verb-past tachi wo doushite nani ii kuru ni dare doko to-quote he kara made de de-means koko-soko-asoko deshou ' +
@@ -499,7 +506,7 @@ var MINNA = [
   function setFoot(id){
     if (!foot) return;
     if (grids.some(function(g){ return g.closest('[id]').id === id; }) || points.some(function(p){ return p.id === id; })) foot.textContent = 'Updated ' + UPDATED + ' · ' + count + ' grammar points';
-    else if (id === 'kanji-n5' || id === 'kanji-n4' || id === 'kana' || id === 'katakana') foot.innerHTML = '<a class="credit" href="https://kanjivg.tagaini.net" target="_blank" rel="noopener">Stroke data: KanjiVG, CC BY-SA 3.0</a>';
+    else if (id === 'kanji-n5' || id === 'kanji-n4' || id === 'kanji-path' || id === 'kana' || id === 'katakana') foot.innerHTML = '<a class="credit" href="https://kanjivg.tagaini.net" target="_blank" rel="noopener">Stroke data: KanjiVG, CC BY-SA 3.0</a>';
     else foot.textContent = '';
     foot.insertAdjacentHTML('beforeend', '<span class="copy">© ' + new Date().getFullYear() + ' Wabisebi. All rights reserved.</span>');
   }
@@ -624,6 +631,114 @@ var MINNA = [
       if (sp && b.dataset.on) showYomi(sp, b);
     });
   });
+  // Kanji Path (test, 13 Nov 2026; calmer version the same day, Seb found the first one overwhelming):
+  // one kanji per screen (strokes, equation, story), the rest behind "More"; a short intro screen before each step.
+  // Data sits in the page (script.kp-data); the full list hides in "All kanji".
+  document.querySelectorAll('.kp').forEach(function(sec){
+    var data = JSON.parse(sec.querySelector('.kp-data').textContent), K = data.kanji;
+    var stage = sec.querySelector('.kp-stage'), map = sec.querySelector('.kp-map'), all = sec.querySelector('.kp-all');
+    var idx = {}; K.forEach(function(x, i){ idx[x.k] = i; });
+    var FIT = {yes: ['Same sound', 'yes'], close: ['Close sound', 'close'], no: ['Sound drifted', 'no'], none: ['Meaning only', 'none']};
+    // slides: welcome, then per step an intro screen followed by its kanji
+    var slides = [{w: 1}], at = {};
+    data.steps.forEach(function(st, si){
+      slides.push({st: si});
+      K.forEach(function(x, i){ if (x.s === si + 1) { at[x.k] = slides.length; slides.push({k: i}); } });
+    });
+    var cur = 0;
+    function esc(s){ return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;'); }
+    // "All kanji": tiles by step, step 3 grouped by sound family
+    var html = '';
+    data.steps.forEach(function(st, si){
+      html += '<h3>' + (si + 1) + ' · ' + st.t + '</h3><div class="kp-tiles">';
+      var lastFam = null;
+      K.forEach(function(x, i){
+        if (x.s !== si + 1) return;
+        if (x.fam && x.fam !== lastFam) {
+          var fr = K.filter(function(y){ return y.snd && y.snd.p === x.fam; })[0].snd.pr;   // the family's sound, as its members give it
+          html += '<div class="kp-fam"><b>' + x.fam + '</b> family · ' + fr + '</div>';
+          lastFam = x.fam;
+        }
+        html += '<button class="kp-tile" type="button" data-k="' + x.k + '"><span class="k">' + x.k + '</span><span class="r">' + x.m + '</span></button>';
+      });
+      html += '</div>';
+    });
+    map.innerHTML = html;
+    function usedIn(ch){ return K.filter(function(y){ return y.parts && y.parts.some(function(p){ return p[2] === ch; }); }); }
+    function words(x){
+      return x.w.split('、').map(function(s){
+        var p = s.split(':');
+        return '<span class="w"><span class="wj">' + p[0].split(x.k).join('<mark>' + x.k + '</mark>') + '</span><span class="wr">' + p[1].replace('[', '<mark>').replace(']', '</mark>') + '</span><span class="we">' + esc(p[2]) + '</span></span>';
+      }).join('');
+    }
+    function chip(p){
+      var link = p[2] && p[2] in idx;
+      return '<' + (link ? 'button type="button" data-k="' + p[2] + '"' : 'span') + ' class="kp-part' + (link ? ' link' : '') + '"><span class="k">' + p[0] + '</span><span class="r">' + esc(p[1]) + '</span></' + (link ? 'button' : 'span') + '>';
+    }
+    function nav(){
+      return '<div class="kp-nav"><button type="button" class="kp-prev"' + (cur ? '' : ' disabled') + '>◀ Previous</button><button type="button" class="kp-next"' + (cur < slides.length - 1 ? '' : ' disabled') + '>Next ▶</button></div>';
+    }
+    function show(n, scroll){
+      cur = n; var sl = slides[n], h;
+      try { localStorage.setItem('wabisebi-kpath', n); } catch (e) {}
+      if (sl.k == null) {
+        // intro screen: the welcome, or one step's title and one-line description
+        var st = sl.w ? null : data.steps[sl.st];
+        h = '<div class="kp-intro">' + (st ? '<div class="kp-n">Step ' + (sl.st + 1) + ' of ' + data.steps.length + '</div><h2>' + st.t + '</h2><p>' + st.d + '</p>'
+          : '<h2>Learn kanji from their parts</h2><p>' + data.welcome + '</p>') + '</div>' + nav();
+        stage.innerHTML = h;
+      } else {
+        var x = K[sl.k];
+        h = '<div class="kp-top"><span>Step ' + x.s + ' · ' + data.steps[x.s - 1].t + '</span><span>' + (sl.k + 1) + ' of ' + K.length + '</span></div>' +
+          '<div class="kp-stroke"><div class="sv"></div><div class="side"><span class="note"></span><button class="replay" type="button">Replay</button></div></div>' +
+          '<div class="kp-m">' + x.m + '</div>';
+        if (x.parts) h += '<div class="kp-eq">' + x.parts.map(chip).join('<span class="op">+</span>') + '<span class="op">=</span><span class="kp-part res"><span class="k">' + x.k + '</span><span class="r">' + x.m + '</span></span></div>';
+        h += '<p class="kp-story">' + x.story + '</p>';
+        // the rest, folded
+        var more = '';
+        if (x.squeeze) more += '<p class="kp-small">' + x.squeeze + '</p>';
+        more += '<h3>Sound</h3>';
+        if (x.snd && x.snd.fit === 'none') more += '<div class="kp-snd"><span class="kp-fit none">' + FIT.none[0] + '</span></div>';
+        else if (x.snd) more += '<div class="kp-snd"><span class="kp-sp">' + x.snd.p + '<small>' + x.snd.pr + '</small></span><span class="op">→</span><span class="kp-sp me">' + x.k + '<small>' + x.snd.r + '</small></span><span class="kp-fit ' + FIT[x.snd.fit][1] + '">' + FIT[x.snd.fit][0] + '</span></div>';
+        if (x.snd && x.snd.note) more += '<p class="kp-small">' + x.snd.note + '</p>';
+        else if (!x.snd) more += '<p class="kp-small">' + (x.kind === 'pic' ? 'A picture has no sound hint.' : 'No sound part here.') + ' Learn the readings through the words.</p>';
+        more += '<dl class="kp-yomi"><dt>On</dt><dd class="on">' + x.on + '</dd><dt>Kun</dt><dd>' + x.kun + '</dd></dl>';
+        more += '<h3>Words</h3><div class="words">' + words(x) + '</div>';
+        var later = usedIn(x.k);
+        if (later.length) more += '<h3>Shows up in</h3><div class="kp-later">' + later.map(function(y){
+          var t = y.snd && y.snd.p === x.k ? '<span class="kp-fit ' + FIT[y.snd.fit][1] + '">' + FIT[y.snd.fit][0] + '</span>' : '';
+          return '<button type="button" class="kp-part link" data-k="' + y.k + '"><span class="k">' + y.k + '</span><span class="r">' + y.m + '</span>' + t + '</button>';
+        }).join('') + '</div>';
+        h += '<details class="kp-more"><summary>More: sound, words</summary>' + more + '</details>' + nav();
+        stage.innerHTML = h;
+        var sb = stage.querySelector('.kp-stroke');
+        showStrokes(sb, x.k);
+        sb.querySelector('.replay').addEventListener('click', function(){ showStrokes(sb, x.k); });
+      }
+      map.querySelectorAll('.kp-tile').forEach(function(t){ t.classList.toggle('on', sl.k != null && t.dataset.k === K[sl.k].k); });
+      if (scroll && stage.getBoundingClientRect().top < 0) stage.scrollIntoView({block: 'start'});
+    }
+    function go(ch){ show(at[ch], true); }
+    stage.addEventListener('click', function(e){
+      var b = e.target.closest('button'); if (!b) return;
+      if (b.dataset.k && b.dataset.k in at) go(b.dataset.k);
+      else if (b.classList.contains('kp-prev') && cur > 0) show(cur - 1, true);
+      else if (b.classList.contains('kp-next') && cur < slides.length - 1) show(cur + 1, true);
+    });
+    map.addEventListener('click', function(e){
+      var t = e.target.closest('.kp-tile'); if (!t) return;
+      all.open = false; go(t.dataset.k);
+    });
+    // arrow keys step through, only while this page is the one showing
+    document.addEventListener('keydown', function(e){
+      if (!sec.offsetParent || /INPUT|TEXTAREA/.test((e.target.tagName || ''))) return;
+      if (e.key === 'ArrowRight' && cur < slides.length - 1) show(cur + 1, false);
+      if (e.key === 'ArrowLeft' && cur > 0) show(cur - 1, false);
+    });
+    var saved = null; try { saved = +localStorage.getItem('wabisebi-kpath'); } catch (e) {}
+    show(saved > 0 && saved < slides.length ? saved : 0, false);
+  });
+
   // resources and the grammar grid: "On this page" list. Clicks scroll in place (index.html uses the #hash for pages), and the section in view is marked
   document.querySelectorAll('.toc').forEach(function(toc){
     var bar = document.querySelector('.top');
