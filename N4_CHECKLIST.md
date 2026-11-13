@@ -91,14 +91,14 @@ Categories marked *(new)* aren't on the site yet. They get added to `INDEX` when
 - [x] ～なさい: do it (parent, teacher)
 
 ## て-form
-- [ ] ～てしまう・～ちゃう: end up, finish completely
-- [ ] ～てみる: try doing
-- [ ] ～ておく: do in advance
-- [ ] ～てある: has been done (and stays)
-- [ ] ～ていく・～てくる: go on doing, come to
-- [ ] ～てほしい: want someone to
-- [ ] ～てもかまわない: it's fine if
-- [ ] ～なくてもいい: don't have to
+- [x] ～てしまう・～ちゃう: end up, finish completely
+- [x] ～てみる: try doing
+- [x] ～ておく: do in advance
+- [x] ～てある: has been done (and stays)
+- [x] ～ていく・～てくる: go on doing, come to
+- [x] ～てほしい: want someone to
+- [x] ～てもかまわない: it's fine if
+- [x] ～なくてもいい: don't have to
 - [ ] ～なければならない・～なくちゃ: must (check the N5 page なくてはいけない first, it may belong there)
 
 ## Asking and giving *(new)*

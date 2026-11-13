@@ -172,7 +172,7 @@ Categories marked *(new)* aren't on the site yet. They get added to `INDEX` when
 - [x] のは・のが: turning an action into a noun
 
 ## Maybe N4 (do last)
-- [ ] ～なくてもいい: don't have to
+- [x] ～なくてもいい: don't have to
 - [x] ～ことができる: can
 - [x] ～つもりだ: plan to
 - [x] ～ながら: while
