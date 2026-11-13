@@ -678,7 +678,7 @@ var MINNA = [
     var box = document.querySelector('.conj');
     if (!box) return;
     var input = box.querySelector('.conj-q'), out = box.querySelector('.conj-out');
-    var furi = box.parentNode.querySelector('.conj-furi');
+    var furi = box.closest('section').querySelector('.conj-furi');
     function setFuri(off){
       box.classList.toggle('no-furi', off);
       furi.textContent = 'Furigana: ' + (off ? 'off' : 'on');
@@ -695,7 +695,7 @@ var MINNA = [
     var TE = { 'う':'って', 'つ':'って', 'る':'って', 'く':'いて', 'ぐ':'いで', 'す':'して', 'ぬ':'んで', 'ぶ':'んで', 'む':'んで' };
     var IE = 'いきしちにひみりぎじびぴえけせてねへめれげぜでべぺ';
     var esc = function(t){ return t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); };
-    var VERBS = box.parentNode.querySelector('.conj-verbs').textContent.trim().split('\n').map(function(l){
+    var VERBS = box.closest('section').querySelector('.conj-verbs').textContent.trim().split('\n').map(function(l){
       var p = l.trim().split('|');
       return { k:p[0], r:p[1], m:p[2], en:p[3], t:p[4], w:p[0] || p[1] };
     });
@@ -773,7 +773,17 @@ var MINNA = [
       return TYPE[v.t];
     }
     var menu = box.querySelector('.conj-menu'), shown = [], active = -1;
-    function pick(v){ out.innerHTML = table(v, labelOf(v)); }
+    // Oscilloscope trace: each verb gets its own wave (from its letters), redrawn with a sweep; drawn twice as wide so CSS can scroll it in a loop
+    var wave = box.closest('section').querySelector('.scope-wave path');
+    function trace(w){
+      if (!wave) return;
+      var h = 0; for (var i = 0; i < w.length; i++) h = (h * 31 + w.charCodeAt(i)) % 997;
+      var f = 2 + h % 5, f2 = 7 + h % 9, a = 11 + h % 6, d = '';
+      for (var x = 0; x <= 1600; x += 4) d += (x ? 'L' : 'M') + x + ' ' + (20 + a * Math.sin(x / 800 * f * 2 * Math.PI) * (.75 + .25 * Math.sin(x / 800 * f2 * 2 * Math.PI))).toFixed(1);
+      wave.setAttribute('d', d);
+      wave.classList.remove('sweep'); void wave.getBoundingClientRect(); wave.classList.add('sweep');
+    }
+    function pick(v){ out.innerHTML = table(v, labelOf(v)); trace(v.w); }
     function closeMenu(){ menu.hidden = true; active = -1; }
     function openMenu(hits, q){
       shown = hits.slice(0, 30);
@@ -800,7 +810,7 @@ var MINNA = [
       if (hits.length) { pick(hits[0]); openMenu(hits, q); return; }
       closeMenu();
       var g = guess(q);
-      if (g) { out.innerHTML = table({ w:g.w, t:g.t, k:'', r:g.w, en:'' }, g.label, g.sure === false ? "This verb isn't on our N5 and N4 lists, so the type is a guess." : ''); return; }
+      if (g) { trace(g.w); out.innerHTML = table({ w:g.w, t:g.t, k:'', r:g.w, en:'' }, g.label, g.sure === false ? "This verb isn't on our N5 and N4 lists, so the type is a guess." : ''); return; }
       out.innerHTML = '<p class="conj-none">No verb found. Try the dictionary form, like 飲む.</p>';
     }
     input.addEventListener('input', run);

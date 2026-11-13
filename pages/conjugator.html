@@ -10,13 +10,26 @@
 <div class="layout">
   <main>
     <section class="home" id="conjugator">
-      <div class="home-head"><h1>Verb Conjugator</h1><button class="conj-furi" type="button" aria-pressed="true">Furigana: on</button></div>
+      <div class="home-head"><h1>Verb Conjugator</h1></div>
+      <div class="scope">
+        <div class="scope-top"><span class="scope-brand">WABISEBI</span><span class="scope-model">VC-1198 · Verb Conjugator</span><span class="scope-run"><i></i>RUN</span></div>
+        <div class="scope-body">
+        <div class="scope-screen">
+          <div class="scope-status"><span>CH1 <b class="p">POLITE</b></span><span>CH2 <b class="c">CASUAL</b></span><span class="scope-n">1198 verbs</span></div>
+          <svg class="scope-wave" viewBox="0 0 800 40" preserveAspectRatio="none" aria-hidden="true"><path d="" pathLength="1"/></svg>
       <div class="conj">
         <div class="conj-field">
           <input class="conj-q" type="search" placeholder="歩く, あるく, aruku or walk" aria-label="Type a verb" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" lang="ja">
           <div class="conj-menu" role="listbox" hidden></div>
         </div>
         <div class="conj-out" aria-live="polite"></div>
+      </div>
+        </div>
+        <div class="scope-panel" aria-label="Controls">
+          <button class="conj-furi scope-btn" type="button" aria-pressed="true">Furigana: on</button>
+          <div class="scope-jacks" aria-hidden="true"><span class="jack p"><i></i><small>CH1</small></span><span class="jack c"><i></i><small>CH2</small></span></div>
+        </div>
+        </div>
       </div>
       <script type="text/plain" class="conj-verbs">
 |ある|aru|to be, to exist (things)|a

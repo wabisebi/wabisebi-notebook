@@ -661,7 +661,7 @@ article .prev .tri{flex:none;border-style:solid;border-width:5px 8px 5px 0;borde
 @media (max-width:720px){.vcards{grid-template-columns:1fr}}
 
 /* Verb Conjugator */
-.conj{max-width:640px;margin-top:18px}
+.conj{margin-top:4px}
 .conj-q{width:100%;box-sizing:border-box;font:inherit;font-size:18px;color:var(--ink);background:var(--card);border:1px solid var(--card-line);border-radius:10px;padding:12px 14px;outline:0}
 .conj-q:focus{border-color:var(--gold)}
 .conj-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;margin:20px 0 10px}
@@ -803,6 +803,49 @@ a.ft.neg:hover{border-color:var(--gold)}
   .freq-row{grid-template-columns:repeat(3,minmax(0,1fr))}
   .freq-groups{display:none}
 }
+
+/* Oscilloscope conjugator (13 Nov 2026): the conjugator sits inside a device: bezel, gridded screen, side panel */
+.scope{max-width:860px;margin-top:18px;background:var(--card);border:1px solid var(--card-line);border-radius:16px;padding:10px 14px 14px;box-shadow:0 1px 2px var(--shadow-soft),0 14px 34px -18px var(--shadow)}
+.scope-top{display:flex;align-items:center;gap:14px;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding:2px 4px 10px}
+.scope-brand{font-weight:500;color:var(--gram)}
+.scope-run{margin-left:auto;display:flex;align-items:center;gap:6px}
+.scope-run i{width:7px;height:7px;border-radius:50%;background:var(--polite);animation:scope-blink 1.6s steps(1) infinite}
+@keyframes scope-blink{50%{opacity:.25}}
+.scope-body{display:grid;grid-template-columns:minmax(0,1fr) 128px;gap:14px}
+.scope-screen{position:relative;min-width:0;background-color:var(--paper);border:1px solid color-mix(in srgb,var(--gram) 35%,transparent);border-radius:10px;padding:10px 16px 18px;
+  background-image:linear-gradient(color-mix(in srgb,var(--gram) 9%,transparent) 1px,transparent 1px),linear-gradient(90deg,color-mix(in srgb,var(--gram) 9%,transparent) 1px,transparent 1px);
+  background-size:32px 32px;background-position:-1px -1px}
+.scope-status{display:flex;flex-wrap:wrap;gap:4px 18px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--muted)}
+.scope-status b{font-weight:500}
+.scope-status .p{color:var(--polite)}
+.scope-status .c{color:var(--gram)}
+.scope-n{margin-left:auto}
+.scope-wave{display:block;width:100%;height:40px;margin:4px 0 6px;overflow:hidden}
+.scope-wave path{fill:none;stroke:var(--gram);stroke-width:2;vector-effect:non-scaling-stroke;stroke-linejoin:round;animation:scope-scroll 7s linear infinite}
+.scope-wave path.sweep{stroke-dasharray:1;animation:scope-sweep 1.4s ease-out,scope-scroll 7s linear infinite}
+@keyframes scope-sweep{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+@keyframes scope-scroll{to{transform:translateX(-800px)}}
+.scope-screen .conj-q{background:color-mix(in srgb,var(--paper) 80%,transparent);border-color:color-mix(in srgb,var(--gram) 35%,transparent)}
+.scope-screen .conj-q:focus{border-color:var(--gold)}
+.scope-screen .forms{background:color-mix(in srgb,var(--paper) 78%,transparent);border-color:color-mix(in srgb,var(--gram) 28%,transparent)}
+.scope-screen .conj-sec{color:var(--gram);opacity:.85}
+.scope-panel{display:flex;flex-direction:column;align-items:center;gap:22px;padding:14px 0 8px;border-left:1px solid var(--card-line)}
+.scope-btn{width:100%;max-width:112px;padding:8px 6px;border-radius:8px;white-space:nowrap}
+.scope-jacks{display:flex;gap:16px;margin-top:auto}
+.jack{display:flex;flex-direction:column;align-items:center;gap:4px}
+.jack i{width:22px;height:22px;border-radius:50%;border:2px solid var(--polite);box-shadow:inset 0 0 0 5px var(--paper),inset 0 0 0 9px var(--card-line)}
+.jack.c i{border-color:var(--gram)}
+@media (max-width:720px){
+  .scope{padding:8px 8px 10px;border-radius:12px}
+  .scope-body{grid-template-columns:minmax(0,1fr);gap:10px}
+  .scope-panel{order:-1;flex-direction:row;justify-content:space-between;padding:0 4px;border-left:0;gap:12px}
+  .scope-jacks{margin-top:0;gap:10px}
+  .jack small{display:none}
+  .scope-btn{width:auto;padding:6px 12px}
+  .scope-screen{padding:8px 10px 14px}
+  .scope-model{display:none}
+}
+@media (prefers-reduced-motion:reduce){.scope-run i,.scope-wave path,.scope-wave path.sweep{animation:none}}
 </style>
 
 <header class="top" id="top"></header>
@@ -31317,13 +31360,26 @@ a.ft.neg:hover{border-color:var(--gold)}
 
     <!-- conjugator -->
     <section class="home" id="conjugator" data-page hidden>
-      <div class="home-head"><h1>Verb Conjugator</h1><button class="conj-furi" type="button" aria-pressed="true">Furigana: on</button></div>
+      <div class="home-head"><h1>Verb Conjugator</h1></div>
+      <div class="scope">
+        <div class="scope-top"><span class="scope-brand">WABISEBI</span><span class="scope-model">VC-1198 · Verb Conjugator</span><span class="scope-run"><i></i>RUN</span></div>
+        <div class="scope-body">
+        <div class="scope-screen">
+          <div class="scope-status"><span>CH1 <b class="p">POLITE</b></span><span>CH2 <b class="c">CASUAL</b></span><span class="scope-n">1198 verbs</span></div>
+          <svg class="scope-wave" viewBox="0 0 800 40" preserveAspectRatio="none" aria-hidden="true"><path d="" pathLength="1"/></svg>
       <div class="conj">
         <div class="conj-field">
           <input class="conj-q" type="search" placeholder="歩く, あるく, aruku or walk" aria-label="Type a verb" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" lang="ja">
           <div class="conj-menu" role="listbox" hidden></div>
         </div>
         <div class="conj-out" aria-live="polite"></div>
+      </div>
+        </div>
+        <div class="scope-panel" aria-label="Controls">
+          <button class="conj-furi scope-btn" type="button" aria-pressed="true">Furigana: on</button>
+          <div class="scope-jacks" aria-hidden="true"><span class="jack p"><i></i><small>CH1</small></span><span class="jack c"><i></i><small>CH2</small></span></div>
+        </div>
+        </div>
       </div>
       <script type="text/plain" class="conj-verbs">
 |ある|aru|to be, to exist (things)|a
@@ -33470,7 +33526,7 @@ var MINNA = [
     var box = document.querySelector('.conj');
     if (!box) return;
     var input = box.querySelector('.conj-q'), out = box.querySelector('.conj-out');
-    var furi = box.parentNode.querySelector('.conj-furi');
+    var furi = box.closest('section').querySelector('.conj-furi');
     function setFuri(off){
       box.classList.toggle('no-furi', off);
       furi.textContent = 'Furigana: ' + (off ? 'off' : 'on');
@@ -33487,7 +33543,7 @@ var MINNA = [
     var TE = { 'う':'って', 'つ':'って', 'る':'って', 'く':'いて', 'ぐ':'いで', 'す':'して', 'ぬ':'んで', 'ぶ':'んで', 'む':'んで' };
     var IE = 'いきしちにひみりぎじびぴえけせてねへめれげぜでべぺ';
     var esc = function(t){ return t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); };
-    var VERBS = box.parentNode.querySelector('.conj-verbs').textContent.trim().split('\n').map(function(l){
+    var VERBS = box.closest('section').querySelector('.conj-verbs').textContent.trim().split('\n').map(function(l){
       var p = l.trim().split('|');
       return { k:p[0], r:p[1], m:p[2], en:p[3], t:p[4], w:p[0] || p[1] };
     });
@@ -33565,7 +33621,17 @@ var MINNA = [
       return TYPE[v.t];
     }
     var menu = box.querySelector('.conj-menu'), shown = [], active = -1;
-    function pick(v){ out.innerHTML = table(v, labelOf(v)); }
+    // Oscilloscope trace: each verb gets its own wave (from its letters), redrawn with a sweep; drawn twice as wide so CSS can scroll it in a loop
+    var wave = box.closest('section').querySelector('.scope-wave path');
+    function trace(w){
+      if (!wave) return;
+      var h = 0; for (var i = 0; i < w.length; i++) h = (h * 31 + w.charCodeAt(i)) % 997;
+      var f = 2 + h % 5, f2 = 7 + h % 9, a = 11 + h % 6, d = '';
+      for (var x = 0; x <= 1600; x += 4) d += (x ? 'L' : 'M') + x + ' ' + (20 + a * Math.sin(x / 800 * f * 2 * Math.PI) * (.75 + .25 * Math.sin(x / 800 * f2 * 2 * Math.PI))).toFixed(1);
+      wave.setAttribute('d', d);
+      wave.classList.remove('sweep'); void wave.getBoundingClientRect(); wave.classList.add('sweep');
+    }
+    function pick(v){ out.innerHTML = table(v, labelOf(v)); trace(v.w); }
     function closeMenu(){ menu.hidden = true; active = -1; }
     function openMenu(hits, q){
       shown = hits.slice(0, 30);
@@ -33592,7 +33658,7 @@ var MINNA = [
       if (hits.length) { pick(hits[0]); openMenu(hits, q); return; }
       closeMenu();
       var g = guess(q);
-      if (g) { out.innerHTML = table({ w:g.w, t:g.t, k:'', r:g.w, en:'' }, g.label, g.sure === false ? "This verb isn't on our N5 and N4 lists, so the type is a guess." : ''); return; }
+      if (g) { trace(g.w); out.innerHTML = table({ w:g.w, t:g.t, k:'', r:g.w, en:'' }, g.label, g.sure === false ? "This verb isn't on our N5 and N4 lists, so the type is a guess." : ''); return; }
       out.innerHTML = '<p class="conj-none">No verb found. Try the dictionary form, like 飲む.</p>';
     }
     input.addEventListener('input', run);
