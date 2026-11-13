@@ -133,9 +133,9 @@ Categories marked *(new)* aren't on the site yet. They get added to `INDEX` when
 ## Turning into a noun
 - [x] ～こと: doing X (as a thing)
 
-## Polite speech (Keigo) *(new)*
-- [ ] Respectful verbs: いらっしゃる, おっしゃる, 召し上がる
-- [ ] Humble verbs: 参る, 申す, いたす
-- [ ] お～になる: respectful pattern
-- [ ] お～する: humble pattern
-- [ ] ございます: very polite ある
+## Polite speech (Keigo)
+- [x] Respectful verbs: いらっしゃる, おっしゃる, 召し上がる
+- [x] Humble verbs: 参る, 申す, いたす
+- [x] お～になる: respectful pattern
+- [x] お～する: humble pattern
+- [x] ございます: very polite ある
