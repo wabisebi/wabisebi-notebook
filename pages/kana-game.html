@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Kana Game · Wabisebi Japanese</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Shippori+Mincho:wght@600;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Sans+JP:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../style.css">
+
+<header class="top" id="top"></header>
+<div class="layout">
+  <main>
+    <section class="home" id="kana-game">
+      <div class="home-head"><h1>Kana Game</h1></div>
+      <div class="kg">
+        <i class="screw tl" aria-hidden="true"></i><i class="screw tr" aria-hidden="true"></i><i class="screw bl" aria-hidden="true"></i><i class="screw br" aria-hidden="true"></i>
+        <div class="kg-top"><span class="kg-brand">WABISEBI</span><span class="kg-model">KG-6 · Kana Game</span><span class="kg-leds" aria-hidden="true"><span class="led pwr"><i></i>PWR</span><span class="led kg-hit"><i></i>HIT</span><span class="led kg-miss"><i></i>MISS</span></span></div>
+        <div class="kg-body">
+          <div class="kg-modes" role="group" aria-label="What to practise">
+            <small class="kg-lbl">Mode</small>
+            <button class="kg-mode" type="button" data-set="hira" aria-pressed="true"><i></i>あ Hiragana</button>
+            <button class="kg-mode" type="button" data-set="kata" aria-pressed="false"><i></i>ア Katakana</button>
+            <button class="kg-mode" type="button" data-set="dakuten" aria-pressed="false"><i></i>゛゜ Dakuten</button>
+            <button class="kg-mode" type="button" data-set="combo" aria-pressed="false"><i></i>きゃ Combos</button>
+          </div>
+          <div class="kg-bezel">
+            <div class="kg-screen">
+              <div class="kg-hud"><span>SCORE <b class="kg-score">0/0</b></span><span>STREAK <b class="kg-streak">0</b></span><span>BEST <b class="kg-best">0</b></span></div>
+              <div class="kg-kana" lang="ja">あ</div>
+              <label class="kg-line"><span aria-hidden="true">&gt;</span><input class="kg-input" type="text" inputmode="latin" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="romaji" aria-label="Type the romaji"></label>
+              <p class="kg-msg" aria-live="polite">Type the romaji</p>
+              <p class="kg-font"></p>
+            </div>
+          </div>
+          <div class="kg-pad">
+            <div class="kg-ab">
+              <button class="kg-btn b" type="button" aria-label="Skip: show the answer"><span class="r">B</span><small>Skip</small></button>
+              <button class="kg-btn a" type="button" aria-label="Enter: check, or next kana"><span class="r">A</span><small>Enter</small></button>
+            </div>
+            <div class="kg-speaker" aria-hidden="true"></div>
+          </div>
+        </div>
+        <div class="kg-carts" role="group" aria-label="Fonts to practise with"><small class="kg-lbl">Font cartridges</small><div class="kg-cart-row"></div></div>
+      </div>
+    </section>
+
+    <p class="foot" id="foot"></p>
+  </main>
+</div>
+<script src="../site.js"></script>

@@ -300,9 +300,11 @@ var MINNA = [
       '<div class="kana-drop">' +
       '<a class="nav" href="' + href('kana') + '">あ Hiragana</a>' +
       '<a class="nav" href="' + href('katakana') + '">ア Katakana</a>' +
+      '<a class="nav" href="' + href('kana-game') + '"><svg class="pad" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10a5 5 0 0 1 4.9 4l1 5a2.6 2.6 0 0 1-4.4 2.3L16.4 16H7.6l-3.1 2.3A2.6 2.6 0 0 1 .1 16l1-5A5 5 0 0 1 7 7z"/><path d="M7.5 10v3M6 11.5h3"/><circle cx="15.5" cy="10.6" r=".6"/><circle cx="17.7" cy="12.6" r=".6"/></svg> Kana Game</a>' +
       '</div></div>' +
     '<a class="nav m-only" href="' + href('kana') + '">あ Hiragana</a>' +
     '<a class="nav m-only" href="' + href('katakana') + '">ア Katakana</a>' +
+    '<a class="nav m-only" href="' + href('kana-game') + '"><svg class="pad" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10a5 5 0 0 1 4.9 4l1 5a2.6 2.6 0 0 1-4.4 2.3L16.4 16H7.6l-3.1 2.3A2.6 2.6 0 0 1 .1 16l1-5A5 5 0 0 1 7 7z"/><path d="M7.5 10v3M6 11.5h3"/><circle cx="15.5" cy="10.6" r=".6"/><circle cx="17.7" cy="12.6" r=".6"/></svg> Kana Game</a>' +
     '<div class="kana-group"><button class="nav kana-btn" type="button" aria-expanded="false">字 Kanji <svg class="chev" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>' +
       '<div class="kana-drop"><a class="nav" href="' + href('kanji-n5') + '">N5 Kanji</a><a class="nav" href="' + href('kanji-n4') + '">N4 Kanji</a></div></div>' +
     '<a class="nav m-only" href="' + href('kanji-n5') + '">字 N5 Kanji</a>' +
@@ -823,6 +825,166 @@ var MINNA = [
     run();
   })();
 
+  // Kana Game (back on 13 Nov 2026 as a retro console): type the romaji of the kana on the screen.
+  // Kana data lives here (not read from the chart pages) so it works in index.html too.
+  // Phone performance: the six fonts load only when the game is opened (kgOpen), and only the kana glyphs (Google Fonts text=), never at start.
+  var kgOpen = function(){};
+  var kg = document.querySelector('.kg');
+  if (kg) (function(){
+    function pairs(kana, rom){ return kana.split(' ').map(function(k, i){ return [k, rom.split(' ')[i]]; }); }
+    var HB = pairs('あ い う え お か き く け こ さ し す せ そ た ち つ て と な に ぬ ね の は ひ ふ へ ほ ま み む め も や ゆ よ ら り る れ ろ わ を ん',
+      'a i u e o ka ki ku ke ko sa shi su se so ta chi tsu te to na ni nu ne no ha hi fu he ho ma mi mu me mo ya yu yo ra ri ru re ro wa wo n');
+    var HD = pairs('が ぎ ぐ げ ご ざ じ ず ぜ ぞ だ ぢ づ で ど ば び ぶ べ ぼ ぱ ぴ ぷ ぺ ぽ',
+      'ga gi gu ge go za ji zu ze zo da ji zu de do ba bi bu be bo pa pi pu pe po');
+    var HC = pairs('きゃ きゅ きょ しゃ しゅ しょ ちゃ ちゅ ちょ にゃ にゅ にょ ひゃ ひゅ ひょ みゃ みゅ みょ りゃ りゅ りょ ぎゃ ぎゅ ぎょ じゃ じゅ じょ びゃ びゅ びょ ぴゃ ぴゅ ぴょ',
+      'kya kyu kyo sha shu sho cha chu cho nya nyu nyo hya hyu hyo mya myu myo rya ryu ryo gya gyu gyo ja ju jo bya byu byo pya pyu pyo');
+    // other spellings that are fine too
+    var ALT = {si:'shi', ti:'chi', tu:'tsu', hu:'fu', zi:'ji', nn:'n', sya:'sha', syu:'shu', syo:'sho', tya:'cha', tyu:'chu', tyo:'cho',
+      jya:'ja', jyu:'ju', jyo:'jo', zya:'ja', zyu:'ju', zyo:'jo'};
+    // ぢ and づ sound like じ and ず, but type as di and du on a Japanese keyboard
+    var DU = {'ぢ': 'di', 'ヂ': 'di', 'づ': 'du', 'ヅ': 'du'};
+    function answers(p){
+      var a = [p[1]];
+      Object.keys(ALT).forEach(function(k){ if (ALT[k] === p[1]) a.push(k); });
+      if (DU[p[0]]) a.push(DU[p[0]]);
+      return a;
+    }
+    function kata(s){ return s.replace(/[ぁ-ゖ]/g, function(c){ return String.fromCharCode(c.charCodeAt(0) + 0x60); }); }
+    function toKata(list){ return list.map(function(p){ return [kata(p[0]), p[1]]; }); }
+
+    // six fonts, each a different look: plain, textbook serif, pen, round, brush, pixel. System fonts as fallback offline
+    var SANS = '"Hiragino Sans","Yu Gothic","Noto Sans CJK JP",sans-serif', SERIF = '"Hiragino Mincho ProN","Yu Mincho","Noto Serif CJK JP",serif';
+    var FONTS = [
+      {l: 'Plain', n: 'IBM Plex Sans JP', f: '"IBM Plex Sans JP",' + SANS, w: 500},
+      {l: 'Serif', n: 'Noto Serif JP', f: '"Noto Serif JP",' + SERIF, w: 500, q: 'Noto+Serif+JP:wght@500'},
+      {l: 'Pen', n: 'Klee One', f: '"Klee One",' + SANS, w: 600, q: 'Klee+One:wght@600'},
+      {l: 'Round', n: 'Zen Maru Gothic', f: '"Zen Maru Gothic",' + SANS, w: 500, q: 'Zen+Maru+Gothic:wght@500'},
+      {l: 'Brush', n: 'Yuji Syuku', f: '"Yuji Syuku",' + SERIF, w: 400, q: 'Yuji+Syuku'},
+      {l: 'Pixel', n: 'DotGothic16', f: '"DotGothic16",' + SANS, w: 400, q: 'DotGothic16'}
+    ];
+    var loaded = false;
+    function loadFonts(){
+      if (loaded) return; loaded = true;
+      var chars = {'あ': 1};
+      HB.concat(HD, HC).forEach(function(p){ (p[0] + kata(p[0])).split('').forEach(function(c){ chars[c] = 1; }); });
+      var text = Object.keys(chars).join('');
+      for (var c = 32; c < 127; c++) text += String.fromCharCode(c);   // letters and digits for the pixel screen text
+      var l = document.createElement('link');
+      l.rel = 'stylesheet';
+      l.href = 'https://fonts.googleapis.com/css2?' + FONTS.filter(function(f){ return f.q; }).map(function(f){ return 'family=' + f.q; }).join('&') + '&text=' + encodeURIComponent(text) + '&display=swap';
+      document.head.appendChild(l);
+    }
+
+    // remembered per browser: modes, fonts, best streak (skipped quietly if storage is blocked)
+    var SAVE = 'wabisebi-kana-console';
+    var st = {on: {hira: true, kata: false, dakuten: false, combo: false}, fonts: [0, 1, 2, 3, 4, 5], best: 0};
+    try {
+      var sv = JSON.parse(localStorage.getItem(SAVE) || 'null');
+      if (sv) {
+        if (sv.on) Object.keys(st.on).forEach(function(k){ if (k in sv.on) st.on[k] = !!sv.on[k]; });
+        if (sv.fonts) st.fonts = sv.fonts.filter(function(i){ return FONTS[i]; });
+        if (typeof sv.best === 'number') st.best = sv.best;
+      }
+    } catch (err) {}
+    if (!st.on.hira && !st.on.kata) st.on.hira = true;
+    if (!st.fonts.length) st.fonts = [0];
+    function save(){ try { localStorage.setItem(SAVE, JSON.stringify(st)); } catch (err) {} }
+
+    var q = function(s){ return kg.querySelector(s); };
+    var screen = q('.kg-screen'), kanaEl = q('.kg-kana'), input = q('.kg-input'), msg = q('.kg-msg'), fontEl = q('.kg-font');
+    var scoreEl = q('.kg-score'), streakEl = q('.kg-streak'), bestEl = q('.kg-best'), hitLed = q('.kg-hit'), missLed = q('.kg-miss');
+    var cur = null, last = null, waiting = false, right = 0, total = 0, streak = 0, again = [], okT;
+
+    // font cartridges: real toggles, at least one stays in
+    var row = q('.kg-cart-row');
+    FONTS.forEach(function(f, i){
+      var b = document.createElement('button');
+      b.type = 'button'; b.className = 'kg-cart'; b.title = f.n;
+      b.innerHTML = '<span class="k" lang="ja">あ</span><small>' + f.l + '</small>';
+      b.querySelector('.k').style.fontFamily = f.f; b.querySelector('.k').style.fontWeight = f.w;
+      b.addEventListener('click', function(){
+        var at = st.fonts.indexOf(i);
+        if (at >= 0) { if (st.fonts.length > 1) st.fonts.splice(at, 1); } else st.fonts.push(i);
+        syncCarts(); save();
+      });
+      row.appendChild(b);
+    });
+    function syncCarts(){ [].forEach.call(row.children, function(b, i){ b.setAttribute('aria-pressed', String(st.fonts.indexOf(i) >= 0)); }); }
+    function syncModes(){ kg.querySelectorAll('.kg-mode').forEach(function(b){ b.setAttribute('aria-pressed', String(st.on[b.dataset.set])); }); }
+
+    function pool(){
+      var out = [];
+      'hira kata'.split(' ').forEach(function(s){
+        if (!st.on[s]) return;
+        var k = s === 'kata' ? toKata : function(x){ return x; };
+        out = out.concat(k(HB));
+        if (st.on.dakuten) out = out.concat(k(HD));
+        if (st.on.combo) out = out.concat(k(HC));
+      });
+      return out;
+    }
+    function focus(){ if (window.matchMedia('(hover:hover)').matches) input.focus({preventScroll: true}); }
+    function hud(){ scoreEl.textContent = right + '/' + total; streakEl.textContent = streak; bestEl.textContent = st.best; }
+    function led(el){ el.classList.add('hit'); clearTimeout(el.t); el.t = setTimeout(function(){ el.classList.remove('hit'); }, 260); }
+    function next(note){
+      var p = pool(), pick;
+      // a missed kana comes back after a few others
+      if (again.length && Math.random() < 0.3) pick = again.shift();
+      else do { pick = p[Math.floor(Math.random() * p.length)]; } while (p.length > 1 && last && pick[0] === last[0]);
+      cur = last = pick; waiting = false;
+      var f = FONTS[st.fonts[Math.floor(Math.random() * st.fonts.length)]];
+      kanaEl.textContent = pick[0]; kanaEl.style.fontFamily = f.f; kanaEl.style.fontWeight = f.w;
+      kanaEl.classList.remove('pop'); void kanaEl.offsetWidth; kanaEl.classList.add('pop');
+      fontEl.textContent = 'FONT · ' + f.l.toUpperCase();
+      screen.classList.remove('bad');
+      msg.classList.remove('blink');
+      msg.textContent = note || 'Type the romaji';
+      input.value = ''; focus();
+    }
+    function judge(ok){
+      total++;
+      if (ok) {
+        right++; streak++;
+        if (streak > st.best) { st.best = streak; save(); }
+        led(hitLed);
+        next(streak % 10 === 0 ? 'COMBO x' + streak + '!' : '');
+        screen.classList.add('ok'); clearTimeout(okT); okT = setTimeout(function(){ screen.classList.remove('ok'); }, 220);
+      } else {
+        streak = 0; waiting = true; led(missLed);
+        screen.classList.remove('bad'); void screen.offsetWidth; screen.classList.add('bad');
+        msg.innerHTML = 'It is <b>' + cur[1] + '</b>' + (DU[cur[0]] ? ' (or <b>' + DU[cur[0]] + '</b>)' : '') + ' · press A';
+        msg.classList.add('blink');
+        if (!again.some(function(x){ return x[0] === cur[0]; })) again.push(cur);
+      }
+      hud();
+    }
+    function enter(){
+      if (waiting) { next(); return; }
+      var v = input.value.trim().toLowerCase();
+      if (v) judge(answers(cur).indexOf(v) >= 0);
+    }
+    input.addEventListener('input', function(){
+      if (waiting) return;
+      if (answers(cur).indexOf(input.value.trim().toLowerCase()) >= 0) judge(true);
+    });
+    input.addEventListener('keydown', function(e){ if (e.key === 'Enter') { e.preventDefault(); enter(); } });
+    // A and B: keep the keyboard up on phones by not taking focus from the input
+    kg.querySelectorAll('.kg-btn').forEach(function(b){ b.addEventListener('mousedown', function(e){ e.preventDefault(); }); });
+    q('.kg-btn.a').addEventListener('click', enter);
+    q('.kg-btn.b').addEventListener('click', function(){ if (waiting) next(); else judge(false); });
+    kg.querySelectorAll('.kg-mode').forEach(function(b){
+      b.addEventListener('click', function(){
+        var s = b.dataset.set;
+        st.on[s] = !st.on[s];
+        if (!st.on.hira && !st.on.kata) st.on[s === 'hira' ? 'kata' : 'hira'] = true;   // keep at least one script on
+        syncModes(); save(); again = []; next();
+      });
+    });
+    syncModes(); syncCarts(); hud(); next();
+    kgOpen = function(){ loadFonts(); focus(); };
+    if (!BUNDLE) loadFonts();
+  })();
+
   if (BUNDLE) {
     var pages = [].slice.call(document.querySelectorAll('[data-page]'));
     var show = function(id){
@@ -833,6 +995,7 @@ var MINNA = [
         if (!p.hidden) p.querySelectorAll('img[loading="lazy"]').forEach(function(img){ img.loading = 'eager'; });
       });
       setFoot(id);
+      if (id === 'kana-game') kgOpen();
       find.value = ''; grids.forEach(function(g){ filterGrid('', g); }); results.hidden = true;
       window.scrollTo({top: 0});
     };
