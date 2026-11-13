@@ -54,15 +54,15 @@ Categories marked *(new)* aren't on the site yet. They get added to `INDEX` when
 ## Joining sentences
 - [x] のに: even though
 - [x] ～し: and also, listing reasons
-- [ ] ～ても: even if
-- [ ] Question word + ても: no matter what, who, how
-- [ ] ～ながら: while
-- [ ] ～ないで: without doing
-- [ ] ～ずに: without doing (written)
-- [ ] ～て (reason): because (疲れて寝た)
-- [ ] ～ため(に): in order to / because of
-- [ ] ～ように: so that
-- [ ] ～のに (purpose): for, in order to
+- [x] ～ても: even if
+- [x] Question word + ても: no matter what, who, how
+- [x] ～ながら: while
+- [x] ～ないで: without doing
+- [x] ～ずに: without doing (written)
+- [x] ～て (reason): because (疲れて寝た)
+- [x] ～ため(に): in order to / because of
+- [x] ～ように: so that
+- [x] ～のに (purpose): for, in order to
 
 ## If and when *(new)*
 - [ ] ～たら: if, when

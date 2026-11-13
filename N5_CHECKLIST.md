@@ -175,7 +175,7 @@ Categories marked *(new)* aren't on the site yet. They get added to `INDEX` when
 - [ ] ～なくてもいい: don't have to
 - [x] ～ことができる: can
 - [x] ～つもりだ: plan to
-- [ ] ～ながら: while
+- [x] ～ながら: while
 - [ ] という: called, named
 - [x] など: and so on (moved here 30 Oct 2026, Seb counts it as N4)
 
