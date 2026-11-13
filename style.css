@@ -448,6 +448,8 @@ main:has(.home:not([hidden])) .foot{max-width:1080px}
 @media (max-width:520px){.rcard{grid-template-columns:44px minmax(0,1fr)}.rcard .av{grid-row:span 3}.rcard .tags{justify-content:flex-start}}
 .foot .credit{color:var(--muted);text-decoration:none}
 .foot .credit:hover{color:var(--gold)}
+.foot .copy{display:block;margin-top:6px;opacity:.75}
+.foot .copy:only-child{margin-top:0}
 
 /* forms table: one small family of forms (です, だ, じゃない...), the current page's row highlighted */
 .forms{background:var(--card);border:1px solid var(--card-line);border-radius:10px;padding:6px 16px 12px}

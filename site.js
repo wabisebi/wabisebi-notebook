@@ -488,13 +488,14 @@ var MINNA = [
     if (!e.target.closest('.find')) results.hidden = true;
   });
 
-  // footer: the grammar count only on grammar pages (and the grid), the stroke data credit on the kana and kanji charts, nothing elsewhere
+  // footer: the grammar count only on grammar pages (and the grid), the stroke data credit on the kana and kanji charts, then the copyright line on every page
   var foot = document.getElementById('foot');
   function setFoot(id){
     if (!foot) return;
     if (grids.some(function(g){ return g.closest('[id]').id === id; }) || points.some(function(p){ return p.id === id; })) foot.textContent = 'Updated ' + UPDATED + ' · ' + count + ' grammar points';
     else if (id === 'kanji-n5' || id === 'kanji-n4' || id === 'kana' || id === 'katakana') foot.innerHTML = '<a class="credit" href="https://kanjivg.tagaini.net" target="_blank" rel="noopener">Stroke data: KanjiVG, CC BY-SA 3.0</a>';
     else foot.textContent = '';
+    foot.insertAdjacentHTML('beforeend', '<span class="copy">© ' + new Date().getFullYear() + ' Wabisebi. All rights reserved.</span>');
   }
   if (!BUNDLE) { var own = document.querySelector('main > [id]'); setFoot(own && own.id); }
 
