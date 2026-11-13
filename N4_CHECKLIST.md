@@ -80,15 +80,15 @@ Categories marked *(new)* aren't on the site yet. They get added to `INDEX` when
 - [x] ～終わる: finish doing
 - [x] ～続ける: keep doing
 
-## Verb forms *(new)*
-- [ ] Potential form: can (食べられる, 書ける)
-- [ ] Volitional form: let's (casual), 食べよう
-- [ ] ～ようと思う: I think I'll
-- [ ] Passive form: was done (by someone)
-- [ ] Causative form: make, let someone do
-- [ ] Causative-passive form: be made to do
-- [ ] Imperative form: do it! (rough)
-- [ ] ～なさい: do it (parent, teacher)
+## Verb forms
+- [x] Potential form: can (食べられる, 書ける)
+- [x] Volitional form: let's (casual), 食べよう
+- [x] ～ようと思う: I think I'll
+- [x] Passive form: was done (by someone)
+- [x] Causative form: make, let someone do
+- [x] Causative-passive form: be made to do
+- [x] Imperative form: do it! (rough)
+- [x] ～なさい: do it (parent, teacher)
 
 ## て-form
 - [ ] ～てしまう・～ちゃう: end up, finish completely
