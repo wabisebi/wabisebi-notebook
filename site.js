@@ -196,7 +196,17 @@ var INDEX = [
       ['tatsumori', '～たつもり', 'Believing you did (maybe wrongly)']
     ]},
     {cat: 'Adverbs', pages: [
-      ['konnani', 'こんなに・そんなに・あんなに', 'This much, that much']
+      ['konnani', 'こんなに・そんなに・あんなに', 'This much, that much'],
+      ['nakanaka', 'なかなか～ない', 'Just won\'t, not easily'],
+      ['zutto', 'ずっと', 'The whole time, all along / by far'],
+      ['kitto', 'きっと', 'Surely, I bet'],
+      ['zehi', 'ぜひ', 'By all means, I\'d love to']
+    ]},
+    {cat: 'Comparing', pages: [
+      ['hodo-nai', '～ほど～ない', 'Not as ... as'],
+      ['dochira-ga', 'AとBとどちらが', 'Which is more, A or B?'],
+      ['to-onaji', '～と同じ', 'The same as'],
+      ['no-youni', '～のように・～のような', 'Like, as (like a ___)']
     ]},
     {cat: 'Joining sentences', pages: [
       ['noni', 'のに', 'Even though (and it\'s annoying)'],
@@ -218,7 +228,7 @@ var INDEX = [
 ];
 var UPDATED = '13 Nov 2026';
 // Extra search words for a page, for forms that live on it but aren't in its pattern (id: 'words').
-var ALSO = {'koto-ga-dekiru': 'できる できます dekiru can able', ndesu: 'んだ のだ の nda noda', tachi: '私たち 子どもたち', kurai: 'どのくらい', kekkou: '結構です', tatsumori: 'つもり tsumori think believe', zenbu: 'ぜんぶ 全部で whole in total', 'na-end': 'なあ なぁ naa huh', konnani: 'konnani sonnani annani so not that much', nado: 'nado etc', 'demo-even': 'even', bakari: 'ばっかり bakkari only', 'mo-number': 'mo as many as', zutsu: 'zutsu each', madeni: 'by deadline', tte: 'tte quote という', kashira: 'kashira wonder', kke: 'kke dakke っけ again remember', 'janai-confirm': 'じゃん jan じゃないですか confirm see', kamoshirenai: 'かも kamo かもしれません maybe might', 'hazu-ganai': 'はずない はずはない impossible no way', 'you-da': 'ようです you da seems', 'sou-looks': 'そう sou looks おいしそう よさそう なさそう', 'sou-heard': 'そうです sou hearsay heard they say', rashii: 'rashii apparently typical', 'ga-suru': '気がする 匂いがする 音がする 味がする ga suru feel smell sound'};
+var ALSO = {'koto-ga-dekiru': 'できる できます dekiru can able', ndesu: 'んだ のだ の nda noda', tachi: '私たち 子どもたち', kurai: 'どのくらい', kekkou: '結構です', tatsumori: 'つもり tsumori think believe', zenbu: 'ぜんぶ 全部で whole in total', 'na-end': 'なあ なぁ naa huh', konnani: 'konnani sonnani annani so not that much', nado: 'nado etc', 'demo-even': 'even', bakari: 'ばっかり bakkari only', 'mo-number': 'mo as many as', zutsu: 'zutsu each', madeni: 'by deadline', tte: 'tte quote という', kashira: 'kashira wonder', kke: 'kke dakke っけ again remember', 'janai-confirm': 'じゃん jan じゃないですか confirm see', kamoshirenai: 'かも kamo かもしれません maybe might', 'hazu-ganai': 'はずない はずはない impossible no way', 'you-da': 'ようです you da seems', 'sou-looks': 'そう sou looks おいしそう よさそう なさそう', 'sou-heard': 'そうです sou hearsay heard they say', rashii: 'rashii apparently typical', nakanaka: 'nakanaka quite not easily', zutto: 'zutto always all along by far', kitto: 'kitto surely bet', zehi: '是非 zehi please love to', 'hodo-nai': 'ほど hodo not as', 'dochira-ga': 'どっち どちら dotchi dochira which compare', 'to-onaji': '同じ おなじ onaji same', 'no-youni': 'よう ような ように みたいな you like as', 'ga-suru': '気がする 匂いがする 音がする 味がする ga suru feel smell sound'};
 // N5 points in the order they first come up in Jlab's beginner course (worked out from the Anki deck, so roughly right). Any N5 page not listed here shows under "Not in Jlab".
 var JLAB = ('desu janai deshita janakatta wa mo u-verb ru-verb ga gairu yo zo na-adj ne suki-kirai i-adj i-adj-neg na-end i-adj-past na-adj-past i-adj-past-neg na-adj-neg ' +
   'u-verb-neg ru-verb-neg gaaru ru-verb-past u-verb-past tachi wo doushite nani ii kuru ni dare doko to-quote he kara made de de-means koko-soko-asoko deshou ' +

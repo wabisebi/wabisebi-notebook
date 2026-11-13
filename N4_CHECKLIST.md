@@ -40,16 +40,16 @@ Categories marked *(new)* aren't on the site yet. They get added to `INDEX` when
 
 ## Adverbs
 - [x] こんなに・そんなに・あんなに: this much, that much
-- [ ] なかなか～ない: just won't, not easily
-- [ ] ずっと: the whole time / by far
-- [ ] きっと: surely
-- [ ] ぜひ: by all means
+- [x] なかなか～ない: just won't, not easily
+- [x] ずっと: the whole time / by far
+- [x] きっと: surely
+- [x] ぜひ: by all means
 
-## Comparing *(new)*
-- [ ] ～ほど～ない: not as ... as
-- [ ] AとBとどちらが: which is more, A or B
-- [ ] ～と同じ: the same as
-- [ ] ～のように・～のような: like, as
+## Comparing
+- [x] ～ほど～ない: not as ... as
+- [x] AとBとどちらが: which is more, A or B
+- [x] ～と同じ: the same as
+- [x] ～のように・～のような: like, as
 
 ## Joining sentences
 - [x] のに: even though
