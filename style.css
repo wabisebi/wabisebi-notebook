@@ -802,6 +802,8 @@ a.ft.neg:hover{border-color:var(--gold)}
 .freq-groups.four{grid-template-columns:repeat(4,minmax(0,1fr))}
 .freq-groups.four .c1{grid-column:1/2}
 .freq-groups.four .c2{grid-column:2/5}
+.freq-groups.four .c13{grid-column:1/4}
+.freq-groups.four .c4{grid-column:4/5}
 .freq-groups .here{color:var(--gram);font-weight:500;border-top:2px solid var(--indigo);padding-top:5px}
 .freq-groups .other{color:var(--muted);text-decoration:none;border-top:1px dashed var(--muted);padding-top:5px}
 .freq-groups a.other:hover{color:var(--gold);border-color:var(--gold)}
