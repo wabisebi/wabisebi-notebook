@@ -119,7 +119,7 @@ var INDEX = [
       ['na-dont', '～な (Don\'t)', 'Don\'t! (blunt order)']
     ]},
     {cat: 'て-form', pages: [
-      ['te-form', 'て-Form', 'How to make the て-form'],
+      ['te-form', 'て-Form', 'Unfinished verb: lots of grammar builds on it'],
       ['te-and', '～て (And then)', 'Joining actions: do this, then that'],
       ['kute-de', '～くて・～で', 'And: joining adjectives and nouns'],
       ['te-kudasai', '～てください', 'Please do (request)'],

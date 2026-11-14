@@ -1001,3 +1001,30 @@ a.ft.neg:hover{border-color:var(--gold)}
 .kp-tile:hover,.kp-tile.on{border-color:var(--gold)}
 @media (max-width:520px){.kp-stage{padding:16px 14px}.kp-stroke svg{height:160px}.kp-story{font-size:17px}}
 @media (prefers-reduced-motion:reduce){.kp-stroke .live path{animation-duration:.01s}}
+
+/* て-form uses table (te-form page) */
+.teuses{margin-bottom:18px}
+.teuses p{margin:0 0 10px}
+.teuses .tu-h{font-size:16px;font-weight:600}
+.forms.teuses table{width:auto!important;border-collapse:collapse;margin:12px 0}
+.teuses td{padding:8px 28px 8px 0;text-align:left;vertical-align:middle;border:0;border-bottom:1px solid var(--line);background:none}
+.teuses tbody tr:last-child td{border-bottom:0}
+.teuses td.ex{font-size:20px;white-space:nowrap}
+.teuses .tu-add{color:var(--n4)}
+.teuses td.en{font-size:14px;color:var(--muted);padding-right:0}
+@media (max-width:520px){.teuses td{padding-right:14px}.teuses td.ex{font-size:17px}}
+.teuses th{padding:0 28px 6px 0;text-align:left;border:0;border-bottom:1px solid var(--line);background:none;font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+.teuses td.add{font-size:17px;white-space:nowrap;color:var(--n4)}
+.teuses td.add.verb{font-size:13px}
+.teuses td.add.none{color:var(--muted)}
+.teuses .tu-stem{color:var(--muted)}
+.teuses .tu-add,.teuses td.add{color:var(--ink);font-weight:600}
+.teuses td.add.none{color:var(--muted);font-weight:400}
+.teuses td,.teuses th{border-bottom-color:color-mix(in srgb,var(--muted) 35%,transparent)}
+.tu-tags{display:flex;flex-wrap:wrap;align-items:center;gap:6px;align-self:flex-start}
+.tu-tags .use{margin:0}
+.lead .tu-tags,.mine .tu-tags{margin:0 0 8px}
+.scene .tu-tags{margin-top:6px}
+.tu-pill{font-size:12px;line-height:1.5;color:var(--gold);border:1px solid color-mix(in srgb,var(--gold) 55%,transparent);border-radius:999px;padding:1px 9px;text-decoration:none;white-space:nowrap}
+.tu-pill::after{content:" →"}
+.tu-pill:hover{background:color-mix(in srgb,var(--gold) 14%,transparent)}
